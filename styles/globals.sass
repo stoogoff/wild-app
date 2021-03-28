@@ -1,0 +1,95 @@
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@layer base
+	// basic overrides
+	body
+		font: 10pt/12pt NeutraText
+
+	h1
+		@apply text-2xl
+
+	h2
+		@apply text-xl
+
+	// primary navigation
+	nav li
+		a
+			@apply mt-3
+			@apply py-2
+			@apply pl-2
+			@apply text-sm
+			@apply text-gray-600
+			@apply hover:text-gray-700
+			@apply hover:bg-gray-200
+			@apply uppercase
+			@apply block
+
+			&.active
+				@apply text-gray-700
+				@apply bg-gray-200
+				@apply font-bold
+
+		li a
+			@apply normal-case
+			@apply pl-8
+			@apply py-1
+			@apply mt-1
+
+	// card display
+	.card-display
+		@apply bg-white
+		@apply px-8
+		@apply py-6
+		@apply rounded-xl
+		@apply space-y-5
+		@apply mb-6
+
+		&>div
+			@apply md:flex
+			width: 290px
+			height: 453px
+			@apply md:w-auto
+			@apply md:h-auto
+			transition: transform 0.8s
+			transform-style: preserve-3d
+
+		&.flipped>div
+			transform: rotateY(180deg)
+			@apply md:transform-none
+
+		&:nth-child(odd)>div
+			@apply md:flex-row-reverse
+
+		.card-front, .card-back
+			@apply bg-white
+			@apply w-full
+			@apply h-full
+			@apply absolute
+			@apply md:static
+			@apply md:max-w-md
+
+			backface-visibility: hidden
+
+		.card-back
+			@apply bg-blue-500
+			@apply p-10
+			@apply md:p-2
+			@apply md:bg-white
+			transform: rotateY(180deg)
+			@apply md:transform-none
+
+	// font face declarations
+	@font-face
+		font-family: 'NeutraText'
+		src: url(/fonts/NeutraText-Book.otf) format('opentype')
+		font-weight: normal
+		font-style: normal
+
+	@font-face
+		font-family: 'NeutraTextBold'
+		src: url(/fonts/NeutraText-Bold.otf) format('opentype')
+		font-weight: bold
+		font-style: normal
