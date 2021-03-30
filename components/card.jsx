@@ -14,11 +14,11 @@ const Card = ({ title, meanings, reversed, image }) => {
 			<aside className="card-back">
 				<div>
 					<div><strong>Key Meaning:</strong> { head(meanings) }</div>
-					<div><strong>Other Meanings:</strong> { tail(meanings) }</div>
+					<div><strong>Other Meanings:</strong> { tail(meanings).join(', ') }</div>
 				</div>
 				<div>
 					<div><strong>Key Reversed Meaning:</strong> { head(reversed) }</div>
-					<div><strong>Other Reversed Meanings:</strong> { tail(reversed) }</div>
+					<div><strong>Other Reversed Meanings:</strong> { tail(reversed).join(', ') }</div>
 				</div>
 			</aside>
 		</div>

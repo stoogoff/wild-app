@@ -9,12 +9,10 @@ import Card from '~/components/card'
 
 const Suit = ({ suit, cards }) => (
 	<Layout title={ suit.title }>
-		<main>
-			<h1 className="p-2 text-center">{ suit.title }</h1>
-			<div dangerouslySetInnerHTML={{ __html: suit.contentHtml }} />
-			<hr />
-			{ cards.map(card => <Card { ...card } />)}
-		</main>
+		<h1 className="p-2 text-center">{ suit.title }</h1>
+		<div dangerouslySetInnerHTML={{ __html: suit.contentHtml }} />
+		<hr />
+		{ cards.map(card => <Card key={ card.id } { ...card } />)}
 	</Layout>
 )
 

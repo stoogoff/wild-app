@@ -17,7 +17,7 @@ export const MenuItem = ({ title, href, onClick, menuItems }) => {
 	const isActive = href !== '/' && router.asPath.startsWith(href) || href === '/' && router.asPath === '/'
 
 	return <li>
-		<a href={ href } onClick={ handleClick } className={ isActive ? 'active' : null }>{ title }</a>
+		<a href={ href } onClick={ handleClick } className={ isActive ? 'active' : '' }>{ title }</a>
 		{ isActive && menuItems ? <ul>{ menuItems.map(item => <MenuItem key={ item.href } { ...item } onClick={ onClick } />) }</ul> : null }
 	</li>
 }
