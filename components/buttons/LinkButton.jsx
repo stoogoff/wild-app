@@ -4,11 +4,17 @@ import { useRouter } from 'next/router'
 const LinkButton = ({ href, onClick, disabled, type, block, children }) => {
 	const router = useRouter()
 
-	if(href) {
-		onClick = () => {
-			if(disabled !== true) {
-				router.push(href)
-			}
+	const handler = () => {
+		if(disabled === true) {
+			return
+		}
+
+		if(onClick) {
+			onClick()
+		}
+
+		if(href) {
+			router.push(href)
 		}
 	}
 
@@ -32,7 +38,7 @@ const LinkButton = ({ href, onClick, disabled, type, block, children }) => {
 		}
 	}
 
-	return <button onClick={ onClick } className={ classList.join(' ') }>{ children }</button>
+	return <button onClick={ handler } className={ classList.join(' ') }>{ children }</button>
 }
 
 export default LinkButton

@@ -1,6 +1,6 @@
 
 import { ATTRIBUTE_MIN, ATTRIBUTE_STARTING_MAX } from '~/utils/config'
-import TextInput from '~/components/inputs/TextInput'
+import TextInput from './inputs/TextInput'
 
 const Attribute = ({ title, children, value, onChange }) => {
 	const error = isNaN(value) || value < ATTRIBUTE_MIN || value > ATTRIBUTE_STARTING_MAX

@@ -1,8 +1,8 @@
 
 import { useState } from 'react'
 import Head from 'next/head'
-import Menu from '~/components/Menu'
-import Debug from '~/components/Debug'
+import Menu from './Menu'
+import Debug from './Debug'
 
 const Layout = ({ title, children }) => {
 	const menuItems = [

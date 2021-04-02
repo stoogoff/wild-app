@@ -1,0 +1,23 @@
+
+@layer components
+	// baseic inputs
+	.input
+		@apply font-sans p-2
+		@apply transition
+		@apply duration-300
+		@apply border
+		@apply rounded
+		@apply focus:border-transparent
+		@apply focus:outline-none
+		@apply focus:ring-4
+		@apply border-gray-300
+		@apply focus:ring-gray-200
+		@apply text-gray-500
+
+		&.error
+			@apply border-red-300
+			@apply focus:ring-red-200
+			@apply text-red-500
+
+		&.disabled
+			@apply bg-gray-500

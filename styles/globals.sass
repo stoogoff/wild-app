@@ -3,150 +3,37 @@
 @tailwind components
 @tailwind utilities
 
+@import base.sass
+@import components/buttons.sass
+@import components/forms.sass
+@import components/cards.sass
+
 @layer base
-	// basic overrides
-	body
-		font-family: NeutraText
-
-	h1
-		@apply text-2xl
-
-	h2
-		@apply text-xl
-
-	p
-		@apply mb-3
-
-	// buttons
-	.btn
-		@apply focus:outline-none
-		@apply font-sans
-		@apply uppercase
-		@apply px-8
-		@apply py-2
-		@apply rounded-md
-		//@apply max-w-max
-
-		&.disabled
-			@apply bg-gray-300
-			@apply text-gray-400
-			@apply cursor-default
-
-		&.enabled
-			@apply shadow-sm
-			@apply hover:shadow-lg
-			@apply cursor-pointer
-
-		&.primary
-			@apply bg-blue-600
-			@apply text-blue-50
-
-		&.secondary
-			@apply bg-gray-400
-			@apply text-gray-900
-
-		&.success
-			@apply bg-green-600
-			@apply text-green-50
-
-		&.warning
-			@apply bg-red-600
-			@apply text-red-50
-
-	.input
-		@apply font-sans p-2
-		@apply transition
-		@apply duration-300
-		@apply border
-		@apply rounded
-		@apply focus:border-transparent
-		@apply focus:outline-none
-		@apply focus:ring-4
-		@apply border-gray-300
-		@apply focus:ring-gray-200
-		@apply text-gray-500
-
-		&.error
-			@apply border-red-300
-			@apply focus:ring-red-200
-			@apply text-red-500
-
 	// primary navigation
-	nav li
-		a
-			@apply mt-3
-			@apply py-2
-			@apply pl-2
-			@apply text-sm
-			@apply text-gray-600
-			@apply hover:text-gray-700
-			@apply hover:bg-gray-200
-			@apply uppercase
-			@apply block
+	nav
+		ul
+			@apply m-0 list-none
 
-			&.active
-				@apply text-gray-700
-				@apply bg-gray-200
-				@apply font-bold
+		li
+			a
+				@apply mt-3
+				@apply py-2
+				@apply pl-2
+				@apply text-sm
+				@apply text-gray-600
+				@apply hover:text-gray-700
+				@apply hover:bg-gray-200
+				@apply uppercase
+				@apply block
 
-		li a
-			@apply normal-case
-			@apply pl-8
-			@apply py-1
-			@apply mt-1
+				&.active
+					@apply text-gray-700
+					@apply bg-gray-200
+					@apply font-bold
 
-	// card display
-	.card-display
-		@apply bg-white
-		@apply px-8
-		@apply py-6
-		@apply rounded-xl
-		@apply space-y-5
-		@apply mb-6
+			li a
+				@apply normal-case
+				@apply pl-8
+				@apply py-1
+				@apply mt-1
 
-		&>div
-			@apply md:flex
-			width: 290px
-			height: 453px
-			@apply md:w-auto
-			@apply md:h-auto
-			transition: transform 0.8s
-			transform-style: preserve-3d
-
-		&.flipped>div
-			transform: rotateY(180deg)
-			@apply md:transform-none
-
-		&:nth-child(odd)>div
-			@apply md:flex-row-reverse
-
-		.card-front, .card-back
-			@apply bg-white
-			@apply w-full
-			@apply h-full
-			@apply absolute
-			@apply md:static
-			@apply md:max-w-md
-
-			backface-visibility: hidden
-
-		.card-back
-			@apply bg-blue-500
-			@apply p-10
-			@apply md:p-2
-			@apply md:bg-white
-			transform: rotateY(180deg)
-			@apply md:transform-none
-
-	// font face declarations
-	@font-face
-		font-family: 'NeutraText'
-		src: url(/fonts/NeutraText-Book.otf) format('opentype')
-		font-weight: normal
-		font-style: normal
-
-	@font-face
-		font-family: 'NeutraTextBold'
-		src: url(/fonts/NeutraText-Bold.otf) format('opentype')
-		font-weight: bold
-		font-style: normal

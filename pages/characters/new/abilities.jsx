@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
+import { createCharacter } from '~/lib/character'
 import {
-	DEFAULT_CHARACTER,
 	ABILITY_MIN,
 	ABILITY_MAX,
 	ABILITY_STRONG,
@@ -16,7 +16,7 @@ import ButtonGroup from '~/components/buttons/ButtonGroup'
 import Ability from '~/components/Ability'
 
 const Abilities = () => {
-	const [character, updateCharacter] = useState(DEFAULT_CHARACTER)
+	const [character, updateCharacter] = useState(createCharacter())
 	const toggleAbility = attr => val => {
 		if(character.abilities[attr] === ABILITY_SPREAD[val]) {
 			updateCharacter({ ...character, abilities: { ...character.abilities, [attr]: ABILITY_REST }})
@@ -28,6 +28,8 @@ const Abilities = () => {
 	const chosen = Object.values(character.abilities).filter(attr => !!attr)
 	const options = Object.keys(ABILITY_SPREAD).map(value => ({ value, text: ABILITY_SPREAD[value], disabled: chosen.includes(ABILITY_SPREAD[value]) }))
 	const allChosen = options.filter(opt => opt.disabled).length === 3
+
+	console.log('character=', character)
 
 	return <Layout title="4: Abilities">
 		<p>There are five Abilities which reflect the characters talents, skills and training. These Abilities are <strong>Diplomat</strong>, <strong>Guardian</strong>, <strong>Rogue</strong>, <strong>Scholar</strong> and <strong>Visionary</strong>. Again, these are scored between { ABILITY_MIN } and { ABILITY_MAX }. You begin by deciding which Ability is your strongest ({ ABILITY_STRONG }), your weakest ({ ABILITY_WEAK }), your second strongest ({ ABILITY_MID }) and then giving the remaining two Abilities the score of { ABILITY_REST }.</p>

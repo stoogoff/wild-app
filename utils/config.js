@@ -20,8 +20,14 @@ export const ABILITY_SPREAD = {
 }
 
 export const DEFAULT_CHARACTER = {
-	persona: '',
-	shadow: '',
+	persona: {
+		card: null,
+		text: '',
+	},
+	shadow: {
+		card: null,
+		text: '',
+	},
 	attributes: {
 		Control: ATTRIBUTE_MIN,
 		Strength: ATTRIBUTE_MIN,

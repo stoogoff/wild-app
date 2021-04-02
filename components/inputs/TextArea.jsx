@@ -1,8 +1,8 @@
 
 import { id } from '~/utils/string'
-import FormField from '~/components/inputs/FormField'
+import FormField from './FormField'
 
-const TextArea = ({ label, value, message, error, onChange }) => {
+const TextArea = ({ label, value, message, error, disabled, onChange }) => {
 	const htmlFor = 'input-' + id(label)
 	const handler = (evt) => {
 		if(onChange) {
@@ -11,6 +11,10 @@ const TextArea = ({ label, value, message, error, onChange }) => {
 	}
 
 	const classList = ['input']
+
+	if(disabled) {
+		classList.push('disabled')
+	}
 
 	if(error) {
 		classList.push('error')
@@ -23,6 +27,7 @@ const TextArea = ({ label, value, message, error, onChange }) => {
 			onChange={ handler }
 			type="text"
 			className={ classList.join(' ') }
+			disabled={ disabled }
 		/>
 	</FormField>
 }

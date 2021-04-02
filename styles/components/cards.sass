@@ -1,0 +1,29 @@
+
+@layer components
+	// card display
+	.card-display
+		@apply bg-white
+		@apply px-8 py-6
+		@apply rounded-xl
+		@apply space-y-5
+		@apply mb-6
+
+		&>div
+			width: 290px
+			height: 453px
+			transition: transform 0.8s
+			transform-style: preserve-3d
+
+		&.flipped>div
+			transform: rotateY(180deg)
+
+		.card-front, .card-back
+			@apply bg-white
+			@apply w-full h-full
+			@apply absolute
+			backface-visibility: hidden
+
+		.card-back
+			@apply bg-blue-500
+			@apply p-10
+			transform: rotateY(180deg)

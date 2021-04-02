@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
+import { createCharacter } from '~/lib/character'
 import {
-	DEFAULT_CHARACTER,
 	ATTRIBUTE_MAX,
 	ATTRIBUTE_MIN,
 	ATTRIBUTE_STARTING_MAX,
@@ -13,12 +13,14 @@ import LinkButton from '~/components/buttons/LinkButton'
 import Attribute from '~/components/Attribute'
 
 const Attributes = () => {
-	const [character, updateCharacter] = useState(DEFAULT_CHARACTER)
+	const [character, updateCharacter] = useState(createCharacter())
 	const attrs = [character.attributes.Control, character.attributes.Strength, character.attributes.Focus, character.attributes.Passion]
 	const remaining = ATTRIBUTES_STARTING - attrs.map(n => parseInt(n)).filter(n => !isNaN(n)).reduce((a, c) => a + c, 0)
 	const setAttribute = attr => val => updateCharacter({ ...character, attributes: { ...character.attributes, [attr]: val }})
 
 	const notAllValid = attrs.filter(a => a >= ATTRIBUTE_MIN && a <= ATTRIBUTE_MAX).length !== attrs.length
+
+	console.log('character=', character)
 
 	return <Layout title="3: Attributes">
 		<p>There are four Attributes which reflect how strong physically and emotionally you are, and how in control you are both physically and mentally. These Attributes are <strong>Control</strong>, <strong>Focus</strong>, <strong>Passion</strong> and <strong>Strength</strong>. They are rated between { ATTRIBUTE_MIN } and { ATTRIBUTE_MAX}, and you can allocate { ATTRIBUTES_STARTING } points between them. Attributes have a starting maximum value of { ATTRIBUTE_STARTING_MAX }</p>

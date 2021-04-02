@@ -1,6 +1,6 @@
 
-import ButtonGroup from '~/components/buttons/ButtonGroup'
-import TextInput from '~/components/inputs/TextInput'
+import ButtonGroup from './buttons/ButtonGroup'
+import TextInput from './inputs/TextInput'
 
 const Ability = ({ title, value, children, options, onChange }) => {
 	return <section>
