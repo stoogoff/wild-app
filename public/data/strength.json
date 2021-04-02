@@ -1,0 +1,114 @@
+[
+	{
+		"_original": "Ace of Swords",
+		"title": "Strong Visionary",
+		"suit": "Strength",
+		"meanings": ["Determination", "Force", "Triumph", "Facing Conflict"],
+		"reversed": ["Tyranny", "Disaster", "Violence", "Temper"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Two of Swords",
+		"title": "Two of Strength",
+		"suit": "Strength",
+		"meanings": ["Stalemate", "Balance", "Duality", "Harmony"],
+		"reversed": ["Duplicity", "Disloyalty", "Treachery", "Looking Away"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Three of Swords",
+		"title": "Three of Strength",
+		"suit": "Strength",
+		"meanings": ["Pain", "Sorrow", "Removal", "Absence"],
+		"reversed": ["Confusion", "Distraction", "Disorder", "Separation"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Four of Swords",
+		"title": "Four of Strength",
+		"suit": "Strength",
+		"meanings": ["Rest", "Replenishment", "Exile", "Truce"],
+		"reversed": ["Activity", "Economy", "Recovering What Was Lost"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Five of Swords",
+		"title": "Five of Strength",
+		"suit": "Strength",
+		"meanings": ["Shame", "Degradation", "Depression", "Destruction"],
+		"reversed": ["Loss", "Weakness", "Speaking up"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Six of Swords",
+		"title": "Six of Strength",
+		"suit": "Strength",
+		"meanings": ["Journey", "Voyage", "Separate Ideas from Emotions"],
+		"reversed": ["Unwanted Proposal", "No Solution", "Emotional", "Seeing the Flaws"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Seven of Swords",
+		"title": "Seven of Strength",
+		"suit": "Strength",
+		"meanings": ["Confidence", "Hope", "New Plans", "Define Yourself"],
+		"reversed": ["Arguments", "Individuality", "Obstacles made Clear"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Eight of Swords",
+		"title": "Eight of Strength",
+		"suit": "Strength",
+		"meanings": ["Crisis", "Calamity", "Conflict", "Buried Feelings"],
+		"reversed": ["New Beginnings", "Overcoming Depression", "Seeing Clearly"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Nine of Swords",
+		"title": "Nine of Strength",
+		"suit": "Strength",
+		"meanings": ["Quarrel", "Misery", "Enduring a Painful Situation"],
+		"reversed": ["Doubt", "Suspicion", "Slander", "Turning away"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Ten of Swords",
+		"title": "Ten of Strength",
+		"suit": "Strength",
+		"meanings": ["Ruin", "Pain", "Sadness", "Trouble"],
+		"reversed": ["Distraction", "Flawed vision", "Major Problems"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Page of Swords",
+		"title": "Strong Scholar",
+		"suit": "Strength",
+		"meanings": ["Perceptive", "Vigilant", "Spying", "Detatched"],
+		"reversed": ["Powerless", "Imposter", "Nervous", "Unforeseen Illness"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Knight of Swords",
+		"title": "Strong Rogue",
+		"suit": "Strength",
+		"meanings": ["Fearless", "Bravery", "Heroism", "Warrior"],
+		"reversed": ["Brashness", "Impulsive Mistakes", "Ruin over Love"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "Queen of Swords",
+		"title": "Strong Guardian",
+		"suit": "Strength",
+		"meanings": ["Bearer of Evil", "Mourning", "Widow", "Sadness", "Detached"],
+		"reversed": ["Vengeful", "Manipulative", "Maliciousness", "Bigoted"],
+		"image": "strengths/"
+	},
+	{
+		"_original": "King of Swords",
+		"title": "Strong Diplomat",
+		"suit": "Strength",
+		"meanings": ["Commanding", "Authoritative", "Force", "Professional"],
+		"reversed": ["Sadistic", "Cruel", "Dangerous", "Aggressive"],
+		"image": "strengths/"
+	}
+]

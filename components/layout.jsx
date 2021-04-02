@@ -1,8 +1,8 @@
 
 import { useState } from 'react'
 import Head from 'next/head'
-import Menu from '~/components/menu'
-import Debug from '~/components/debug'
+import Menu from '~/components/Menu'
+import Debug from '~/components/Debug'
 
 const Layout = ({ title, children }) => {
 	const menuItems = [
@@ -21,7 +21,7 @@ const Layout = ({ title, children }) => {
 	const openSidebar = () => setSidebar(true)
 
 	return (
-		<div className="h-screen overflow-hidden">
+		<div className="h-screen">
 			<Head>
 				<title>WILD &ndash; { title }</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -36,7 +36,7 @@ const Layout = ({ title, children }) => {
 					<div className="font-bold tracking-wider text-lg text-white uppercase">WILD</div>
 				</div>
 			</header>
-			<div className="flex h-screen bg-gray-100 font-roboto">
+			<div className="flex h-screen font-roboto">
 				<div onClick={ closeSidebar } className={ (sidebar ? 'block' : 'hidden') + " fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden" }></div>
 				<div className={ (sidebar ? 'translate-x-0 ease-out' : '-translate-x-full ease-in') + " fixed z-30 inset-y-0 left-0 w-60 transition duration-300 transform bg-white overflow-y-auto lg:translate-x-0 lg:static lg:inset-0" }>
 					<div className="font-bold tracking-wider text-lg uppercase mt-3 mx-5 lg:hidden">WILD</div>
@@ -46,8 +46,8 @@ const Layout = ({ title, children }) => {
 						<Menu menuItems={ [ { title: 'Account', href: '/account' } ] } onClick={ closeSidebar } />
 					</nav>
 				</div>
-				<div className="flex-1 flex flex-col overflow-hidden bg-gray-8">
-					<main className="flex-1 overflow-x-hidden overflow-y-auto">
+				<div className="flex-1 flex flex-col">
+					<main className="flex-1">
 						<div className="container mx-auto px-6 py-8">
 							<h1>{ title }</h1>
 							<div className="h-96">{ children }</div>

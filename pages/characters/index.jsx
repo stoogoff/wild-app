@@ -1,12 +1,12 @@
 
-import Layout from '~/components/layout'
-import Button from '~/components/button'
+import Layout from '~/components/Layout'
+import LinkButton from '~/components/buttons/LinkButton'
 
 const Characters = () => {
 	return <Layout title="Characters">
 		<p>Some blurb about creating a character.</p>
 		<section>
-			<Button href='/characters/new'>New Character</Button>
+			<LinkButton href='/characters/new'>New Character</LinkButton>
 		</section>
 	</Layout>
 }

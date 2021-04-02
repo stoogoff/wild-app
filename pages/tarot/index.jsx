@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 import { getAllContent } from '~/lib/content'
-import Layout from '~/components/layout'
+import Layout from '~/components/Layout'
 
 const Suits = ({ suits }) => {
 	return <Layout title="Cards">
