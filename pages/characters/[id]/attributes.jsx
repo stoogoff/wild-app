@@ -1,19 +1,22 @@
 
 import { useState } from 'react'
-import { createCharacter } from '~/lib/character'
+import { useCharacter } from '~/hooks/character'
 import {
 	ATTRIBUTE_MAX,
 	ATTRIBUTE_MIN,
-	ATTRIBUTE_STARTING_MAX,
 	ATTRIBUTES_STARTING,
+	ATTRIBUTE_STARTING_MAX,
 } from '~/utils/config'
-
 import Layout from '~/components/Layout'
-import LinkButton from '~/components/buttons/LinkButton'
 import Attribute from '~/components/Attribute'
+import Stepper from '~/components/buttons/Stepper'
 
 const Attributes = () => {
-	const [character, updateCharacter] = useState(createCharacter())
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useCharacter(setLoading)
+
+	// page specific
 	const attrs = [character.attributes.Control, character.attributes.Strength, character.attributes.Focus, character.attributes.Passion]
 	const remaining = ATTRIBUTES_STARTING - attrs.map(n => parseInt(n)).filter(n => !isNaN(n)).reduce((a, c) => a + c, 0)
 	const setAttribute = attr => val => updateCharacter({ ...character, attributes: { ...character.attributes, [attr]: val }})
@@ -53,7 +56,12 @@ const Attributes = () => {
 		>
 			Passion is all about determination, mental force, emotional strength and imagination.
 		</Attribute>
-		<LinkButton href='/characters/new/abilities' disabled={ remaining !== 0 || notAllValid }>Next</LinkButton>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/abilities` }
+			previous={ `/characters/${character.id}/shadow` }
+			disabled={ remaining !== 0 || notAllValid }
+		/>
 	</Layout>
 }
 

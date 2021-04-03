@@ -46,3 +46,5 @@ export const DEFAULT_CHARACTER = {
 	background: '',
 	image: '',	
 }
+
+export const COLLECTION_CHARACTERS = 'characters'

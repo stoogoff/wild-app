@@ -1,22 +1,25 @@
 
 import { useState } from 'react'
-import { createCharacter } from '~/lib/character'
+import { useCharacter } from '~/hooks/character'
 import {
-	ABILITY_MIN,
 	ABILITY_MAX,
-	ABILITY_STRONG,
 	ABILITY_MID,
+	ABILITY_MIN,
 	ABILITY_REST,
-	ABILITY_WEAK,
 	ABILITY_SPREAD,
+	ABILITY_STRONG,
+	ABILITY_WEAK,
 } from '~/utils/config'
 import Layout from '~/components/Layout'
-import LinkButton from '~/components/buttons/LinkButton'
-import ButtonGroup from '~/components/buttons/ButtonGroup'
 import Ability from '~/components/Ability'
+import Stepper from '~/components/buttons/Stepper'
 
 const Abilities = () => {
-	const [character, updateCharacter] = useState(createCharacter())
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useCharacter(setLoading)
+
+	// page specific
 	const toggleAbility = attr => val => {
 		if(character.abilities[attr] === ABILITY_SPREAD[val]) {
 			updateCharacter({ ...character, abilities: { ...character.abilities, [attr]: ABILITY_REST }})
@@ -73,7 +76,12 @@ const Abilities = () => {
 		>
 			Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something. 
 		</Ability>
-		<LinkButton href='/characters/new/aspects' disabled={ !allChosen }>Next</LinkButton>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/aspects` }
+			previous={ `/characters/${character.id}/attributes` }
+			disabled={ !allChosen }
+		/>
 	</Layout>
 }
 

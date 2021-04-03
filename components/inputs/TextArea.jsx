@@ -17,7 +17,7 @@ const TextArea = ({ label, value, message, error, disabled, onChange }) => {
 	}
 
 	if(error) {
-		classList.push('error')
+		classList.push('warning')
 	}
 
 	return <FormField label={ label } message={ message } error={ error }>

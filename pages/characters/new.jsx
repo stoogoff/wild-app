@@ -1,9 +1,24 @@
 
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { createCharacter } from '~/lib/character'
 import Layout from '~/components/Layout'
-import LinkButton from '~/components/buttons/LinkButton'
+import LoadingButton from '~/components/buttons/LinkButton'
 
-const NewCharacter = () => <Layout title="Create New Character">
+const NewCharacter = () => {
+	const router = useRouter()
+	const [loading, setLoading] = useState(false)
+
+	const clickHandler = async () => {
+		setLoading(true)
+
+		const character = await createCharacter()
+
+		router.push(`/characters/${character.id}/persona`)
+		setLoading(false)
+	}
+
+	return <Layout title="Create New Character">
 		<section>
 			<ol className="list">
 				<li><strong>Persona</strong> &mdash; Define who your character is, determine the basic concept for who they are. Who they are and what they are like.</li>
@@ -14,7 +29,8 @@ const NewCharacter = () => <Layout title="Create New Character">
 				<li><strong>Finishing Touches</strong> &mdash; Name, description, image.</li>
 			</ol>
 		</section>
-		<LinkButton href="/characters/new/persona" onClick={ createCharacter }>Start</LinkButton>
+		<LoadingButton loading={ loading } onClick={ clickHandler }>Start</LoadingButton>
 	</Layout>
+}
 
 export default NewCharacter

@@ -1,16 +1,21 @@
 
 import { useState } from 'react'
-import { createCharacter, saveCharacter } from '~/lib/character'
+import { useCharacter } from '~/hooks/character'
 import { draw } from '~/lib/deck'
 import Layout from '~/components/Layout'
 import TextInput from '~/components/inputs/TextInput'
 import LinkButton from '~/components/buttons/LinkButton'
 import CardGrid from '~/components/cards/CardGrid'
+import Stepper from '~/components/buttons/Stepper'
 
 const Persona = () => {
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useCharacter(setLoading)
+
+	// page specific
 	const [cards, setCards] = useState([])
 	const [selectedCard, setSelectedCard] = useState(null)
-	const [character, updateCharacter] = useState(createCharacter())
 
 	const setPersona = value => updateCharacter({ ...character, persona: { ...character.persona, text: value } })
 	const drawCards = () => setCards([ ...draw(5) ])
@@ -34,7 +39,11 @@ const Persona = () => {
 		<LinkButton onClick={ drawCards }>Draw</LinkButton>
 		<TextInput label="Persona" value={ character.persona.text } onChange={ setPersona } disabled={ selectedCard === null} />
 		<hr/>
-		<LinkButton href="/characters/new/shadow" onClick={ () => saveCharacter(character) } disabled={ selectedCard === null || character.persona === '' }>Next</LinkButton>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/shadow` }
+			disabled={ selectedCard === null || character.persona.text === '' }
+		/>
 	</Layout>
 }
 

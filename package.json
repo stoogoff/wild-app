@@ -11,6 +11,7 @@
     "@tailwindcss/jit": "^0.1.13",
     "autoprefixer": "^10.2.5",
     "date-fns": "^2.19.0",
+    "firebase": "^8.3.2",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.21",
     "next": "10.0.9",

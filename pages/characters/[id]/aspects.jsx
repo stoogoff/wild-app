@@ -1,13 +1,19 @@
 
 import { useState } from 'react'
-import { createCharacter } from '~/lib/character'
+import { useCharacter } from '~/hooks/character'
 import { ASPECTS_MIN } from '~/utils/config'
 import Layout from '~/components/Layout'
-import LinkButton from '~/components/buttons/LinkButton'
 import TextInput from '~/components/inputs/TextInput'
+import Stepper from '~/components/buttons/Stepper'
 
 const Aspects = () => {
-	const [character, updateCharacter] = useState(createCharacter())
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useCharacter(setLoading)
+
+	if(loading) return <div>Loading</div>
+
+	// page specific
 	const setAspect = index => value => {
 		const aspects = [ ...character.aspects ]
 
@@ -15,9 +21,9 @@ const Aspects = () => {
 		updateCharacter({ ...character, aspects })
 	}
 
-	const aspectsSet = character.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN
-
 	console.log('character=', character)
+	const aspectsSet = character.aspects ? character.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN : false
+
 
 	return <Layout title="5: Aspects">
 		<p>Choose a handful of Aspects that help to define your characters strengths and weaknesses. Aspects are simple phrases that, if applicable to a situation, make the task easier or harder. Characters usually start with two or three.</p>
@@ -38,7 +44,12 @@ const Aspects = () => {
 		<div>
 			{ character.aspects.map((aspect, idx) => <TextInput label="Aspect" value={ aspect } onChange={ setAspect(idx) } />) }
 		</div>
-		<LinkButton href="/characters/new/finish" disabled={ !aspectsSet }>Next</LinkButton>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/finish` }
+			previous={ `/characters/${character.id}/abilities` }
+			disabled={ !aspectsSet }
+		/>
 	</Layout>
 }
 

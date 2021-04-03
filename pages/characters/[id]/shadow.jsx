@@ -1,15 +1,20 @@
 
 import { useState } from 'react'
-import { createCharacter } from '~/lib/character'
+import { useCharacter } from '~/hooks/character'
 import { draw } from '~/lib/deck'
 import Layout from '~/components/Layout'
 import TextInput from '~/components/inputs/TextInput'
 import LinkButton from '~/components/buttons/LinkButton'
 import Card from '~/components/cards/Card'
+import Stepper from '~/components/buttons/Stepper'
 
 const Shadow = () => {
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useCharacter(setLoading)
+
+	// page specific
 	const [selectedCard, setSelectedCard] = useState(null)
-	const [character, updateCharacter] = useState(createCharacter())
 
 	const setShadow = value => updateCharacter({ ...character, shadow: { ...character.shadow, text: value } })
 	const drawCard = () => {
@@ -28,7 +33,12 @@ const Shadow = () => {
 		<LinkButton onClick={ drawCard }>Draw</LinkButton>
 		<TextInput label="Shadow" value={ character.shadow.text } onChange={ setShadow } disabled={ selectedCard === null} />
 		<hr/>
-		<LinkButton href="/characters/new/attributes" disabled={ selectedCard === null }>Next</LinkButton>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/attributes` }
+			previous={ `/characters/${character.id}/persona` }
+			disabled={ character.shadow.text === '' }
+		/>
 	</Layout>
 }
 
