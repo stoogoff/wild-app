@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import head from 'lodash/head'
 import tail from 'lodash/tail'
-import Image from 'next/image'
 
 const Card = ({ title, meanings, reversed, image }) => {
 	const [ flipped, setFlipped ] = useState(false)

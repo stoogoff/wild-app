@@ -1,11 +1,10 @@
 
 import Head from 'next/head'
-import Image from 'next/image'
 
 import { getContentIds, getContent } from '~/lib/content'
 import { getSuit } from '~/lib/deck'
 import Layout from '~/components/Layout'
-import Card from '~/components/Card'
+import Card from '~/components/cards/Card'
 
 const Suit = ({ suit, cards }) => (
 	<Layout title={ suit.title }>
