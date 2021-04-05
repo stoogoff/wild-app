@@ -1,13 +1,56 @@
+<template>
+	<button :class="classList" :disabled="disabled" @click="$emit('click')">
+		<slot />
+	</button>
+</template>
+<script>
+import Vue from 'vue'
 
+export default Vue.component('Button', {
+	props: {
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		type: {
+			type: String,
+			default: 'primary',
+		},
+		block: {
+			type: Boolean,
+			default: false,
+		},
+	},
+
+	computed: {
+		classList() {
+			let classList = ['btn']
+
+			if(this.block === true) {
+				classList.push('block w-full')
+			}
+
+			if(this.disabled === true) {
+				classList.push('disabled')
+			}
+			else {
+				classList.push('enabled')
+				classList.push(this.type)
+			}
+
+			return classList.join(' ')
+		},
+	}
+})
+</script>
+<style lang="sass">
 @layer components
 	.btn
 		@apply font-sans
-		@apply active:bg-blue-600
 		@apply font-bold uppercase text-sm
 		@apply px-6 py-3
 		@apply mr-1 mb-1
 		@apply rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150
-      
 
 		&.disabled
 			@apply bg-gray-300
@@ -49,3 +92,4 @@
 
 			&:last-child
 				@apply rounded-r-md
+</style>
