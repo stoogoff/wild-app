@@ -1,17 +1,17 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import { draw } from '~/lib/deck'
 import Layout from '~/components/Layout'
 import TextInput from '~/components/inputs/TextInput'
-import LinkButton from '~/components/buttons/LinkButton'
+import Button from '~/components/buttons/Button'
 import Card from '~/components/cards/Card'
 import Stepper from '~/components/buttons/Stepper'
 
 const Shadow = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	// page specific
 	const [selectedCard, setSelectedCard] = useState(null)
@@ -30,7 +30,7 @@ const Shadow = () => {
 		<p>The next card in the WILD Tarot drawn gives you some ideas what is holding you back, or getting in your way. This is your Shadow.</p>
 		<p>Use the button to draw some cards to inspire your character and use for your shadow.</p>
 		{ selectedCard ? <Card { ...selectedCard } /> : null }
-		<LinkButton onClick={ drawCard }>Draw</LinkButton>
+		<Button onClick={ drawCard }>Draw</Button>
 		<TextInput label="Shadow" value={ character.shadow.text } onChange={ setShadow } disabled={ selectedCard === null} />
 		<hr/>
 		<Stepper

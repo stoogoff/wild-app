@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import {
 	ATTRIBUTE_MAX,
 	ATTRIBUTE_MIN,
@@ -14,7 +14,7 @@ import Stepper from '~/components/buttons/Stepper'
 const Attributes = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	// page specific
 	const attrs = [character.attributes.Control, character.attributes.Strength, character.attributes.Focus, character.attributes.Passion]

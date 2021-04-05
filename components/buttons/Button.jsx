@@ -1,7 +1,7 @@
 
 import { useRouter } from 'next/router'
 
-const LinkButton = ({ href, onClick, disabled, type, block, children }) => {
+const Button = ({ href, onClick, disabled, type, block, children }) => {
 	const router = useRouter()
 
 	const handler = () => {
@@ -41,4 +41,4 @@ const LinkButton = ({ href, onClick, disabled, type, block, children }) => {
 	return <button onClick={ handler } className={ classList.join(' ') }>{ children }</button>
 }
 
-export default LinkButton
+export default Button

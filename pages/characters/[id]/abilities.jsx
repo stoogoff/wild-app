@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import {
 	ABILITY_MAX,
 	ABILITY_MID,
@@ -17,7 +17,7 @@ import Stepper from '~/components/buttons/Stepper'
 const Abilities = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	// page specific
 	const toggleAbility = attr => val => {

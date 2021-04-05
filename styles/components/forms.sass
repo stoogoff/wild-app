@@ -2,22 +2,14 @@
 @layer components
 	// baseic inputs
 	.input
-		@apply font-sans p-2
-		@apply transition
-		@apply duration-300
-		@apply border
-		@apply rounded
-		@apply focus:border-transparent
-		@apply focus:outline-none
-		@apply focus:ring-4
-		@apply border-gray-300
-		@apply focus:ring-gray-200
-		@apply text-gray-500
+		@apply px-3 py-3
+		@apply placeholder-gray-300
+		@apply font-sans text-gray-600 text-sm
+		@apply relative bg-white rounded border-0 shadow outline-none focus:outline-none focus:ring focus:ring-blue-500 w-full
 
 		&.warning
-			@apply border-red-300
-			@apply focus:ring-red-200
+			@apply focus:ring-red-500
 			@apply text-red-500
 
 		&.disabled
-			@apply bg-gray-300
+			@apply bg-gray-200

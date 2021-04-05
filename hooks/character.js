@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { getCharacter, saveCharacter } from '~/lib/character'
 import { DEFAULT_CHARACTER } from '~/utils/config'
 
-export const useCharacter = (setLoading) => {
+export const useGetCharacterById = (setLoading) => {
 	const router = useRouter()
 	const [character, updateCharacter] = useState(DEFAULT_CHARACTER)
 
@@ -20,4 +20,16 @@ export const useCharacter = (setLoading) => {
 	}, [])
 
 	return [character, updateCharacter]
+}
+
+export const useGetCharacters = () => {
+	const [characters, setCharacters] = useState([])
+
+	useEffect(async () => {
+		const result = await allCharacters()
+
+		setCharacters(result)
+	}, [])
+
+	return [characters, setCharacters]
 }

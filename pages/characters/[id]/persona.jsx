@@ -1,17 +1,17 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import { draw } from '~/lib/deck'
 import Layout from '~/components/Layout'
 import TextInput from '~/components/inputs/TextInput'
-import LinkButton from '~/components/buttons/LinkButton'
+import Button from '~/components/buttons/Button'
 import CardGrid from '~/components/cards/CardGrid'
 import Stepper from '~/components/buttons/Stepper'
 
 const Persona = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	// page specific
 	const [cards, setCards] = useState([])
@@ -36,7 +36,7 @@ const Persona = () => {
 		<p>Define who your character is, determine the basic concept for who they are. Who they are and what they are like. This involves choosing a card from the WILD Tarot deck that best signifies your character.</p>
 		<p>Use the button to draw some cards to inspire your character and use for your persona.</p>
 		<CardGrid cards={ cards } selected={ selectedCard } toggleSelected={ toggleSelectedCard } />
-		<LinkButton onClick={ drawCards }>Draw</LinkButton>
+		<Button onClick={ drawCards }>Draw</Button>
 		<TextInput label="Persona" value={ character.persona.text } onChange={ setPersona } disabled={ selectedCard === null} />
 		<hr/>
 		<Stepper

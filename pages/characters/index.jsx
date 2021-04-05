@@ -2,7 +2,7 @@
 import { useState, useEffect} from 'react'
 import Link from 'next/link'
 import Layout from '~/components/Layout'
-import LinkButton from '~/components/buttons/LinkButton'
+import Button from '~/components/buttons/Button'
 import { allCharacters } from '~/lib/character'
 
 const Characters = () => {
@@ -12,7 +12,7 @@ const Characters = () => {
 		const result = await allCharacters()
 
 		setCharacters(result)
-	})
+	}, [])
 
 	return <Layout title="Characters">
 		<p>Some blurb about creating a character.</p>
@@ -25,7 +25,7 @@ const Characters = () => {
 				</li>) }
 			</ol>
 		</section>
-		<LinkButton href='/characters/new'>New Character</LinkButton>
+		<Button href='/characters/new'>New Character</Button>
 	</Layout>
 }
 

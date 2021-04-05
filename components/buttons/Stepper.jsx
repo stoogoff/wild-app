@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { saveCharacter } from '~/lib/character'
-import LinkButton from './LinkButton'
+import Button from './Button'
 import LoadingButton from './LoadingButton'
 
 const Stepper = ({ character, previous, next, disabled }) => {
@@ -18,7 +18,7 @@ const Stepper = ({ character, previous, next, disabled }) => {
 	}
 
 	return <div>
-		{ previous ? <LinkButton href={ previous } type="secondary">Previous</LinkButton> : null }
+		{ previous ? <Button href={ previous } type="secondary">Previous</Button> : null }
 		<LoadingButton loading={ loading } onClick={ clickHandler } disabled={ disabled }>Next</LoadingButton>
 	</div>
 }

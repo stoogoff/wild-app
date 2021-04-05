@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { createCharacter } from '~/lib/character'
 import Layout from '~/components/Layout'
-import LoadingButton from '~/components/buttons/LinkButton'
+import LoadingButton from '~/components/buttons/LoadingButton'
 
 const NewCharacter = () => {
 	const router = useRouter()

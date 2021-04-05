@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import Layout from '~/components/Layout'
 import LinkButton from '~/components/buttons/LinkButton'
 import TextInput from '~/components/inputs/TextInput'
@@ -10,7 +10,7 @@ import Stepper from '~/components/buttons/Stepper'
 const Finish = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	// page specific
 	const setValue = attr => value => updateCharacter({ ...character, [attr]: value })

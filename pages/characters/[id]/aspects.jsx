@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import { ASPECTS_MIN } from '~/utils/config'
 import Layout from '~/components/Layout'
 import TextInput from '~/components/inputs/TextInput'
@@ -9,7 +9,7 @@ import Stepper from '~/components/buttons/Stepper'
 const Aspects = () => {
 	// boilerplate
 	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useCharacter(setLoading)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
 
 	if(loading) return <div>Loading</div>
 

@@ -1,26 +1,62 @@
 
 import { useState } from 'react'
 import Head from 'next/head'
+import Navbar from './Navbar'
 import Menu from './Menu'
 import Debug from './Debug'
 
-const Layout = ({ title, children }) => {
-	const menuItems = [
-		{ title: 'Home', href: '/' },
-		{ title: 'Characters', href: '/characters' },
-		{ title: 'Tarot', href: '/tarot', menuItems: [
-			{ title: 'Passion', href: '/tarot/passion' },
-			{ title: 'Strength', href: '/tarot/strength' },
-			{ title: 'Control', href: '/tarot/control' },
-			{ title: 'Focus', href: '/tarot/focus' },
-			{ title: 'Major Arcana', href: '/tarot/major-arcana' },
-		]},
-	]
-	const [sidebar, setSidebar] = useState(false)
-	const closeSidebar = () => setSidebar(false)
-	const openSidebar = () => setSidebar(true)
+const Layout = ({ title, children }) => <div>
+		<Navbar transparent />
+		<section className="relative block" style={{ height: "500px" }}>
+			<div
+				className="absolute top-0 w-full h-full bg-center bg-cover"
+				style={{
+					backgroundImage:
+						"url(/img/cover.jpg)"
+				}}
+			>
+				<span
+					id="blackOverlay"
+					className="w-full h-full absolute opacity-50 bg-black"
+				></span>
+			</div>
+			<div
+				className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+				style={{ height: "70px" }}
+			>
+				<svg
+					className="absolute bottom-0 overflow-hidden"
+					xmlns="http://www.w3.org/2000/svg"
+					preserveAspectRatio="none"
+					version="1.1"
+					viewBox="0 0 2560 100"
+					x="0"
+					y="0"
+				>
+					<polygon
+						className="text-gray-300 fill-current"
+						points="2560 0 2560 100 0 100"
+					></polygon>
+				</svg>
+			</div>
+		</section>
+		<section className="relative py-16 bg-gray-300">
+			<div className="container mx-auto px-4">
+				<div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+					<main className="px-6">
+						{ children }
+					</main>
+				</div>
+			</div>
+		</section>
+		<Debug />
+	</div>
 
-	return (
+
+export default Layout
+
+
+/*
 		<div className="h-screen">
 			<Head>
 				<title>WILD &ndash; { title }</title>
@@ -57,7 +93,4 @@ const Layout = ({ title, children }) => {
 			</div>
 			<Debug />
 		</div>
-	)
-}
-
-export default Layout
+		*/

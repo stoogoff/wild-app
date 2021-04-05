@@ -1,11 +1,11 @@
 
 import { useState } from 'react'
-import { useCharacter } from '~/hooks/character'
+import { useGetCharacterById } from '~/hooks/character'
 import Layout from '~/components/Layout'
 
 const CharacterView = () => {
 	const [loading, setLoading] = useState(false)
-	const [character] = useCharacter(setLoading)
+	const [character] = useGetCharacterById(setLoading)
 
 	return <Layout title={ character.name || 'Unnamed Character' }>
 		<section>
