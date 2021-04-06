@@ -1,0 +1,78 @@
+
+@layer base
+	body
+		background-color: #eee
+		@apply p-3
+
+@layer components
+	// form fields
+	.input
+		@apply font-sans text-gray-600 text-sm relative bg-white rounded border-0 shadow outline-none w-full focus:outline-none focus:ring focus:ring-blue-500 px-3 py-3 placeholder-gray-300
+
+		&.warning
+			@apply focus:ring-red-500 text-red-500
+
+		&.disabled
+			@apply bg-gray-200
+
+	.label
+		@apply font-sans font-semibold text-xs uppercase inline-block mb-2 text-gray-500
+
+		&.warning
+			@apply text-red-500
+
+	.message
+		@apply mt-2 text-sm text-gray-500
+
+		&.warning
+			@apply text-red-500
+
+	// buttons
+	.btn
+		@apply font-sans
+		@apply font-bold uppercase text-sm
+		@apply px-6 py-3
+		@apply mr-1 mb-1
+		@apply rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150
+
+		&.disabled
+			@apply bg-gray-300
+			@apply text-gray-400
+			@apply cursor-default
+			@apply hover:shadow-none shadow-none
+
+		&.enabled
+			@apply hover:shadow-lg
+			@apply cursor-pointer
+
+		&.primary
+			@apply bg-blue-600
+			@apply text-blue-50
+			@apply hover:bg-blue-800
+
+		&.secondary
+			@apply bg-gray-400
+			@apply text-gray-900
+			@apply hover:text-white
+			@apply hover:bg-gray-600
+
+		&.success
+			@apply bg-green-600
+			@apply text-green-50
+			@apply hover:bg-green-800
+
+		&.warning
+			@apply bg-red-600
+			@apply text-red-50
+			@apply hover:bg-red-800
+
+	.btn-group
+		.btn
+			@apply rounded-none
+			@apply mr-0
+
+			&:first-child
+				@apply rounded-l-md
+
+			&:last-child
+				@apply rounded-r-md
