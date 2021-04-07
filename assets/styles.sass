@@ -1,8 +1,43 @@
 
 @layer base
+	// basic  tag overrides
 	body
-		background-color: #eee
-		@apply p-3
+		font-family: NeutraText
+
+	h1
+		@apply text-2xl
+
+	h2
+		@apply text-xl
+
+	p
+		@apply mb-3
+
+	ul.list, ol.list
+		@apply my-4
+		@apply ml-4
+
+	ul.list
+		@apply list-disc
+
+	ol.list
+		@apply list-decimal
+
+	// font face declarations
+	@font-face
+		font-family: 'NeutraText'
+		src: url(/fonts/NeutraText-Book.otf) format('opentype')
+		font-weight: normal
+		font-style: normal
+
+	@font-face
+		font-family: 'NeutraTextBold'
+		src: url(/fonts/NeutraText-Bold.otf) format('opentype')
+		font-weight: bold
+		font-style: normal
+
+	#cover-image
+		background-image: url(/img/cover.jpg)
 
 @layer components
 	// form fields

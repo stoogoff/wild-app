@@ -1,12 +1,13 @@
 <template>
-  <div class="container">
-      <div><Button>Primary</Button></div>
+  <div>
+      <div><Button @click="stateTest">Primary</Button></div>
+      {{ counter }}
       <div><Button type="secondary">Secondary</Button></div>
       <div><Button type="warning">Warning</Button></div>
       <div><Button type="success" @click="alert('test')">Success</Button></div>
       <div><Button disabled @click="alert('test')">Disabled</Button></div>
       <TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
-      <TextInput v-model="name" label="Test" disabled message="This is a form field" placeholder="Enter something" />
+      <TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
       {{ name }}
       <TextArea v-model="description" label="Description" />
       {{ description }}
@@ -33,6 +34,10 @@ export default {
   },
 
   computed: {
+    counter() {
+      return this.$store.state.counter.counter
+    },
+
     error() {
       return this.name === 'Hello'
     },
@@ -49,6 +54,11 @@ export default {
   },
 
   methods: {
+    stateTest() {
+      console.log('stateTest')
+      this.$store.commit('counter/increment')
+    },
+
     alert(s) {
       window.alert(s)
     }

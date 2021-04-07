@@ -1,0 +1,66 @@
+<template>
+	<section>
+		<p>Define who your character is, determine the basic concept for who they are. Who they are and what they are like. This involves choosing a card from the WILD Tarot deck that best signifies your character.</p>
+		<p>Use the button to draw some cards to inspire your character and use for your persona.</p>
+		<!--CardGrid cards={ cards } selected={ selectedCard } toggleSelected={ toggleSelectedCard } />
+		<Button onClick={ drawCards }>Draw</Button>
+		<TextInput label="Persona" value={ character.persona.text } onChange={ setPersona } disabled={ selectedCard === null} />
+		<hr/>
+		<Stepper
+			character={ character }
+			next={ `/characters/${character.id}/shadow` }
+			disabled={ selectedCard === null || character.persona.text === '' }
+		/-->
+	</section>
+</template>
+<script>
+
+/*
+import { useState } from 'react'
+import { useGetCharacterById } from '~/hooks/character'
+import { draw } from '~/lib/deck'
+import Layout from '~/components/Layout'
+import TextInput from '~/components/inputs/TextInput'
+import Button from '~/components/buttons/Button'
+import CardGrid from '~/components/cards/CardGrid'
+import Stepper from '~/components/buttons/Stepper'
+*/
+export default {
+
+	data() {
+		return {
+			loading: false,
+			character: null,
+		}
+	},
+
+	/*
+	// boilerplate
+	const [loading, setLoading] = useState(false)
+	const [character, updateCharacter] = useGetCharacterById(setLoading)
+
+	// page specific
+	const [cards, setCards] = useState([])
+	const [selectedCard, setSelectedCard] = useState(null)
+
+	const setPersona = value => updateCharacter({ ...character, persona: { ...character.persona, text: value } })
+	const drawCards = () => setCards([ ...draw(5) ])
+	const toggleSelectedCard = card => {
+		if(selectedCard && selectedCard.id === card.id) {
+			setSelectedCard(null)
+			updateCharacter({ ...character, persona: { ...character.persona, card: null } })
+		}
+		else {
+			setSelectedCard(card)
+			updateCharacter({ ...character, persona: { ...character.persona, card: card.id } })
+		}
+	}
+
+	console.log('character=', character)
+*/
+
+}
+
+
+
+</script>
