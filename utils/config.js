@@ -12,6 +12,7 @@ export const ABILITY_REST = 2
 export const ABILITY_WEAK = 1
 
 export const ASPECTS_MIN = 2
+export const ASPECTS_MAX = 5
 
 export const ABILITY_SPREAD = {
 	'ABILITY_STRONG': ABILITY_STRONG,

@@ -35,20 +35,19 @@
 </template>
 <script>
 
+import Character from '~/mixins/Character'
+
 export default {
-	props: {
-		character: {
-			type: Object,
-			required: true,
-		}
-	},
+	mixins: [Character],
 
 	mounted() {
 		console.log('mounted::_characterId/index')
 	},
 	methods: {
 		editCharacter() {
-			console.log('edit character')
+			const { redirect } = this.$nuxt.context
+
+			redirect(`/characters/${this.character.id}/attributes`)
 		},
 	},
 }

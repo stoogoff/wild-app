@@ -1,34 +1,9 @@
-
-import { useState } from 'react'
-import { useGetCharacterById } from '~/hooks/character'
-import { ASPECTS_MIN } from '~/utils/config'
-import Layout from '~/components/Layout'
-import TextInput from '~/components/inputs/TextInput'
-import Stepper from '~/components/buttons/Stepper'
-
-const Aspects = () => {
-	// boilerplate
-	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useGetCharacterById(setLoading)
-
-	if(loading) return <div>Loading</div>
-
-	// page specific
-	const setAspect = index => value => {
-		const aspects = [ ...character.aspects ]
-
-		aspects[index]  = value
-		updateCharacter({ ...character, aspects })
-	}
-
-	console.log('character=', character)
-	const aspectsSet = character.aspects ? character.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN : false
-
-
-	return <Layout title="5: Aspects">
+<template>
+	<div>
+		<h1>5: Aspects</h1>
 		<p>Choose a handful of Aspects that help to define your characters strengths and weaknesses. Aspects are simple phrases that, if applicable to a situation, make the task easier or harder. Characters usually start with two or three.</p>
 		<p>Some example aspects:</p>
-		<ul className="list">
+		<ul class="list">
 			<li>Devilishly Handsome</li>
 			<li>Quick Tempered</li>
 			<li>Overly Cautious</li>
@@ -42,15 +17,52 @@ const Aspects = () => {
 			<li>Allergic to Dogs</li>
 		</ul>
 		<div>
-			{ character.aspects.map((aspect, idx) => <TextInput label="Aspect" value={ aspect } onChange={ setAspect(idx) } />) }
+			<Button @click="addAspect" :disabled="!canAdd">Add</Button>
+
+			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
+				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx]" >
+					<template #append>
+						<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
+							<Icon icon="close" />
+						</span>
+					</template>
+				</TextInput>
+			</div>
 		</div>
 		<Stepper
-			character={ character }
-			next={ `/characters/${character.id}/finish` }
-			previous={ `/characters/${character.id}/abilities` }
-			disabled={ !aspectsSet }
+			:next="`/characters/${character.id}/finish`"
+			:previous="`/characters/${character.id}/abilities`"
+			:disabled="!aspectsSet"
 		/>
-	</Layout>
+	</div>
+</template>
+<script>
+
+import Character from '~/mixins/Character'
+import { ASPECTS_MIN, ASPECTS_MAX } from '~/utils/config'
+
+export default {
+	mixins: [Character],
+
+	computed: {
+		canAdd() {
+			return this.character.aspects.length < ASPECTS_MAX
+		},
+
+		aspectsSet() {
+			return this.character.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN
+		},
+	},
+
+	methods: {
+		addAspect() {
+			this.character.aspects = [ ...this.character.aspects, '' ]
+		},
+
+		removeAspect(toRemove) {
+			this.character.aspects = this.character.aspects.filter((_a, idx) => idx !== toRemove)
+		}
+	},
 }
 
-export default Aspects
+</script>

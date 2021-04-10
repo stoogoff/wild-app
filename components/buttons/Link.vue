@@ -28,7 +28,7 @@ export default Vue.component('Link', {
 
 	computed: {
 		classList() {
-			let classList = ['btn']
+			let classList = ['btn', 'inline-block']
 
 			if(this.block === true) {
 				classList.push('block w-full')
