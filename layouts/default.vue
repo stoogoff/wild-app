@@ -12,11 +12,9 @@
 			</div>
 		</section>
 		<section class="relative py-16 bg-gray-300">
-			<div class="container mx-auto px-4">
-				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
-					<main class="px-6">
-						<Nuxt />
-					</main>
+			<div class="container mx-auto md:px-4">
+				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-64">
+					<Nuxt />
 				</div>
 			</div>
 		</section>

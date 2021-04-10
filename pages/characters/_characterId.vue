@@ -1,6 +1,8 @@
 <template>
-	<Loading v-if="$fetchState.pending" />
-	<nuxt-child v-else :character="character" />
+	<main>
+		<Loading v-if="$fetchState.pending" />
+		<nuxt-child v-else :character="character" />
+	</main>
 </template>
 <script>
 

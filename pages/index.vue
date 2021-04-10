@@ -1,19 +1,24 @@
 <template>
-  <div>
-      <div><Button @click="stateTest">Primary</Button></div>
-      {{ counter }}
-      <div><Button type="secondary">Secondary</Button></div>
-      <div><Button type="warning">Warning</Button></div>
-      <div><Button type="success" @click="alert('test')">Success</Button></div>
-      <div><Button disabled @click="alert('test')">Disabled</Button></div>
-      <TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
-      <TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
-      {{ name }}
-      <TextArea v-model="description" label="Description" />
-      {{ description }}
-      <ButtonGroup :options="options" v-model="group" />
-      {{ group }}
-  </div>
+	<main>
+		<div><Button @click="stateTest">Primary</Button></div>
+		{{ counter }}
+		<div><Button type="secondary">Secondary</Button></div>
+		<div><Button type="warning">Warning</Button></div>
+		<div><Button type="success" @click="alert('test')">Success</Button></div>
+		<div><Button disabled @click="alert('test')">Disabled</Button></div>
+		<TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
+		<TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
+		{{ name }}
+		<TextArea v-model="description" label="Description" />
+		{{ description }}
+		<ButtonGroup :options="options" v-model="group" />
+		{{ group }}
+		<IconButton type="primary" icon="pencil" />
+		<IconButton type="secondary" icon="pencil" />
+		<IconButton type="warning" icon="pencil" />
+		<IconButton type="success" icon="pencil" />
+		<IconButton type="success" disabled icon="pencil" />
+	</main>
 </template>
 
 <script>

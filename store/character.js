@@ -27,24 +27,57 @@ export const mutations = {
 
 export const actions = {
 	async create({ commit }) {
-		const ref = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).add(DEFAULT_CHARACTER)
+		/*const ref = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).add(DEFAULT_CHARACTER)
 		const created = await ref.get()
 
 		const converted = convert(created)
 
 		commit('add', converted)
 
-		return converted
+		return converted*/
+		return null
 	},
 
 	async fetch({ commit }) {
-		let data = []
-		const query = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).get()
+		let data = [{ ...DUMMY_CHARACTER }]
+		/*const query = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).get()
 
-		query.forEach(doc => data.push(convert(doc)))
+		query.forEach(doc => data.push(convert(doc)))*/
 
 		commit('set', data)
 
 		return data
 	}
+}
+
+const DUMMY_CHARACTER = {
+	persona: {
+		card: null,
+		text: '',
+	},
+	shadow: {
+		card: null,
+		text: '',
+	},
+	attributes: {
+		Control: 5,
+		Strength: 2,
+		Focus: 3,
+		Passion: 2,
+	},
+	abilities: {
+		Diplomat: 4,
+		Guardian: 3,
+		Rogue: 2,
+		Scholar: 2,
+		Visionary: 1,
+	},
+	aspects: [
+	'Silver-tongued public speaker',
+	'Weakness for drink',
+	],
+	name: 'John Smith',
+	background: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mauris et mi blandit hendrerit. Integer vestibulum ex quis efficitur interdum. Pellentesque vehicula sapien eget justo sagittis pellentesque. Vivamus urna nunc, luctus ut elit at, faucibus dictum tellus. Quisque bibendum, diam eget blandit aliquam, ipsum arcu varius augue, et pharetra.',
+	image: '',
+	id: 'test-id',
 }

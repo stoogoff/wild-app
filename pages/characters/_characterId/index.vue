@@ -1,33 +1,30 @@
 <template>
-	<div class="mt-12">
+	<div class="pt-12 relative">
+		<span class="absolute top-6 right-0">
+			<IconButton icon="pencil" @click="editCharacter" />
+		</span>
+
 		<h1 class="text-4xl text-center font-semibold leading-normal mb-2 text-gray-800 mb-2">{{ character.name }}</h1>
 
-		<section>
+		<section class="mb-4">
 			<h2>Aspects</h2>
-				<div class="my-2 text-gray-700" :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-					{{ aspect }}
-				</div>
+			<div class="flex flex-wrap justify-center">
+				<ul class="w-full lg:w-9/12 px-4 list">
+					<li class="my-2 text-gray-700" :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
+						{{ aspect }}
+					</li>
+				</ul>
+			</div>
 		</section>
-		<section>
+		<section class="mb-2">
 			<h2>Attributes</h2>
-
-			<div class="flex justify-center py-4 lg:pt-4 pt-8">
-				<div class="mr-4 p-3 text-center" :key="`${attr}_${idx}`" v-for="(attr, idx) in Object.keys(character.attributes)">
-					<span class="text-xl font-bold block tracking-wide text-gray-700">{{ character.attributes[attr] }}</span
-					><span class="text-sm text-gray-500 uppercase">{{ attr }}</span>
-				</div>
-			</div>
+			<Attributes :values="character.attributes" />
 		</section>
-		<section>
+		<section class="mb-2">
 			<h2>Abilities</h2>
-			<div class="flex justify-center py-4 lg:pt-4 pt-8">
-				<div class="mr-4 p-3 text-center" :key="`${attr}_${idx}`" v-for="(attr, idx) in Object.keys(character.abilities)">
-					<span class="text-xl font-bold block tracking-wide text-gray-700">{{ character.abilities[attr] }}</span
-					><span class="text-sm text-gray-500 uppercase">{{ attr }}</span>
-				</div>
-			</div>
+			<Attributes :values="character.abilities" />
 		</section>
-		<section class="mt-10 py-10 border-t border-gray-300 text-center" v-if="character.background">
+		<section class="mt-10 py-10 border-t border-gray-300" v-if="character.background">
 			<div class="flex flex-wrap justify-center">
 				<div class="w-full lg:w-9/12 px-4">
 					<p class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
@@ -48,8 +45,17 @@ export default {
 
 	mounted() {
 		console.log('mounted::_characterId/index')
-		console.log(this.character)
+	},
+	methods: {
+		editCharacter() {
+			console.log('edit character')
+		},
 	},
 }
 
-</script>	
+</script>
+<style>
+h2 {
+	@apply uppercase text-gray-500 text-center;
+}
+</style>
