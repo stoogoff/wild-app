@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<p>Some blurb about creating a character.</p>
-		<section>
+		<Loading v-if="$fetchState.pending" />
+		<section v-else>
 			<ol class="m-3">
 				<li :key="`character_${character.id}`" v-for="(character, idx) in characters">
 					<nuxt-link :to="`/characters/${character.id}`">
