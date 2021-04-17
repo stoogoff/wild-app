@@ -1,4 +1,5 @@
 
+import cloneDeep from 'lodash/cloneDeep'
 import { DEFAULT_CHARACTER, COLLECTION_CHARACTERS } from '~/utils/config'
 
 // convert the object in the query to its data and ID
@@ -11,7 +12,7 @@ export const state = () => ({
 
 export const getters = {
 	byId: (state) => id => {
-		return state.characters.find(character => character.id === id)
+		return cloneDeep(state.characters.find(character => character.id === id))
 	}
 }
 
@@ -25,69 +26,36 @@ export const mutations = {
 	},
 
 	update(state, data) {
-		const updating = state.characters.find(({ id }) => id === data.id)
-
-		state.characters = [ ...state.characters.filter(({ id }) => id !== data.id), { ...updating, ...data } ]
+		state.characters = [ ...state.characters.filter(({ id }) => id !== data.id), cloneDeep(data) ]
 	},
 }
 
 export const actions = {
+	async save({ commit }, data) {
+		commit('update', data)
+
+		await this.$fire.firestore.collection(COLLECTION_CHARACTERS).doc(data.id).set(data)
+	},
+
 	async create({ commit }) {
-		/*const ref = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).add(DEFAULT_CHARACTER)
+		const ref = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).add(DEFAULT_CHARACTER)
 		const created = await ref.get()
 
 		const converted = convert(created)
 
 		commit('add', converted)
 
-		return converted*/
-		const character = { ...DEFAULT_CHARACTER, id: parseInt(Math.random()*1000000).toString(16) }
-
-		commit('add', character)
-
-		return character
+		return converted
 	},
 
 	async fetch({ commit }) {
-		let data = [{ ...DUMMY_CHARACTER }]
-		/*const query = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).get()
+		let data = []
+		const query = await this.$fire.firestore.collection(COLLECTION_CHARACTERS).get()
 
-		query.forEach(doc => data.push(convert(doc)))*/
+		query.forEach(doc => data.push(convert(doc)))
 
 		commit('set', data)
 
 		return data
 	}
-}
-
-const DUMMY_CHARACTER = {
-	persona: {
-		card: 'five-of-focus',
-		text: 'The persona of John smith',
-	},
-	shadow: {
-		card: 'ten-of-strength',
-		text: 'The shadow of John Smith',
-	},
-	attributes: {
-		Control: 5,
-		Strength: 2,
-		Focus: 3,
-		Passion: 2,
-	},
-	abilities: {
-		Diplomat: 4,
-		Guardian: 3,
-		Rogue: 2,
-		Scholar: 2,
-		Visionary: 1,
-	},
-	aspects: [
-		'Silver-tongued public speaker',
-		'Weakness for drink',
-	],
-	name: 'John Smith',
-	background: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mauris et mi blandit hendrerit. Integer vestibulum ex quis efficitur interdum. Pellentesque vehicula sapien eget justo sagittis pellentesque. Vivamus urna nunc, luctus ut elit at, faucibus dictum tellus. Quisque bibendum, diam eget blandit aliquam, ipsum arcu varius augue, et pharetra.',
-	image: '',
-	id: 'test-id',
 }

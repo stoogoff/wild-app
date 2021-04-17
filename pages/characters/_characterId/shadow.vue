@@ -1,34 +1,37 @@
 <template>
-	<section>
-		<h1>2. Shadow</h1>
-		<p>The next card in the WILD Tarot drawn gives you some ideas what is holding you back, or getting in your way. This is your Shadow.</p>
-		<p>Use the button to draw some cards to inspire your character and use for your shadow.</p>
-		<Loading v-if="loading" />
-		<Card :card="selectedCard" v-else-if="selectedCard !== null" />
-		<Button @click="drawCard">Draw</Button>
-		<TextInput
-			label="Shadow"
-			v-model="shadow"
-			:disabled="selectedCard === null"
-		/>
-		<hr/>
-		<Stepper
-			:next="`/characters/${character.id}/attributes`"
-			:previous="`/characters/${character.id}/persona`"
-			:disabled="shadow === ''"
-			@click="save"
-		/>
-	</section>
+	<main class="pt-12 relative">
+		<Loading v-if="loading || character === null" />
+		<section v-else>
+			<h1>2. Shadow</h1>
+			<p>The next card in the WILD Tarot drawn gives you some ideas what is holding you back, or getting in your way. This is your Shadow.</p>
+			<p>Use the button to draw some cards to inspire your character and use for your shadow.</p>
+			<Loading v-if="loading" />
+			<Card :card="selectedCard" v-else-if="selectedCard !== null" />
+			<Button @click="drawCard">Draw</Button>
+			<TextInput
+				label="Shadow"
+				v-model="character.shadow.text"
+				:disabled="selectedCard === null"
+			/>
+			<hr/>
+			<Stepper
+				:next="`/characters/${character.id}/attributes`"
+				:previous="`/characters/${character.id}/persona`"
+				:disabled="!canContinue"
+				@click="save"
+			/>
+		</section>
+	</main>
 </template>
 <script>
 
-import CharacterCreation from '~/mixins/CharacterCreation'
-
 export default {
-	mixins: [CharacterCreation],
-
 	async fetch() {
 		this.loading = true
+
+		const { params } = this.$nuxt.context
+
+		this.character = await this.$store.getters['character/byId'](params.characterId)
 
 		if(this.character.shadow.card) {
 			this.selectedCard = await this.$store.getters['deck/getCard'](this.character.shadow.card)
@@ -36,13 +39,20 @@ export default {
 
 		this.loading = false
 	},
+	fetchOnServer: false,
 
 	data() {
 		return {
 			loading: false,
+			character: null,
 			selectedCard: null,
-			shadow: this.character.shadow.text || '',
 		}
+	},
+
+	computed: {
+		canContinue() {
+			return this.character.shadow.text !== ''
+		},
 	},
 
 	methods: {
@@ -57,10 +67,10 @@ export default {
 
 		save() {
 			this.$store.commit('character/update', {
-				id: this.editingCharacter.id,
+				...this.character,
 				shadow: {
 					card: this.selectedCard.id,
-					text: this.shadow,
+					text: this.character.shadow.text,
 				}
 			})
 		},
