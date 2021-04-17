@@ -3,7 +3,8 @@
 		<h1>2. Shadow</h1>
 		<p>The next card in the WILD Tarot drawn gives you some ideas what is holding you back, or getting in your way. This is your Shadow.</p>
 		<p>Use the button to draw some cards to inspire your character and use for your shadow.</p>
-		<Card :card="selectedCard" v-if="selectedCard !== null" />
+		<Loading v-if="loading" />
+		<Card :card="selectedCard" v-else-if="selectedCard !== null" />
 		<Button @click="drawCard">Draw</Button>
 		<TextInput
 			label="Shadow"
@@ -27,13 +28,18 @@ export default {
 	mixins: [CharacterCreation],
 
 	async fetch() {
+		this.loading = true
+
 		if(this.character.shadow.card) {
 			this.selectedCard = await this.$store.getters['deck/getCard'](this.character.shadow.card)
 		}
+
+		this.loading = false
 	},
 
 	data() {
 		return {
+			loading: false,
 			selectedCard: null,
 			shadow: this.character.shadow.text || '',
 		}
@@ -41,9 +47,12 @@ export default {
 
 	methods: {
 		async drawCard() {
+			this.loading = true
+
 			const cards = await this.$store.dispatch('deck/draw', 1)
 
 			this.selectedCard = cards[0]
+			this.loading = false
 		},
 
 		save() {

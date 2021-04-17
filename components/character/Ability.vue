@@ -4,15 +4,12 @@
 			<slot></slot>
 			<TextInput
 				:label="title"
-				v-model="editing"
+				:value="value"
 			/>
 			<ButtonGroup
-				v-model="editing"
-				:options="options.map(opt => ({
-					...opt,
-					disabled: opt.text === value ? false : opt.disabled,
-					type: opt.text === value ? 'success' : 'primary',
-				}))"
+				:value="value"
+				:options="mappedOptions"
+				@input="$emit('input', $event)"
 			/>
 		</section>
 </template>
@@ -37,40 +34,15 @@ export default Vue.component('Ability', {
 		},
 	},
 
-	data() {
-		return {
-			editing: this.value,
-		}
-	},
-
-	watch: {
-		value(newValue) {
-			this.editing = newValue
-		},
-
-		editing(newValue) {
-			this.$emit('input', newValue)
+	computed: {
+		mappedOptions() {
+			return this.options.map(opt => ({
+				...opt,
+				disabled: opt.text === this.value ? false : opt.disabled,
+				type: opt.text === this.value ? 'success' : 'primary',
+			}))
 		},
 	},
 })
-
-/*
-import ButtonGroup from './buttons/ButtonGroup'
-import TextInput from './inputs/TextInput'
-
-const Ability = ({ title, value, children, options, onChange }) => {
-	return <section>
-		<h2>{ title }</h2>
-		<p>{ children }</p>
-		<TextInput label={ title } value={ value } />
-		<ButtonGroup options={ options.map(opt => ({
-			...opt,
-			disabled: opt.text === value ? false : opt.disabled,
-			type: opt.text === value ? 'success' : 'primary',
-		})) } onChange={ onChange } />
-	</section>
-}
-
-export default Ability*/
 
 </script>

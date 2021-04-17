@@ -61,7 +61,16 @@ export default {
 
 		removeAspect(toRemove) {
 			this.editingCharacter.aspects = this.editingCharacter.aspects.filter((_a, idx) => idx !== toRemove)
-		}
+		},
+
+		save() {
+			this.$store.commit('character/update', {
+				id: this.editingCharacter.id,
+				aspects: {
+					...this.editingCharacter.aspects
+				},
+			})
+		},
 	},
 }
 
