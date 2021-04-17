@@ -26,10 +26,16 @@ import CharacterCreation from '~/mixins/CharacterCreation'
 export default {
 	mixins: [CharacterCreation],
 
+	async fetch() {
+		if(this.character.shadow.card) {
+			this.selectedCard = await this.$store.getters['deck/getCard'](this.character.shadow.card)
+		}
+	},
+
 	data() {
 		return {
 			selectedCard: null,
-			shadow: '',
+			shadow: this.character.shadow.text || '',
 		}
 	},
 

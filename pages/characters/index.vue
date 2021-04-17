@@ -21,7 +21,7 @@ export default {
 	async fetch() {
 		this.characters = await this.$store.dispatch('character/fetch')
 	},
-	fetchOnserver: false,
+	fetchOnServer: false,
 
 	data() {
 		return {

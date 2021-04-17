@@ -1,6 +1,6 @@
 <template>
 	<main>
-		<Loading v-if="$fetchState.pending" />
+		<Loading v-if="$fetchState.pending && character === null" />
 		<nuxt-child v-else :character="character" />
 	</main>
 </template>
@@ -11,7 +11,6 @@ import cloneDeep from 'lodash/cloneDeep'
 export default {
 	async fetch() {
 		const { params } = this.$nuxt.context
-
 		const character = await this.$store.getters['character/byId'](params.characterId)
 
 		this.character = cloneDeep(character)
@@ -25,7 +24,7 @@ export default {
 	},
 
 	mounted() {
-		console.log('mounted::_characterId')
+		console.log('_characterId::mounted', this.character)
 	},
 }
 

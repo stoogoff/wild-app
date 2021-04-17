@@ -29,21 +29,27 @@ import CharacterCreation from '~/mixins/CharacterCreation'
 export default {
 	mixins: [CharacterCreation],
 
+	async fetch() {
+		if(this.selectedCard) {
+			this.cards = [ await this.$store.getters['deck/getCard'](this.selectedCard) ]
+		}
+	},
+
 	data() {
 		return {
 			cards: [],
-			persona: '',
-			selectedCard: null,
+			persona: this.character.persona.text || '',
+			selectedCard: this.character.persona.card || null,
 		}
 	},
 
 	methods: {
 		toggleSelectedCard(card) {
-			if(this.selectedCard && this.selectedCard.id === card.id) {
+			if(this.selectedCard && this.selectedCard === card.id) {
 				this.selectedCard = null
 			}
 			else {
-				this.selectedCard = card
+				this.selectedCard = card.id
 			}
 		},
 
@@ -55,7 +61,7 @@ export default {
 			this.$store.commit('character/update', {
 				id: this.editingCharacter.id,
 				persona: {
-					card: this.selectedCard.id,
+					card: this.selectedCard,
 					text: this.persona,
 				}
 			})

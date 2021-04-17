@@ -41,13 +41,13 @@ export default {
 	mixins: [CharacterCreation],
 
 	mounted() {
-		console.log('mounted::_characterId/index')
+		console.log('_characterId/index::mounted', this.character)
 	},
 	methods: {
 		editCharacter() {
 			const { redirect } = this.$nuxt.context
 
-			redirect(`/characters/${this.character.id}/attributes`)
+			redirect(`/characters/${this.character.id}/persona`)
 		},
 	},
 }

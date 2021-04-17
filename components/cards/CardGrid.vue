@@ -5,7 +5,7 @@
 			<Button
 				block
 				@click="$emit('click', card)"
-				:type="selected && selected.id === card.id ? 'success' : 'secondary'"
+				:type="selected && selected === card.id ? 'success' : 'secondary'"
 			>
 				Use Card
 			</Button>
@@ -22,7 +22,7 @@ export default Vue.component('CardGrid', {
 			required: true,
 		},
 		selected: {
-			type: Object,
+			type: String,
 			default: null,
 		}
 	},

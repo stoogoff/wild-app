@@ -21,3 +21,18 @@
 	<Debug />
 	</div>
 </template>
+<script>
+	
+export default {
+	async fetch() {
+		console.log('layouts/default::fetch START')
+
+		const characters = await this.$store.dispatch('character/fetch')
+
+		console.log('got characters', characters)
+		console.log('layouts/default::fetch END')
+	},
+	fetchOnServer: false,
+}
+
+</script>

@@ -15,7 +15,7 @@ import Vue from 'vue'
 export default Vue.component('ButtonGroup', {
 	props: {
 		value: {
-			type: String,
+			type: [String, Number],
 			required: true,
 		},
 		options: {

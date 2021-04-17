@@ -61,16 +61,22 @@ import {
 export default {
 	mixins: [CharacterCreation],
 	
-	data() {
+	/*data() {
 		return {
 			options: Object.keys(ABILITY_SPREAD).map(value => (
 				{
 					value,
 					text: ABILITY_SPREAD[value],
-					disabled: chosen.includes(ABILITY_SPREAD[value])
+					disabled: this.chosen.includes(ABILITY_SPREAD[value])
 				}
 			))
 		}
+	},*/
+
+	mounted() {
+		console.log('abilities::mounted')
+		console.log(this.editingCharacter)
+		//console.log(this.options)
 	},
 
 	computed: {
@@ -99,12 +105,22 @@ export default {
 		},
 
 		chosen() {
+			console.log('chosen=', this.editingCharacter.abilities)
 			return Object.values(this.editingCharacter.abilities).filter(attr => !!attr)
 		},
 
 		allChosen() {
 			return this.options.filter(opt => opt.disabled).length === 3
-		}
+		},
+
+		options() {
+			return Object.keys(ABILITY_SPREAD).map(
+				value => ({
+					value,
+					text: ABILITY_SPREAD[value],
+					disabled: false//this.chosen.includes(ABILITY_SPREAD[value])
+			}))
+		},
 	},
 
 	methods: {

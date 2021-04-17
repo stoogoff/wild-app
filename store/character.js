@@ -62,12 +62,12 @@ export const actions = {
 
 const DUMMY_CHARACTER = {
 	persona: {
-		card: null,
-		text: '',
+		card: 'five-of-focus',
+		text: 'The persona of John smith',
 	},
 	shadow: {
-		card: null,
-		text: '',
+		card: 'ten-of-strength',
+		text: 'The shadow of John Smith',
 	},
 	attributes: {
 		Control: 5,
