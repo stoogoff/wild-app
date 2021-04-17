@@ -1,7 +1,8 @@
 <template>
 	<div class="flex">
-		<Link block type="secondary" :to="previous">Previous</Link>
-		<Link block :to="next" :disabled="disabled">Next</Link>
+		<Link block type="secondary" :to="previous" v-if="previous">Previous</Link>
+		<Link block type="secondary" to="/" v-else>Exit</Link>
+		<Button block :disabled="disabled" @click="nextClick">Next</Button>
 	</div>
 </template>
 <script>
@@ -15,12 +16,19 @@ export default Vue.component('Stepper', {
 		},
 		previous: {
 			type: String,
-			required: true,
+			default: '',
 		},
 		disabled: {
 			type: Boolean,
 			default: false,
 		},
+	},
+
+	methods: {
+		nextClick() {
+			this.$emit('click')
+			this.$router.push(this.next)
+		}
 	},
 })
 </script>

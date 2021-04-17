@@ -1,66 +1,66 @@
 <template>
 	<section>
+		<h1>1. Persona</h1>
 		<p>Define who your character is, determine the basic concept for who they are. Who they are and what they are like. This involves choosing a card from the WILD Tarot deck that best signifies your character.</p>
 		<p>Use the button to draw some cards to inspire your character and use for your persona.</p>
-		<!--CardGrid cards={ cards } selected={ selectedCard } toggleSelected={ toggleSelectedCard } />
-		<Button onClick={ drawCards }>Draw</Button>
-		<TextInput label="Persona" value={ character.persona.text } onChange={ setPersona } disabled={ selectedCard === null} />
+		<CardGrid
+			:cards="cards"
+			:selected="selectedCard"
+			@click="toggleSelectedCard"
+		/>
+		<Button @click="drawCards">Draw</Button>
+		<TextInput
+			label="Persona"
+			v-model="persona"
+			:disabled="selectedCard === null"
+		/>
 		<hr/>
 		<Stepper
-			character={ character }
-			next={ `/characters/${character.id}/shadow` }
-			disabled={ selectedCard === null || character.persona.text === '' }
-		/-->
+			:next="`/characters/${character.id}/shadow`"
+			:disabled="selectedCard === null || persona === ''"
+			@click="save"
+		/>
 	</section>
 </template>
 <script>
 
-/*
-import { useState } from 'react'
-import { useGetCharacterById } from '~/hooks/character'
-import { draw } from '~/lib/deck'
-import Layout from '~/components/Layout'
-import TextInput from '~/components/inputs/TextInput'
-import Button from '~/components/buttons/Button'
-import CardGrid from '~/components/cards/CardGrid'
-import Stepper from '~/components/buttons/Stepper'
-*/
+import CharacterCreation from '~/mixins/CharacterCreation'
+
 export default {
+	mixins: [CharacterCreation],
 
 	data() {
 		return {
-			loading: false,
-			character: null,
+			cards: [],
+			persona: '',
+			selectedCard: null,
 		}
 	},
 
-	/*
-	// boilerplate
-	const [loading, setLoading] = useState(false)
-	const [character, updateCharacter] = useGetCharacterById(setLoading)
+	methods: {
+		toggleSelectedCard(card) {
+			if(this.selectedCard && this.selectedCard.id === card.id) {
+				this.selectedCard = null
+			}
+			else {
+				this.selectedCard = card
+			}
+		},
 
-	// page specific
-	const [cards, setCards] = useState([])
-	const [selectedCard, setSelectedCard] = useState(null)
+		async drawCards() {
+			this.cards = await this.$store.dispatch('deck/draw', 5)
+		},
 
-	const setPersona = value => updateCharacter({ ...character, persona: { ...character.persona, text: value } })
-	const drawCards = () => setCards([ ...draw(5) ])
-	const toggleSelectedCard = card => {
-		if(selectedCard && selectedCard.id === card.id) {
-			setSelectedCard(null)
-			updateCharacter({ ...character, persona: { ...character.persona, card: null } })
-		}
-		else {
-			setSelectedCard(card)
-			updateCharacter({ ...character, persona: { ...character.persona, card: card.id } })
-		}
-	}
-
-	console.log('character=', character)
-*/
-
+		save() {
+			this.$store.commit('character/update', {
+				id: this.editingCharacter.id,
+				persona: {
+					card: this.selectedCard.id,
+					text: this.persona,
+				}
+			})
+		},
+	},
 }
-
-
 
 </script>

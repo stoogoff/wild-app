@@ -35,10 +35,10 @@
 </template>
 <script>
 
-import Character from '~/mixins/Character'
+import CharacterCreation from '~/mixins/CharacterCreation'
 
 export default {
-	mixins: [Character],
+	mixins: [CharacterCreation],
 
 	mounted() {
 		console.log('mounted::_characterId/index')

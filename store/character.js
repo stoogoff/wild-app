@@ -22,7 +22,13 @@ export const mutations = {
 
 	add(state, character) {
 		state.characters.push(character)
-	}
+	},
+
+	update(state, data) {
+		const updating = state.characters.find(({ id }) => id === data.id)
+
+		state.characters = [ ...state.characters.filter(({ id }) => id !== data.id), { ...updating, ...data } ]
+	},
 }
 
 export const actions = {
@@ -35,7 +41,11 @@ export const actions = {
 		commit('add', converted)
 
 		return converted*/
-		return null
+		const character = { ...DEFAULT_CHARACTER, id: parseInt(Math.random()*1000000).toString(16) }
+
+		commit('add', character)
+
+		return character
 	},
 
 	async fetch({ commit }) {
@@ -73,8 +83,8 @@ const DUMMY_CHARACTER = {
 		Visionary: 1,
 	},
 	aspects: [
-	'Silver-tongued public speaker',
-	'Weakness for drink',
+		'Silver-tongued public speaker',
+		'Weakness for drink',
 	],
 	name: 'John Smith',
 	background: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mauris et mi blandit hendrerit. Integer vestibulum ex quis efficitur interdum. Pellentesque vehicula sapien eget justo sagittis pellentesque. Vivamus urna nunc, luctus ut elit at, faucibus dictum tellus. Quisque bibendum, diam eget blandit aliquam, ipsum arcu varius augue, et pharetra.',

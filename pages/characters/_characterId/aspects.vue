@@ -19,8 +19,8 @@
 		<div>
 			<Button @click="addAspect" :disabled="!canAdd">Add</Button>
 
-			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx]" >
+			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in editingCharacter.aspects">
+				<TextInput :label="`Aspect ${idx + 1}`" v-model="editingCharacter.aspects[idx]" >
 					<template #append>
 						<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
 							<Icon icon="close" />
@@ -38,29 +38,29 @@
 </template>
 <script>
 
-import Character from '~/mixins/Character'
+import CharacterCreation from '~/mixins/CharacterCreation'
 import { ASPECTS_MIN, ASPECTS_MAX } from '~/utils/config'
 
 export default {
-	mixins: [Character],
+	mixins: [CharacterCreation],
 
 	computed: {
 		canAdd() {
-			return this.character.aspects.length < ASPECTS_MAX
+			return this.editingCharacter.aspects.length < ASPECTS_MAX
 		},
 
 		aspectsSet() {
-			return this.character.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN
+			return this.editingCharacter.aspects.filter(aspect => !!aspect).length >= ASPECTS_MIN
 		},
 	},
 
 	methods: {
 		addAspect() {
-			this.character.aspects = [ ...this.character.aspects, '' ]
+			this.editingCharacter.aspects = [ ...this.editingCharacter.aspects, '' ]
 		},
 
 		removeAspect(toRemove) {
-			this.character.aspects = this.character.aspects.filter((_a, idx) => idx !== toRemove)
+			this.editingCharacter.aspects = this.editingCharacter.aspects.filter((_a, idx) => idx !== toRemove)
 		}
 	},
 }
