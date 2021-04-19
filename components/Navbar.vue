@@ -1,5 +1,5 @@
 <template>
-	<nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3">
+	<nav :class="`top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-1 ${background}`">
 		<div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
 			<div class="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
 				<nuxt-link class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase" to="/">WILD</nuxt-link>
@@ -12,7 +12,7 @@
 				</button>
 			</div>
 			<div
-				class="md:flex flex-grow items-center bg-white md:bg-transparent md:shadow-none py-4"
+				class="absolute top-14 left-4 right-4 md:static md:flex flex-grow items-center bg-white md:bg-transparent md:shadow-none py-4"
 				:class="navbarOpen ? 'block rounded shadow-lg' : 'hidden'"
 			>
 				<ul class="flex flex-col md:flex-row md:ml-auto relative">
@@ -50,6 +50,13 @@
 import Vue from 'vue'
 
 export default Vue.component('Navbar', {
+	props: {
+		transparent: {
+			type: Boolean,
+			default: false,
+		}
+	},
+
 	async fetch() {
 		const characters = await this.$store.dispatch('character/fetch')
 
@@ -101,6 +108,12 @@ export default Vue.component('Navbar', {
 				this.suppressClose = false
 			})
 		})
+	},
+
+	computed: {
+		background() {
+			return this.transparent ? 'bg-transparent' : 'bg-gray-600'
+		},
 	},
 
 	methods: {

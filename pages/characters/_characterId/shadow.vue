@@ -2,9 +2,7 @@
 	<main class="pt-12 relative">
 		<Loading v-if="loading || character === null" />
 		<section v-else>
-			<h1>2. Shadow</h1>
-			<p>The next card in the WILD Tarot drawn gives you some ideas what is holding you back, or getting in your way. This is your Shadow.</p>
-			<p>Use the button to draw some cards to inspire your character and use for your shadow.</p>
+			<MarkdownContent content="characters/shadow" />
 			<Loading v-if="loading" />
 			<Card :card="selectedCard" v-else-if="selectedCard !== null" />
 			<Button @click="drawCard">Draw</Button>

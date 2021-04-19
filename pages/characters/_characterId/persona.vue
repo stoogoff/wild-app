@@ -2,9 +2,7 @@
 	<main class="pt-12 relative">
 		<Loading v-if="loading || character === null" />
 		<section v-else>
-			<h1>1. Persona</h1>
-			<p>Define who your character is, determine the basic concept for who they are. Who they are and what they are like. This involves choosing a card from the WILD Tarot deck that best signifies your character.</p>
-			<p>Use the button to draw some cards to inspire your character and use for your persona.</p>
+			<MarkdownContent content="characters/persona" />
 			<CardGrid
 				:cards="cards"
 				:selected="character.persona.card"

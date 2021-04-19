@@ -2,8 +2,7 @@
 	<main>
 		<Loading v-if="$fetchState.pending" />
 		<section v-else>
-			<h1>{{ suit.title }}</h1>
-			<nuxt-content :document="suit" />
+			<MarkdownContent :content="contentPath" />
 			<hr />
 			<Card :key="card.id" :card="card" v-for="card in cards" />
 		</section>
@@ -16,16 +15,22 @@ export default Vue.component('name', {
 	async fetch() {
 		const { params } = this.$nuxt.context
 
-		this.suit = await this.$content(`tarot/${params.suit}`).fetch()
 		this.cards = await this.$store.getters['deck/getSuit'](params.suit)
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
-			suit: null,
 			cards: [],
 		}
-	}
+	},
+
+	computed: {
+		contentPath() {
+			const { params } = this.$nuxt.context
+
+			return `tarot/${params.suit}`
+		}
+	},
 })
 </script>

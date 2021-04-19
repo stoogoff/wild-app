@@ -2,22 +2,7 @@
 	<main class="pt-12 relative">
 		<Loading v-if="loading || character === null" />
 		<section v-else>
-			<h1>5: Aspects</h1>
-			<p>Choose a handful of Aspects that help to define your characters strengths and weaknesses. Aspects are simple phrases that, if applicable to a situation, make the task easier or harder. Characters usually start with two or three.</p>
-			<p>Some example aspects:</p>
-			<ul class="list">
-				<li>Devilishly Handsome</li>
-				<li>Quick Tempered</li>
-				<li>Overly Cautious</li>
-				<li>Stickler for Detail</li>
-				<li>Superstitious</li>
-				<li>Addictive Personality</li>
-				<li>Likes a Drink</li>
-				<li>Afraid of Spiders</li>
-				<li>Hates Guns</li>
-				<li>Can’t Drive</li>
-				<li>Allergic to Dogs</li>
-			</ul>
+			<MarkdownContent content="characters/aspects" />
 			<div>
 				<Button @click="addAspect" :disabled="!canAdd">Add</Button>
 

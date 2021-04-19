@@ -2,8 +2,7 @@
 	<main class="pt-12 relative">
 		<Loading v-if="loading || character === null" />
 		<section v-else>
-			<h1>4: Abilities</h1>
-			<p>There are five Abilities which reflect the characters talents, skills and training. These Abilities are <strong>Diplomat</strong>, <strong>Guardian</strong>, <strong>Rogue</strong>, <strong>Scholar</strong> and <strong>Visionary</strong>. Again, these are scored between {{ ABILITY_MIN }} and {{ ABILITY_MAX }}. You begin by deciding which Ability is your strongest ({{ ABILITY_STRONG }}), your weakest ({{ ABILITY_WEAK }}), your second strongest ({{ ABILITY_MID }}) and then giving the remaining two Abilities the score of {{ ABILITY_REST }}.</p>
+			<MarkdownContent content="characters/abilities" />
 			<Ability
 				title="Diplomat"
 				:value="character.abilities.Diplomat"
@@ -55,16 +54,6 @@
 </template>
 <script>
 
-import {
-	ABILITY_MAX,
-	ABILITY_MID,
-	ABILITY_MIN,
-	ABILITY_REST,
-	ABILITY_SPREAD,
-	ABILITY_STRONG,
-	ABILITY_WEAK,
-} from '~/utils/config'
-
 export default {
 	async fetch() {
 		this.loading = true
@@ -84,30 +73,6 @@ export default {
 	},
 
 	computed: {
-		ABILITY_MIN() {
-			return ABILITY_MIN
-		},
-
-		ABILITY_MAX() {
-			return ABILITY_MAX
-		},
-
-		ABILITY_STRONG() {
-			return ABILITY_STRONG
-		},
-
-		ABILITY_WEAK() {
-			return ABILITY_WEAK
-		},
-
-		ABILITY_MID() {
-			return ABILITY_MID
-		},
-
-		ABILITY_REST() {
-			return ABILITY_REST
-		},
-
 		chosen() {
 			return Object.values(this.character.abilities).filter(attr => !!attr)
 		},

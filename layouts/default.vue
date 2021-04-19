@@ -1,36 +1,22 @@
 <template>
 	<div>
-		<Navbar transparent />
-		<section class="relative block" style="height: 500px">
-			<div id="cover-image" class="absolute top-0 w-full h-full bg-center bg-cover">
-				<span class="w-full h-full absolute opacity-50 bg-black"></span>
-			</div>
-			<div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height: 70px">
-				<svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-					<polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100" ></polygon>
-				</svg>
-			</div>
-		</section>
-		<section class="relative py-16 bg-gray-300">
+		<Navbar />
+		<section class="relative py-16 ">
 			<div class="container mx-auto md:px-4">
-				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-64">
+				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg py-8">
 					<Nuxt />
 				</div>
 			</div>
 		</section>
-	<Debug />
+		<Footer />
+		<Debug />
 	</div>
 </template>
 <script>
 	
 export default {
 	async fetch() {
-		console.log('layouts/default::fetch START')
-
-		const characters = await this.$store.dispatch('character/fetch')
-
-		console.log('got characters', characters)
-		console.log('layouts/default::fetch END')
+		await this.$store.dispatch('character/fetch')
 	},
 	fetchOnServer: false,
 }

@@ -1,13 +1,21 @@
 <template>
 	<main class="pt-12 relative">
-		<Loading v-if="loading || character === null" />
-		<section v-else>
-			<span class="absolute top-6 right-0">
+		<Loading v-if="$fetchState.pending || character === null" />
+		<div v-else>
+			<span class="absolute top-6 right-2">
 				<IconButton icon="pencil" @click="editCharacter" />
 			</span>
 
-			<h1 class="text-4xl text-center font-semibold leading-normal mb-2 text-gray-800 mb-2">{{ character.name }}</h1>
+			<h1 class="text-4xl text-center font-semibold leading-normal mb-4 text-gray-800">{{ character.name }}</h1>
 
+			<section class="mb-2">
+				<h2>Attributes</h2>
+				<Attributes :values="character.attributes" />
+			</section>
+			<section class="mb-2">
+				<h2>Abilities</h2>
+				<Attributes :values="character.abilities" />
+			</section>
 			<section class="mb-4">
 				<h2>Aspects</h2>
 				<div class="flex flex-wrap justify-center">
@@ -18,14 +26,6 @@
 					</ul>
 				</div>
 			</section>
-			<section class="mb-2">
-				<h2>Attributes</h2>
-				<Attributes :values="character.attributes" />
-			</section>
-			<section class="mb-2">
-				<h2>Abilities</h2>
-				<Attributes :values="character.abilities" />
-			</section>
 			<section class="mt-10 py-10 border-t border-gray-300" v-if="character.background">
 				<div class="flex flex-wrap justify-center">
 					<div class="w-full lg:w-9/12 px-4">
@@ -33,32 +33,31 @@
 					</div>
 				</div>
 			</section>
-		</section>
+			<section class="flex mb-4">
+				<div class="w-1/2 pr-1"><Button block>Play</Button></div>
+				<div class="w-1/2 pl-1"><Button block>Solo</Button></div>
+			</section>
+		</div>
 	</main>
 </template>
 <script>
 
 export default {
-	async fetch() {
-		this.loading = true
+	layout: 'image',
 
+	async fetch() {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$store.getters['character/byId'](params.characterId)
-		this.loading = false
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
-			loading: false,
 			character: null,
 		}
 	},
 
-	mounted() {
-		console.log('_characterId/index::mounted', this.character)
-	},
 	methods: {
 		editCharacter() {
 			const { redirect } = this.$nuxt.context

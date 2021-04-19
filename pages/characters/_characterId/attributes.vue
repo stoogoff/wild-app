@@ -2,9 +2,7 @@
 	<main class="pt-12 relative">
 		<Loading v-if="loading || character === null" />
 		<section v-else>
-			<h1>3. Attributes</h1>
-
-			<p>There are four Attributes which reflect how strong physically and emotionally you are, and how in control you are both physically and mentally. These Attributes are <strong>Control</strong>, <strong>Focus</strong>, <strong>Passion</strong> and <strong>Strength</strong>. They are rated between {{ ATTRIBUTE_MIN }} and {{ ATTRIBUTE_MAX }}, and you can allocate {{ ATTRIBUTES_STARTING }} points between them. Attributes have a starting maximum value of {{ ATTRIBUTE_STARTING_MAX }}</p>
+			<MarkdownContent content="characters/attributes" />
 			<h3 :class="remainingClass">Points remaining: {{ remaining }}</h3>
 			<AttributeEdit
 				title="Control"
@@ -44,7 +42,6 @@ import {
 	ATTRIBUTE_MAX,
 	ATTRIBUTE_MIN,
 	ATTRIBUTES_STARTING,
-	ATTRIBUTE_STARTING_MAX,
 } from '~/utils/config'
 
 export default {
@@ -66,19 +63,6 @@ export default {
 	},
 
 	computed: {
-		ATTRIBUTE_MIN() {
-			return ATTRIBUTE_MIN
-		},
-		ATTRIBUTE_MAX() {
-			return ATTRIBUTE_MAX
-		},
-		ATTRIBUTES_STARTING() {
-			return ATTRIBUTES_STARTING
-		},
-		ATTRIBUTE_STARTING_MAX() {
-			return ATTRIBUTE_STARTING_MAX
-		},
-
 		attrs() {
 			return [
 				this.character.attributes.Control,
