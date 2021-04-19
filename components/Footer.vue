@@ -26,8 +26,7 @@
 						<a
 							:key="`elsewhere_${idx}`"
 							v-for="(item, idx) in elsewhere"
-							class="bg-white text-purple-600 shadow-lg rounded-full outline-none focus:outline-none mr-2 p-3 inline-block"
-							:class="item.colour"
+							class="bg-white text-blue-600 shadow-lg rounded-full outline-none focus:outline-none mr-2 p-3 inline-block"
 							:href="item.href"
 							target="_blank"
 						>

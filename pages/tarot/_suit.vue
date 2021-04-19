@@ -1,17 +1,43 @@
 <template>
-	<main>
+	<main
+		class="p-0 w-screen h-screen break-words bg-white"
+	>
 		<Loading v-if="$fetchState.pending" />
-		<section v-else>
-			<MarkdownContent :content="contentPath" />
-			<hr />
-			<Card :key="card.id" :card="card" v-for="card in cards" />
-		</section>
+		<swiper v-else>
+			<swiper-slide>
+				<article>
+					<MarkdownContent :content="contentPath" />
+				</article>
+			</swiper-slide>
+			<swiper-slide :key="card.id" v-for="card in cards">
+				<Card :card="card" />
+			</swiper-slide>
+		</swiper>
 	</main>
 </template>
 <script>
-import Vue from 'vue'
 
-export default Vue.component('name', {
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+
+// import style (>= Swiper 6.x)
+import 'swiper/swiper-bundle.css'
+
+// import style (<= Swiper 5.x)
+//import 'swiper/css/swiper.css'
+
+
+export default {
+	components: {
+		Swiper,
+		SwiperSlide
+	},
+
+	directives: {
+		swiper: directive
+	},
+
+	layout: 'slider',
+
 	async fetch() {
 		const { params } = this.$nuxt.context
 
@@ -30,7 +56,12 @@ export default Vue.component('name', {
 			const { params } = this.$nuxt.context
 
 			return `tarot/${params.suit}`
-		}
+		},
 	},
-})
+}
 </script>
+<style scoped>
+.swiper-wrapper, .swiper-slide {
+	@apply pt-16 h-full w-full;
+}
+</style>
