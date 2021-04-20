@@ -1,6 +1,6 @@
 <template>
 	<nav :class="`top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-1 ${background}`">
-		<div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+		<div class="container pl-4 pr-0 md:px-10 mx-auto flex flex-wrap items-center justify-between">
 			<div class="w-full relative flex justify-between md:w-auto md:static md:block md:justify-start">
 				<nuxt-link class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase" to="/">WILD</nuxt-link>
 				<button
@@ -93,6 +93,15 @@ export default Vue.component('Navbar', {
 						{ title: 'Strength', href: '/tarot/strength' },
 						{ title: 'Major Arcana', href: '/tarot/major-arcana' },
   			  ]
+  			},
+  			{
+  				title: 'Account',
+  				href: '/account',
+  				icon: 'account-circle',
+  				menuItems: [
+  					{ title: 'Login', href: '/account/login'},
+  					{ title: 'Register', href: '/account/register'},
+  				]
   			},
   		]
 		}

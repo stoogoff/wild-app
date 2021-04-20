@@ -6,7 +6,7 @@
 				<IconButton icon="pencil" @click="editCharacter" />
 			</span>
 
-			<img v-if="image !== null" :src="image" />
+			<img v-if="image !== null" :src="image" class="block w-full mb-4" />
 
 			<h1 class="text-4xl text-center font-semibold leading-normal mb-4 text-gray-800">{{ character.name }}</h1>
 

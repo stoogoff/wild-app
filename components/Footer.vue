@@ -26,7 +26,8 @@
 						<a
 							:key="`elsewhere_${idx}`"
 							v-for="(item, idx) in elsewhere"
-							class="bg-white text-blue-600 shadow-lg rounded-full outline-none focus:outline-none mr-2 p-3 inline-block"
+							class="bg-white shadow-lg rounded-full outline-none focus:outline-none mr-2 p-3 inline-block"
+							:class="item.colour"
 							:href="item.href"
 							target="_blank"
 						>
@@ -80,9 +81,9 @@ export default {
 	data() {
 		return {
 			elsewhere: [
-				{ icon: 'twitter', href: 'https://twitter.com/autocratik' },
-				{ icon: 'facebook', href: 'https://www.facebook.com/WILDRPG/' },
-				{ icon: 'web', href: 'https://www.autocratik.com/' },
+				{ icon: 'twitter', href: 'https://twitter.com/autocratik', colour: 'text-blue-400' },
+				{ icon: 'facebook', href: 'https://www.facebook.com/WILDRPG/', colour: 'text-blue-600' },
+				{ icon: 'web', href: 'https://www.autocratik.com/', colour: 'text-purple-600' },
 			],
 			useful: [
 				{ title: 'About Us', href: '/about-us' },
