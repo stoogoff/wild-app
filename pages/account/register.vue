@@ -18,7 +18,7 @@
 			<PasswordInput label="Confirm Password" v-model="confirmPassword" :error="error" :message="message" />
 		</Validate>
 		<div class="flex justify-end">
-			<Button :disabled="!canContinue" @click="signup">Register</Button>
+			<Button :disabled="!canContinue" @click="register">Register</Button>
 		</div>
 	</main>
 </template>
@@ -71,8 +71,33 @@ export default {
 	},
 
 	methods: {
-		signup() {
+		register() {
+			// TODO display message when user has signed up to let them know to check their email
+			// TODO if the error message is 
 
+/*
+{
+  "error": {
+    "code": 400,
+    "message": "EMAIL_EXISTS",
+    "errors": [
+      {
+        "message": "EMAIL_EXISTS",
+        "domain": "global",
+        "reason": "invalid"
+      }
+    ]
+  }
+}
+*/
+// Should just sign them in
+
+
+
+			this.$store.dispatch('auth/register', {
+				email: this.email,
+				password: this.password,
+			})
 		},
 	},
 }
