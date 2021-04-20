@@ -1,5 +1,5 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/abilities" />
@@ -43,6 +43,7 @@
 			>
 				<p>Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something.</p>
 			</Ability>
+			<hr />
 			<Stepper
 				:next="`/characters/${character.id}/aspects`"
 				:previous="`/characters/${character.id}/attributes`"
@@ -53,6 +54,8 @@
 	</main>
 </template>
 <script>
+
+import { ABILITY_SPREAD, ABILITY_REST } from '~/utils/config'
 
 export default {
 	async fetch() {

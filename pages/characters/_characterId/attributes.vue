@@ -1,5 +1,5 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/attributes" />
@@ -28,6 +28,7 @@
 			>
 				Passion is all about determination, mental force, emotional strength and imagination.
 			</AttributeEdit>
+			<hr />
 			<Stepper
 				:next="`/characters/${character.id}/abilities`"
 				:previous="`/characters/${character.id}/shadow`"

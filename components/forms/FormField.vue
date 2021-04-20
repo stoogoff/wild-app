@@ -1,5 +1,5 @@
 <template>
-	<div class="mb-3 pt-0">
+	<div class="mb-4 pt-0">
 		<label :for="id" :class="labelClass">{{ label }}</label>
 		<slot v-bind:id="id" />
 		<aside :class="messageClass">{{ message || ' ' }}</aside>

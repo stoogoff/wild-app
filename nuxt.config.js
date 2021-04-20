@@ -51,7 +51,8 @@ export default {
           appId: process.env.FIREBASE_APP_ID,
         },
         services: {
-          firestore: true
+          firestore: true,
+          storage: true,
         }
       }
     ]

@@ -1,5 +1,5 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/aspects" />
@@ -16,6 +16,7 @@
 					</TextInput>
 				</div>
 			</div>
+			<hr />
 			<Stepper
 				:next="`/characters/${character.id}/finish`"
 				:previous="`/characters/${character.id}/abilities`"

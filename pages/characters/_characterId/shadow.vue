@@ -1,5 +1,5 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/shadow" />

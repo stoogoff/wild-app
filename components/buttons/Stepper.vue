@@ -25,8 +25,8 @@ export default Vue.component('Stepper', {
 	},
 
 	methods: {
-		nextClick() {
-			this.$emit('click')
+		async nextClick() {
+			await this.$emit('click')
 			this.$router.push(this.next)
 		}
 	},

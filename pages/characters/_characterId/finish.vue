@@ -1,10 +1,13 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/finish" />
-			<TextInput label="Name" v-model="character.name" />
+			<label class="label">Image</label>
+			<FileDropZone :accept="['image/*']" @input="" />
+			<TextInput label="Name" v-model="character.name" :error="character.name == ''" message="Required" />
 			<TextArea label="Background" v-model="character.background" />
+			<hr />
 			<Stepper
 				:next="`/characters/${character.id}`"
 				:previous="`/characters/${character.id}/aspects`"
