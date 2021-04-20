@@ -1,8 +1,8 @@
 <template>
 	<div class="flex">
-		<Link block type="secondary" :to="previous" v-if="previous">Previous</Link>
-		<Link block type="secondary" to="/" v-else>Exit</Link>
-		<Button block :disabled="disabled" @click="nextClick">Next</Button>
+		<Button block type="secondary" @click="previousClick" v-if="previous">Previous</Button>
+		<Link block type="secondary" :to="exit" v-else>Exit</Link>
+		<Button block :disabled="disabled" @click="nextClick">{{ label }}</Button>
 	</div>
 </template>
 <script>
@@ -22,9 +22,24 @@ export default Vue.component('Stepper', {
 			type: Boolean,
 			default: false,
 		},
+		label: {
+			type: String,
+			default: 'Next',
+		},
+	},
+
+	computed: {
+		exit() {
+			return this.next.substring(0, this.next.lastIndexOf('/'))
+		},
 	},
 
 	methods: {
+		async previousClick() {
+			await this.$emit('click')
+			this.$router.push(this.previous)
+		},
+
 		async nextClick() {
 			await this.$emit('click')
 			this.$router.push(this.next)

@@ -1,7 +1,7 @@
 ---
 title: Major Arcana
 type: suit
-sort: 5
+sort: 0
 ---
 
 # Major Arcana

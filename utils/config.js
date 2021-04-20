@@ -45,7 +45,7 @@ export const DEFAULT_CHARACTER = {
 	aspects: ['', '', ''],
 	name: '',
 	background: '',
-	image: '',	
+	image: null,
 }
 
-export const COLLECTION_CHARACTERS = 'characters'
+export const STORAGE_CHARACTERS = 'characters'

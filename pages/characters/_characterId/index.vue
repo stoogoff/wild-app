@@ -1,10 +1,12 @@
 <template>
-	<main class="pt-12 relative">
+	<main>
 		<Loading v-if="$fetchState.pending || character === null" />
 		<div v-else>
 			<span class="absolute top-6 right-2">
 				<IconButton icon="pencil" @click="editCharacter" />
 			</span>
+
+			<img v-if="image !== null" :src="image" />
 
 			<h1 class="text-4xl text-center font-semibold leading-normal mb-4 text-gray-800">{{ character.name }}</h1>
 
@@ -34,8 +36,8 @@
 				</div>
 			</section>
 			<section class="flex mb-4">
-				<div class="w-1/2 pr-1"><Button block>Play</Button></div>
-				<div class="w-1/2 pl-1"><Button block>Solo</Button></div>
+				<div class="w-1/2 pr-1"><Button block disabled>Play</Button></div>
+				<div class="w-1/2 pl-1"><Button block disabled>Solo</Button></div>
 			</section>
 		</div>
 	</main>
@@ -43,18 +45,27 @@
 <script>
 
 export default {
-	layout: 'image',
+	layout: 'default',
 
 	async fetch() {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$store.getters['character/byId'](params.characterId)
+
+		if(this.character.image) {
+			const image = await this.$store.getters['image/byPath'](this.character.image)
+
+			if(image)	{
+				this.image = image.url
+			}
+		}
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
 			character: null,
+			image: null,
 		}
 	},
 

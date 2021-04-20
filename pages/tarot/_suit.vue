@@ -5,7 +5,8 @@
 		<Loading v-if="$fetchState.pending" />
 		<swiper v-else>
 			<swiper-slide>
-				<article>
+				<article class="px-6 flex flex-col">
+					<img :src="imagePath" class="mb-6" />
 					<MarkdownContent :content="contentPath" />
 				</article>
 			</swiper-slide>
@@ -56,6 +57,12 @@ export default {
 			const { params } = this.$nuxt.context
 
 			return `tarot/${params.suit}`
+		},
+
+		imagePath() {
+			const { params } = this.$nuxt.context
+
+			return `/img/cards/${params.suit.toLowerCase()}.svg`
 		},
 	},
 }

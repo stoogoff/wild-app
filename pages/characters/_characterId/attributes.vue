@@ -32,7 +32,8 @@
 			<Stepper
 				:next="`/characters/${character.id}/abilities`"
 				:previous="`/characters/${character.id}/shadow`"
-				:disabled="remaining !== 0 || notAllValid"
+				:disabled="!canContinue"
+				@click="save"
 			/>
 		</section>
 	</main>
@@ -74,11 +75,11 @@ export default {
 		},
 	
 		canContinue() {
-			return this.remaining === 0 && this.notAllValid
+			return this.remaining === 0 && this.allValid
 		},
 
-		notAllValid() {
-			return this.attrs.filter(a => a >= ATTRIBUTE_MIN && a <= ATTRIBUTE_MAX).length !== this.attrs.length
+		allValid() {
+			return this.attrs.filter(a => a >= ATTRIBUTE_MIN && a <= ATTRIBUTE_MAX).length === this.attrs.length
 		},
 
 		remaining() {
@@ -88,7 +89,9 @@ export default {
 		remainingClass() {
 			return this.remaining < 0 ? 'text-red-500' : 'text-green-500'
 		},
+	},
 
+	methods: {
 		save() {
 			this.$store.commit('character/update', this.character)
 		},
