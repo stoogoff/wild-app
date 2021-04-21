@@ -26,12 +26,6 @@ export default {
     //'~/plugins/auth.js'
   ],
 
-  router: {
-    middleware: [
-      'auth'
-    ],
-  },
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -62,7 +56,7 @@ export default {
           storage: true,
           auth: {
             initialize: {
-              onAuthStateChangedAction: 'auth/onAuthStateChanged',
+              onAuthStateChangedAction: 'auth/onAuthStateChanged'
             }
           },
         }

@@ -36,8 +36,8 @@
 				</div>
 			</section>
 			<section class="flex mb-4">
-				<div class="w-1/2 pr-1"><Button block disabled>Play</Button></div>
-				<div class="w-1/2 pl-1"><Button block disabled>Solo</Button></div>
+				<Button block disabled>Play</Button>
+				<Button block disabled>Solo</Button>
 			</section>
 		</div>
 	</main>
@@ -58,6 +58,9 @@ export default {
 			if(image)	{
 				this.image = image.url
 			}
+		}
+		else {
+			this.image = null
 		}
 	},
 	fetchOnServer: false,

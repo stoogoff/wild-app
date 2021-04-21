@@ -71,8 +71,9 @@ export default {
 			this.loading = false
 		},
 
-		save() {
-			this.$store.commit('character/update', this.character)
+		async save(done) {
+			await this.$store.commit('character/update', this.character)
+			done()
 		},
 	},
 }

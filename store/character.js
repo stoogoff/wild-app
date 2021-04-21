@@ -32,6 +32,7 @@ export const mutations = {
 
 export const actions = {
 	async save({ commit }, data) {
+		commit('update', data)
 		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(data.id).set(data)
 	},
 

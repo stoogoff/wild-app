@@ -36,13 +36,15 @@ export default Vue.component('Stepper', {
 
 	methods: {
 		async previousClick() {
-			await this.$emit('click')
-			this.$router.push(this.previous)
+			this.$emit('click', () => {
+				this.$router.push(this.previous)
+			})
 		},
 
 		async nextClick() {
-			await this.$emit('click')
-			this.$router.push(this.next)
+			this.$emit('click', () => {
+				this.$router.push(this.next)
+			})
 		}
 	},
 })

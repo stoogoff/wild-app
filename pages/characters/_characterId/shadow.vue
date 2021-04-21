@@ -63,14 +63,16 @@ export default {
 			this.loading = false
 		},
 
-		save() {
-			this.$store.commit('character/update', {
+		async save(done) {
+			await this.$store.commit('character/update', {
 				...this.character,
 				shadow: {
 					card: this.selectedCard.id,
 					text: this.character.shadow.text,
 				}
 			})
+
+			done()
 		},
 	},
 }

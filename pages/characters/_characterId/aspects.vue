@@ -67,8 +67,9 @@ export default {
 			this.character.aspects = this.character.aspects.filter((_a, idx) => idx !== toRemove)
 		},
 
-		save() {
-			this.$store.commit('character/update', this.character)
+		async save(done) {
+			await this.$store.commit('character/update', this.character)
+			done()
 		},
 	},
 }

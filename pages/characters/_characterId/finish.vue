@@ -59,7 +59,8 @@ export default {
 			this.image = null
 		},
 
-		async save() {
+		async save(done) {
+			this.loading = true
 			// save an image
 			if(this.image) {
 				const imageUrl = await this.$store.dispatch('image/save', {
@@ -77,6 +78,9 @@ export default {
 			}
 
 			await this.$store.dispatch('character/save', this.character)
+
+			this.loading = false
+			done()
 		},
 	},
 }

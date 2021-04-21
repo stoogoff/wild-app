@@ -29,8 +29,6 @@ export default {
 
 			const character = await this.$store.dispatch('character/create')
 
-			console.log(character)
-
 			redirect(`/characters/${character.id}/persona`)
 			this.loading = false
 		},

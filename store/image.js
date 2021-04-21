@@ -26,15 +26,14 @@ export const mutations = {
 }
 
 export const actions = {
-	// data: { id: characterId, file: fileUpload }
-	async save({ commit }, data) {
-		const name = data.file.name
+	async save({ commit }, { id, file }) {
+		const name = file.name
 		const ext = name.substring(name.lastIndexOf('.'))
 		const root = this.$fire.storage.ref(STORAGE_CHARACTERS)
-		const path = `${data.id}${ext}`
+		const path = `${id}${ext}`
 		const uploaded = root.child(path)
 
-		await uploaded.put(data.file)
+		await uploaded.put(file)
 
 		const url = await uploaded.getDownloadURL()
 		const metadata = await uploaded.getMetadata()

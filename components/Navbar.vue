@@ -58,23 +58,7 @@ export default Vue.component('Navbar', {
 	},
 
 	async fetch() {
-		const characters = await this.$store.dispatch('character/fetch')
-
-		this.menuItems[1].menuItems = characters.map(character => ({
-			title: character.name || `Unnamed character (${character.id})`,
-			href: `/characters/${character.id}`,
-		}))
-
-		const user = this.$store.state.auth.user
-
-		if(user.isAnonymous) {
-			// TODO remove Logout option
-		}
-		else {
-			// TODO remove Login and Register options
-		}
-
-		console.log('USER=', user)
+		this.characters = await this.$store.dispatch('character/fetch')
 	},
 	fetchOnServer: false,
 
@@ -82,40 +66,7 @@ export default Vue.component('Navbar', {
 		return {
 			navbarOpen: false,
 			suppressClose: false,
-	  	menuItems: [ // TODO refactor this so it's a computed property and keyed on title or something instead of an array
-    		{
-    			title: 'Home',
-    			href: '/',
-    			icon: 'home',
-    		},
-    		{
-    			title: 'Characters',
-    			href: '/characters',
-    			icon: 'characters',
-    		},
-    		{
-    			title: 'Tarot',
-    			href: '/tarot',
-    			icon: 'tarot',
-    			menuItems: [
-						{ title: 'Control', href: '/tarot/control' },
-						{ title: 'Passion', href: '/tarot/passion' },
-						{ title: 'Focus', href: '/tarot/focus' },
-						{ title: 'Strength', href: '/tarot/strength' },
-						{ title: 'Major Arcana', href: '/tarot/major-arcana' },
-  			  ]
-  			},
-  			{
-  				title: 'Account',
-  				href: '/account',
-  				icon: 'account-circle',
-  				menuItems: [
-  					{ title: 'Logout', href: '/account/logout'}, // unless user.isAnonymous
-  					{ title: 'Login', href: '/account/login'}, // if user.isAnonymous
-  					{ title: 'Register', href: '/account/register'}, // if user.isAnonymous
-  				]
-  			},
-  		]
+			characters: [],
 		}
 	},
 
@@ -132,6 +83,61 @@ export default Vue.component('Navbar', {
 	},
 
 	computed: {
+		menuItems() {
+			let menuItems = [
+				{
+					title: 'Home',
+					href: '/',
+					icon: 'home',
+				},
+				{
+					title: 'Characters',
+					href: '/characters',
+					icon: 'characters',
+				},
+				{
+					title: 'Tarot',
+					href: '/tarot',
+					icon: 'tarot',
+					menuItems: [
+						{ title: 'Control', href: '/tarot/control' },
+						{ title: 'Passion', href: '/tarot/passion' },
+						{ title: 'Focus', href: '/tarot/focus' },
+						{ title: 'Strength', href: '/tarot/strength' },
+						{ title: 'Major Arcana', href: '/tarot/major-arcana' },
+					]
+				},
+				{
+					title: 'Account',
+					href: '/account',
+					icon: 'account-circle',
+				},
+			]
+
+			// add chacracters
+			menuItems[1].menuItems = this.characters.map(character => ({
+				title: character.name || `Unnamed character (${character.id})`,
+				href: `/characters/${character.id}`,
+			}))
+
+			// update account options depending on user state
+			const user = this.$store.state.auth.user
+
+			if(user.isAnonymous) {
+				menuItems[3].menuItems = [
+					{ title: 'Login', href: '/account/login' },
+					{ title: 'Register', href: '/account/register' },
+				]
+			}
+			else {
+				menuItems[3].menuItems = [
+					{ title: 'Logout', href: '/account/logout'},
+				]
+			}
+
+			return menuItems
+		},
+
 		background() {
 			return this.transparent ? 'bg-transparent' : 'bg-gray-600'
 		},
