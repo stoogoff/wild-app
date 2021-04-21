@@ -23,8 +23,14 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    //'~/plugins/firebase.js'
+    //'~/plugins/auth.js'
   ],
+
+  router: {
+    middleware: [
+      'auth'
+    ],
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -54,7 +60,11 @@ export default {
         services: {
           firestore: true,
           storage: true,
-          auth: true,
+          auth: {
+            initialize: {
+              onAuthStateChangedAction: 'auth/onAuthStateChanged',
+            }
+          },
         }
       }
     ]

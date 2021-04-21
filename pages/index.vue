@@ -1,6 +1,11 @@
 <template>
 	<main class="p-2">
-    <FileDropZone @input="test" :accept="['image/*']" />
+    <Alert type="primary">Primary alert</Alert>
+    <Alert type="secondary">Secondary alert</Alert>
+    <Alert type="warning">Warning alert</Alert>
+    <Alert type="success">Success alert</Alert>
+
+    <!--FileDropZone @input="test" :accept="['image/*']" />
 		<TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
 		<TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
 		{{ name }}
@@ -8,7 +13,7 @@
 		{{ description }}
 
 
-		<!--div><Button @click="stateTest">Primary</Button></div>
+		<div><Button @click="stateTest">Primary</Button></div>
 		{{ counter }}
 		<div><Button type="secondary">Secondary</Button></div>
 		<div><Button type="warning">Warning</Button></div>

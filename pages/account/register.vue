@@ -1,6 +1,7 @@
 <template>
 	<main class="py-12">
 		<h1>Register</h1>
+		<Alert type="warning" v-if="error">ERROR</Alert>
 		<p>Your password must be at least eight characters long and contain one:</p>
 		<ul class="list">
 			<li :class="{ 'text-green-600': hasUpper }">Uppercase letter</li>
@@ -17,8 +18,9 @@
 		<Validate :value="confirmPassword" :rules="rules.confirmPassword" v-slot="{ error, message }">
 			<PasswordInput label="Confirm Password" v-model="confirmPassword" :error="error" :message="message" />
 		</Validate>
-		<div class="flex justify-end">
-			<Button :disabled="!canContinue" @click="register">Register</Button>
+		<div class="flex">
+			<Link block type="secondary" to="/account/login">Login</Link>
+			<Button block :disabled="!canContinue" @click="register">Register</Button>
 		</div>
 	</main>
 </template>
@@ -32,6 +34,7 @@ export default {
 			email: '',
 			password: '',
 			confirmPassword: '',
+			error: false,
 		}
 	},
 
@@ -71,7 +74,7 @@ export default {
 	},
 
 	methods: {
-		register() {
+		async register() {
 			// TODO display message when user has signed up to let them know to check their email
 			// TODO if the error message is 
 
@@ -93,11 +96,16 @@ export default {
 // Should just sign them in
 
 
-
-			this.$store.dispatch('auth/register', {
-				email: this.email,
-				password: this.password,
-			})
+			try {
+				await this.$store.dispatch('auth/register', {
+					email: this.email,
+					password: this.password,
+				})
+			}
+			catch(error) {
+				this.error = true
+				console.log(error)
+			}
 		},
 	},
 }

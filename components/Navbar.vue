@@ -64,6 +64,17 @@ export default Vue.component('Navbar', {
 			title: character.name || `Unnamed character (${character.id})`,
 			href: `/characters/${character.id}`,
 		}))
+
+		const user = this.$store.state.auth.user
+
+		if(user.isAnonymous) {
+			// TODO remove Logout option
+		}
+		else {
+			// TODO remove Login and Register options
+		}
+
+		console.log('USER=', user)
 	},
 	fetchOnServer: false,
 
@@ -71,7 +82,7 @@ export default Vue.component('Navbar', {
 		return {
 			navbarOpen: false,
 			suppressClose: false,
-	  	menuItems: [
+	  	menuItems: [ // TODO refactor this so it's a computed property and keyed on title or something instead of an array
     		{
     			title: 'Home',
     			href: '/',
@@ -99,8 +110,9 @@ export default Vue.component('Navbar', {
   				href: '/account',
   				icon: 'account-circle',
   				menuItems: [
-  					{ title: 'Login', href: '/account/login'},
-  					{ title: 'Register', href: '/account/register'},
+  					{ title: 'Logout', href: '/account/logout'}, // unless user.isAnonymous
+  					{ title: 'Login', href: '/account/login'}, // if user.isAnonymous
+  					{ title: 'Register', href: '/account/register'}, // if user.isAnonymous
   				]
   			},
   		]

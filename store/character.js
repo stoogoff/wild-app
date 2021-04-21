@@ -32,13 +32,12 @@ export const mutations = {
 
 export const actions = {
 	async save({ commit }, data) {
-		commit('update', data)
-
 		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(data.id).set(data)
 	},
 
-	async create({ commit }) {
-		const ref = await this.$fire.firestore.collection(STORAGE_CHARACTERS).add(DEFAULT_CHARACTER)
+	async create({ commit, rootState }) {
+		const userId = rootState.auth.user.uid
+		const ref = await this.$fire.firestore.collection(STORAGE_CHARACTERS).add({ ...DEFAULT_CHARACTER, userId })
 		const created = await ref.get()
 
 		const converted = convert(created)
@@ -48,9 +47,10 @@ export const actions = {
 		return converted
 	},
 
-	async fetch({ commit }) {
+	async fetch({ commit, rootState }) {
 		let data = []
-		const query = await this.$fire.firestore.collection(STORAGE_CHARACTERS).get()
+		const userId = rootState.auth.user.uid
+		const query = await this.$fire.firestore.collection(STORAGE_CHARACTERS).where('userId', '==', userId).get()
 
 		query.forEach(doc => data.push(convert(doc)))
 
