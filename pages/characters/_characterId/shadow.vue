@@ -32,7 +32,8 @@ export default {
 		this.character = await this.$store.getters['character/byId'](params.characterId)
 
 		if(this.character.shadow.card) {
-			this.selectedCard = await this.$store.getters['deck/getCard'](this.character.shadow.card)
+			this.selectedCard = { ...await this.$store.getters['deck/getCard'](this.character.shadow.card) }
+			this.selectedCard.isReversed = this.character.shadow.reversed
 		}
 
 		this.loading = false
@@ -69,6 +70,7 @@ export default {
 				shadow: {
 					card: this.selectedCard.id,
 					text: this.character.shadow.text,
+					reversed: this.selectedCard.isReversed,
 				}
 			})
 

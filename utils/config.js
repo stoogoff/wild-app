@@ -24,10 +24,12 @@ export const DEFAULT_CHARACTER = {
 	persona: {
 		card: null,
 		text: '',
+		reversed: false,
 	},
 	shadow: {
 		card: null,
 		text: '',
+		reversed: false,
 	},
 	attributes: {
 		Control: ATTRIBUTE_MIN,
@@ -42,7 +44,7 @@ export const DEFAULT_CHARACTER = {
 		Scholar: ABILITY_REST,
 		Visionary: ABILITY_REST,
 	},
-	aspects: ['', '', ''],
+	aspects: [''],
 	name: '',
 	background: '',
 	image: null,

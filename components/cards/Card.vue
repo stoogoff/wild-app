@@ -4,22 +4,24 @@
 		class="card-display"
 		@click="flipped = !flipped"
 	>
-		<img
-			class="card-front"
-			:class="{ 'transform rotate-180': card.isReversed }"
-			:src="`/img/cards/${card.image}`"
-		/>
-		<aside class="card-back">
-			<h2 class="text-center">{{ card.title }}</h2>
-			<div>
-				<div><strong>Key Meaning:</strong> {{ keyMeaning }}</div>
-				<div><strong>Other Meanings:</strong> {{ otherMeanings }}</div>
-			</div>
-			<div>
-				<div><strong>Key Reversed Meaning:</strong> {{ keyReversedMeaning }}</div>
-				<div><strong>Other Reversed Meanings:</strong> {{ otherReversedMeaning }}</div>
-			</div>
-		</aside>
+		<div class="card">
+			<img
+				class="card-front"
+				:class="{ 'transform rotate-180': card.isReversed }"
+				:src="`/img/cards/${card.image}`"
+			/>
+			<aside class="card-back">
+				<h2 class="text-center">{{ card.title }}</h2>
+				<div>
+					<div><strong>Key Meaning:</strong> {{ keyMeaning }}</div>
+					<div><strong>Other Meanings:</strong> {{ otherMeanings }}</div>
+				</div>
+				<div>
+					<div><strong>Key Reversed Meaning:</strong> {{ keyReversedMeaning }}</div>
+					<div><strong>Other Reversed Meanings:</strong> {{ otherReversedMeaning }}</div>
+				</div>
+			</aside>
+		</div>
 	</div>
 </template>
 <script>
@@ -71,4 +73,46 @@ export default Vue.component('Card', {
 	},
 })
 
+
+/*
+	&>div
+		width: 290px
+		height: 453px
+		transition: transform 0.8s
+		transform-style: preserve-3d
+
+	&.flipped>div
+		transform: rotateY(180deg)
+
+	.card-front, .card-back
+		@apply bg-white
+		@apply w-full h-full
+		@apply absolute
+		backface-visibility: hidden
+
+	.card-back
+		@apply bg-blue-500
+		@apply p-10
+		transform: rotateY(180deg)
+*/
+
 </script>
+<style scoped lang="sass">
+
+.card-display
+	transition: transform 0.8s
+	transform-style: preserve-3d
+	@apply relative
+
+	&.flipped
+		transform: rotateY(180deg)
+
+	.card-front, .card-back
+		@apply w-full h-full
+		backface-visibility: hidden
+
+	.card-back
+		@apply absolute top-0 right-0
+		transform: rotateY(180deg)
+
+</style>

@@ -1,17 +1,22 @@
 <template>
-	<main class="pt-12 relative">
-		<p>Some blurb about creating a character.</p>
+	<main>
 		<Loading v-if="$fetchState.pending" />
 		<section v-else>
-			<ol class="m-3 list">
-				<li :key="`character_${character.id}`" v-for="(character, idx) in characters">
-					<nuxt-link :to="`/characters/${character.id}`">
-						<a className="text-blue-600 underline">{{ character.name || `Unnamed character (${character.id})` }}</a>
-					</nuxt-link>
-				</li>
-			</ol>
+			<MarkdownContent content="characters/index" />
+			<article
+				:key="`character_${character.id}`"
+				v-for="(character, idx) in characters"
+				class="border-b border-gray-300 mb-4 last:border-b-0 relative"
+			>
+				<nuxt-link :to="`/characters/${character.id}`">
+					<CharacterImage :character="character" />
+					<h2>{{ character.name || `Unnamed character (${character.id})` }}</h2>
+					<p v-if="character.background" class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
+					<span class="absolute right-2 top-2"><IconButton type="primary" icon="book-open" /></span>
+				</nuxt-link>
+			</article>
 		</section>
-		<Link class="btn" to="/characters/new">New Character</Link>
+		<Link block to="/characters/new">New Character</Link>
 	</main>
 </template>
 <script>

@@ -51,38 +51,3 @@ export const actions = {
 		return drawn
 	}
 }
-
-
-
-
-
-/*let shuffledDeck = []
-
-export const getSortedDeck = () => DECK
-
-
-export const getCardIds = () => DECK.map(card => (
-	{
-		params: {
-			id: card.id,
-		},
-	}
-))
-
-export const getSuit = (suit) => DECK.filter(card => card.suit.toLowerCase() === suit)
-
-export const getCard = (id) => DECK.find(card => card.id === id)
-
-export const draw = (amount = 1) => {
-	let drawn = []
-
-	do {
-		if(shuffledDeck.length === 0) shuffledDeck = getShuffledDeck()
-
-		drawn.push(shuffledDeck.pop())
-
-	} while(--amount > 0)
-
-	return drawn
-}
-*/

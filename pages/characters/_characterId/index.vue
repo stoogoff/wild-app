@@ -2,23 +2,25 @@
 	<main>
 		<Loading v-if="$fetchState.pending || character === null" />
 		<div v-else>
-			<span class="absolute top-6 right-2">
-				<IconButton icon="pencil" @click="editCharacter" />
-			</span>
+			<section class="flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-color-gray-300">
+				<Button block disabled>Play</Button>
+				<Button block disabled>Solo</Button>
+				<Button block type="success" @click="editCharacter">Edit</Button>
+				<Button block type="warning" @click="editCharacter">Delete</Button>
+			</section>
 
-			<img v-if="image !== null" :src="image" class="block w-full mb-4" />
-
-			<h1 class="text-4xl text-center font-semibold leading-normal mb-4 text-gray-800">{{ character.name }}</h1>
+			<h1>{{ character.name }}</h1>
+			<CharacterImage :character="character" />
 
 			<section class="mb-2">
 				<h2>Attributes</h2>
-				<Attributes :values="character.attributes" />
+				<AttributesView :values="character.attributes" />
 			</section>
-			<section class="mb-2">
+			<section class="mb-2 border-t border-gray-300 pt-6">
 				<h2>Abilities</h2>
-				<Attributes :values="character.abilities" />
+				<AttributesView :values="character.abilities" />
 			</section>
-			<section class="mb-4">
+			<section class="mb-4 border-t border-gray-300 pt-6">
 				<h2>Aspects</h2>
 				<div class="flex flex-wrap justify-center">
 					<ul class="w-full lg:w-9/12 px-4 list">
@@ -35,10 +37,6 @@
 					</div>
 				</div>
 			</section>
-			<section class="flex mb-4">
-				<Button block disabled>Play</Button>
-				<Button block disabled>Solo</Button>
-			</section>
 		</div>
 	</main>
 </template>
@@ -51,24 +49,12 @@ export default {
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$store.getters['character/byId'](params.characterId)
-
-		if(this.character.image) {
-			const image = await this.$store.getters['image/byPath'](this.character.image)
-
-			if(image)	{
-				this.image = image.url
-			}
-		}
-		else {
-			this.image = null
-		}
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
 			character: null,
-			image: null,
 		}
 	},
 
@@ -82,8 +68,3 @@ export default {
 }
 
 </script>
-<style>
-h2 {
-	@apply uppercase text-gray-500 text-center;
-}
-</style>

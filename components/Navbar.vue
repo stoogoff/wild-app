@@ -123,7 +123,7 @@ export default Vue.component('Navbar', {
 			// update account options depending on user state
 			const user = this.$store.state.auth.user
 
-			if(user.isAnonymous) {
+			if(!user || user.isAnonymous) {
 				menuItems[3].menuItems = [
 					{ title: 'Login', href: '/account/login' },
 					{ title: 'Register', href: '/account/register' },

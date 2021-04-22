@@ -34,7 +34,8 @@ export default {
 		this.character = await this.$store.getters['character/byId'](params.characterId)
 
 		if(this.character.persona.card) {
-			this.cards = [ await this.$store.getters['deck/getCard'](this.character.persona.card) ]
+			this.cards = [ { ...await this.$store.getters['deck/getCard'](this.character.persona.card) } ]
+			this.cards[0].isReversed = this.character.persona.reversed
 		}
 
 		this.loading = false
@@ -62,6 +63,7 @@ export default {
 			}
 			else {
 				this.character.persona.card = card.id
+				this.character.persona.reversed = card.isReversed
 			}
 		},
 

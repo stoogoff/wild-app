@@ -1,5 +1,5 @@
 <template>
-	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
+	<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
 		<div :key="`card_${card.id}`" v-for="card in cards">
 			<Card :card="card" />
 			<Button

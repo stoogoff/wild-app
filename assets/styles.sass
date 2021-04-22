@@ -13,10 +13,10 @@
 		@apply px-6
 
 	h1
-		@apply text-3xl uppercase text-center mb-6
+		@apply text-3xl uppercase text-center mb-4 font-semibold leading-normal
 
 	h2
-		@apply text-xl
+		@apply text-xl uppercase text-gray-500 text-center
 
 	p
 		@apply mb-3
@@ -50,10 +50,10 @@
 @layer components
 	// form fields
 	.input
-		@apply font-sans text-gray-600 text-sm relative bg-white rounded border-0 shadow outline-none w-full focus:outline-none focus:ring focus:ring-blue-500 px-3 py-3 placeholder-gray-300
+		@apply font-sans text-gray-600 text-sm relative bg-white rounded border border-gray-300 shadow outline-none w-full focus:outline-none focus:ring focus:ring-focus px-3 py-3 placeholder-gray-300
 
 		&.warning
-			@apply focus:ring-red-500 text-red-500
+			@apply focus:ring-passion text-passion-darker border-passion
 
 		&.disabled
 			@apply bg-gray-200
@@ -62,43 +62,30 @@
 		@apply font-sans font-semibold text-xs uppercase inline-block mb-2 text-gray-500
 
 		&.warning
-			@apply text-red-500
+			@apply text-passion-darker
 
 	.message
 		@apply mt-2 text-sm text-gray-500
 
 		&.warning
-			@apply text-red-500
+			@apply text-passion-darker
 
 	.alert
 		@apply px-4 py-3 border rounded relative mb-4 flex
 
-		&.primary
-			@apply text-purple-600
-			@apply border-purple-500
-			@apply bg-purple-100
-
-		&.secondary
-			@apply text-gray-600
-			@apply border-gray-500
-			@apply bg-gray-100
-
 		&.success
-			@apply text-green-600
-			@apply border-green-500
-			@apply bg-green-100
-
+			@apply bg-control-light text-control-dark border-control-dark
+		&.primary
+			@apply bg-focus-light text-focus-dark border-focus-dark
+		&.secondary
+			@apply bg-strength-light text-yellow-500 border-yellow-500
 		&.warning
-			@apply text-red-600
-			@apply border-red-500
-			@apply bg-red-100
+			@apply bg-passion-light text-passion-dark border-passion-dark
 
 	// buttons
 	.btn
-		@apply font-sans
-		@apply font-bold uppercase text-sm text-center
-		@apply px-6 py-3
-		@apply mr-1 mb-1
+		@apply font-sans font-bold uppercase text-sm text-center
+		@apply px-6 py-3 mr-1 mb-1
 		@apply rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150
 
 		&.disabled
@@ -112,25 +99,17 @@
 			@apply cursor-pointer
 
 		&.primary
-			@apply bg-purple-600
-			@apply text-purple-50
-			@apply hover:bg-purple-800
+			@apply bg-focus-dark text-focus-lighter hover:bg-focus-darker
 
 		&.secondary
-			@apply bg-gray-400
-			@apply text-gray-700
-			@apply hover:text-white
-			@apply hover:bg-gray-600
+			@apply bg-gray-400 text-gray-700 hover:text-white hover:bg-gray-600
+			//@apply bg-strength-dark text-strength-lighter hover:bg-strength-darker
 
 		&.success
-			@apply bg-green-600
-			@apply text-green-50
-			@apply hover:bg-green-800
+			@apply bg-control-dark text-control-lighter hover:bg-control-darker
 
 		&.warning
-			@apply bg-red-600
-			@apply text-red-50
-			@apply hover:bg-red-800
+			@apply bg-passion-dark text-passion-lighter hover:bg-passion-darker
 
 	.btn-icon
 		@apply border border-solid
@@ -147,24 +126,16 @@
 			@apply cursor-pointer
 
 		&.primary
-			@apply text-purple-500
-			@apply border-purple-500
-			@apply hover:bg-purple-200
+			@apply text-focus-dark border-focus hover:bg-focus-lighter hover:text-focus-darker hover:border-focus-darker
 
 		&.secondary
-			@apply text-gray-500
-			@apply border-gray-500
-			@apply hover:bg-gray-200
+			@apply text-strength-dark border-strength hover:bg-strength-lighter hover:text-strength-darker hover:border-strength-darker
 
 		&.success
-			@apply text-green-500
-			@apply border-green-500
-			@apply hover:bg-green-200
+			@apply text-control-dark border-control hover:bg-control-lighter hover:text-control-darker hover:border-control-darker
 
 		&.warning
-			@apply text-red-500
-			@apply border-red-500
-			@apply hover:bg-red-200
+			@apply text-passion-dark border-passion hover:bg-passion-lighter hover:text-passion-darker hover:border-passion-darker
 
 	.btn-group
 		@apply flex

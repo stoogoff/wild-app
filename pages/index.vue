@@ -5,27 +5,28 @@
     <Alert type="warning">Warning alert</Alert>
     <Alert type="success">Success alert</Alert>
 
-    <!--FileDropZone @input="test" :accept="['image/*']" />
+    <div>
+      <Button type="primary">Primary</Button>
+      <Button type="secondary">Secondary</Button>
+      <Button type="warning">Warning</Button>
+      <Button type="success" @click="alert('test')">Success</Button>
+      <Button disabled @click="alert('test')">Disabled</Button>
+    </div>
+
+    <!--FileDropZone @input="test" :accept="['image/*']" / -->
 		<TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
 		<TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
 		{{ name }}
 		<TextArea v-model="description" label="Description" />
 		{{ description }}
-
-
-		<div><Button @click="stateTest">Primary</Button></div>
-		{{ counter }}
-		<div><Button type="secondary">Secondary</Button></div>
-		<div><Button type="warning">Warning</Button></div>
-		<div><Button type="success" @click="alert('test')">Success</Button></div>
-		<div><Button disabled @click="alert('test')">Disabled</Button></div>
-		<ButtonGroup :options="options" v-model="group" />
 		{{ group }}
-		<IconButton type="primary" icon="pencil" />
-		<IconButton type="secondary" icon="pencil" />
-		<IconButton type="warning" icon="pencil" />
-		<IconButton type="success" icon="pencil" />
-		<IconButton type="success" disabled icon="pencil" / -->
+    <div>
+  		<IconButton type="primary" icon="pencil" />
+  		<IconButton type="secondary" icon="pencil" />
+  		<IconButton type="warning" icon="pencil" />
+  		<IconButton type="success" icon="pencil" />
+  		<IconButton type="success" disabled icon="pencil" />
+    </div>
 	</main>
 </template>
 

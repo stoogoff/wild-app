@@ -16,7 +16,7 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Ability', {
+export default Vue.component('AbilityEdit', {
 	props: {
 		title: {
 			type: String,
