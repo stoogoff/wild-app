@@ -5,7 +5,7 @@
 		"suit": "Focus",
 		"meanings": ["Abundance", "Love", "Joy", "Fertility", "Happiness"],
 		"reversed": ["Instability", "Sadness", "Unrequited Love", "Change"],
-		"image": "focus/01-ace-of-cups.jpg"
+		"image": "focus/01-focus-visionary.png"
 	},
 	{
 		"_original": "Two of Cups",
@@ -13,7 +13,7 @@
 		"suit": "Focus",
 		"meanings": ["New Relationship", "Friendship", "Passion", "Engagement"],
 		"reversed": ["False Friendship", "Unsatisfactory Love", "Divorce", "Holding Back"],
-		"image": "focus/02-two-of-cups.jpg"
+		"image": "focus/02-focus.png"
 	},
 	{
 		"_original": "Three of Cups",
@@ -21,7 +21,7 @@
 		"suit": "Focus",
 		"meanings": ["Healing", "Celebration", "Resolution of Problem"],
 		"reversed": ["Overabundance", "Excessive Pleasures", "Delay", "Unharmonious"],
-		"image": "focus/03-three-of-cups.jpg"
+		"image": "focus/03-focus.png"
 	},
 	{
 		"_original": "Four of Cups",
@@ -29,7 +29,7 @@
 		"suit": "Focus",
 		"meanings": ["Apathy", "Boredom", "Aversion", "Disgust"],
 		"reversed": ["Taking Action", "New Possibilities", "Preventing Loss"],
-		"image": "focus/04-four-of-cups.jpg"
+		"image": "focus/04-focus.png"
 	},
 	{
 		"_original": "Five of Cups",
@@ -37,7 +37,7 @@
 		"suit": "Focus",
 		"meanings": ["Regret", "Loveless", "Loss", "Imperfection"],
 		"reversed": ["New Alliances", "Hope", "Understanding"],
-		"image": "focus/05-five-of-cups.jpg"
+		"image": "focus/05-focus.png"
 	},
 	{
 		"_original": "Six of Cups",
@@ -45,7 +45,7 @@
 		"suit": "Focus",
 		"meanings": ["Memories", "Nostalgia", "Sentimentality", "Childhood"],
 		"reversed": ["Future", "Opportunities", "Stripping Away Illusions"],
-		"image": "focus/06-six-of-cups.jpg"
+		"image": "focus/06-focus.png"
 	},
 	{
 		"_original": "Seven of Cups",
@@ -53,7 +53,7 @@
 		"suit": "Focus",
 		"meanings": ["Fantasy", "Daydreams", "Illusions", "Imagination"],
 		"reversed": ["Realism", "Desire", "Goal nearly Attained"],
-		"image": "focus/07-seven-of-cups.jpg"
+		"image": "focus/07-focus.png"
 	},
 	{
 		"_original": "Eight of Cups",
@@ -61,7 +61,7 @@
 		"suit": "Focus",
 		"meanings": ["Shyness", "Modesty", "Instability", "Disappointment"],
 		"reversed": ["Stability", "Effort", "Happiness"],
-		"image": "focus/08-eight-of-cups.jpg"
+		"image": "focus/08-focus.png"
 	},
 	{
 		"_original": "Nine of Cups",
@@ -69,7 +69,7 @@
 		"suit": "Focus",
 		"meanings": ["Desire", "Abundance", "Beauty", "Sexual Excitement"],
 		"reversed": ["Frustration", "Imperfection", "Mistakes", "Material Loss"],
-		"image": "focus/09-nine-of-cups.jpg"
+		"image": "focus/09-focus.png"
 	},
 	{
 		"_original": "Ten of Cups",
@@ -77,7 +77,7 @@
 		"suit": "Focus",
 		"meanings": ["Peace", "Happiness", "Joy", "Inner Peace"],
 		"reversed": ["Rage", "Quarrel", "Loss of Friendship", "Looking for Joy"],
-		"image": "focus/10-ten-of-cups.jpg"
+		"image": "focus/10-focus.png"
 	},
 	{
 		"_original": "Page of Cups",
@@ -85,7 +85,7 @@
 		"suit": "Focus",
 		"meanings": ["Reflective", "Imaginative", "Fantasy", "Student"],
 		"reversed": ["Susceptible", "Deviation", "Distracted", "Need to Decide"],
-		"image": "focus/11-page-of-cups.jpg"
+		"image": "focus/11-focus-scholar.png"
 	},
 	{
 		"_original": "Knight of Cups",
@@ -93,7 +93,7 @@
 		"suit": "Focus",
 		"meanings": ["Attraction", "Challenge", "Appeal", "Invitation"],
 		"reversed": ["Resentful", "Trickery", "Deception", "Introvert"],
-		"image": "focus/12-knight-of-cups.jpg"
+		"image": "focus/12-focus-rogue.png"
 	},
 	{
 		"_original": "Queen of Cups",
@@ -101,7 +101,7 @@
 		"suit": "Focus",
 		"meanings": ["Mysterious", "Wise", "Adored", "Practical", "Warm Heart"],
 		"reversed": ["Unreliable", "Uncertain", "Immoral", "Dishonest"],
-		"image": "focus/13-queen-of-cups.jpg"
+		"image": "focus/13-focus-guardian.png"
 	},
 	{
 		"_original": "King of Cups",
@@ -109,6 +109,6 @@
 		"suit": "Focus",
 		"meanings": ["Responsible", "Kind", "Calm", "Artist", "Lawyer"],
 		"reversed": ["Emotional", "Double Dealing", "Temperamental", "Dishonest"],
-		"image": "focus/14-king-of-cups.jpg"
+		"image": "focus/14-focus-diplomat.png"
 	}
 ]

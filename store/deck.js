@@ -7,14 +7,14 @@ import strength from '~/static/data/strength.json'
 import major from '~/static/data/major-arcana.json'
 
 const DECK = [
-	...passion,
+	//...passion,
 	...control,
 	...focus,
-	...strength,
-	...major,
-].map(card => ({ ...card, id: card.title.toLowerCase().replace(/\s+/g, '-') }))
+	/*...strength,
+	...major,*/
+].map(card => ({ ...card, id: card.title.toLowerCase().replace(/\s+/g, '-'), isReversed: false }))
 
-const getShuffledDeck = () => shuffle(DECK)
+const getShuffledDeck = () => shuffle(DECK).map(card => ({ ...card, isReversed: Math.random() > 0.6 }))
 
 
 export const state = () => ({
