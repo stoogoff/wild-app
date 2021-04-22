@@ -1,0 +1,178 @@
+[
+	{
+		"_original": "0: The Fool",
+		"title": "The Dreamer",
+		"suit": "Major Arcana",
+		"meanings": ["Optimism", "Immaturity", "Levity", "Leap of Faith"],
+		"reversed": ["Caution", "Hesitancy", "Negligence"],
+		"image": ""
+	},
+	{
+		"_original": "I: The Magician",
+		"title": "The Architect",
+		"suit": "Major Arcana",
+		"meanings": ["Creativity", "Imagination", "Knowledge", "Power"],
+		"reversed": ["Lack of Imagination", "Weakness", "Dishonesty", "Delay"],
+		"image": ""
+	},
+	{
+		"_original": "II: High Priestess",
+		"title": "Clarity",
+		"suit": "Major Arcana",
+		"meanings": ["Stillness", "Wisdom", "Understanding", "Intuition"],
+		"reversed": ["Defending", "Ignorance", "Selfishness", "Denied Potential"],
+		"image": ""
+	},
+	{
+		"_original": "III: The Empress",
+		"title": "The Matriarch",
+		"suit": "Major Arcana",
+		"meanings": ["Fulfilment", "Fertility", "Passion", "Sensuality"],
+		"reversed": ["Detatchment", "Anxiety", "Insecurity", "Indecision", "Distant"],
+		"image": ""
+	},
+	{
+		"_original": "IV: The Emperor",
+		"title": "The Technocrat",
+		"suit": "Major Arcana",
+		"meanings": ["Authority", "Leadership", "Law", "Structure"],
+		"reversed": ["Immaturity", "Rebelliousness", "Lack of Strength", "Weakness"],
+		"image": ""
+	},
+	{
+		"_original": "V: Hierophant",
+		"title": "The Teacher",
+		"suit": "Major Arcana",
+		"meanings": ["Compassion", "Goodness", "Teaching", "Learning"],
+		"reversed": ["Vulnerability", "Over-kindness", "Misleading", "Susceptability"],
+		"image": ""
+	},
+	{
+		"_original": "VI: The Lovers",
+		"title": "The Lovers",
+		"suit": "Major Arcana",
+		"meanings": ["Conflicting Choices", "Desire", "Love", "Merging of Opposites"],
+		"reversed": ["Trapped", "Difficult Relationship", "Opposition", "Frustration"],
+		"image": ""
+	},
+	{
+		"_original": "VII: Chariot",
+		"title": "The Car",
+		"suit": "Major Arcana",
+		"meanings": ["Victory", "Force of Character", "Success", "Effort"],
+		"reversed": ["Loss of Control", "Weakening Will", "Doubt", "Defeat"],
+		"image": ""
+	},
+	{
+		"_original": "VIII: Justice",
+		"title": "Justice",
+		"suit": "Major Arcana",
+		"meanings": ["Honour", "Virtue", "Balance", "Honesty"],
+		"reversed": ["Violence", "Bias", "Dishonesty", "Unfair Outcome"],
+		"image": ""
+	},
+	{
+		"_original": "IX: The Hermit",
+		"title": "The Loner",
+		"suit": "Major Arcana",
+		"meanings": ["Caution", "Introspection", "Deliberation"],
+		"reversed": ["Isolation", "Childishness", "Hastiness", "Obstinacy"],
+		"image": ""
+	},
+	{
+		"_original": "X: Wheel of Fortune",
+		"title": "The Device",
+		"suit": "Major Arcana",
+		"meanings": ["Progress", "Good Fortune", "Out of Control"],
+		"reversed": ["Difficulties", "Bad Luck", "Failure", "Discovering the Cause"],
+		"image": ""
+	},
+	{
+		"_original": "XI: Strength",
+		"title": "Fortitude",
+		"suit": "Major Arcana",
+		"meanings": ["Heroism", "Determined", "Face Problems", "Persuasion"],
+		"reversed": ["Abuse of Power", "Weakness", "Poor Self-Control", "Indirect"],
+		"image": ""
+	},
+	{
+		"_original": "XII: Hanged Man",
+		"title": "The Hanged Man",
+		"suit": "Major Arcana",
+		"meanings": ["Suspension", "Sacrifice", "Transition", "Readjustment"],
+		"reversed": ["Stagnation", "Unwillingness", "Lack of Sacrifice", "Pressure"],
+		"image": ""
+	},
+	{
+		"_original": "XIII: Death",
+		"title": "Death",
+		"suit": "Major Arcana",
+		"meanings": ["Change", "Loss", "Failure", "Transformation"],
+		"reversed": ["Immobility", "Fear of Change", "Stagnation", "Holding on"],
+		"image": ""
+	},
+	{
+		"_original": "XIV: Temperance",
+		"title": "Patience",
+		"suit": "Major Arcana",
+		"meanings": ["Calmness", "Fusion", "Capability", "Self Assured"],
+		"reversed": ["Hostility", "Delirium", "Discord", "Impatience"],
+		"image": ""
+	},
+	{
+		"_original": "XV: The Devil",
+		"title": "The Shadow",
+		"suit": "Major Arcana",
+		"meanings": ["Oppression", "Dark Feelings", "Violence", "Anger"],
+		"reversed": ["Liberation", "Freedom", "Overcoming Fears", "Regeneration"],
+		"image": ""
+	},
+	{
+		"_original": "XVI: The Tower",
+		"title": "The Tower",
+		"suit": "Major Arcana",
+		"meanings": ["Drastic Change", "Adversity", "Downfall", "Painful Experience"],
+		"reversed": ["Misfortune", "Trapped", "Oppression", "Long Term Difficulties"],
+		"image": ""
+	},
+	{
+		"_original": "XVII: The Star",
+		"title": "The Star",
+		"suit": "Major Arcana",
+		"meanings": ["Hope", "Trust", "Insight", "Promising Opportunity"],
+		"reversed": ["Negativity", "Holding Back Emotion", "Disappointment"],
+		"image": ""
+	},
+	{
+		"_original": "XVIII: The Moon",
+		"title": "Imagination",
+		"suit": "Major Arcana",
+		"meanings": ["Confusion", "Delusion", "Danger", "Disgrace"],
+		"reversed": ["Deceived", "Health Problems", "Disturbed", "Tempted"],
+		"image": ""
+	},
+	{
+		"_original": "XIX: The Sun",
+		"title": "Lucidity",
+		"suit": "Major Arcana",
+		"meanings": ["Triumph", "Joy", "Confidence", "Innocence"],
+		"reversed": ["Clouded Future", "Joy after a Struggle", "Cancelled Plans"],
+		"image": ""
+	},
+	{
+		"_original": "XX: Judgement",
+		"title": "Awakening",
+		"suit": "Major Arcana",
+		"meanings": ["Rejuvination", "Rebirth", "Change", "Promotion"],
+		"reversed": ["Delay", "Underachievement", "Divorce", "Indecision"],
+		"image": ""
+	},
+	{
+		"_original": "XXI: The World",
+		"title": "The Waking World",
+		"suit": "Major Arcana",
+		"meanings": ["Perfection", "Ultimate Change", "Success", "Conclusion"],
+		"reversed": ["Failure to Finish", "Delay", "Lack of Vision", "Disappointment"],
+		"image": ""
+	}
+]

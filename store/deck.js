@@ -4,12 +4,14 @@ import control from '~/static/data/control.json'
 import focus from '~/static/data/focus.json'
 import passion from '~/static/data/passion.json'
 import strength from '~/static/data/strength.json'
+import major from '~/static/data/major-arcana.json'
 
 const DECK = [
 	...passion,
 	...control,
 	...focus,
 	...strength,
+	...major,
 ].map(card => ({ ...card, id: card.title.toLowerCase().replace(/\s+/g, '-') }))
 
 const getShuffledDeck = () => shuffle(DECK)
@@ -23,7 +25,7 @@ export const state = () => ({
 export const getters = {
 	getCard: (state) => id => state.cards.find(card => card.id === id),
 
-	getSuit: (state) => suit => state.cards.filter(card => card.suit.toLowerCase() === suit),
+	getSuit: (state) => suit => state.cards.filter(card => card.suit.toLowerCase().replace(' ', '-') === suit),
 }
 
 export const mutations = {
