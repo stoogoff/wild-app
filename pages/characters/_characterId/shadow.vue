@@ -4,7 +4,7 @@
 		<section v-else>
 			<MarkdownContent content="characters/shadow" />
 			<Loading v-if="loading" />
-			<Card :card="selectedCard" v-else-if="selectedCard !== null" />
+			<CardFlip :card="selectedCard" v-else-if="selectedCard !== null" />
 			<div class="mt-2 mb-4">
 				<Button type="primary" block :outlined="hasDrawn" @click="drawCard">Draw</Button>
 			</div>
