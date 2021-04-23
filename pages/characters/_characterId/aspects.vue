@@ -3,20 +3,18 @@
 		<Loading v-if="loading || character === null" />
 		<section v-else>
 			<MarkdownContent content="characters/aspects" />
-			<div>
-				<Button @click="addAspect" :disabled="!canAdd">Add</Button>
-
-				<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-					<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx]" >
-						<template #append>
-							<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
-								<Icon icon="close" />
-							</span>
-						</template>
-					</TextInput>
-				</div>
+			<div class="mt-2 mb-4">
+				<Button type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</Button>
 			</div>
-			<hr />
+			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
+				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx]" >
+					<template #append>
+						<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
+							<Icon icon="close" />
+						</span>
+					</template>
+				</TextInput>
+			</div>
 			<Stepper
 				:next="`/characters/${character.id}/finish`"
 				:previous="`/characters/${character.id}/abilities`"
@@ -51,6 +49,10 @@ export default {
 	computed: {
 		canAdd() {
 			return this.character.aspects.length < ASPECTS_MAX
+		},
+
+		hasEnough() {
+			return this.character.aspects.length >= ASPECTS_MIN
 		},
 
 		canContinue() {

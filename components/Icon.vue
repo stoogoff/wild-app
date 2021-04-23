@@ -57,6 +57,8 @@ export default Vue.component('Icon', {
 						return '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>'
 					case 'book-open':
 						return '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M13,12H20V13.5H13M13,9.5H20V11H13M13,14.5H20V16H13M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M21,19H12V6H21" /></svg>'
+					case 'check':
+						return '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" /></svg>'
 			}
 
 			throw `Icon '${this.icon}' not found.`

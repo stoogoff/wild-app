@@ -2,7 +2,7 @@
 	<div>
 		<Navbar />
 		<Nuxt />
-		<Debug />
+		<!--Debug /-->
 	</div>
 </template>
 <script>

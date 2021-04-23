@@ -6,11 +6,20 @@
     <Alert type="success">Success alert</Alert>
 
     <div>
+      <Button>Default</Button>
       <Button type="primary">Primary</Button>
       <Button type="secondary">Secondary</Button>
       <Button type="warning">Warning</Button>
       <Button type="success" @click="alert('test')">Success</Button>
       <Button disabled @click="alert('test')">Disabled</Button>
+    </div>
+    <div>
+      <Button outlined>Default</Button>
+      <Button outlined type="primary">Primary</Button>
+      <Button outlined type="secondary">Secondary</Button>
+      <Button outlined type="warning">Warning</Button>
+      <Button outlined type="success" @click="alert('test')">Success</Button>
+      <Button outlined disabled @click="alert('test')">Disabled</Button>
     </div>
 
     <!--FileDropZone @input="test" :accept="['image/*']" / -->
@@ -21,12 +30,23 @@
 		{{ description }}
 		{{ group }}
     <div>
-  		<IconButton type="primary" icon="pencil" />
-  		<IconButton type="secondary" icon="pencil" />
-  		<IconButton type="warning" icon="pencil" />
-  		<IconButton type="success" icon="pencil" />
-  		<IconButton type="success" disabled icon="pencil" />
+      <IconButton type="primary" icon="pencil" />
+      <IconButton type="secondary" icon="pencil" />
+      <IconButton type="warning" icon="pencil" />
+      <IconButton type="success" icon="pencil" />
+      <IconButton type="success" disabled icon="pencil" />
     </div>
+    <div>
+      <IconButton type="primary" outlined icon="pencil" />
+      <IconButton type="secondary" outlined icon="pencil" />
+      <IconButton type="warning" outlined icon="pencil" />
+      <IconButton type="success" outlined icon="pencil" />
+      <IconButton type="success" outlined disabled icon="pencil" />
+    </div>
+
+    
+    <!-- Confirm @click="confirmTest" v-if="active">This is some text</Confirm-->
+    
 	</main>
 </template>
 
@@ -42,6 +62,7 @@ export default {
       name: '',
       description: '',
       group: '',
+      active: true,
     }
   },
 
@@ -77,6 +98,10 @@ export default {
 
     test(files) {
       console.log(files)
+    },
+    confirmTest(result) {
+      console.log('confirm=', result)
+      this.active=false
     }
   },
 }

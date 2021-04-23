@@ -1,8 +1,8 @@
 <template>
 	<div class="flex">
-		<Button block type="secondary" @click="previousClick" v-if="previous">Previous</Button>
-		<Link block type="secondary" :to="exit" v-else>Exit</Link>
-		<Button block :disabled="disabled" @click="nextClick">{{ label }}</Button>
+		<Button block @click="previousClick" v-if="previous">Previous</Button>
+		<Link block :to="exit" v-else>Exit</Link>
+		<Button block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</Button>
 	</div>
 </template>
 <script>

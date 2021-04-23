@@ -1,12 +1,12 @@
 <template>
 	<main>
-		<Loading v-if="$fetchState.pending || character === null" />
+		<Loading v-if="loading || character === null" />
 		<div v-else>
 			<section class="flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-color-gray-300">
 				<Button block disabled>Play</Button>
 				<Button block disabled>Solo</Button>
 				<Button block type="success" @click="editCharacter">Edit</Button>
-				<Button block type="warning" @click="editCharacter">Delete</Button>
+				<Button block type="warning" @click="confirmDeleteCharacter">Delete</Button>
 			</section>
 
 			<h1>{{ character.name }}</h1>
@@ -38,6 +38,7 @@
 				</div>
 			</section>
 		</div>
+		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
 	</main>
 </template>
 <script>
@@ -46,15 +47,20 @@ export default {
 	layout: 'default',
 
 	async fetch() {
+		this.loading = true
+
 		const { params } = this.$nuxt.context
 
 		this.character = await this.$store.getters['character/byId'](params.characterId)
+		this.loading = false
 	},
 	fetchOnServer: false,
 
 	data() {
 		return {
 			character: null,
+			deleting: false,
+			loading: false,
 		}
 	},
 
@@ -63,6 +69,28 @@ export default {
 			const { redirect } = this.$nuxt.context
 
 			redirect(`/characters/${this.character.id}/persona`)
+		},
+
+		deleteCharacter(result) {
+			this.deleting = false
+
+			if(result) {
+				this.loading = true
+
+				try {
+					this.$store.dispatch('character/delete', this.character.id)
+					this.$router.push('/characters')
+				}
+				catch(error) {
+					console.log(error)
+				}
+
+				this.loading = false
+			}
+		},
+
+		confirmDeleteCharacter() {
+			this.deleting = true
 		},
 	},
 }

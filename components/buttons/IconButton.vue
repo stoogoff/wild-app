@@ -12,6 +12,10 @@ export default Vue.component('IconButton', {
 			type: Boolean,
 			default: false,
 		},
+		outlined: {
+			type: Boolean,
+			default: false,
+		},
 		type: {
 			type: String,
 			default: 'primary',
@@ -24,7 +28,11 @@ export default Vue.component('IconButton', {
 
 	computed: {
 		classList() {
-			let classList = ['btn-icon']
+			let classList = ['btn btn-icon']
+
+			if(this.outlined) {
+				classList.push('outlined')
+			}
 
 			if(this.disabled === true) {
 				classList.push('disabled')

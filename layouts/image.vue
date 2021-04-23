@@ -19,7 +19,7 @@
 			</div>
 		</section>
 		<Footer />
-		<Debug />
+		<!--Debug /-->
 	</div>
 </template>
 <script>

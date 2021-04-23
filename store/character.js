@@ -25,6 +25,10 @@ export const mutations = {
 		state.characters.push(character)
 	},
 
+	remove(state, toRemove) {
+		state.characters = [ ...state.characters.filter(({ id }) => id !== toRemove) ]
+	},
+
 	update(state, data) {
 		state.characters = [ ...state.characters.filter(({ id }) => id !== data.id), cloneDeep(data) ]
 	},
@@ -58,5 +62,10 @@ export const actions = {
 		commit('set', data)
 
 		return data
-	}
+	},
+
+	async delete({ commit }, id) {
+		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(id).delete()
+		commit('remove', id)
+	},
 }

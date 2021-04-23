@@ -16,7 +16,7 @@
 				</nuxt-link>
 			</article>
 		</section>
-		<Link block to="/characters/new">New Character</Link>
+		<Link block type="primary" to="/characters/new">New Character</Link>
 	</main>
 </template>
 <script>

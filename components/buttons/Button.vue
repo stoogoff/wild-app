@@ -12,9 +12,13 @@ export default Vue.component('Button', {
 			type: Boolean,
 			default: false,
 		},
+		outlined: {
+			type: Boolean,
+			default: false,
+		},
 		type: {
 			type: String,
-			default: 'primary',
+			default: '',
 		},
 		block: {
 			type: Boolean,
@@ -28,6 +32,10 @@ export default Vue.component('Button', {
 
 			if(this.block === true) {
 				classList.push('block w-full')
+			}
+
+			if(this.outlined) {
+				classList.push('outlined')
 			}
 
 			if(this.disabled === true) {

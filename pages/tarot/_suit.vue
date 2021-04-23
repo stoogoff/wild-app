@@ -11,7 +11,7 @@
 				</article>
 			</swiper-slide>
 			<swiper-slide :key="card.id" v-for="card in cards">
-				<Card :card="card" />
+				<CardFlip :card="card" />
 			</swiper-slide>
 		</swiper>
 	</main>

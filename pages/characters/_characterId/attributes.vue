@@ -28,7 +28,6 @@
 			>
 				Passion is all about determination, mental force, emotional strength and imagination.
 			</AttributeEdit>
-			<hr />
 			<Stepper
 				:next="`/characters/${character.id}/abilities`"
 				:previous="`/characters/${character.id}/shadow`"

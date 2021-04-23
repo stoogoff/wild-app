@@ -8,13 +8,14 @@
 				:selected="character.persona.card"
 				@click="toggleSelectedCard"
 			/>
-			<Button @click="drawCards">Draw</Button>
+			<div class="mt-2 mb-4">
+				<Button type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</Button>
+			</div>
 			<TextInput
 				label="Persona"
 				v-model="character.persona.text"
 				:disabled="character.persona.card === null"
 			/>
-			<hr/>
 			<Stepper
 				:next="`/characters/${character.id}/shadow`"
 				:disabled="!canContinue"
@@ -53,6 +54,10 @@ export default {
 	computed: {
 		canContinue() {
 			return this.character.persona.card !== null && this.character.persona.text !== ''
+		},
+
+		hasDrawn() {
+			return this.cards.length > 0
 		}
 	},
 

@@ -5,13 +5,14 @@
 			<MarkdownContent content="characters/shadow" />
 			<Loading v-if="loading" />
 			<Card :card="selectedCard" v-else-if="selectedCard !== null" />
-			<Button @click="drawCard">Draw</Button>
+			<div class="mt-2 mb-4">
+				<Button type="primary" block :outlined="hasDrawn" @click="drawCard">Draw</Button>
+			</div>
 			<TextInput
 				label="Shadow"
 				v-model="character.shadow.text"
 				:disabled="selectedCard === null"
 			/>
-			<hr/>
 			<Stepper
 				:next="`/characters/${character.id}/attributes`"
 				:previous="`/characters/${character.id}/persona`"
@@ -52,6 +53,10 @@ export default {
 		canContinue() {
 			return this.character.shadow.text !== ''
 		},
+
+		hasDrawn() {
+			return this.selectedCard !== null
+		}
 	},
 
 	methods: {

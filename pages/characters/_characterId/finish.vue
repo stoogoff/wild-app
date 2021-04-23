@@ -11,7 +11,6 @@
 
 			<TextInput label="Name" v-model="character.name" />
 			<TextArea label="Background" v-model="character.background" />
-			<hr />
 			<Stepper
 				:next="`/characters/${character.id}`"
 				:previous="`/characters/${character.id}/aspects`"

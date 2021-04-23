@@ -18,7 +18,7 @@ export default Vue.component('Link', {
 		},
 		type: {
 			type: String,
-			default: 'primary',
+			default: '',
 		},
 		block: {
 			type: Boolean,

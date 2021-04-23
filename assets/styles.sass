@@ -86,7 +86,8 @@
 	.btn
 		@apply font-sans font-bold uppercase text-sm text-center
 		@apply px-6 py-3 mr-1 mb-1
-		@apply rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150
+		@apply rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150
+		@apply bg-gray-400 text-gray-700 hover:text-white hover:bg-gray-600
 
 		&.disabled
 			@apply bg-gray-300
@@ -102,8 +103,7 @@
 			@apply bg-focus-dark text-focus-lighter hover:bg-focus-darker
 
 		&.secondary
-			@apply bg-gray-400 text-gray-700 hover:text-white hover:bg-gray-600
-			//@apply bg-strength-dark text-strength-lighter hover:bg-strength-darker
+			@apply bg-strength-dark text-strength-lighter hover:bg-strength-darker
 
 		&.success
 			@apply bg-control-dark text-control-lighter hover:bg-control-darker
@@ -111,31 +111,30 @@
 		&.warning
 			@apply bg-passion-dark text-passion-lighter hover:bg-passion-darker
 
+		&.outlined
+			@apply bg-white border border-solid hover:text-gray-900
+
+			&.disabled
+				@apply bg-gray-300
+				@apply text-gray-400
+				@apply cursor-default
+
+			&.primary
+				@apply text-focus-dark border-focus hover:bg-focus-lighter hover:text-focus-darker hover:border-focus-darker
+
+			&.secondary
+				@apply text-strength-dark border-strength hover:bg-strength-lighter hover:text-strength-darker hover:border-strength-darker
+
+			&.success
+				@apply text-control-dark border-control hover:bg-control-lighter hover:text-control-darker hover:border-control-darker
+
+			&.warning
+				@apply text-passion-dark border-passion hover:bg-passion-lighter hover:text-passion-darker hover:border-passion-darker
+
 	.btn-icon
 		@apply border border-solid
-		@apply font-bold uppercase p-2 rounded-full outline-none focus:outline-none mr-1 mb-1
+		@apply font-bold uppercase p-2 rounded-full outline-none focus:outline-none mr-1 mb-1 shadow
 		@apply ease-linear transition-all duration-150
-		@apply bg-white
-
-		&.disabled
-			@apply bg-gray-300
-			@apply text-gray-400
-			@apply cursor-default
-
-		&.enabled
-			@apply cursor-pointer
-
-		&.primary
-			@apply text-focus-dark border-focus hover:bg-focus-lighter hover:text-focus-darker hover:border-focus-darker
-
-		&.secondary
-			@apply text-strength-dark border-strength hover:bg-strength-lighter hover:text-strength-darker hover:border-strength-darker
-
-		&.success
-			@apply text-control-dark border-control hover:bg-control-lighter hover:text-control-darker hover:border-control-darker
-
-		&.warning
-			@apply text-passion-dark border-passion hover:bg-passion-lighter hover:text-passion-darker hover:border-passion-darker
 
 	.btn-group
 		@apply flex
@@ -149,3 +148,9 @@
 
 			&:last-child
 				@apply rounded-r-md
+
+	.fade-enter-active, .fade-leave-active
+		transition: opacity .5s
+
+	.fade-enter, .fade-leave-to
+		opacity: 0

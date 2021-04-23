@@ -44,7 +44,7 @@ export const DEFAULT_CHARACTER = {
 		Scholar: ABILITY_REST,
 		Visionary: ABILITY_REST,
 	},
-	aspects: [''],
+	aspects: [],
 	name: '',
 	background: '',
 	image: null,

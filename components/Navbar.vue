@@ -57,16 +57,10 @@ export default Vue.component('Navbar', {
 		}
 	},
 
-	async fetch() {
-		this.characters = await this.$store.dispatch('character/fetch')
-	},
-	fetchOnServer: false,
-
 	data() {
 		return {
 			navbarOpen: false,
 			suppressClose: false,
-			characters: [],
 		}
 	},
 
@@ -115,7 +109,9 @@ export default Vue.component('Navbar', {
 			]
 
 			// add chacracters
-			menuItems[1].menuItems = this.characters.map(character => ({
+			const characters = this.$store.state.character.characters
+
+			menuItems[1].menuItems = characters.map(character => ({
 				title: character.name || `Unnamed character (${character.id})`,
 				href: `/characters/${character.id}`,
 			}))

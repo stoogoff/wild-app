@@ -43,7 +43,6 @@
 			>
 				<p>Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something.</p>
 			</AbilityEdit>
-			<hr />
 			<Stepper
 				:next="`/characters/${character.id}/aspects`"
 				:previous="`/characters/${character.id}/attributes`"
