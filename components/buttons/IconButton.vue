@@ -18,7 +18,7 @@ export default Vue.component('IconButton', {
 		},
 		type: {
 			type: String,
-			default: 'primary',
+			default: '',
 		},
 		icon: {
 			type: String,

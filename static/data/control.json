@@ -3,6 +3,7 @@
 		"_original": "Ace of Coins",
 		"title": "Controlled Visionary",
 		"suit": "Control",
+		"value": "Visionary",
 		"meanings": ["Pleasure", "Bliss", "Prosperity", "Perfection"],
 		"reversed": ["Corruption", "Wasted Money", "Arguments", "Dissatisfaction"],
 		"image": "control/01-control-visionary.png"
@@ -11,6 +12,7 @@
 		"_original": "Two of Coins",
 		"title": "Two of Control",
 		"suit": "Control",
+		"value": 2,
 		"meanings": ["Difficulty Starting", "Trouble", "Balance"],
 		"reversed": ["Simulated Enjoyment", "Imbalance", "Need to Focus", "Lost"],
 		"image": "control/02-control.png"
@@ -19,6 +21,7 @@
 		"_original": "Three of Coins",
 		"title": "Three of Control",
 		"suit": "Control",
+		"value": 3,
 		"meanings": ["Mastery", "Art", "Hard Work", "Skill"],
 		"reversed": ["Mediocrity", "Sloppy", "Failure to do the Best Possible"],
 		"image": "control/03-control.png"
@@ -27,6 +30,7 @@
 		"_original": "Four of Coins",
 		"title": "Four of Control",
 		"suit": "Control",
+		"value": 4,
 		"meanings": ["Hoarding", "Skinflint", "Love of Wealth", "Structure"],
 		"reversed": ["Opposition", "Delay", "Financial Setback", "Loss of Valuables"],
 		"image": "control/04-control.png"
@@ -35,6 +39,7 @@
 		"_original": "Five of Coins",
 		"title": "Five of Control",
 		"suit": "Control",
+		"value": 5,
 		"meanings": ["Distraction", "Loss", "Failure", "Error", "Illness"],
 		"reversed": ["Recovery", "Overcoming Ruin", "Taking Action"],
 		"image": "control/05-control.png"
@@ -43,6 +48,7 @@
 		"_original": "Six of Coins",
 		"title": "Six of Control",
 		"suit": "Control",
+		"value": 6,
 		"meanings": ["Helping", "Charity", "Kindness", "Sharing"],
 		"reversed": ["Avarice", "Envy", "Jealousy", "Solitude", "Holding Back"],
 		"image": "control/06-control.png"
@@ -51,6 +57,7 @@
 		"_original": "Seven of Coins",
 		"title": "Seven of Control",
 		"suit": "Control",
+		"value": 7,
 		"meanings": ["Ingenuity", "Progress", "Work", "Growth"],
 		"reversed": ["Impatience", "Anxiety", "Holding back from Committing"],
 		"image": "control/07-control.png"
@@ -59,6 +66,7 @@
 		"_original": "Eight of Coins",
 		"title": "Eight of Control",
 		"suit": "Control",
+		"value": 8,
 		"meanings": ["Learning", "Craftsmanship", "Honesty", "Expression"],
 		"reversed": ["Vanity", "Shallowness", "Lack of Ambition", "Disillusionment"],
 		"image": "control/08-control.png"
@@ -67,6 +75,7 @@
 		"_original": "Nine of Coins",
 		"title": "Nine of Control",
 		"suit": "Control",
+		"value": 9,
 		"meanings": ["Safety", "Prudence, Foresight, Messages"],
 		"reversed": ["Threat", "Storms, Danger, Concerns for the Future"],
 		"image": "control/09-control.png"
@@ -75,6 +84,7 @@
 		"_original": "Ten of Coins",
 		"title": "Ten of Control",
 		"suit": "Control",
+		"value": 10,
 		"meanings": ["Security", "Prosperity", "Inheritance", "Riches"],
 		"reversed": ["Risk", "Loss", "Looking for New Adventures", "Bad Odds"],
 		"image": "control/10-control.png"
@@ -83,6 +93,7 @@
 		"_original": "Page of Coins",
 		"title": "Controlled Scholar",
 		"suit": "Control",
+		"value": "Scholar",
 		"meanings": ["Concentration", "Study", "Reflection", "Learning", "Nature"],
 		"reversed": ["Unrealistic", "Whimsical", "Illogical", "Distracted"],
 		"image": "control/11-control-scholar.png"
@@ -91,6 +102,7 @@
 		"_original": "Knight of Coins",
 		"title": "Controlled Rogue",
 		"suit": "Control",
+		"value": "Rogue",
 		"meanings": ["Dedication", "Methodical", "Reliable", "Patient Person"],
 		"reversed": ["Narrow-minded", "Carelessness", "Lack of Direction", "Stagnant"],
 		"image": "control/12-control-rogue.png"
@@ -99,6 +111,7 @@
 		"_original": "Queen of Coins",
 		"title": "Controlled Guardian",
 		"suit": "Control",
+		"value": "Guardian",
 		"meanings": ["Grace", "Wealth", "Dignity", "Silent", "Secure"],
 		"reversed": ["Suspicious", "Vicious", "Untrustworthy", "Needy"],
 		"image": "control/13-control-guardian.png"
@@ -107,6 +120,7 @@
 		"_original": "King of Coins",
 		"title": "Controlled Diplomat",
 		"suit": "Control",
+		"value": "Diplomat",
 		"meanings": ["Protective", "Loyal", "Intelligent", "Leader"],
 		"reversed": ["Vice", "Corrupt", "Avarice", "Shake-up in Work"],
 		"image": "control/14-control-diplomat.png"

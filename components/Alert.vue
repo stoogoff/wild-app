@@ -1,7 +1,7 @@
 <template>
 	<aside class="alert" :class="type">
 		<span class="mr-2"><Icon :icon="icon" v-if="icon" /></span>
-		<span><slot></slot></span>
+		<span><slot /></span>
 	</aside>
 </template>
 <script>

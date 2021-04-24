@@ -3,6 +3,7 @@
 		"_original": "Ace of Wands",
 		"title": "Passionate Visionary",
 		"suit": "Passion",
+		"value": "Visionary",
 		"meanings": ["Creation", "Birth", "Invention", "Enterprise"],
 		"reversed": ["Vexation", "False Start", "Unrealised Goal", "Decadence"],
 		"image": ""
@@ -11,6 +12,7 @@
 		"_original": "Two of Wands",
 		"title": "Two of Passion",
 		"suit": "Passion",
+		"value": 2,
 		"meanings": ["Ruler", "Mature Person", "Control", "Dominion"],
 		"reversed": ["Sadness", "Trouble", "Restraint", "Loss of Faith"],
 		"image": ""
@@ -19,6 +21,7 @@
 		"_original": "Three of Wands",
 		"title": "Three of Passion",
 		"suit": "Passion",
+		"value": 3,
 		"meanings": ["Independence", "Heroic Action", "Enterprise", "Strength"],
 		"reversed": ["Treachery", "Rejection", "Loss", "Cooperation"],
 		"image": ""
@@ -27,6 +30,7 @@
 		"_original": "Four of Wands",
 		"title": "Four of Passion",
 		"suit": "Passion",
+		"value": 4,
 		"meanings": ["Romance", "Harmony", "Tranquility", "Sharing"],
 		"reversed": ["Insecurity", "Unfulfilled Romance", "Falling Apart", "Failing"],
 		"image": ""
@@ -35,6 +39,7 @@
 		"_original": "Five of Wands",
 		"title": "Five of Passion",
 		"suit": "Passion",
+		"value": 5,
 		"meanings": ["Struggle", "Movement", "Unsatisfied Desires"],
 		"reversed": ["Betrayal", "Anger", "Conflict", "Trickery"],
 		"image": ""
@@ -43,6 +48,7 @@
 		"_original": "Six of Wands",
 		"title": "Six of Passion",
 		"suit": "Passion",
+		"value": 6,
 		"meanings": ["Conquest", "Optimism", "Triumph", "Productivity"],
 		"reversed": ["Fear", "Doubt", "Pessimism", "Apprehension"],
 		"image": ""
@@ -51,6 +57,7 @@
 		"_original": "Seven of Wands",
 		"title": "Seven of Passion",
 		"suit": "Passion",
+		"value": 7,
 		"meanings": ["Advantage", "Overcoming Obstacles", "Gain"],
 		"reversed": ["Indecision", "Anxiety", "Uncertainty", "Communication"],
 		"image": ""
@@ -59,6 +66,7 @@
 		"_original": "Eight of Wands",
 		"title": "Eight of Passion",
 		"suit": "Passion",
+		"value": 8,
 		"meanings": ["Speed", "Swift Activity", "Hasty Decisions", "Move"],
 		"reversed": ["Delays", "Confusion", "Jealousy", "Discord"],
 		"image": ""
@@ -67,6 +75,7 @@
 		"_original": "Nine of Wands",
 		"title": "Nine of Passion",
 		"suit": "Passion",
+		"value": 9,
 		"meanings": ["Discipline", "Hidden Enemies", "Awaiting Troubles"],
 		"reversed": ["Calamity", "Obstacles", "Confusion", "Delays"],
 		"image": ""
@@ -75,6 +84,7 @@
 		"_original": "Ten of Wands",
 		"title": "Ten of Passion",
 		"suit": "Passion",
+		"value": 10,
 		"meanings": ["Intense Belief", "Passion", "Powerful Dreams", "Burdened"],
 		"reversed": ["Subterfuge", "Oppression", "Duplicity", "Traitor"],
 		"image": ""
@@ -83,6 +93,7 @@
 		"_original": "Page of Wands",
 		"title": "Passionate Scholar",
 		"suit": "Passion",
+		"value": "Scholar",
 		"meanings": ["Trustworthy", "Faithful Friend", "Envoy", "No Secrets"],
 		"reversed": ["Gossip", "Bad News", "Instability", "Indecision"],
 		"image": ""
@@ -91,6 +102,7 @@
 		"_original": "Knight of Wands",
 		"title": "Passionate Rogue",
 		"suit": "Passion",
+		"value": "Rogue",
 		"meanings": ["Courage", "Journey", "Headstrong", "Flight"],
 		"reversed": ["Interruption", "Quarrelling", "Disillusioned", "Discord"],
 		"image": ""
@@ -99,6 +111,7 @@
 		"_original": "Queen of Wands",
 		"title": "Passionate Guardian",
 		"suit": "Passion",
+		"value": "Guardian",
 		"meanings": ["Honourable", "Sympathetic", "Friendly", "Understanding"],
 		"reversed": ["Jealousy", "Infidelity", "Deceit", "Jaded"],
 		"image": ""	
@@ -107,6 +120,7 @@
 		"_original": "King of Wands",
 		"title": "Passionate Diplomat",
 		"suit": "Passion",
+		"value": "Diplomat",
 		"meanings": ["Conscientious", "Wise", "Mature", "Confident"],
 		"reversed": ["Arrogant", "Severity", "Domineering", "Dogmatic"],
 		"image": ""

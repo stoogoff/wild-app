@@ -6,8 +6,16 @@
 			<CardGrid
 				:cards="cards"
 				:selected="character.persona.card"
-				@click="toggleSelectedCard"
-			/>
+				v-slot="{ card }"
+			>
+				<IconButton
+					@click="toggleSelectedCard(card)"
+					:type="isSelected(card) ? 'success' : ''"
+					icon="check"
+					:outlined="!isSelected(card)"
+				/>
+			</CardGrid>
+
 			<div class="mt-2 mb-4">
 				<Button type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</Button>
 			</div>
@@ -62,6 +70,10 @@ export default {
 	},
 
 	methods: {
+		isSelected(card) {
+			return this.character.persona.card && this.character.persona.card === card.id
+		},
+
 		toggleSelectedCard(card) {
 			if(this.character.persona.card && this.character.persona.card === card.id) {
 				this.character.persona.card = null

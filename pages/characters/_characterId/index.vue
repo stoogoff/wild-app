@@ -2,23 +2,41 @@
 	<main>
 		<Loading v-if="loading || character === null" />
 		<div v-else>
-			<section class="flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-color-gray-300">
+			<section v-if="inViewMode" class="btn-panel">
 				<Button block disabled>Play</Button>
-				<Button block disabled>Solo</Button>
+				<Button block type="primary" @click="soloPlay">Solo</Button>
 				<Button block type="success" @click="editCharacter">Edit</Button>
 				<Button block type="warning" @click="confirmDeleteCharacter">Delete</Button>
+			</section>
+			<section v-if="inPlayMode" class="btn-panel">
+				<Button block type="primary" @click="drawCards(3)" :disabled="!readyToDraw">Draw (3)</Button>
+				<Button block type="primary" outlined @click="drawCards(4)" :disabled="!readyToDraw">Draw (4)</Button>
+				<Button block type="primary" outlined @click="drawCards(5)" :disabled="!readyToDraw">Draw (5)</Button>
 			</section>
 
 			<h1>{{ character.name }}</h1>
 			<CharacterImage :character="character" />
 
+			<section class="mb-2 grid grid-cols-2">
+				<div v-if="character.persona.card">
+					<h2>Persona</h2>
+					<Card :card-name="character.persona.card" :reversed="character.persona.reversed" />
+					<p class="text-sm italic">{{ character.persona.text }}</p>
+				</div>
+				<div v-if="character.shadow.card">
+					<h2>Shadow</h2>
+					<Card :card-name="character.shadow.card" :reversed="character.shadow.reversed" />
+					<p class="text-sm italic">{{ character.shadow.text }}</p>
+				</div>
+			</section>
+
 			<section class="mb-2">
 				<h2>Attributes</h2>
-				<AttributesView :values="character.attributes" />
+				<AttributesView :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" />
 			</section>
 			<section class="mb-2 border-t border-gray-300 pt-6">
 				<h2>Abilities</h2>
-				<AttributesView :values="character.abilities" />
+				<AttributesView :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
 			</section>
 			<section class="mb-4 border-t border-gray-300 pt-6">
 				<h2>Aspects</h2>
@@ -39,9 +57,22 @@
 			</section>
 		</div>
 		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
+		<CardDraw
+			v-if="showDrawCards"
+			:number="cardsToDraw"
+			:character="character"
+			:attribute="selectedAttribute"
+			:ability="selectedAbility"
+			@close="showDrawCards = false"
+			@push="push"
+			/>
 	</main>
 </template>
 <script>
+
+const PLAY = 'play'
+const SOLO = 'solo'
+const VIEW = 'view'
 
 export default {
 	layout: 'default',
@@ -61,10 +92,33 @@ export default {
 			character: null,
 			deleting: false,
 			loading: false,
+			mode: VIEW,
+			selectedAbility: null,
+			selectedAttribute: null,
+			showDrawCards: false,
+			cardsToDraw: 0,
+		}
+	},
+
+	computed: {
+		inViewMode() {
+			return this.mode === VIEW
+		},
+
+		inPlayMode() {
+			return this.mode === SOLO || this.mode === PLAY
+		},
+
+		readyToDraw() {
+			return this.selectedAttribute !== null && this.selectedAbility !== null
 		}
 	},
 
 	methods: {
+		soloPlay() {
+			this.mode = SOLO
+		},
+
 		editCharacter() {
 			const { redirect } = this.$nuxt.context
 
@@ -92,7 +146,23 @@ export default {
 		confirmDeleteCharacter() {
 			this.deleting = true
 		},
+
+		drawCards(num) {
+			this.cardsToDraw = num
+			this.showDrawCards = true
+		},
+
+		push(attribute) {
+			console.log('push=', attribute, this.character.attributes[attribute] - 1)
+			// reduce attribute by 1
+			// need a temp value for attributes
+		}
 	},
 }
 
 </script>
+<style scoped>
+.btn-panel {
+	@apply flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-gray-300 z-10;
+}
+</style>

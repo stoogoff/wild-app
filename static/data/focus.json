@@ -3,6 +3,7 @@
 		"_original": "Ace of Cups",
 		"title": "Focused Visionary",
 		"suit": "Focus",
+		"value": "Visionary",
 		"meanings": ["Abundance", "Love", "Joy", "Fertility", "Happiness"],
 		"reversed": ["Instability", "Sadness", "Unrequited Love", "Change"],
 		"image": "focus/01-focus-visionary.png"
@@ -11,6 +12,7 @@
 		"_original": "Two of Cups",
 		"title": "Two of Focus",
 		"suit": "Focus",
+		"value": 2,
 		"meanings": ["New Relationship", "Friendship", "Passion", "Engagement"],
 		"reversed": ["False Friendship", "Unsatisfactory Love", "Divorce", "Holding Back"],
 		"image": "focus/02-focus.png"
@@ -19,6 +21,7 @@
 		"_original": "Three of Cups",
 		"title": "Three of Focus",
 		"suit": "Focus",
+		"value": 3,
 		"meanings": ["Healing", "Celebration", "Resolution of Problem"],
 		"reversed": ["Overabundance", "Excessive Pleasures", "Delay", "Unharmonious"],
 		"image": "focus/03-focus.png"
@@ -27,6 +30,7 @@
 		"_original": "Four of Cups",
 		"title": "Four of Focus",
 		"suit": "Focus",
+		"value": 4,
 		"meanings": ["Apathy", "Boredom", "Aversion", "Disgust"],
 		"reversed": ["Taking Action", "New Possibilities", "Preventing Loss"],
 		"image": "focus/04-focus.png"
@@ -35,6 +39,7 @@
 		"_original": "Five of Cups",
 		"title": "Five of Focus",
 		"suit": "Focus",
+		"value": 5,
 		"meanings": ["Regret", "Loveless", "Loss", "Imperfection"],
 		"reversed": ["New Alliances", "Hope", "Understanding"],
 		"image": "focus/05-focus.png"
@@ -43,6 +48,7 @@
 		"_original": "Six of Cups",
 		"title": "Six of Focus",
 		"suit": "Focus",
+		"value": 6,
 		"meanings": ["Memories", "Nostalgia", "Sentimentality", "Childhood"],
 		"reversed": ["Future", "Opportunities", "Stripping Away Illusions"],
 		"image": "focus/06-focus.png"
@@ -51,6 +57,7 @@
 		"_original": "Seven of Cups",
 		"title": "Seven of Focus",
 		"suit": "Focus",
+		"value": 7,
 		"meanings": ["Fantasy", "Daydreams", "Illusions", "Imagination"],
 		"reversed": ["Realism", "Desire", "Goal nearly Attained"],
 		"image": "focus/07-focus.png"
@@ -59,6 +66,7 @@
 		"_original": "Eight of Cups",
 		"title": "Eight of Focus",
 		"suit": "Focus",
+		"value": 8,
 		"meanings": ["Shyness", "Modesty", "Instability", "Disappointment"],
 		"reversed": ["Stability", "Effort", "Happiness"],
 		"image": "focus/08-focus.png"
@@ -67,6 +75,7 @@
 		"_original": "Nine of Cups",
 		"title": "Nine of Focus",
 		"suit": "Focus",
+		"value": 9,
 		"meanings": ["Desire", "Abundance", "Beauty", "Sexual Excitement"],
 		"reversed": ["Frustration", "Imperfection", "Mistakes", "Material Loss"],
 		"image": "focus/09-focus.png"
@@ -75,6 +84,7 @@
 		"_original": "Ten of Cups",
 		"title": "Ten of Focus",
 		"suit": "Focus",
+		"value": 10,
 		"meanings": ["Peace", "Happiness", "Joy", "Inner Peace"],
 		"reversed": ["Rage", "Quarrel", "Loss of Friendship", "Looking for Joy"],
 		"image": "focus/10-focus.png"
@@ -83,6 +93,7 @@
 		"_original": "Page of Cups",
 		"title": "Focused Scholar",
 		"suit": "Focus",
+		"value": "Scholar",
 		"meanings": ["Reflective", "Imaginative", "Fantasy", "Student"],
 		"reversed": ["Susceptible", "Deviation", "Distracted", "Need to Decide"],
 		"image": "focus/11-focus-scholar.png"
@@ -91,6 +102,7 @@
 		"_original": "Knight of Cups",
 		"title": "Focused Rogue",
 		"suit": "Focus",
+		"value": "Rogue",
 		"meanings": ["Attraction", "Challenge", "Appeal", "Invitation"],
 		"reversed": ["Resentful", "Trickery", "Deception", "Introvert"],
 		"image": "focus/12-focus-rogue.png"
@@ -99,6 +111,7 @@
 		"_original": "Queen of Cups",
 		"title": "Focused Guardian",
 		"suit": "Focus",
+		"value": "Guardian",
 		"meanings": ["Mysterious", "Wise", "Adored", "Practical", "Warm Heart"],
 		"reversed": ["Unreliable", "Uncertain", "Immoral", "Dishonest"],
 		"image": "focus/13-focus-guardian.png"
@@ -107,6 +120,7 @@
 		"_original": "King of Cups",
 		"title": "Focused Diplomat",
 		"suit": "Focus",
+		"value": "Diplomat",
 		"meanings": ["Responsible", "Kind", "Calm", "Artist", "Lawyer"],
 		"reversed": ["Emotional", "Double Dealing", "Temperamental", "Dishonest"],
 		"image": "focus/14-focus-diplomat.png"

@@ -6,6 +6,13 @@
 			class="attr"
 			:class="attr.toLowerCase()"
 		>
+			<span v-if="play" class="absolute -top-2 -right-1">
+				<IconButton
+					icon="check"
+					:outlined="!isSelected(attr)"
+					:type="isSelected(attr) ? 'success' : ''"
+					@click="selectAttr(attr)" />
+			</span>
 			<span class="text-xl font-bold block tracking-wide text-gray-700">{{ values[attr] }}</span>
 			<span class="text-sm text-gray-500 uppercase">{{ attr }}</span>
 		</div>
@@ -16,10 +23,29 @@ import Vue from 'vue'
 
 export default Vue.component('AttributesView', {
 	props: {
+		value: {
+			type: String,
+			default: null,
+		},
 		values: {
 			type: Object,
 			required: true,
-		}
+		},
+
+		play: {
+			type: Boolean,
+			default: false,
+		},
+	},
+
+	methods: {
+		isSelected(attr) {
+			return this.value === attr
+		},
+
+		selectAttr(attr) {
+			this.$emit('input', this.isSelected(attr) ? null : attr)
+		},
 	},
 })
 
@@ -27,7 +53,7 @@ export default Vue.component('AttributesView', {
 <style scoped>
 
 .attr {
-	@apply bg-center bg-no-repeat bg-contain w-28  mr-4 mb-4 p-3 text-center;
+	@apply bg-center bg-no-repeat bg-contain w-28  mr-4 mb-4 p-3 text-center relative;
 }
 
 .control {
