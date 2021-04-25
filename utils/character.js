@@ -15,3 +15,12 @@ export const getCurrentAttribute = (character, attribute) => {
 export const getAbility = (character, ability) => parseInt(character.abilities[ability])
 
 export const getTargetNumber = (character, attribute, ability) => getCurrentAttribute(character, attribute) + getAbility(character, ability)
+
+export const isInjured = character => {
+	if(KEY_INJURY in character) {
+		return Object.keys(character[KEY_INJURY]).length > 0
+	}
+
+	return false
+}
+

@@ -38,8 +38,6 @@ export const actions = {
 	async save({ commit }, data) {
 		commit('update', data)
 		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(data.id).set(data)
-
-		return data
 	},
 
 	async create({ commit, rootState }) {
@@ -86,6 +84,6 @@ export const actions = {
 
 		character[KEY_INJURY][attribute] = character[KEY_INJURY][attribute] - 1
 
-		return await dispatch('save', character)
+		await dispatch('save', character)
 	},
 }

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Navbar transparent />
+		<MainNav transparent />
 		<section class="relative block" style="height: 500px">
 			<div id="cover-image" class="absolute top-0 w-full h-full bg-center bg-cover">
 				<span class="w-full h-full absolute opacity-50 bg-black"></span>

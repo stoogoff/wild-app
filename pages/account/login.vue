@@ -11,8 +11,8 @@
 				<PasswordInput label="Password" v-model="password" :error="error" :message="message" />
 			</Validate>
 			<div class="flex">
-				<Link block type="secondary" to="/account/register">Register</Link>
-				<Button block :disabled="!canContinue" @click="login">Login</Button>
+				<Link block type="primary" outlined to="/account/register">Register</Link>
+				<Button block type="primary" :disabled="!canContinue" @click="login">Login</Button>
 			</div>
 		</div>
 	</main>

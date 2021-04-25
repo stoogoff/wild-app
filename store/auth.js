@@ -5,7 +5,6 @@ export const state = () => ({
 
 export const mutations = {
 	set(state, user) {
-		console.log('auth/set', user)
 		state.user = user
 	},
 }

@@ -12,6 +12,7 @@
 				<MenuButton type="primary" outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
 					Skill Check
 				</MenuButton>
+				<Button outlined type="success" :disabled="!isInjured" @click="recover">Recover</Button>
 			</section>
 
 			<h1>{{ character.name }}</h1>
@@ -55,23 +56,33 @@
 					</div>
 				</div>
 			</section>
+			<SkillCheck
+				v-if="showDrawCards"
+				:number="cardsToDraw"
+				:character="character"
+				:attribute="selectedAttribute"
+				:ability="selectedAbility"
+				@close="showDrawCards = false"
+				@push="push"
+			/>
+			<Recovery
+				v-if="showRecovery"
+				:character="character"
+				@close="applyRecovery"
+			/>
+			<Injury
+				v-if="showInjury"
+				:character="character"
+				@save="updateAspects"
+			/>
 		</div>
 		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
-		<SkillCheck
-			v-if="showDrawCards"
-			:number="cardsToDraw"
-			:character="character"
-			:attribute="selectedAttribute"
-			:ability="selectedAbility"
-			@close="showDrawCards = false"
-			@push="push"
-		/>
 	</main>
 </template>
 <script>
 
 import range from 'lodash/range'
-import { getCurrentAttribute } from '~/utils/character'
+import { getCurrentAttribute, isInjured } from '~/utils/character'
 
 const PLAY = 'play'
 const SOLO = 'solo'
@@ -100,6 +111,8 @@ export default {
 			selectedAttribute: null,
 			showDrawCards: false,
 			cardsToDraw: 0,
+			showRecovery: false,
+			showInjury: false,
 		}
 	},
 
@@ -118,7 +131,11 @@ export default {
 
 		readyToDraw() {
 			return this.selectedAttribute !== null && this.selectedAbility !== null
-		}
+		},
+
+		isInjured() {
+			return isInjured(this.character)
+		},
 	},
 
 	methods: {
@@ -159,18 +176,37 @@ export default {
 			this.showDrawCards = true
 		},
 
+		recover() {
+			this.showRecovery = true
+		},
+
+		async updateAspects(aspect) {
+			await this.$store.dispatch('character/save', { ...this.character, aspects: [ ...this.character.aspects, aspect ]})
+			this.character = await this.$store.getters['character/byId'](this.character.id)
+
+			this.showInjury = false
+		},
+
+		async applyRecovery(injuries) {
+			this.showRecovery = false
+			
+			await this.$store.dispatch('character/save', { ...this.character, injuries })
+			await this.$fetch()
+		},
+
 		async push(attribute) {
 			if(getCurrentAttribute(this.character, attribute) > 0) {
-				this.character = await this.$store.dispatch('character/push', {
+				await this.$store.dispatch('character/push', {
 					character: this.character,
 					attribute
 				})
 
-				if(getCurrentAttribute(this.character, attribute) === 0) {
-					// TODO if the attribute is now at zero need to show a warning
-				}
+				this.character = await this.$store.getters['character/byId'](this.character.id)
 
-				// BUG new injuries aren't displaying correctly
+				if(getCurrentAttribute(this.character, attribute) === 0) {
+					this.showInjury = true
+					this.showDrawCards = false
+				}
 			}
 		}
 	},

@@ -24,6 +24,10 @@ export default Vue.component('Link', {
 			type: Boolean,
 			default: false,
 		},
+		outlined: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	computed: {
@@ -32,6 +36,10 @@ export default Vue.component('Link', {
 
 			if(this.block === true) {
 				classList.push('block w-full')
+			}
+
+			if(this.outlined) {
+				classList.push('outlined')
 			}
 
 			if(this.disabled === true) {

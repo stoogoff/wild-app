@@ -1,21 +1,27 @@
 <template>
-	<transition name="slide-up">
-		<div class="w-full h-full fixed block inset-0 bg-white overflow-x-scroll z-40">
-			<div class="bg-gray-600 p-2 text-white flex">
-				<Button :disabled="!canPush" @click="push">Push</Button>
-				<h3 class="uppercase text-lg text-center flex-grow">{{ totalSuccesses }} Success{{ totalSuccesses === 1 ? '' : 'es' }}</h3>
-				<IconButton icon="close" outlined @click="$emit('close')" />
+	<Screen>
+		<Navbar>
+			<template #title>
+				{{ totalSuccesses }} Success{{ totalSuccesses === 1 ? '' : 'es' }}
+			</template>
+			<template #buttons>
+				<NavButton icon="refresh" :disabled="!canPush" @click="push" />
+				<NavButton icon="close" @click="$emit('close')" />
+			</template>
+			<div class="hidden md:flex md:flex-row md:ml-auto relative">
+				<NavItem icon="refresh" :disabled="!canPush" @click="push">Push</NavItem>
+				<NavItem icon="close" @click="$emit('close')">Close</NavItem>
 			</div>
-			<CardGrid
-				:cards="cards"
-				v-slot="{ card }"
-			>
-				<span class="marker" :class="isSuccessful(card) ? 'success' : 'fail'">
-					<Icon :icon="icon(card)" />
-				</span>
-			</CardGrid>
-		</div>
-	</transition>
+		</Navbar>
+		<CardGrid
+			:cards="cards"
+			v-slot="{ card }"
+		>
+			<span class="marker" :class="isSuccessful(card) ? 'success' : 'fail'">
+				<Icon :icon="icon(card)" />
+			</span>
+		</CardGrid>
+	</Screen>
 </template>
 <script>
 import Vue from 'vue'
@@ -48,6 +54,7 @@ export default Vue.component('SkillCheck', {
 	data() {
 		return {
 			cards: [],
+			targetNumber: 0,
 		}
 	},
 
@@ -57,15 +64,18 @@ export default Vue.component('SkillCheck', {
 		},
 
 		canPush() {
-			return getCurrentAttribute(this.character, this.attribute) && this.cards.map(card => this.successes(card)).filter(value => value === 0).length > 0
+			return getCurrentAttribute(this.character, this.attribute) > 0 && this.cards.map(card => this.successes(card)).filter(value => value === 0).length > 0
 		},
 	},
 
 	methods: {
 		successes(card) {
+			if(this.targetNumber === 0) {
+				this.targetNumber = getTargetNumber(this.character, this.attribute, this.ability)
+			}
+
 			let successes = 0
 			let numericValue = parseInt(card.value)
-			let tn = getTargetNumber(this.character, this.attribute, this.ability)
 
 			// court card matches ability used
 			if(card.value === this.ability) {
@@ -74,7 +84,7 @@ export default Vue.component('SkillCheck', {
 			}
 
 			// numeric value of cards is less than or equal to stats
-			if(numericValue <= tn) {
+			if(numericValue <= this.targetNumber) {
 				successes++
 			}
 
@@ -103,11 +113,9 @@ export default Vue.component('SkillCheck', {
 			return 'check-all'
 		},
 
-		close() {
-			this.$emit('close')
-		},
-
 		async push() {
+			const tn = this.targetNumber
+
 			// redraw failed cards only
 			let cards = await Promise.all(
 				this.cards.map(
@@ -119,6 +127,8 @@ export default Vue.component('SkillCheck', {
 
 			this.cards = cards.flat()
 			this.$emit('push', this.attribute)
+
+			this.targetNumber = tn
 		},
 	},
 })
