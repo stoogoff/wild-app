@@ -6,14 +6,17 @@
 			class="attr"
 			:class="attr.toLowerCase()"
 		>
-			<span v-if="play" class="absolute -top-2 -right-1">
+			<span v-if="play" class="absolute -top-2 -right-2">
 				<IconButton
 					icon="check"
 					:outlined="!isSelected(attr)"
 					:type="isSelected(attr) ? 'success' : ''"
 					@click="selectAttr(attr)" />
 			</span>
-			<span class="text-xl font-bold block tracking-wide text-gray-700">{{ values[attr] }}</span>
+			<span class="text-xl font-bold block tracking-wide text-gray-700">
+				{{ values[attr] }}
+				<span v-if="hasInjury(attr)">({{ injuries[attr] }})</span>
+			</span>
 			<span class="text-sm text-gray-500 uppercase">{{ attr }}</span>
 		</div>
 	</div>
@@ -31,7 +34,10 @@ export default Vue.component('AttributesView', {
 			type: Object,
 			required: true,
 		},
-
+		injuries: {
+			type: Object,
+			default: null,
+		},
 		play: {
 			type: Boolean,
 			default: false,
@@ -39,6 +45,10 @@ export default Vue.component('AttributesView', {
 	},
 
 	methods: {
+		hasInjury(attr) {
+			return this.injuries !== null && attr in this.injuries
+		},
+
 		isSelected(attr) {
 			return this.value === attr
 		},

@@ -50,4 +50,6 @@ export const DEFAULT_CHARACTER = {
 	image: null,
 }
 
+export const KEY_INJURY = 'injuries'
+
 export const STORAGE_CHARACTERS = 'characters'

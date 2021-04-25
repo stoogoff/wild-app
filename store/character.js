@@ -1,6 +1,6 @@
 
 import cloneDeep from 'lodash/cloneDeep'
-import { DEFAULT_CHARACTER, STORAGE_CHARACTERS } from '~/utils/config'
+import { DEFAULT_CHARACTER, STORAGE_CHARACTERS, KEY_INJURY } from '~/utils/config'
 
 // convert the object in the query to its data and ID
 const convert = (query) => ({ ...query.data(), id: query.id })
@@ -38,6 +38,8 @@ export const actions = {
 	async save({ commit }, data) {
 		commit('update', data)
 		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(data.id).set(data)
+
+		return data
 	},
 
 	async create({ commit, rootState }) {
@@ -67,5 +69,23 @@ export const actions = {
 	async delete({ commit }, id) {
 		await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(id).delete()
 		commit('remove', id)
+	},
+
+	async push({ dispatch }, { character, attribute }) {
+		if(!(KEY_INJURY in character)) {
+			character[KEY_INJURY] = {}
+		}
+
+		if(!(attribute in character[KEY_INJURY])) {
+			character[KEY_INJURY][attribute] = character.attributes[attribute]
+		}
+
+		if(character[KEY_INJURY][attribute] === 0) {
+			throw `Attribute at zero ${attribute}`
+		}
+
+		character[KEY_INJURY][attribute] = character[KEY_INJURY][attribute] - 1
+
+		return await dispatch('save', character)
 	},
 }

@@ -1,7 +1,7 @@
 <template>
 	<FormField :label="label" :message="message" :error="error" v-slot="field">
 		<div class="relative flex w-full flex-wrap items-stretch">
-			<span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+			<span class="h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
 				<slot name="prepend"></slot>
 			</span>
 			<input
@@ -13,7 +13,7 @@
 				:placeholder="placeholder"
 				@input="$emit('input', $event.target.value)"
 			/>
-			<span v-if="hasAppendSlot" class="z-10 h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
+			<span v-if="hasAppendSlot" class="h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
 				<slot name="append"></slot>
 			</span>
 		</div>

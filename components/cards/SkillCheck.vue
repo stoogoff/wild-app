@@ -19,8 +19,9 @@
 </template>
 <script>
 import Vue from 'vue'
+import { getTargetNumber, getCurrentAttribute } from '~/utils/character'
 
-export default Vue.component('CardDraw', {
+export default Vue.component('SkillCheck', {
 	props: {
 		number: {
 			type: Number,
@@ -56,7 +57,7 @@ export default Vue.component('CardDraw', {
 		},
 
 		canPush() {
-			return this.cards.map(card => this.successes(card)).filter(value => value === 0).length > 0
+			return getCurrentAttribute(this.character, this.attribute) && this.cards.map(card => this.successes(card)).filter(value => value === 0).length > 0
 		},
 	},
 
@@ -64,7 +65,7 @@ export default Vue.component('CardDraw', {
 		successes(card) {
 			let successes = 0
 			let numericValue = parseInt(card.value)
-			const tn = parseInt(this.character.attributes[this.attribute]) + parseInt(this.character.abilities[this.ability])
+			let tn = getTargetNumber(this.character, this.attribute, this.ability)
 
 			// court card matches ability used
 			if(card.value === this.ability) {

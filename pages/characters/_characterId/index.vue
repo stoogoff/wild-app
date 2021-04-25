@@ -9,9 +9,9 @@
 				<Button block type="warning" @click="confirmDeleteCharacter">Delete</Button>
 			</section>
 			<section v-if="inPlayMode" class="btn-panel">
-				<Button block type="primary" @click="drawCards(3)" :disabled="!readyToDraw">Draw (3)</Button>
-				<Button block type="primary" outlined @click="drawCards(4)" :disabled="!readyToDraw">Draw (4)</Button>
-				<Button block type="primary" outlined @click="drawCards(5)" :disabled="!readyToDraw">Draw (5)</Button>
+				<MenuButton type="primary" outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
+					Skill Check
+				</MenuButton>
 			</section>
 
 			<h1>{{ character.name }}</h1>
@@ -32,7 +32,7 @@
 
 			<section class="mb-2">
 				<h2>Attributes</h2>
-				<AttributesView :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" />
+				<AttributesView :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" :injuries="character.injuries" />
 			</section>
 			<section class="mb-2 border-t border-gray-300 pt-6">
 				<h2>Abilities</h2>
@@ -57,7 +57,7 @@
 			</section>
 		</div>
 		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
-		<CardDraw
+		<SkillCheck
 			v-if="showDrawCards"
 			:number="cardsToDraw"
 			:character="character"
@@ -65,10 +65,13 @@
 			:ability="selectedAbility"
 			@close="showDrawCards = false"
 			@push="push"
-			/>
+		/>
 	</main>
 </template>
 <script>
+
+import range from 'lodash/range'
+import { getCurrentAttribute } from '~/utils/character'
 
 const PLAY = 'play'
 const SOLO = 'solo'
@@ -101,6 +104,10 @@ export default {
 	},
 
 	computed: {
+		skillTestItems() {
+			return range(1, 6).map(num => ({ text: `Draw ${num}`, key: num }))
+		},
+
 		inViewMode() {
 			return this.mode === VIEW
 		},
@@ -152,10 +159,19 @@ export default {
 			this.showDrawCards = true
 		},
 
-		push(attribute) {
-			console.log('push=', attribute, this.character.attributes[attribute] - 1)
-			// reduce attribute by 1
-			// need a temp value for attributes
+		async push(attribute) {
+			if(getCurrentAttribute(this.character, attribute) > 0) {
+				this.character = await this.$store.dispatch('character/push', {
+					character: this.character,
+					attribute
+				})
+
+				if(getCurrentAttribute(this.character, attribute) === 0) {
+					// TODO if the attribute is now at zero need to show a warning
+				}
+
+				// BUG new injuries aren't displaying correctly
+			}
 		}
 	},
 }

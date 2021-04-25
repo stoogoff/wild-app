@@ -5,7 +5,8 @@
     <Alert type="warning">Warning alert</Alert>
     <Alert type="success">Success alert</Alert>
 
-    <div>
+    <MenuButton type="primary" outlined :items="menuItems" @click="testMenu">Default</MenuButton>
+    <!--div>
       <Button>Default</Button>
       <Button type="primary">Primary</Button>
       <Button type="secondary">Secondary</Button>
@@ -20,7 +21,7 @@
       <Button outlined type="warning">Warning</Button>
       <Button outlined type="success" @click="alert('test')">Success</Button>
       <Button outlined disabled @click="alert('test')">Disabled</Button>
-    </div>
+    </div-->
 
     <!--FileDropZone @input="test" :accept="['image/*']" / -->
 		<TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
@@ -51,8 +52,6 @@
 </template>
 
 <script>
-//import Button from '~/components/Button.vue'
-//import Button from '~/components/Button.vue'
 
 export default {
   layout: 'image',
@@ -67,6 +66,14 @@ export default {
   },
 
   computed: {
+    menuItems() {
+      return [
+        { text: 'Menu 1', key: 'menu_1' },
+        { text: 'Menu 2', key: 'menu_2' },
+        { text: 'Menu 3', key: 'menu_3' },
+      ]
+    },
+
     counter() {
       return this.$store.state.counter.counter
     },
@@ -87,6 +94,10 @@ export default {
   },
 
   methods: {
+    testMenu(item) {
+      console.log('menu clicked=', item)
+    },
+
     stateTest() {
       console.log('stateTest')
       this.$store.commit('counter/increment')
