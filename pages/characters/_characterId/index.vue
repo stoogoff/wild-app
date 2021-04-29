@@ -191,7 +191,7 @@ export default {
 			this.showRecovery = false
 			
 			await this.$store.dispatch('character/save', { ...this.character, injuries })
-			await this.$fetch()
+			this.character = await this.$store.getters['character/byId'](this.character.id)
 		},
 
 		async push(attribute) {

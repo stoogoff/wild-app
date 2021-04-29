@@ -155,8 +155,11 @@
 	.fade-enter, .fade-leave-to
 		opacity: 0
 
-	.slide-up-active, .slide-up-leave-active
+	.slide-up-enter-active, .slide-up-leave-active
 		transition: transform .5s
 
+	.slide-up-enter-to, .slide-up-leave
+		transform: translateY(0)
+
 	.slide-up-enter, .slide-up-leave-to
-		transform: translate(0, 100%)
+		transform: translateY(100%)

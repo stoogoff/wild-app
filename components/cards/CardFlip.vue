@@ -15,34 +15,21 @@
 					<h2 class="text-center mb-4 text-3xl" :class="colour">
 						{{ card.title }}
 					</h2>
-					<div class="text-center mb-2">&nbsp;<em v-if="card.isReversed">reversed</em>&nbsp;</div>
-					<div class="my-4 py-4 border-b border-gray-300"><strong>Key Meaning:</strong> <em>{{ keyMeaning }}</em></div>
-					<div class="my-4 py-4 border-b border-gray-300"><strong>Other Meanings:</strong> <em>{{ otherMeanings }}</em></div>
-					<div class="my-4 py-4 border-b border-gray-300"><strong>Key Reversed Meaning:</strong> <em>{{ keyReversedMeaning }}</em></div>
-					<div class="my-4 py-4"><strong>Other Reversed Meanings:</strong> <em>{{ otherReversedMeaning }}</em></div>
+					<div class="text-center mb-2 text-passion-darker">&nbsp;<em v-if="card.isReversed">reversed</em>&nbsp;</div>
+					<div class="card-info" :class="{ 'active': !card.isReversed }"><strong>Key Meaning:</strong> <em>{{ keyMeaning }}</em></div>
+					<div class="card-info" :class="{ 'active': !card.isReversed }"><strong>Other Meanings:</strong> <em>{{ otherMeanings }}</em></div>
+					<div class="card-info" :class="{ 'active': card.isReversed }"><strong>Key Reversed Meaning:</strong> <em>{{ keyReversedMeaning }}</em></div>
+					<div class="card-info" :class="{ 'active': card.isReversed }"><strong>Other Reversed Meanings:</strong> <em>{{ otherReversedMeaning }}</em></div>
 				</div>
 			</aside>
 		</div>
 	</div>
 </template>
 <script>
+
 import Vue from 'vue'
 import head from 'lodash/head'
 import tail from 'lodash/tail'
-
-/*
-
-Card format
-
-{
-	"_original": "Ace of Coins",
-	"title": "Controlled Visionary",
-	"suit": "Control",
-	"meanings": ["Pleasure", "Bliss", "Prosperity", "Perfection"],
-	"reversed": ["Corruption", "Wasted Money", "Arguments", "Dissatisfaction"],
-	"image": "control/01-ace-of-coins.jpg"
-},
-*/
 
 export default Vue.component('CardFlip', {
 	props: {
@@ -97,5 +84,14 @@ export default Vue.component('CardFlip', {
 		@apply absolute top-0 right-0 bg-white p-6 bg-contain
 		background-image: url(/img/cards/card-back.png)
 		transform: rotateY(180deg)
+
+.card-info
+	@apply my-4 py-4 border-b border-gray-300 text-gray-600
+
+	&.active
+		@apply text-gray-900 text-xl
+
+	&:last-child
+		@apply border-b-0
 
 </style>

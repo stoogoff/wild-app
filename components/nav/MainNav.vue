@@ -6,19 +6,21 @@
 		<template #buttons>
 			<NavButton icon="ellipsis" @click="toggleNavbar()" />
 		</template>
-		<div
-			class="absolute top-14 left-4 right-4 md:static md:flex flex-grow items-center bg-white md:bg-transparent md:shadow-none py-4"
-			:class="navbarOpen ? 'block rounded shadow-lg' : 'hidden'"
-		>
-			<ul class="flex flex-col md:flex-row md:ml-auto relative">
-				<li
-					:key="`menu_${g}`"
-					v-for="(item, g) in menuItems"
-					class="group"
-				>
-					<nuxt-link :to="item.href">
-						<NavItem :icon="item.icon">{{ item.title }}</NavItem>
-					</nuxt-link>
+		<transition name="fade">
+			<!-- TODO this breaks the desktop menu -->
+			<div
+				v-if="navbarOpen"
+				class="absolute top-14 left-4 right-4 md:static md:flex flex-grow items-center bg-white md:bg-transparent md:shadow-none py-4 block rounded shadow-lg"
+			>
+				<ul class="flex flex-col md:flex-row md:ml-auto relative">
+					<li
+						:key="`menu_${g}`"
+						v-for="(item, g) in menuItems"
+						class="group"
+					>
+						<nuxt-link :to="item.href">
+							<NavItem :icon="item.icon">{{ item.title }}</NavItem>
+						</nuxt-link>
 
 						<ul
 							v-if="item.menuItems"
@@ -31,9 +33,10 @@
 								<nuxt-link class="block pl-12 p-1 md:px-3 min-w-full md:hover:text-gray-800 md:hover:bg-gray-200" :to="subitem.href">{{ subitem.title }}</nuxt-link>
 							</li>
 						</ul>
-				</li>
-			</ul>
-		</div>
+					</li>
+				</ul>
+			</div>
+		</transition>
 	</Navbar>
 </template>
 <script>
