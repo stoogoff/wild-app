@@ -8,11 +8,13 @@
 				<Button block type="success" @click="editCharacter">Edit</Button>
 				<Button block type="warning" @click="confirmDeleteCharacter">Delete</Button>
 			</section>
-			<section v-if="inPlayMode" class="btn-panel">
-				<MenuButton type="primary" outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
+			<section v-if="inPlayMode" class="btn-panel gap-x-2">
+				<MenuButton type="primary" block outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
 					Skill Check
 				</MenuButton>
-				<Button outlined type="success" :disabled="!isInjured" @click="recover">Recover</Button>
+				<MenuButton type="success" block outlined :items="drawItems">
+					Draw
+				</MenuButton>
 			</section>
 
 			<h1>{{ character.name }}</h1>
@@ -43,13 +45,21 @@
 				<h2>Aspects</h2>
 				<div class="flex flex-wrap justify-center">
 					<ul class="w-full lg:w-9/12 px-4 list">
-						<li class="my-2 text-gray-700" :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-							{{ aspect }}
+						<li
+							class="my-2 text-gray-700"
+							:class="{ 'text-red-500': isInjuryAspect(aspect) }"
+							:key="`aspect_${idx}`"
+							v-for="(aspect, idx) in character.aspects"
+						>
+							<div class="flex">
+								<span class="flex-grow">{{ aspect.text }}</span>
+								<span v-if="isInjuryAspect(aspect) && inPlayMode" @click="confirmRemoveAspect(idx)"><Icon icon="close" /></span>
+							</div>
 						</li>
 					</ul>
 				</div>
 			</section>
-			<section class="mt-10 py-10 border-t border-gray-300" v-if="character.background">
+			<section class="mt-4 py-10 border-t border-gray-300" v-if="character.background">
 				<div class="flex flex-wrap justify-center">
 					<div class="w-full lg:w-9/12 px-4">
 						<p class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
@@ -75,14 +85,17 @@
 				:character="character"
 				@save="updateAspects"
 			/>
+			<Inspire v-if="showInspire" @close="showInspire = false" />
 		</div>
 		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
+		<Confirm v-if="removingAspect" @click="removeAspect">Are you sure you want to delete this aspect?</Confirm>
 	</main>
 </template>
 <script>
 
 import range from 'lodash/range'
 import { getCurrentAttribute, isInjured } from '~/utils/character'
+import { ASPECT_INJURY } from '~/utils/config'
 
 const PLAY = 'play'
 const SOLO = 'solo'
@@ -113,12 +126,22 @@ export default {
 			cardsToDraw: 0,
 			showRecovery: false,
 			showInjury: false,
+			showInspire: false,
+			removingAspect: false,
+			removingAspectIndex: -1,
 		}
 	},
 
 	computed: {
 		skillTestItems() {
 			return range(1, 6).map(num => ({ text: `Draw ${num}`, key: num }))
+		},
+
+		drawItems() {
+			return [
+				{ text: 'Inspire', key: 'inspire', click: () => this.showInspire = true },
+				{ text: 'Recover', key: 'recover', click: () => this.recover(), disabled: !this.isInjured },
+			]
 		},
 
 		inViewMode() {
@@ -180,8 +203,37 @@ export default {
 			this.showRecovery = true
 		},
 
+		isInjuryAspect(aspect) {
+			return aspect.type === ASPECT_INJURY
+		},
+
+		confirmRemoveAspect(toRemove) {
+			this.removingAspect = true
+			this.removingAspectIndex = toRemove
+		},
+
+		async removeAspect(result) {
+			if(result) {
+				await this.$store.dispatch('character/save', {
+					...this.character,
+					aspects: this.character.aspects.filter((_a, idx) => idx !== this.removingAspectIndex)
+				})
+				this.character = await this.$store.getters['character/byId'](this.character.id)
+			}
+
+			this.removingAspect = false
+			this.removingAspectIndex = -1
+		},
+
 		async updateAspects(aspect) {
-			await this.$store.dispatch('character/save', { ...this.character, aspects: [ ...this.character.aspects, aspect ]})
+			await this.$store.dispatch('character/save', {
+				...this.character,
+				aspects: [
+					...this.character.aspects,
+					{ text: aspect, type: ASPECT_INJURY }
+				]
+			})
+
 			this.character = await this.$store.getters['character/byId'](this.character.id)
 
 			this.showInjury = false
@@ -191,6 +243,7 @@ export default {
 			this.showRecovery = false
 			
 			await this.$store.dispatch('character/save', { ...this.character, injuries })
+
 			this.character = await this.$store.getters['character/byId'](this.character.id)
 		},
 

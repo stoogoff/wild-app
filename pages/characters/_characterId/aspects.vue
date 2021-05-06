@@ -7,7 +7,7 @@
 				<Button type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</Button>
 			</div>
 			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx]" >
+				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text" >
 					<template #append>
 						<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
 							<Icon icon="close" />
@@ -26,7 +26,7 @@
 </template>
 <script>
 
-import { ASPECTS_MIN, ASPECTS_MAX } from '~/utils/config'
+import { ASPECTS_MIN, ASPECTS_MAX, DEFAULT_ASPECT } from '~/utils/config'
 
 export default {
 	async fetch() {
@@ -62,7 +62,7 @@ export default {
 
 	methods: {
 		addAspect() {
-			this.character.aspects = [ ...this.character.aspects, '' ]
+			this.character.aspects = [ ...this.character.aspects, { ...DEFAULT_ASPECT } ]
 		},
 
 		removeAspect(toRemove) {

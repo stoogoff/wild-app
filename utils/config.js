@@ -13,6 +13,8 @@ export const ABILITY_WEAK = 1
 
 export const ASPECTS_MIN = 2
 export const ASPECTS_MAX = 5
+export const ASPECT_BASIC = 'basic'
+export const ASPECT_INJURY = 'injury'
 
 export const ABILITY_SPREAD = {
 	'ABILITY_STRONG': ABILITY_STRONG,
@@ -20,17 +22,20 @@ export const ABILITY_SPREAD = {
 	'ABILITY_WEAK': ABILITY_WEAK,
 }
 
+export const DEFAULT_CARD = {
+	card: null,
+	text: '',
+	reversed: false,
+}
+
+export const DEFAULT_ASPECT = {
+	text: '',
+	type: ASPECT_BASIC,
+}
+
 export const DEFAULT_CHARACTER = {
-	persona: {
-		card: null,
-		text: '',
-		reversed: false,
-	},
-	shadow: {
-		card: null,
-		text: '',
-		reversed: false,
-	},
+	persona: { ...DEFAULT_CARD },
+	shadow: { ...DEFAULT_CARD },
 	attributes: {
 		Control: ATTRIBUTE_MIN,
 		Strength: ATTRIBUTE_MIN,

@@ -2,7 +2,7 @@
 	<div class="flex justify-center py-4 flex-wrap">
 		<div
 			:key="`${attr}_${idx}`"
-			v-for="(attr, idx) in Object.keys(values)"
+			v-for="(attr, idx) in Object.keys(values).sort()"
 			class="attr"
 			:class="attr.toLowerCase()"
 		>

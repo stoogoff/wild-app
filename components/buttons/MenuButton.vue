@@ -1,6 +1,15 @@
 <template>
-	<div class="relative inline-block" @mouseover="show" @mouseleave="hide" @keydown.enter="toggle">
-		<Button v-bind="$attrs" :disabled="disabled">
+	<div
+		class="relative"
+		:class="{
+			'block w-full': block,
+			'inline-block': !block,
+		}"
+		@mouseover="show"
+		@mouseleave="hide"
+		@keydown.enter="toggle"
+	>
+		<Button v-bind="$attrs" block :disabled="disabled">
 			<div class="inline-flex items-center justify-between">
 				<span class="flex-shrink-0"><slot /></span>
 				<svg fill="currentColor" viewBox="0 0 20 20" class="flex-shrink-0 w-5 h-5 ml-1">
@@ -16,14 +25,15 @@
 			leave-class="translate-y-0 opacity-100"
 			leave-to-class="translate-y-3 opacity-0"
 		>
-			<div v-show="isVisible" class="absolute pt-2 z-10 bottom-14">
+			<div v-show="isVisible" class="absolute pt-2 z-10 bottom-14 w-full">
 				<div class="relative py-1 bg-white border border-gray-200 rounded-md shadow-md">
 					<div class="relative">
 						<span
 							:key="`menu_item_${item.key}`"
 							v-for="item in items"
-							class="block w-full px-4 py-2 font-medium text-gray-700 whitespace-no-wrap hover:bg-gray-100 focus:outline-none hover:text-gray-900 focus:text-gray-900 focus:shadow-outline transition duration-300 ease-in-out cursor-pointer"
-							@click="$emit('click', item.key)"
+							class="menu-item"
+							:class="{ 'disabled': item.disabled }"
+							@click="clickHandler(item)"
 						>
 							{{ item.text }}
 						</span>
@@ -38,12 +48,23 @@ import Vue from 'vue'
 
 export default Vue.component('MenuButton', {
 	props: {
-		// { key: String, title: String }[]
+		/*
+		{
+			key: String,
+			title: String,
+			click?: Function
+			disabled?: Boolean = false
+		}[]
+		*/
 		items: {
 			type: Array,
 			default: [],
 		},
 		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		block: {
 			type: Boolean,
 			default: false,
 		},
@@ -67,9 +88,37 @@ export default Vue.component('MenuButton', {
 		},
 
 		toggle() {
-			if(this.isVisible) this.hide()
-			else this.show()
+			if(this.isVisible) {
+				this.hide()
+			}
+			else {
+				this.show()
+			}
+		},
+
+		clickHandler(item) {
+			if(item.click) {
+				item.click()
+			}
+			else {
+				this.$emit('click', item.key)
+			}
+
+			this.hide()
 		},
 	},
 })
 </script>
+<style scoped>
+.menu-item {
+	@apply block w-full px-4 py-2  whitespace-nowrap;
+	@apply font-medium text-gray-700;
+	@apply transition duration-300 ease-in-out cursor-pointer;
+	@apply hover:bg-gray-100 focus:outline-none hover:text-gray-900 focus:text-gray-900 focus:ring;
+}
+
+.menu-item.disabled {
+	@apply text-gray-300 hover:text-gray-300 focus:text-gray-300 focus:shadow-none hover:bg-white;
+}
+
+</style>
