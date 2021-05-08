@@ -6,7 +6,7 @@
 		"value": "Visionary",
 		"meanings": ["Creation", "Birth", "Invention", "Enterprise"],
 		"reversed": ["Vexation", "False Start", "Unrealised Goal", "Decadence"],
-		"image": ""
+		"image": "passion/01-passion-visionary.png"
 	},
 	{
 		"_original": "Two of Wands",
@@ -15,7 +15,7 @@
 		"value": 2,
 		"meanings": ["Ruler", "Mature Person", "Control", "Dominion"],
 		"reversed": ["Sadness", "Trouble", "Restraint", "Loss of Faith"],
-		"image": ""
+		"image": "passion/02-passion.png"
 	},
 	{
 		"_original": "Three of Wands",
@@ -24,7 +24,7 @@
 		"value": 3,
 		"meanings": ["Independence", "Heroic Action", "Enterprise", "Strength"],
 		"reversed": ["Treachery", "Rejection", "Loss", "Cooperation"],
-		"image": ""
+		"image": "passion/03-passion.png"
 	},
 	{
 		"_original": "Four of Wands",
@@ -33,7 +33,7 @@
 		"value": 4,
 		"meanings": ["Romance", "Harmony", "Tranquility", "Sharing"],
 		"reversed": ["Insecurity", "Unfulfilled Romance", "Falling Apart", "Failing"],
-		"image": ""
+		"image": "passion/04-passion.png"
 	},
 	{
 		"_original": "Five of Wands",
@@ -42,7 +42,7 @@
 		"value": 5,
 		"meanings": ["Struggle", "Movement", "Unsatisfied Desires"],
 		"reversed": ["Betrayal", "Anger", "Conflict", "Trickery"],
-		"image": ""
+		"image": "passion/05-passion.png"
 	},
 	{
 		"_original": "Six of Wands",
@@ -51,7 +51,7 @@
 		"value": 6,
 		"meanings": ["Conquest", "Optimism", "Triumph", "Productivity"],
 		"reversed": ["Fear", "Doubt", "Pessimism", "Apprehension"],
-		"image": ""
+		"image": "passion/06-passion.png"
 	},
 	{
 		"_original": "Seven of Wands",
@@ -60,7 +60,7 @@
 		"value": 7,
 		"meanings": ["Advantage", "Overcoming Obstacles", "Gain"],
 		"reversed": ["Indecision", "Anxiety", "Uncertainty", "Communication"],
-		"image": ""
+		"image": "passion/07-passion.png"
 	},
 	{
 		"_original": "Eight of Wands",
@@ -69,7 +69,7 @@
 		"value": 8,
 		"meanings": ["Speed", "Swift Activity", "Hasty Decisions", "Move"],
 		"reversed": ["Delays", "Confusion", "Jealousy", "Discord"],
-		"image": ""
+		"image": "passion/08-passion.png"
 	},
 	{
 		"_original": "Nine of Wands",
@@ -78,7 +78,7 @@
 		"value": 9,
 		"meanings": ["Discipline", "Hidden Enemies", "Awaiting Troubles"],
 		"reversed": ["Calamity", "Obstacles", "Confusion", "Delays"],
-		"image": ""
+		"image": "passion/09-passion.png"
 	},
 	{
 		"_original": "Ten of Wands",
@@ -87,7 +87,7 @@
 		"value": 10,
 		"meanings": ["Intense Belief", "Passion", "Powerful Dreams", "Burdened"],
 		"reversed": ["Subterfuge", "Oppression", "Duplicity", "Traitor"],
-		"image": ""
+		"image": "passion/10-passion.png"
 	},
 	{
 		"_original": "Page of Wands",
@@ -96,7 +96,7 @@
 		"value": "Scholar",
 		"meanings": ["Trustworthy", "Faithful Friend", "Envoy", "No Secrets"],
 		"reversed": ["Gossip", "Bad News", "Instability", "Indecision"],
-		"image": ""
+		"image": "passion/11-passion-scholar.png"
 	},
 	{
 		"_original": "Knight of Wands",
@@ -105,7 +105,7 @@
 		"value": "Rogue",
 		"meanings": ["Courage", "Journey", "Headstrong", "Flight"],
 		"reversed": ["Interruption", "Quarrelling", "Disillusioned", "Discord"],
-		"image": ""
+		"image": "passion/12-passion-rogue.png"
 	},
 	{
 		"_original": "Queen of Wands",
@@ -114,7 +114,7 @@
 		"value": "Guardian",
 		"meanings": ["Honourable", "Sympathetic", "Friendly", "Understanding"],
 		"reversed": ["Jealousy", "Infidelity", "Deceit", "Jaded"],
-		"image": ""	
+		"image": "passion/13-passion-guardian.png"
 	},
 	{	
 		"_original": "King of Wands",
@@ -123,6 +123,6 @@
 		"value": "Diplomat",
 		"meanings": ["Conscientious", "Wise", "Mature", "Confident"],
 		"reversed": ["Arrogant", "Severity", "Domineering", "Dogmatic"],
-		"image": ""
+		"image": "passion/14-passion-diplomat.png"
 	}
 ]
