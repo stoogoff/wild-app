@@ -8,7 +8,7 @@
     <MenuButton type="primary" outlined :items="menuItems" @click="testMenu">Default</MenuButton>
     <!--div>
       <Button>Default</Button>
-      <Button type="primary">Primary</Button>
+      <Button type="primary" @click="stateTest">Primary</Button>
       <Button type="secondary">Secondary</Button>
       <Button type="warning">Warning</Button>
       <Button type="success" @click="alert('test')">Success</Button>
@@ -53,8 +53,13 @@
 
 <script>
 
+
 export default {
   layout: 'image',
+
+  /*fetch() {
+    this.counter = getCounter()
+  },*/
 
   data() {
     return {
@@ -62,6 +67,7 @@ export default {
       description: '',
       group: '',
       active: true,
+      //counter: 0,
     }
   },
 
@@ -74,9 +80,10 @@ export default {
       ]
     },
 
-    counter() {
-      return this.$store.state.counter.counter
-    },
+    /*counter() {
+      //return this.$store.state.counter.counter
+      return getCounter()
+    },*/
 
     error() {
       return this.name === 'Hello'
@@ -100,7 +107,8 @@ export default {
 
     stateTest() {
       console.log('stateTest')
-      this.$store.commit('counter/increment')
+      //this.$store.commit('counter/increment')
+      this.counter = increment()
     },
 
     alert(s) {

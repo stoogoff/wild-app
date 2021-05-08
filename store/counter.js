@@ -1,3 +1,15 @@
+/*
+import { Vue } from 'vue'
+
+let state2 = Vue.component('CounterState', {
+	data: {
+		counter: 0
+	}
+})
+
+console.log(state)
+*/
+
 
 export const state = () => ({
 	counter: 0
@@ -8,3 +20,7 @@ export const mutations = {
 		state.counter++
 	}
 }
+
+export const getCounter = () => state.counter
+
+export const increment = () => ++state.counter

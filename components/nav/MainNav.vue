@@ -1,43 +1,23 @@
 <template>
-	<Navbar v-bind="$attrs">
+	<nav-bar v-bind="$attrs">
 		<template #title>
 			<nuxt-link to="/">WILD</nuxt-link>
 		</template>
 		<template #buttons>
-			<NavButton icon="ellipsis" @click="toggleNavbar()" />
+			<nav-button icon="ellipsis" @click="toggleNavbar()" />
 		</template>
 		<transition name="fade">
-			<!-- TODO this breaks the desktop menu -->
 			<div
 				v-if="navbarOpen"
-				class="absolute top-14 left-4 right-4 md:static md:flex flex-grow items-center bg-white md:bg-transparent md:shadow-none py-4 block rounded shadow-lg"
+				class="absolute top-14 left-4 right-4 md:hidden bg-white block rounded shadow-lg"
 			>
-				<ul class="flex flex-col md:flex-row md:ml-auto relative">
-					<li
-						:key="`menu_${g}`"
-						v-for="(item, g) in menuItems"
-						class="group"
-					>
-						<nuxt-link :to="item.href">
-							<NavItem :icon="item.icon">{{ item.title }}</NavItem>
-						</nuxt-link>
-
-						<ul
-							v-if="item.menuItems"
-							class="bg-white md:absolute group-hover:block md:hidden md:rounded md:shadow-lg md:py-2 md:w-40"
-						>
-							<li
-								v-for="(subitem, h) in item.menuItems"
-								:key="`menu_${g}_subitem_${h}`"
-							>
-								<nuxt-link class="block pl-12 p-1 md:px-3 min-w-full md:hover:text-gray-800 md:hover:bg-gray-200" :to="subitem.href">{{ subitem.title }}</nuxt-link>
-							</li>
-						</ul>
-					</li>
-				</ul>
+				<menu-list :menu-items="menuItems" />
 			</div>
 		</transition>
-	</Navbar>
+		<div class="hidden md:flex flex-grow items-center bg-transparent shadow-none">
+			<menu-list :menu-items="menuItems" />
+		</div>
+	</nav-bar>
 </template>
 <script>
 import Vue from 'vue'

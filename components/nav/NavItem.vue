@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="block w-full md:text-white md:hover:text-gray-300 text-gray-800 px-4 py-3 md:py-2 flex items-center text-xs uppercase font-bold cursor-pointer"
+		class="block w-full md:text-white md:hover:text-gray-300 text-gray-800 px-4 py-3 md:py-0 flex items-center text-xs uppercase font-bold cursor-pointer"
 		:class="{ 'disabled': disabled }"
 		@click="click"
 	>
