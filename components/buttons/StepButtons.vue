@@ -1,14 +1,14 @@
 <template>
 	<div class="flex">
-		<Button block @click="previousClick" v-if="previous">Previous</Button>
-		<Link block :to="exit" v-else>Exit</Link>
-		<Button block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</Button>
+		<button-action block @click="previousClick" v-if="previous">Previous</button-action>
+		<link-action block :to="exit" v-else>Exit</link-action>
+		<button-action block type="primary" :disabled="disabled" @click="nextClick">{{ label }}</button-action>
 	</div>
 </template>
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Stepper', {
+export default Vue.component('StepButtons', {
 	props: {
 		next: {
 			type: String,

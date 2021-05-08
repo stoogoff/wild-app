@@ -1,18 +1,18 @@
 <template>
 	<main class="py-12">
-		<LoadingOverlay v-if="loading" />
+		<loading-overlay v-if="loading" />
 		<div v-else>
 			<h1>Login</h1>
-			<Alert type="warning" v-if="error">Your email address or password wasn’t recognised. Please try again.</Alert>
-			<Validate :value="email" :rules="rules.email" v-slot="{ error, message }">
-				<TextInput label="Email Address" v-model="email" :error="error" :message="message" />
-			</Validate>
-			<Validate :value="password" :rules="rules.password" v-slot="{ error, message }">
-				<PasswordInput label="Password" v-model="password" :error="error" :message="message" />
-			</Validate>
+			<alert-view type="warning" v-if="error">Your email address or password wasn’t recognised. Please try again.</alert-view>
+			<validate-field :value="email" :rules="rules.email" v-slot="{ error, message }">
+				<text-input label="Email Address" v-model="email" :error="error" :message="message" />
+			</validate-field>
+			<validate-field :value="password" :rules="rules.password" v-slot="{ error, message }">
+				<password-input label="Password" v-model="password" :error="error" :message="message" />
+			</validate-field>
 			<div class="flex">
-				<Link block type="primary" outlined to="/account/register">Register</Link>
-				<Button block type="primary" :disabled="!canContinue" @click="login">Login</Button>
+				<link-action block type="primary" outlined to="/account/register">Register</link-action>
+				<button-action block type="primary" :disabled="!canContinue" @click="login">Login</button-action>
 			</div>
 		</div>
 	</main>

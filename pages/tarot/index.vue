@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<h1>The Tarot Deck</h1>
-		<Loading v-if="$fetchState.pending" />
+		<loading-spinner v-if="$fetchState.pending" />
 		<figure v-else :key="suit.id" v-for="suit in suits" class="group border border-gray-300 rounded-md p-3 mb-4">
 			<nuxt-link :to="suit.path" class="flex flex-col items-center">
 				<img v-if="suit.image" :src="`/img/cards/${suit.image}`" class="mb-4" />

@@ -1,5 +1,5 @@
 <template>
-	<FormField :label="label" :message="message" :error="error" v-slot="field">
+	<form-field :label="label" :message="message" :error="error" v-slot="field">
 		<textarea
 			:id="field.id"
 			:value="value"
@@ -9,7 +9,7 @@
 			:placeholder="placeholder"
 			@input="$emit('input', $event.target.value)"
 		/>
-	</FormField>
+	</form-field>
 </template>
 <script>
 import Vue from 'vue'

@@ -1,17 +1,17 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/finish" />
+			<markdown-content content="characters/finish" />
 			<label class="label">Image</label>
-			<FileDropZone :accept="['image/*']" @input="setImage" />
+			<file-drop-zone :accept="['image/*']" @input="setImage" />
 			<div v-if="image">
-				<ImageUpload :file="image" @delete="removeImage" />
+				<image-upload :file="image" @delete="removeImage" />
 			</div>
 
-			<TextInput label="Name" v-model="character.name" />
-			<TextArea label="Background" v-model="character.background" />
-			<Stepper
+			<text-input label="Name" v-model="character.name" />
+			<text-area label="Background" v-model="character.background" />
+			<step-buttons
 				:next="`/characters/${character.id}`"
 				:previous="`/characters/${character.id}/aspects`"
 				:disabled="!character.name"

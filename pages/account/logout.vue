@@ -1,5 +1,5 @@
 <template>
-	<LoadingOverlay />
+	<loading-overlay />
 </template>
 <script>
 

@@ -2,16 +2,16 @@
 	<main
 		class="p-0 w-screen h-screen break-words bg-white"
 	>
-		<Loading v-if="$fetchState.pending" />
+		<loading-spinner v-if="$fetchState.pending" />
 		<swiper v-else>
 			<swiper-slide>
 				<article class="px-6 flex flex-col">
 					<img :src="imagePath" class="mb-6" />
-					<MarkdownContent :content="contentPath" />
+					<markdown-content :content="contentPath" />
 				</article>
 			</swiper-slide>
 			<swiper-slide :key="card.id" v-for="card in cards">
-				<CardFlip :card="card" />
+				<card-flip :card="card" />
 			</swiper-slide>
 		</swiper>
 	</main>

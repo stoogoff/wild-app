@@ -6,7 +6,7 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Button', {
+export default Vue.component('ButtonAction', {
 	props: {
 		disabled: {
 			type: Boolean,

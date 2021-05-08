@@ -1,5 +1,5 @@
 <template>
-	<Loading v-if="$fetchState.pending" />
+	<loading-spinner v-if="$fetchState.pending" />
 	<img
 		v-else
 		:class="{ 'transform rotate-180': actualCard.isReversed }"
@@ -9,7 +9,7 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Card', {
+export default Vue.component('CardView', {
 	props: {
 		card: {
 			type: Object,

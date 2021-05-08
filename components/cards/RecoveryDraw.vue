@@ -1,26 +1,26 @@
 <template>
-	<Screen>
-		<Navbar>
+	<screen-slide>
+		<nav-bar>
 			<template #title>Recover</template>
 			<template #buttons>
-				<NavButton icon="close" @click="close" />
+				<nav-button icon="close" @click="close" />
 			</template>
 			<div class="hidden md:flex md:flex-row md:ml-auto relative">
-				<NavItem icon="close" @click="close">Close</NavItem>
+				<nav-item icon="close" @click="close">Close</nav-item>
 			</div>
-		</Navbar>
+		</nav-bar>
 		<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-			<Card :key="`card_${card.id}`" v-for="card in cards" :card="card" />
+			<card-view :key="`card_${card.id}`" v-for="card in cards" :card="card" />
 			<div>
-				<AttributesView :values="character.attributes" :injuries="injuries" />
+				<attributes-view :values="character.attributes" :injuries="injuries" />
 			</div>
 		</div>
-	</Screen>
+	</screen-slide>
 </template>
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Recovery', {
+export default Vue.component('RecoveryDraw', {
 	props: {
 		character: {
 			type: Object,

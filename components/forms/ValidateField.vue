@@ -7,7 +7,7 @@
 import Vue from 'vue'
 import { validate } from '~/utils/validators'
 
-export default Vue.component('Validate', {
+export default Vue.component('ValidateField', {
 	props: {
 		value: {
 			type: [String, Number],

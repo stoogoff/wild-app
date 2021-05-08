@@ -1,10 +1,10 @@
 <template>
 	<div class="mb-4">
-		<Loading v-if="src === null" />
+		<loading-spinner v-if="src === null" />
 		<figure v-else class="p-1 input relative">
 			<figcaption class="label">Current Image</figcaption>
 			<img :src="src" class="block w-full" />
-			<span class="inline-block absolute bottom-1 right-1"><IconButton icon="delete" type="warning" outlined @click="$emit('delete')" /></span>
+			<span class="inline-block absolute bottom-1 right-1"><icon-action icon="delete" type="warning" outlined @click="$emit('delete')" /></span>
 		</figure>
 	</div>
 </template>

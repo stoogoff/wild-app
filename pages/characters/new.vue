@@ -1,7 +1,7 @@
 <template>
 	<main>
-		<MarkdownContent content="characters/creation" />
-		<Button block type="primary" @click="createCharacter">Start</Button>
+		<markdown-content content="characters/creation" />
+		<button-action block type="primary" @click="createCharacter">Start</button-action>
 	</main>
 </template>
 <script>

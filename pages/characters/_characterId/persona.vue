@@ -1,30 +1,30 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/persona" />
-			<CardGrid
+			<markdown-content content="characters/persona" />
+			<card-grid
 				:cards="cards"
 				:selected="character.persona.card"
 				v-slot="{ card }"
 			>
-				<IconButton
+				<icon-action
 					@click="toggleSelectedCard(card)"
 					:type="isSelected(card) ? 'success' : ''"
 					icon="check"
 					:outlined="!isSelected(card)"
 				/>
-			</CardGrid>
+			</card-grid>
 
 			<div class="mt-2 mb-4">
-				<Button type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</Button>
+				<button-action type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</button-action>
 			</div>
-			<TextInput
+			<text-input
 				label="Persona"
 				v-model="character.persona.text"
 				:disabled="character.persona.card === null"
 			/>
-			<Stepper
+			<step-buttons
 				:next="`/characters/${character.id}/shadow`"
 				:disabled="!canContinue"
 				@click="save"

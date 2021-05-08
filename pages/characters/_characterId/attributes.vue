@@ -1,34 +1,34 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/attributes" />
+			<markdown-content content="characters/attributes" />
 			<h3 :class="remainingClass">Points remaining: {{ remaining }}</h3>
-			<AttributeEdit
+			<attribute-edit
 				title="Control"
 				v-model="character.attributes.Control"
 			>
 				Control is about physical dexterity, coordination, accuracy and control.
-			</AttributeEdit>
-			<AttributeEdit
+			</attribute-edit>
+			<attribute-edit
 				title="Strength"
 				v-model="character.attributes.Strength"
 			>
 				Strength is all about physical strength, power, force and endurance.
-			</AttributeEdit>
-			<AttributeEdit
+			</attribute-edit>
+			<attribute-edit
 				title="Focus"
 				v-model="character.attributes.Focus"
 			>
 				Focus is all about thinking, mental reasoning, emotional restraint, and concentrating.
-			</AttributeEdit>
-			<AttributeEdit
+			</attribute-edit>
+			<attribute-edit
 				title="Passion"
 				v-model="character.attributes.Passion"
 			>
 				Passion is all about determination, mental force, emotional strength and imagination.
-			</AttributeEdit>
-			<Stepper
+			</attribute-edit>
+			<step-buttons
 				:next="`/characters/${character.id}/abilities`"
 				:previous="`/characters/${character.id}/shadow`"
 				:disabled="!canContinue"

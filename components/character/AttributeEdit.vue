@@ -2,7 +2,7 @@
 	<section>
 		<h2>{{ title }}</h2>
 		<p><slot /></p>
-		<TextInput
+		<text-input
 			v-model="editingValue"
 			:label="title"
 			:error="error"

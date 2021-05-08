@@ -1,22 +1,22 @@
 <template>
-	<Screen>
-		<Navbar>
+	<screen-slide>
+		<nav-bar>
 			<template #title>Injury</template>
-		</Navbar>
+		</nav-bar>
 		<div class="p-4">
-			<MarkdownContent content="characters/injury" />
-			<Validate :value="aspect" :rules="rules.aspect" v-slot="{ error, message }">
-				<TextArea label="Aspect" v-model="aspect" :error="error" :message="message" />
-			</Validate>
-			<Button type="primary" block @click="save" :disabled="!canContinue">Save</Button>
+			<markdown-content content="characters/injury" />
+			<validate-field :value="aspect" :rules="rules.aspect" v-slot="{ error, message }">
+				<text-area label="Aspect" v-model="aspect" :error="error" :message="message" />
+			</validate-field>
+			<button-action type="primary" block @click="save" :disabled="!canContinue">Save</button-action>
 		</div>
-	</Screen>
+	</screen-slide>
 </template>
 <script>
 import Vue from 'vue'
 import { required, validateBatch } from '~/utils/validators'
 
-export default Vue.component('Injury', {
+export default Vue.component('InjuryDraw', {
 	props: {
 		character: {
 			type: Object,

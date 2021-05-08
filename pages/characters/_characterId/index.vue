@@ -1,45 +1,45 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<div v-else>
 			<section v-if="inViewMode" class="btn-panel">
-				<Button block disabled>Play</Button>
-				<Button block type="primary" @click="soloPlay">Solo</Button>
-				<Button block type="success" @click="editCharacter">Edit</Button>
-				<Button block type="warning" @click="confirmDeleteCharacter">Delete</Button>
+				<button-action block disabled>Play</button-action>
+				<button-action block type="primary" @click="soloPlay">Solo</button-action>
+				<button-action block type="success" @click="editCharacter">Edit</button-action>
+				<button-action block type="warning" @click="confirmDeleteCharacter">Delete</button-action>
 			</section>
 			<section v-if="inPlayMode" class="btn-panel gap-x-2">
-				<MenuButton type="primary" block outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
+				<menu-button type="primary" block outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
 					Skill Check
-				</MenuButton>
-				<MenuButton type="success" block outlined :items="drawItems">
+				</menu-button>
+				<menu-button type="success" block outlined :items="drawItems">
 					Draw
-				</MenuButton>
+				</menu-button>
 			</section>
 
 			<h1>{{ character.name }}</h1>
-			<CharacterImage :character="character" />
+			<character-image :character="character" />
 
 			<section class="mb-2 grid grid-cols-2">
 				<div v-if="character.persona.card">
 					<h2>Persona</h2>
-					<Card :card-name="character.persona.card" :reversed="character.persona.reversed" />
+					<card-view :card-name="character.persona.card" :reversed="character.persona.reversed" />
 					<p class="text-sm italic">{{ character.persona.text }}</p>
 				</div>
 				<div v-if="character.shadow.card">
 					<h2>Shadow</h2>
-					<Card :card-name="character.shadow.card" :reversed="character.shadow.reversed" />
+					<card-view :card-name="character.shadow.card" :reversed="character.shadow.reversed" />
 					<p class="text-sm italic">{{ character.shadow.text }}</p>
 				</div>
 			</section>
 
 			<section class="mb-2">
 				<h2>Attributes</h2>
-				<AttributesView :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" :injuries="character.injuries" />
+				<attributes-view :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" :injuries="character.injuries" />
 			</section>
 			<section class="mb-2 border-t border-gray-300 pt-6">
 				<h2>Abilities</h2>
-				<AttributesView :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
+				<attributes-view :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
 			</section>
 			<section class="mb-4 border-t border-gray-300 pt-6">
 				<h2>Aspects</h2>
@@ -53,7 +53,7 @@
 						>
 							<div class="flex">
 								<span class="flex-grow">{{ aspect.text }}</span>
-								<span v-if="isInjuryAspect(aspect) && inPlayMode" @click="confirmRemoveAspect(idx)"><Icon icon="close" /></span>
+								<span v-if="isInjuryAspect(aspect) && inPlayMode" @click="confirmRemoveAspect(idx)"><icon-view icon="close" /></span>
 							</div>
 						</li>
 					</ul>
@@ -66,7 +66,7 @@
 					</div>
 				</div>
 			</section>
-			<SkillCheck
+			<skill-check-draw
 				v-if="showDrawCards"
 				:number="cardsToDraw"
 				:character="character"
@@ -75,20 +75,20 @@
 				@close="showDrawCards = false"
 				@push="push"
 			/>
-			<Recovery
+			<recovery-draw
 				v-if="showRecovery"
 				:character="character"
 				@close="applyRecovery"
 			/>
-			<Injury
+			<injury-draw
 				v-if="showInjury"
 				:character="character"
 				@save="updateAspects"
 			/>
-			<Inspire v-if="showInspire" @close="showInspire = false" />
+			<inspire-draw v-if="showInspire" @close="showInspire = false" />
 		</div>
-		<Confirm v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</Confirm>
-		<Confirm v-if="removingAspect" @click="removeAspect">Are you sure you want to delete this aspect?</Confirm>
+		<confirm-overlay v-if="deleting" @click="deleteCharacter">Are you sure you want to delete this character?</confirm-overlay>
+		<confirm-overlay v-if="removingAspect" @click="removeAspect">Are you sure you want to delete this aspect?</confirm-overlay>
 	</main>
 </template>
 <script>

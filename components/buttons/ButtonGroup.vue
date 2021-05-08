@@ -1,12 +1,12 @@
 <template>
 	<div class="btn-group">
-		<Button :key="`${opt.value}_${idx}`" v-for="(opt, idx) in options"
+		<button-action :key="`${opt.value}_${idx}`" v-for="(opt, idx) in options"
 			:disabled="opt.disabled"
 			:type="opt.type || (opt.value === value ? 'success' : 'primary')"
 			@click="$emit('input', opt.value)"
 		>
 			{{ opt.text || opt.value }}
-		</Button>
+		</button-action>
 	</div>
 </template>
 <script>

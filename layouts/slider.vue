@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<MainNav />
+		<main-nav />
 		<Nuxt />
-		<!--Debug /-->
+		<responsive-debug />
 	</div>
 </template>
 <script>

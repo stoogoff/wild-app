@@ -1,21 +1,21 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/aspects" />
+			<markdown-content content="characters/aspects" />
 			<div class="mt-2 mb-4">
-				<Button type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</Button>
+				<button-action type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</button-action>
 			</div>
 			<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-				<TextInput :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text" >
+				<text-input :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text">
 					<template #append>
 						<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
-							<Icon icon="close" />
+							<icon-view icon="close" />
 						</span>
 					</template>
-				</TextInput>
+				</text-input>
 			</div>
-			<Stepper
+			<step-buttons
 				:next="`/characters/${character.id}/finish`"
 				:previous="`/characters/${character.id}/abilities`"
 				:disabled="!canContinue"

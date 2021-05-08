@@ -4,7 +4,7 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Icon', {
+export default Vue.component('IconView', {
 	props: {
 		icon: {
 			type: String,

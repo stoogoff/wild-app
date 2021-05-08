@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<MainNav />
+		<main-nav />
 		<section class="relative py-16 ">
 			<div class="container mx-auto md:px-4">
 				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg pb-8">
@@ -8,8 +8,8 @@
 				</div>
 			</div>
 		</section>
-		<Footer />
-		<!--Debug /-->
+		<footer-section />
+		<responsive-debug />
 	</div>
 </template>
 <script>

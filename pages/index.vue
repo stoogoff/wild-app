@@ -1,48 +1,48 @@
 <template>
 	<main class="p-2">
-    <Alert type="primary">Primary alert</Alert>
-    <Alert type="secondary">Secondary alert</Alert>
-    <Alert type="warning">Warning alert</Alert>
-    <Alert type="success">Success alert</Alert>
+    <alert-view type="primary">Primary alert</alert-view>
+    <alert-view type="secondary">Secondary alert</alert-view>
+    <alert-view type="warning">Warning alert</alert-view>
+    <alert-view type="success">Success alert</alert-view>
 
-    <MenuButton type="primary" outlined :items="menuItems" @click="testMenu">Default</MenuButton>
+    <menu-button type="primary" outlined :items="menuItems" @click="testMenu">Default</menu-button>
     <!--div>
-      <Button>Default</Button>
-      <Button type="primary" @click="stateTest">Primary</Button>
-      <Button type="secondary">Secondary</Button>
-      <Button type="warning">Warning</Button>
-      <Button type="success" @click="alert('test')">Success</Button>
-      <Button disabled @click="alert('test')">Disabled</Button>
+      <button-action>Default</button-action>
+      <button-action type="primary" @click="stateTest">Primary</button-action>
+      <button-action type="secondary">Secondary</button-action>
+      <button-action type="warning">Warning</button-action>
+      <button-action type="success" @click="alert('test')">Success</button-action>
+      <button-action disabled @click="alert('test')">Disabled</button-action>
     </div>
     <div>
-      <Button outlined>Default</Button>
-      <Button outlined type="primary">Primary</Button>
-      <Button outlined type="secondary">Secondary</Button>
-      <Button outlined type="warning">Warning</Button>
-      <Button outlined type="success" @click="alert('test')">Success</Button>
-      <Button outlined disabled @click="alert('test')">Disabled</Button>
+      <button-action outlined>Default</button-action>
+      <button-action outlined type="primary">Primary</button-action>
+      <button-action outlined type="secondary">Secondary</button-action>
+      <button-action outlined type="warning">Warning</button-action>
+      <button-action outlined type="success" @click="alert('test')">Success</button-action>
+      <button-action outlined disabled @click="alert('test')">Disabled</button-action>
     </div-->
 
     <!--FileDropZone @input="test" :accept="['image/*']" / -->
-		<TextInput v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
-		<TextInput v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
+		<text-input v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />
+		<text-input v-model="name" label="Test 2" disabled message="This is a form field" placeholder="Enter something" />
 		{{ name }}
-		<TextArea v-model="description" label="Description" />
+		<text-area v-model="description" label="Description" />
 		{{ description }}
 		{{ group }}
     <div>
-      <IconButton type="primary" icon="pencil" />
-      <IconButton type="secondary" icon="pencil" />
-      <IconButton type="warning" icon="pencil" />
-      <IconButton type="success" icon="pencil" />
-      <IconButton type="success" disabled icon="pencil" />
+      <icon-action type="primary" icon="pencil" />
+      <icon-action type="secondary" icon="pencil" />
+      <icon-action type="warning" icon="pencil" />
+      <icon-action type="success" icon="pencil" />
+      <icon-action type="success" disabled icon="pencil" />
     </div>
     <div>
-      <IconButton type="primary" outlined icon="pencil" />
-      <IconButton type="secondary" outlined icon="pencil" />
-      <IconButton type="warning" outlined icon="pencil" />
-      <IconButton type="success" outlined icon="pencil" />
-      <IconButton type="success" outlined disabled icon="pencil" />
+      <icon-action type="primary" outlined icon="pencil" />
+      <icon-action type="secondary" outlined icon="pencil" />
+      <icon-action type="warning" outlined icon="pencil" />
+      <icon-action type="success" outlined icon="pencil" />
+      <icon-action type="success" outlined disabled icon="pencil" />
     </div>
 
     

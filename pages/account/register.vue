@@ -1,9 +1,9 @@
 <template>
 	<main class="py-12">
-		<LoadingOverlay v-if="loading" />
+		<loading-overlay v-if="loading" />
 		<div v-else>
 			<h1>Register</h1>
-			<Alert type="warning" v-if="error">There was an error creating your account. Please try again or trying loggin in.</Alert>
+			<alert-view type="warning" v-if="error">There was an error creating your account. Please try again or trying loggin in.</alert-view>
 			<p>Your password must be at least eight characters long and contain one:</p>
 			<ul class="list">
 				<li :class="{ 'text-green-600': hasUpper }">Uppercase letter</li>
@@ -11,18 +11,18 @@
 				<li :class="{ 'text-green-600': hasNumber }">Number</li>
 				<li :class="{ 'text-green-600': hasSpecial }">Special character</li>
 			</ul>
-			<Validate :value="email" :rules="rules.email" v-slot="{ error, message }">
-				<TextInput label="Email Address" v-model="email" :error="error" :message="message" />
-			</Validate>
-			<Validate :value="password" :rules="rules.password" v-slot="{ error, message }">
-				<PasswordInput label="Password" v-model="password" :error="error" :message="message" />
-			</Validate>
-			<Validate :value="confirmPassword" :rules="rules.confirmPassword" v-slot="{ error, message }">
-				<PasswordInput label="Confirm Password" v-model="confirmPassword" :error="error" :message="message" />
-			</Validate>
+			<validate-field :value="email" :rules="rules.email" v-slot="{ error, message }">
+				<text-input label="Email Address" v-model="email" :error="error" :message="message" />
+			</validate-field>
+			<validate-field :value="password" :rules="rules.password" v-slot="{ error, message }">
+				<password-input label="Password" v-model="password" :error="error" :message="message" />
+			</validate-field>
+			<validate-field :value="confirmPassword" :rules="rules.confirmPassword" v-slot="{ error, message }">
+				<password-input label="Confirm Password" v-model="confirmPassword" :error="error" :message="message" />
+			</validate-field>
 			<div class="flex">
-				<Link block type="primary" outlined to="/account/login">Login</Link>
-				<Button block type="primary" :disabled="!canContinue" @click="register">Register</Button>
+				<link-action block type="primary" outlined to="/account/login">Login</link-action>
+				<button-action block type="primary" :disabled="!canContinue" @click="register">Register</button-action>
 			</div>
 		</div>
 	</main>

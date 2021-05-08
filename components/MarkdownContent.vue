@@ -1,6 +1,6 @@
 <template>
 	<div class="content">
-		<Loading v-if="$fetchState.pending" />
+		<loading-spinner v-if="$fetchState.pending" />
 		<nuxt-content :document="text" v-else />
 	</div>
 </template>

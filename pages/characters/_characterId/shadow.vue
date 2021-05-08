@@ -1,19 +1,19 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/shadow" />
-			<Loading v-if="loading" />
-			<CardFlip :card="selectedCard" v-else-if="selectedCard !== null" />
+			<markdown-content content="characters/shadow" />
+			<loading-spinner v-if="loading" />
+			<card-flip :card="selectedCard" v-else-if="selectedCard !== null" />
 			<div class="mt-2 mb-4">
-				<Button type="primary" block :outlined="hasDrawn" @click="drawCard">Draw</Button>
+				<button-action type="primary" block :outlined="hasDrawn" @click="drawCard">Draw</button-action>
 			</div>
-			<TextInput
+			<text-input
 				label="Shadow"
 				v-model="character.shadow.text"
 				:disabled="selectedCard === null"
 			/>
-			<Stepper
+			<step-buttons
 				:next="`/characters/${character.id}/attributes`"
 				:previous="`/characters/${character.id}/persona`"
 				:disabled="!canContinue"

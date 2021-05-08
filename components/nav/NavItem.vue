@@ -4,7 +4,7 @@
 		:class="{ 'disabled': disabled }"
 		@click="click"
 	>
-		<span v-if="icon" class="md:text-white text-gray-500" :class="{ 'disabled': disabled }"><Icon :icon="icon" /></span>
+		<span v-if="icon" class="md:text-white text-gray-500" :class="{ 'disabled': disabled }"><icon-view :icon="icon" /></span>
 		<span class="block ml-2"><slot /></span>
 	</div>
 </template>

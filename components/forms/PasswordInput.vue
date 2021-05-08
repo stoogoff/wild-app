@@ -1,5 +1,5 @@
 <template>
-	<FormField :label="label" :message="message" :error="error" v-slot="field">
+	<form-field :label="label" :message="message" :error="error" v-slot="field">
 		<div class="relative flex w-full flex-wrap items-stretch">
 			<input
 				:id="field.id"
@@ -11,10 +11,10 @@
 				@input="$emit('input', $event.target.value)"
 			/>
 			<span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3" @click="toggleView">
-				<Icon :icon="icon" />
+				<icon-view :icon="icon" />
 			</span>
 		</div>
-	</FormField>
+	</form-field>
 </template>
 <script>
 import Vue from 'vue'

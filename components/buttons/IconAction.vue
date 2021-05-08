@@ -1,12 +1,12 @@
 <template>
 	<button :class="classList" :disabled="disabled" @click="$emit('click')">
-		<Icon :icon="icon" />
+		<icon-view :icon="icon" />
 	</button>
 </template>
 <script>
 import Vue from 'vue'
 
-export default Vue.component('IconButton', {
+export default Vue.component('IconAction', {
 	props: {
 		disabled: {
 			type: Boolean,

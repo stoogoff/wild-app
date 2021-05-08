@@ -7,7 +7,7 @@
 			:accept="acceptString"
 		/>
 		<span class="inline-block mr-2">
-			<Icon :icon="icon" />
+			<icon-view :icon="icon" />
 		</span>
 		<span>
 			Drag file or click to upload.

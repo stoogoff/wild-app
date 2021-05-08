@@ -1,49 +1,49 @@
 <template>
 	<main>
-		<Loading v-if="loading || character === null" />
+		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
-			<MarkdownContent content="characters/abilities" />
-			<AbilityEdit
+			<markdown-content content="characters/abilities" />
+			<ability-edit
 				title="Diplomat"
 				:value="character.abilities.Diplomat"
 				:options="options"
 				@input="toggleAbility('Diplomat', $event)"
 			>
 				<p>The Diplomat Ability is used whenever the character is talking, negotiating, charming, empathising, or understanding someone.</p>
-			</AbilityEdit>
-			<AbilityEdit
+			</ability-edit>
+			<ability-edit
 				title="Guardian"
 				:value="character.abilities.Guardian"
 				:options="options"
 				@input="toggleAbility('Guardian', $event)"
 			>
 				<p>Guardian comes into play most often when the character is in a physical conflict - shooting, defending, protecting, and fighting.</p>
-			</AbilityEdit>
-			<AbilityEdit
+			</ability-edit>
+			<ability-edit
 				title="Rogue"
 				:value="character.abilities.Rogue"
 				:options="options"
 				@input="toggleAbility('Rogue', $event)"
 			>
 				<p>Whenever your character is doing something remotely sneaky or underhanded, then Rogue is used.</p>
-			</AbilityEdit>
-			<AbilityEdit
+			</ability-edit>
+			<ability-edit
 				title="Scholar"
 				:value="character.abilities.Scholar"
 				:options="options"
 				@input="toggleAbility('Scholar', $event)"
 			>
 				<p>The Scholar Ability is used whenever you are doing something that involves information.</p>
-			</AbilityEdit>
-			<AbilityEdit
+			</ability-edit>
+			<ability-edit
 				title="Visionary"
 				:value="character.abilities.Visionary"
 				:options="options"
 				@input="toggleAbility('Visionary', $event)"
 			>
 				<p>Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something.</p>
-			</AbilityEdit>
-			<Stepper
+			</ability-edit>
+			<step-buttons
 				:next="`/characters/${character.id}/aspects`"
 				:previous="`/characters/${character.id}/attributes`"
 				:disabled="!canContinue"

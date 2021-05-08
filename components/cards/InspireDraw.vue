@@ -1,22 +1,22 @@
 <template>
-	<Screen>
-		<Navbar>
+	<screen-slide>
+		<nav-bar>
 			<template #title>Inspire</template>
 			<template #buttons>
-				<NavButton icon="close" @click="close" />
+				<nav-button icon="close" @click="close" />
 			</template>
 			<div class="hidden md:flex md:flex-row md:ml-auto relative">
-				<NavItem icon="close" @click="close">Close</NavItem>
+				<nav-item icon="close" @click="close">Close</nav-item>
 			</div>
-		</Navbar>
-		<Loading v-if="$fetchState.pending" />
-		<CardFlip v-else :card="card" />
-	</Screen>
+		</nav-bar>
+		<loading-spinner v-if="$fetchState.pending" />
+		<card-flip v-else :card="card" />
+	</screen-slide>
 </template>
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Inspire', {
+export default Vue.component('InspireDraw', {
 	async fetch() {
 		const cards = await this.$store.dispatch('deck/draw', 1)
 

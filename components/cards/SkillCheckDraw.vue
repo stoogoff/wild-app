@@ -1,33 +1,33 @@
 <template>
-	<Screen>
-		<Navbar>
+	<screen-slide>
+		<nav-bar>
 			<template #title>
 				{{ totalSuccesses }} Success{{ totalSuccesses === 1 ? '' : 'es' }}
 			</template>
 			<template #buttons>
-				<NavButton icon="refresh" :disabled="!canPush" @click="push" />
-				<NavButton icon="close" @click="$emit('close')" />
+				<nav-button icon="refresh" :disabled="!canPush" @click="push" />
+				<nav-button icon="close" @click="$emit('close')" />
 			</template>
 			<div class="hidden md:flex md:flex-row md:ml-auto relative">
-				<NavItem icon="refresh" :disabled="!canPush" @click="push">Push</NavItem>
-				<NavItem icon="close" @click="$emit('close')">Close</NavItem>
+				<nav-item icon="refresh" :disabled="!canPush" @click="push">Push</nav-item>
+				<nav-item icon="close" @click="$emit('close')">Close</nav-item>
 			</div>
-		</Navbar>
-		<CardGrid
+		</nav-bar>
+		<card-grid
 			:cards="cards"
 			v-slot="{ card }"
 		>
 			<span class="marker" :class="isSuccessful(card) ? 'success' : 'fail'">
-				<Icon :icon="icon(card)" />
+				<icon-view :icon="icon(card)" />
 			</span>
-		</CardGrid>
-	</Screen>
+		</card-grid>
+	</screen-slide>
 </template>
 <script>
 import Vue from 'vue'
 import { getTargetNumber, getCurrentAttribute } from '~/utils/character'
 
-export default Vue.component('SkillCheck', {
+export default Vue.component('SkillCheckDraw', {
 	props: {
 		number: {
 			type: Number,

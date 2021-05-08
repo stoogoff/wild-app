@@ -31,7 +31,7 @@
 							:href="item.href"
 							target="_blank"
 						>
-							<Icon :icon="item.icon" />
+							<icon-view :icon="item.icon" />
 						</a>
 					</div>
 				</div>
@@ -77,7 +77,9 @@
 </template>
 <script>
 
-export default {
+import Vue from 'vue'
+
+export default Vue.component('FooterSection', {
 	data() {
 		return {
 			elsewhere: [
@@ -92,6 +94,6 @@ export default {
 			],
 		}
 	},
-}
+})
 
 </script>

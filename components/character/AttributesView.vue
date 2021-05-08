@@ -7,7 +7,7 @@
 			:class="attr.toLowerCase()"
 		>
 			<span v-if="play" class="absolute -top-2 -right-2">
-				<IconButton
+				<icon-action
 					icon="check"
 					:outlined="!isSelected(attr)"
 					:type="isSelected(attr) ? 'success' : ''"

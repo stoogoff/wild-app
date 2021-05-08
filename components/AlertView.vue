@@ -1,13 +1,13 @@
 <template>
 	<aside class="alert" :class="type">
-		<span class="mr-2"><Icon :icon="icon" v-if="icon" /></span>
+		<span class="mr-2"><icon-view :icon="icon" v-if="icon" /></span>
 		<span><slot /></span>
 	</aside>
 </template>
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Alert', {
+export default Vue.component('AlertView', {
 	props: {
 		type: {
 			type: String,

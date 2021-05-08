@@ -6,7 +6,7 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.component('Link', {
+export default Vue.component('LinkAction', {
 	props: {
 		to: {
 			type: String,
