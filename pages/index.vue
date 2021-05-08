@@ -6,13 +6,13 @@
     <alert-view type="success">Success alert</alert-view>
 
     <menu-button type="primary" outlined :items="menuItems" @click="testMenu">Default</menu-button>
-    <!--div>
+    <div>
       <button-action>Default</button-action>
       <button-action type="primary" @click="stateTest">Primary</button-action>
       <button-action type="secondary">Secondary</button-action>
       <button-action type="warning">Warning</button-action>
       <button-action type="success" @click="alert('test')">Success</button-action>
-      <button-action disabled @click="alert('test')">Disabled</button-action>
+      <button-action type="primary" disabled @click="alert('test')">Disabled</button-action>
     </div>
     <div>
       <button-action outlined>Default</button-action>
@@ -21,7 +21,7 @@
       <button-action outlined type="warning">Warning</button-action>
       <button-action outlined type="success" @click="alert('test')">Success</button-action>
       <button-action outlined disabled @click="alert('test')">Disabled</button-action>
-    </div-->
+    </div>
 
     <!--FileDropZone @input="test" :accept="['image/*']" / -->
 		<text-input v-model="name" label="Test" :error="error" message="This is a form field" placeholder="Enter something" />

@@ -1,7 +1,7 @@
 ---
 title: Focus
 type: suit
-sort: 4
+sort: 2
 image: focus.svg
 ---
 

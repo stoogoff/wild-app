@@ -81,7 +81,7 @@ export default Vue.component('CardFlip', {
 		backface-visibility: hidden
 
 	.card-back
-		@apply absolute top-0 right-0 bg-white p-6 bg-contain
+		@apply absolute top-0 right-0 bg-white p-6 bg-contain bg-no-repeat
 		background-image: url(/img/cards/card-back.png)
 		transform: rotateY(180deg)
 

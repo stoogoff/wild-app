@@ -4,7 +4,14 @@
 		<section v-else>
 			<markdown-content content="characters/shadow" />
 			<loading-spinner v-if="loading" />
-			<card-flip :card="selectedCard" v-else-if="selectedCard !== null" />
+			<card-grid
+				v-else-if="selectedCard !== null"
+				:cards="[selectedCard]"
+				:selected="selectedCard"
+				v-slot="{ card }"
+			>
+			</card-grid>
+			</div>
 			<div class="mt-2 mb-4">
 				<button-action type="primary" block :outlined="hasDrawn" @click="drawCard">Draw</button-action>
 			</div>
@@ -70,7 +77,7 @@ export default {
 		},
 
 		async save(done) {
-			await this.$store.commit('character/update', {
+			await this.$store.dispatch('character/save', {
 				...this.character,
 				shadow: {
 					card: this.selectedCard.id,

@@ -3,46 +3,48 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<markdown-content content="characters/abilities" />
-			<ability-edit
-				title="Diplomat"
-				:value="character.abilities.Diplomat"
-				:options="options"
-				@input="toggleAbility('Diplomat', $event)"
-			>
-				<p>The Diplomat Ability is used whenever the character is talking, negotiating, charming, empathising, or understanding someone.</p>
-			</ability-edit>
-			<ability-edit
-				title="Guardian"
-				:value="character.abilities.Guardian"
-				:options="options"
-				@input="toggleAbility('Guardian', $event)"
-			>
-				<p>Guardian comes into play most often when the character is in a physical conflict - shooting, defending, protecting, and fighting.</p>
-			</ability-edit>
-			<ability-edit
-				title="Rogue"
-				:value="character.abilities.Rogue"
-				:options="options"
-				@input="toggleAbility('Rogue', $event)"
-			>
-				<p>Whenever your character is doing something remotely sneaky or underhanded, then Rogue is used.</p>
-			</ability-edit>
-			<ability-edit
-				title="Scholar"
-				:value="character.abilities.Scholar"
-				:options="options"
-				@input="toggleAbility('Scholar', $event)"
-			>
-				<p>The Scholar Ability is used whenever you are doing something that involves information.</p>
-			</ability-edit>
-			<ability-edit
-				title="Visionary"
-				:value="character.abilities.Visionary"
-				:options="options"
-				@input="toggleAbility('Visionary', $event)"
-			>
-				<p>Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something.</p>
-			</ability-edit>
+			<div class="md:grid grid-cols-2 gap-4 mb-6">
+				<ability-edit
+					title="Diplomat"
+					:value="character.abilities.Diplomat"
+					:options="options"
+					@input="toggleAbility('Diplomat', $event)"
+				>
+					The Diplomat Ability is used whenever the character is talking, negotiating, charming, empathising, or understanding someone.
+				</ability-edit>
+				<ability-edit
+					title="Guardian"
+					:value="character.abilities.Guardian"
+					:options="options"
+					@input="toggleAbility('Guardian', $event)"
+				>
+					Guardian comes into play most often when the character is in a physical conflict - shooting, defending, protecting, and fighting.
+				</ability-edit>
+				<ability-edit
+					title="Rogue"
+					:value="character.abilities.Rogue"
+					:options="options"
+					@input="toggleAbility('Rogue', $event)"
+				>
+					Whenever your character is doing something remotely sneaky or underhanded, then Rogue is used.
+				</ability-edit>
+				<ability-edit
+					title="Scholar"
+					:value="character.abilities.Scholar"
+					:options="options"
+					@input="toggleAbility('Scholar', $event)"
+				>
+					The Scholar Ability is used whenever you are doing something that involves information.
+				</ability-edit>
+				<ability-edit
+					title="Visionary"
+					:value="character.abilities.Visionary"
+					:options="options"
+					@input="toggleAbility('Visionary', $event)"
+				>
+					Visionary is a highly creative Ability used whenever your character is making, crafting, planning or creating something.
+				</ability-edit>
+			</div>
 			<step-buttons
 				:next="`/characters/${character.id}/aspects`"
 				:previous="`/characters/${character.id}/attributes`"
@@ -104,7 +106,7 @@ export default {
 		},
 
 		async save(done) {
-			await this.$store.commit('character/update', this.character)
+			await this.$store.dispatch('character/save', this.character)
 			done()
 		},
 	},

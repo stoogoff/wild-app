@@ -1,19 +1,23 @@
 <template>
 	<section>
 		<h2>{{ title }}</h2>
-		<p><slot /></p>
-		<text-input
-			v-model="editingValue"
-			:label="title"
-			:error="error"
-			:message="errorMessage"
-			@input="$emit('input', $event)"
-		/>
+		<p class="md:h-12"><slot /></p>
+		<validate-field :value="editingValue" :rules="rules" v-slot="{ error, message }">
+			<text-input
+				v-model="editingValue"
+				:label="title"
+				:error="error"
+				:message="message"
+				@input="$emit('input', $event)"
+			/>
+			<aside v-if="!error" class="md:hidden message" :class="messageClass">{{ remaining }} points remaining</aside>
+		</validate-field>
 	</section>
 </template>
 <script>
 import Vue from 'vue'
 import { ATTRIBUTE_MIN, ATTRIBUTE_STARTING_MAX } from '~/utils/config'
+import { required, numeric, minVal, maxVal } from '~/utils/validators'
 
 export default Vue.component('AttributeEdit', {
 	props: {
@@ -25,6 +29,10 @@ export default Vue.component('AttributeEdit', {
 			type: String,
 			required: true,
 		},
+		remaining: {
+			type: [String, Number],
+			required: true,
+		},
 	},
 
 	data() {
@@ -34,12 +42,12 @@ export default Vue.component('AttributeEdit', {
 	},
 
 	computed: {
-		error() {
-			return isNaN(this.editingValue) || this.editingValue < ATTRIBUTE_MIN || this.editingValue > ATTRIBUTE_STARTING_MAX
+		messageClass() {
+			return this.remaining <= 0 ? 'warning' : 'success'
 		},
 
-		errorMessage() {
-			return this.error ? `Attributes must be between ${ATTRIBUTE_MIN} and ${ATTRIBUTE_STARTING_MAX}` : ''
+		rules() {
+			return [required(), numeric(), minVal(ATTRIBUTE_MIN), maxVal(ATTRIBUTE_STARTING_MAX)]
 		},
 	},
 })

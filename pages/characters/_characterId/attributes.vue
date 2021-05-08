@@ -3,31 +3,37 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<markdown-content content="characters/attributes" />
-			<h3 :class="remainingClass">Points remaining: {{ remaining }}</h3>
-			<attribute-edit
-				title="Control"
-				v-model="character.attributes.Control"
-			>
-				Control is about physical dexterity, coordination, accuracy and control.
-			</attribute-edit>
-			<attribute-edit
-				title="Strength"
-				v-model="character.attributes.Strength"
-			>
-				Strength is all about physical strength, power, force and endurance.
-			</attribute-edit>
-			<attribute-edit
-				title="Focus"
-				v-model="character.attributes.Focus"
-			>
-				Focus is all about thinking, mental reasoning, emotional restraint, and concentrating.
-			</attribute-edit>
-			<attribute-edit
-				title="Passion"
-				v-model="character.attributes.Passion"
-			>
-				Passion is all about determination, mental force, emotional strength and imagination.
-			</attribute-edit>
+			<alert-view :type="alertType">Points remaining: {{ remaining }}</alert-view>
+			<div class="md:grid grid-cols-2 gap-4 mb-6">
+				<attribute-edit
+					title="Control"
+					v-model="character.attributes.Control"
+					:remaining="remaining"
+				>
+					Control is about physical dexterity, coordination, accuracy and control.
+				</attribute-edit>
+				<attribute-edit
+					title="Strength"
+					v-model="character.attributes.Strength"
+					:remaining="remaining"
+				>
+					Strength is all about physical strength, power, force and endurance.
+				</attribute-edit>
+				<attribute-edit
+					title="Focus"
+					v-model="character.attributes.Focus"
+					:remaining="remaining"
+				>
+					Focus is all about thinking, mental reasoning, emotional restraint, and concentrating.
+				</attribute-edit>
+				<attribute-edit
+					title="Passion"
+					v-model="character.attributes.Passion"
+					:remaining="remaining"
+				>
+					Passion is all about determination, mental force, emotional strength and imagination.
+				</attribute-edit>
+			</div>
 			<step-buttons
 				:next="`/characters/${character.id}/abilities`"
 				:previous="`/characters/${character.id}/shadow`"
@@ -85,14 +91,17 @@ export default {
 				return ATTRIBUTES_STARTING - this.attrs.map(n => parseInt(n)).filter(n => !isNaN(n)).reduce((a, c) => a + c, 0)
 		},
 
-		remainingClass() {
-			return this.remaining < 0 ? 'text-red-500' : 'text-green-500'
+		alertType() {
+			if(this.remaining === 0) return 'success'
+			if(this.remaining < 0) return 'warning'
+
+			return 'primary'
 		},
 	},
 
 	methods: {
 		async save(done) {
-			await this.$store.commit('character/update', this.character)
+			await this.$store.dispatch('character/save', this.character)
 			done()
 		},
 	},

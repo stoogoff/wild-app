@@ -7,6 +7,8 @@
 <script>
 
 export default {
+	layout: 'image',
+
 	data() {
 		return {
 			loading: false,

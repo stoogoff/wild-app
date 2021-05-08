@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<main-nav transparent />
+		<main-nav />
 		<section class="relative block" style="height: 500px">
 			<div id="cover-image" class="absolute top-0 w-full h-full bg-center bg-cover">
 				<span class="w-full h-full absolute opacity-50 bg-black"></span>
@@ -12,8 +12,8 @@
 			</div>
 		</section>
 		<section class="relative py-16 bg-gray-300">
-			<div class="container mx-auto md:px-4">
-				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-80">
+			<div class="container mx-auto md:px-4 max-w-screen-lg">
+				<div class="relative flex flex-col py-8 min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-80">
 					<Nuxt />
 				</div>
 			</div>

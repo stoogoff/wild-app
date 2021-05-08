@@ -3,14 +3,19 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<markdown-content content="characters/finish" />
-			<label class="label">Image</label>
-			<file-drop-zone :accept="['image/*']" @input="setImage" />
-			<div v-if="image">
-				<image-upload :file="image" @delete="removeImage" />
+			<div class="md:grid grid-cols-2 gap-4 mb-6">
+				<div>
+					<text-input label="Name" v-model="character.name" />
+					<text-area label="Background" v-model="character.background" />
+				</div>
+				<div>
+					<label class="label">Image</label>
+					<file-drop-zone :accept="['image/*']" @input="setImage" />
+					<div v-if="image">
+						<image-upload :file="image" @delete="removeImage" />
+					</div>
+				</div>
 			</div>
-
-			<text-input label="Name" v-model="character.name" />
-			<text-area label="Background" v-model="character.background" />
 			<step-buttons
 				:next="`/characters/${character.id}`"
 				:previous="`/characters/${character.id}/aspects`"

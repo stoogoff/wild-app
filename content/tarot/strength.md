@@ -1,7 +1,7 @@
 ---
 title: Strength
 type: suit
-sort: 2
+sort: 5
 image: strength.svg
 ---
 

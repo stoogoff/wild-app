@@ -1,18 +1,22 @@
 <template>
 	<section class="mb-6">
-			<h2>{{ title }}</h2>
-			<slot />
+		<h2>{{ title }}</h2>
+		<p class="md:h-12"><slot /></p>
+		<div class="grid grid-cols-2 gap-4">
 			<text-input
 				:label="title"
 				:value="value"
 				disabled
 			/>
-			<button-group
-				:value="value"
-				:options="mappedOptions"
-				@input="$emit('input', $event)"
-			/>
-		</section>
+			<div class="pt-7">
+				<button-group
+					:value="value"
+					:options="mappedOptions"
+					@input="$emit('input', $event)"
+				/>
+		</div>
+		</div>
+	</section>
 </template>
 <script>
 import Vue from 'vue'

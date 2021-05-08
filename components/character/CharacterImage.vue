@@ -1,5 +1,5 @@
 <template>
-	<img v-if="image !== null" :src="image" class="block w-full mb-4" />
+	<img v-if="image !== null" :src="image" class="block w-full mb-4 p-1 border border-gray-300 rounded-xl" />
 </template>
 <script>
 import Vue from 'vue'

@@ -19,7 +19,7 @@
 				></polygon>
 			</svg>
 		</div>
-		<div class="container mx-auto px-4">
+		<div class="container mx-auto px-4 max-w-screen-lg">
 			<div class="flex flex-wrap">
 				<div class="w-full lg:w-6/12 px-4 mb-6 lg:mb-0">
 					<div class="mt-6">

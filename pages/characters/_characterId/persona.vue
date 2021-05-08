@@ -91,7 +91,7 @@ export default {
 		},
 
 		async save(done) {
-			await this.$store.commit('character/update', this.character)
+			await this.$store.dispatch('character/save', this.character)
 			done()
 		},
 	},

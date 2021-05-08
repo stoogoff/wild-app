@@ -1,7 +1,7 @@
 ---
 title: Control
 type: suit
-sort: 3
+sort: 1
 image: control.svg
 ---
 

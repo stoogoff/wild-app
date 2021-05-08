@@ -67,6 +67,8 @@
 	.message
 		@apply mt-2 text-sm text-gray-500
 
+		&.success
+			@apply text-control-dark
 		&.warning
 			@apply text-passion-darker
 
@@ -90,10 +92,9 @@
 		@apply bg-gray-400 text-gray-700 hover:text-white hover:bg-gray-600
 
 		&.disabled
-			@apply bg-gray-300
-			@apply text-gray-400
 			@apply cursor-default
-			@apply hover:shadow-none shadow-none
+			@apply bg-gray-300 text-gray-400 shadow-none
+			@apply hover:bg-gray-300 hover:text-gray-400 hover:shadow-none
 
 		&.enabled
 			@apply hover:shadow-lg
@@ -112,12 +113,10 @@
 			@apply bg-passion-dark text-passion-lighter hover:bg-passion-darker
 
 		&.outlined
-			@apply bg-white border border-solid hover:text-gray-900
+			@apply bg-white border border-solid border-gray-700 hover:text-gray-900 hover:bg-gray-100
 
 			&.disabled
-				@apply bg-gray-300
-				@apply text-gray-400
-				@apply cursor-default
+				@apply bg-gray-200 border-gray-400 text-gray-400 cursor-default
 
 			&.primary
 				@apply text-focus-dark border-focus hover:bg-focus-lighter hover:text-focus-darker hover:border-focus-darker

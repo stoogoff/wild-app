@@ -1,7 +1,7 @@
 ---
 title: Passion
 type: suit
-sort: 1
+sort: 4
 image: passion.svg
 ---
 

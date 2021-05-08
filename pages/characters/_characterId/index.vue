@@ -18,33 +18,15 @@
 			</section>
 
 			<h1>{{ character.name }}</h1>
-			<character-image :character="character" />
-
-			<section class="mb-2 grid grid-cols-2">
-				<div v-if="character.persona.card">
-					<h2>Persona</h2>
-					<card-view :card-name="character.persona.card" :reversed="character.persona.reversed" />
-					<p class="text-sm italic">{{ character.persona.text }}</p>
-				</div>
-				<div v-if="character.shadow.card">
-					<h2>Shadow</h2>
-					<card-view :card-name="character.shadow.card" :reversed="character.shadow.reversed" />
-					<p class="text-sm italic">{{ character.shadow.text }}</p>
-				</div>
+			<section class="section sm:grid grid-cols-2 gap-4" v-if="inViewMode && (character.background || character.image)">
+				<character-image :character="character" />
+				<p class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
 			</section>
 
-			<section class="mb-2">
-				<h2>Attributes</h2>
-				<attributes-view :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" :injuries="character.injuries" />
-			</section>
-			<section class="mb-2 border-t border-gray-300 pt-6">
-				<h2>Abilities</h2>
-				<attributes-view :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
-			</section>
-			<section class="mb-4 border-t border-gray-300 pt-6">
+			<section class="section">
 				<h2>Aspects</h2>
-				<div class="flex flex-wrap justify-center">
-					<ul class="w-full lg:w-9/12 px-4 list">
+				<div class=" container max-w-md mx-auto">
+					<ul class="list">
 						<li
 							class="my-2 text-gray-700"
 							:class="{ 'text-red-500': isInjuryAspect(aspect) }"
@@ -59,13 +41,29 @@
 					</ul>
 				</div>
 			</section>
-			<section class="mt-4 py-10 border-t border-gray-300" v-if="character.background">
-				<div class="flex flex-wrap justify-center">
-					<div class="w-full lg:w-9/12 px-4">
-						<p class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
-					</div>
+
+			<section class="section grid grid-cols-2 gap-4">
+				<div v-if="character.persona.card">
+					<h2>Persona</h2>
+					<card-view :card-name="character.persona.card" :reversed="character.persona.reversed" />
+					<p class="text-lg text-center leading-relaxed italic">{{ character.persona.text }}</p>
+				</div>
+				<div v-if="character.shadow.card">
+					<h2>Shadow</h2>
+					<card-view :card-name="character.shadow.card" :reversed="character.shadow.reversed" />
+					<p class="text-lg text-center leading-relaxed italic">{{ character.shadow.text }}</p>
 				</div>
 			</section>
+
+			<section class="section">
+				<h2>Attributes</h2>
+				<attributes-view :values="character.attributes" :play="inPlayMode" v-model="selectedAttribute" :injuries="character.injuries" />
+			</section>
+			<section class="section">
+				<h2>Abilities</h2>
+				<attributes-view :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
+			</section>
+
 			<skill-check-draw
 				v-if="showDrawCards"
 				:number="cardsToDraw"
@@ -269,5 +267,8 @@ export default {
 <style scoped>
 .btn-panel {
 	@apply flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-gray-300 z-10;
+}
+.section {
+	@apply mb-6 border-t border-gray-300 pt-6 px-12;
 }
 </style>

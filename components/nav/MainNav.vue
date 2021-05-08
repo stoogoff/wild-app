@@ -89,6 +89,11 @@ export default Vue.component('MainNav', {
 				href: `/characters/${character.id}`,
 			}))
 
+			menuItems[1].menuItems.push({
+				title: 'New Character',
+				href: '/characters/new',
+			})
+
 			// update account options depending on user state
 			const user = this.$store.state.auth.user
 
