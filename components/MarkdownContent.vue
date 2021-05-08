@@ -16,7 +16,14 @@ export default Vue.component('MarkdownContent', {
 	},
 
 	async fetch() {
-		this.text = await this.$content(this.content).fetch()
+		try {
+			this.text = await this.$content(this.content).fetch()
+		}
+		catch(error) {
+			console.log(`Not found: ${this.content}`)
+			console.log(error)
+			// TODO load up a 404 page
+		}
 	},
 
 	data() {
