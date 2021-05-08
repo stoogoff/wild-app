@@ -13,13 +13,12 @@
 		</section>
 		<section class="relative py-16 bg-gray-300">
 			<div class="container mx-auto md:px-4 max-w-screen-lg">
-				<div class="relative flex flex-col py-8 min-w-0 break-words bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-80">
+				<div class="relative flex flex-col py-8 bg-white w-full mb-6 shadow-xl sm:rounded-lg -mt-80">
 					<Nuxt />
 				</div>
 			</div>
 		</section>
 		<footer-section />
-		<responsive-debug />
 	</div>
 </template>
 <script>

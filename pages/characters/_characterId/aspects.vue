@@ -3,19 +3,24 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<markdown-content content="characters/aspects" />
-			<div class="md:grid grid-cols-2 gap-4">
-				<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-					<text-input :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text">
-						<template #append>
-							<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
-								<icon-view icon="close" />
-							</span>
-						</template>
-					</text-input>
-				</div>
-			</div>
-			<div class="mt-2 mb-6">
-				<button-action type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</button-action>
+			<div class="md:flex mb-6">
+				<article class="md:w-8/12">
+					<div class="md:grid grid-cols-2 gap-4">
+						<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
+							<text-input :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text">
+								<template #append>
+									<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
+										<icon-view icon="close" />
+									</span>
+								</template>
+							</text-input>
+						</div>
+					</div>
+					<div class="mt-2 mb-6">
+						<button-action type="primary" :outlined="hasEnough" block @click="addAspect" :disabled="!canAdd">Add</button-action>
+					</div>
+				</article>
+				<progress-view :character="character" />
 			</div>
 			<step-buttons
 				:next="`/characters/${character.id}/finish`"

@@ -2,7 +2,6 @@
 	<div>
 		<main-nav />
 		<Nuxt />
-		<responsive-debug />
 	</div>
 </template>
 <script>

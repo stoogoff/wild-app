@@ -7,7 +7,7 @@
 	// basic  tag overrides
 	body
 		font-family: NeutraText
-		@apply text-gray-800
+		@apply text-gray-800 bg-gray-300
 
 	main
 		@apply px-6
@@ -22,14 +22,17 @@
 		@apply mb-3
 
 	ul.list, ol.list, .content ul, .content ol
-		@apply my-4
-		@apply ml-4
+		@apply mb-4 ml-4
 
 	ul.list, .content ul
 		@apply list-disc
 
 	ol.list, .content ol
 		@apply list-decimal
+
+	.content
+		a
+			@apply text-blue-500 underline hover:no-underline
 
 	// font face declarations
 	@font-face

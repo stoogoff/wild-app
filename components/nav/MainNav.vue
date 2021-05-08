@@ -81,7 +81,7 @@ export default Vue.component('MainNav', {
 				},
 			]
 
-			// add chacracters
+			// add characters
 			const characters = this.$store.state.character.characters
 
 			menuItems[1].menuItems = characters.map(character => ({
@@ -92,6 +92,7 @@ export default Vue.component('MainNav', {
 			menuItems[1].menuItems.push({
 				title: 'New Character',
 				href: '/characters/new',
+				separator: true,
 			})
 
 			// update account options depending on user state

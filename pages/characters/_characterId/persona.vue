@@ -3,27 +3,32 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<markdown-content content="characters/persona" />
-			<card-grid
-				:cards="cards"
-				:selected="character.persona.card"
-				v-slot="{ card }"
-			>
-				<icon-action
-					@click="toggleSelectedCard(card)"
-					:type="isSelected(card) ? 'success' : ''"
-					icon="check"
-					:outlined="!isSelected(card)"
-				/>
-			</card-grid>
+			<div class="md:flex mb-6">
+				<article class="md:w-8/12">
+					<card-grid
+						:cards="cards"
+						:selected="character.persona.card"
+						v-slot="{ card }"
+					>
+						<icon-action
+							@click="toggleSelectedCard(card)"
+							:type="isSelected(card) ? 'success' : ''"
+							icon="check"
+							:outlined="!isSelected(card)"
+						/>
+					</card-grid>
 
-			<div class="mt-2 mb-4">
-				<button-action type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</button-action>
+					<div class="mt-2 mb-4">
+						<button-action type="primary" :outlined="hasDrawn" block @click="drawCards">Draw</button-action>
+					</div>
+					<text-input
+						label="Persona"
+						v-model="character.persona.text"
+						:disabled="character.persona.card === null"
+					/>
+				</article>
+				<progress-view :character="character" />
 			</div>
-			<text-input
-				label="Persona"
-				v-model="character.persona.text"
-				:disabled="character.persona.card === null"
-			/>
 			<step-buttons
 				:next="`/characters/${character.id}/shadow`"
 				:disabled="!canContinue"

@@ -22,7 +22,7 @@ export default Vue.component('MarkdownContent', {
 		catch(error) {
 			console.log(`Not found: ${this.content}`)
 			console.log(error)
-			// TODO load up a 404 page
+			this.text = await this.$content('404').fetch()
 		}
 	},
 

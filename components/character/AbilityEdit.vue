@@ -1,14 +1,16 @@
 <template>
 	<section class="mb-6">
 		<h2>{{ title }}</h2>
-		<p class="md:h-12"><slot /></p>
-		<div class="grid grid-cols-2 gap-4">
-			<text-input
-				:label="title"
-				:value="value"
-				disabled
-			/>
-			<div class="pt-7">
+		<p class="md:h-20"><slot /></p>
+		<div class="flex">
+			<div class="w-4/12 mr-2">
+				<text-input
+					:label="title"
+					:value="value"
+					disabled
+				/>
+			</div>
+			<div class="w-8/12 pt-7">
 				<button-group
 					:value="value"
 					:options="mappedOptions"

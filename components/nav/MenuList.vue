@@ -16,6 +16,7 @@
 				<li
 					v-for="(subitem, h) in item.menuItems"
 					:key="`menu_${g}_subitem_${h}`"
+					:class="{ 'md:border-t border-gray-300': subitem.separator }"
 				>
 					<nuxt-link class="block pl-12 p-1 md:px-3 min-w-full md:hover:text-gray-800 md:hover:bg-gray-200" :to="subitem.href">{{ subitem.title }}</nuxt-link>
 				</li>
