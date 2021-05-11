@@ -19,10 +19,12 @@
 			</div>
 		</section>
 		<link-action block type="primary" to="/characters/new">New Character</link-action>
+		{{ counter }}
 	</main>
 </template>
 <script>
-import Vue from 'vue'
+
+import { getCounter, increment } from '~/store/counter'
 
 export default {
 	layout: 'image',
@@ -34,8 +36,14 @@ export default {
 
 	data() {
 		return {
-			characters: []
+			characters: [],
 		}
 	},
+
+	computed: {
+		counter() {
+			return getCounter()
+		}
+	}
 }
 </script>

@@ -26,6 +26,7 @@
 <script>
 import Vue from 'vue'
 import { getTargetNumber, getCurrentAttribute } from '~/utils/character'
+import { drawCards, drawOne } from '~/state/deck'
 
 export default Vue.component('SkillCheckDraw', {
 	props: {
@@ -47,8 +48,8 @@ export default Vue.component('SkillCheckDraw', {
 		},
 	},
 
-	async fetch() {
-		this.cards = await this.$store.dispatch('deck/draw', this.number)
+	fetch() {
+		this.cards = drawCards(this.number)
 	},
 
 	data() {
@@ -113,19 +114,11 @@ export default Vue.component('SkillCheckDraw', {
 			return 'check-all'
 		},
 
-		async push() {
+		push() {
 			const tn = this.targetNumber
 
 			// redraw failed cards only
-			let cards = await Promise.all(
-				this.cards.map(
-					card => this.isSuccessful(card)
-						? Promise.resolve(card)
-						: this.$store.dispatch('deck/draw', 1)
-				)
-			)
-
-			this.cards = cards.flat()
+			this.cards = this.cards.map(card => this.isSuccessful(card) ? card : drawOne())
 			this.$emit('push', this.attribute)
 
 			this.targetNumber = tn
@@ -133,20 +126,24 @@ export default Vue.component('SkillCheckDraw', {
 	},
 })
 </script>
-<style scoped lang="sass">
-.marker
-	@apply inline-block p-1 rounded-full border mt-4 mr-1
+<style scoped>
+.marker {
+	@apply inline-block p-1 rounded-full border mt-4 mr-1;
+}
 
-	&.success
-		@apply bg-control-lighter
+.marker.success {
+	@apply bg-control-lighter;
+}
 
-	&.fail
-		@apply bg-passion-lighter
+.marker.fail {
+	@apply bg-passion-lighter;
+}
 
-.success
-	@apply text-control-dark border-control-dark
-
-.fail
-	@apply text-passion-dark border-passion-dark
+.success {
+	@apply text-control-dark border-control-dark;
+}
+.fail {
+	@apply text-passion-dark border-passion-dark;
+}
 
 </style>

@@ -50,6 +50,7 @@
 <script>
 import Vue from 'vue'
 import { ATTRIBUTES_STARTING } from '~/utils/config'
+import { getCardById } from '~/state/deck'
 
 export default Vue.component('ProgressView', {
 	props: {
@@ -59,13 +60,13 @@ export default Vue.component('ProgressView', {
 		},
 	},
 
-	async fetch() {
+	fetch() {
 			if(this.character.persona.card) {
-				this.persona = await this.getCard(this.character.persona.card)
+				this.persona = this.getCard(this.character.persona.card)
 			}
 
 			if(this.character.shadow.card) {
-				this.shadow = await this.getCard(this.character.shadow.card)
+				this.shadow = this.getCard(this.character.shadow.card)
 			}
 	},
 
@@ -87,8 +88,8 @@ export default Vue.component('ProgressView', {
 	},
 
 	methods: {
-		async getCard(card) {
-			return { ...await this.$store.getters['deck/getCard'](this.character.persona.card) }
+		getCard(card) {
+			return { ...getCardById(this.character.persona.card) }
 		}
 	},
 })

@@ -15,12 +15,11 @@
 </template>
 <script>
 import Vue from 'vue'
+import { drawOne } from '~/state/deck'
 
 export default Vue.component('InspireDraw', {
-	async fetch() {
-		const cards = await this.$store.dispatch('deck/draw', 1)
-
-		this.card = cards[0]
+	fetch() {
+		this.card = drawOne()
 	},
 
 	data() {

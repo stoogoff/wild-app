@@ -11,8 +11,16 @@ export const state = () => ({
 })
 
 export const getters = {
-	byId: (state) => id => {
-		return cloneDeep(state.characters.find(character => character.id === id))
+	byId: (state) => /*async*/ id => {
+		const character = state.characters.find(character => character.id === id)
+
+		//if(character) {
+			return cloneDeep(character)
+		/*}
+
+		const loaded = await this.$fire.firestore.collection(STORAGE_CHARACTERS).doc(id).get()
+
+		return cloneDeep(convert(loaded))*/
 	},
 }
 

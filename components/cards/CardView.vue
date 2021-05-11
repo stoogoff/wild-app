@@ -8,6 +8,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import { getCardById } from '~/state/deck'
 
 export default Vue.component('CardView', {
 	props: {
@@ -27,7 +28,7 @@ export default Vue.component('CardView', {
 
 	async fetch() {
 		if(this.cardName) {
-			this.actualCard = { ...await this.$store.getters['deck/getCard'](this.cardName) }
+			this.actualCard = { ...getCardById(this.cardName) }
 			this.actualCard.isReversed = this.reversed
 		}
 	},

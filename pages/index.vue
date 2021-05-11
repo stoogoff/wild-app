@@ -14,13 +14,14 @@
 
 <script>
 
+import { getCounter, increment, decrement } from '~/store/counter'
+import { drawOne } from'~/state/deck'
+
 export default {
 	layout: 'image',
 
-	async fetch() {
-		const cards = this.cards = await this.$store.dispatch('deck/draw', 1)
-
-		this.card = cards[0]
+	fetch() {
+		this.card = drawOne()
 	},
 
 	data() {
