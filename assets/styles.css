@@ -1,0 +1,200 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* basic  tag overrides */
+body {
+	font-family: NeutraText;
+	@apply text-gray-800 bg-gray-300;
+}
+
+main {
+	@apply px-6;
+}
+
+h1 {
+	@apply text-3xl uppercase text-center mb-4 font-semibold leading-normal;
+}
+
+h2 {
+	@apply text-xl uppercase text-gray-500 text-center;
+}
+
+p {
+	@apply mb-3;
+}
+
+ul.list, ol.list, .content ul, .content ol {
+	@apply mb-4 ml-4;
+}
+
+ul.list, .content ul {
+	@apply list-disc;
+}
+
+ol.list, .content ol {
+	@apply list-decimal;
+}
+
+.content a {
+	@apply text-blue-500 underline hover:no-underline
+}
+
+/* font face declarations */
+@font-face {
+	font-family: 'NeutraText';
+	src: url(/fonts/NeutraText-Book.otf) format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeutraTextBold';
+	src: url(/fonts/NeutraText-Bold.otf) format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+#cover-image {
+	background-image: url(/img/cover.jpg);
+}
+
+/* form inputs */
+.input {
+	@apply font-sans text-gray-600 text-sm relative bg-white rounded border border-gray-300 shadow outline-none w-full focus:outline-none focus:ring focus:ring-focus px-3 py-3 placeholder-gray-300;
+}
+.input.warning {
+	@apply focus:ring-passion text-passion-darker border-passion;
+}
+.input.disabled {
+	@apply bg-gray-200;
+}
+
+/* labels and messages */
+.label {
+	@apply font-sans font-semibold text-xs uppercase inline-block mb-2 text-gray-500;
+}
+.label.warning {
+	@apply text-passion-darker;
+}
+.message {
+	@apply mt-2 text-sm text-gray-500;
+}
+.message.success {
+	@apply text-control-dark;
+}
+.message.warning {
+	@apply text-passion-darker;
+}
+
+/* alerts */
+.alert {
+	@apply px-4 py-3 border rounded relative mb-4 flex;
+}
+.alert.success {
+	@apply bg-control-light text-control-dark border-control-dark;
+}
+.alert.primary {
+	@apply bg-focus-light text-focus-dark border-focus-dark;
+}
+.alert.secondary {
+	@apply bg-strength-light text-yellow-500 border-yellow-500;
+}
+.alert.warning {
+	@apply bg-passion-light text-passion-dark border-passion-dark;
+}
+
+/* buttons */
+.btn {
+	@apply font-sans font-bold uppercase text-sm text-center;
+	@apply px-6 py-3 mr-1 mb-1;
+	@apply rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150;
+	@apply bg-gray-400 text-gray-700 hover:text-white hover:bg-gray-600;
+}
+.btn.disabled {
+	@apply cursor-default;
+	@apply bg-gray-300 text-gray-400 shadow-none;
+	@apply hover:bg-gray-300 hover:text-gray-400 hover:shadow-none;
+}
+.btn.enabled {
+	@apply hover:shadow-lg cursor-pointer;
+}
+.btn.primary {
+	@apply bg-focus-dark text-focus-lighter hover:bg-focus-darker;
+}
+.btn.secondary {
+	@apply bg-strength-dark text-strength-lighter hover:bg-strength-darker;
+}
+.btn.success {
+	@apply bg-control-dark text-control-lighter hover:bg-control-darker;
+}
+.btn.warning {
+	@apply bg-passion-dark text-passion-lighter hover:bg-passion-darker;
+}
+.btn.outlined {
+	@apply bg-white border border-solid border-gray-700 hover:text-gray-900 hover:bg-gray-100;
+}
+
+/* outlined buttons */
+.btn.outlined.disabled {
+	@apply bg-gray-200 border-gray-400 text-gray-400 cursor-default;
+}
+
+.btn.outlined.primary {
+	@apply text-focus-dark border-focus hover:bg-focus-lighter hover:text-focus-darker hover:border-focus-darker;
+}
+
+.btn.outlined.secondary {
+	@apply text-strength-dark border-strength hover:bg-strength-lighter hover:text-strength-darker hover:border-strength-darker;
+}
+
+.btn.outlined.success {
+	@apply text-control-dark border-control hover:bg-control-lighter hover:text-control-darker hover:border-control-darker;
+}
+
+.btn.outlined.warning {
+	@apply text-passion-dark border-passion hover:bg-passion-lighter hover:text-passion-darker hover:border-passion-darker;
+}
+
+.btn-icon {
+	@apply border border-solid;
+	@apply font-bold uppercase p-2 rounded-full outline-none focus:outline-none mr-1 mb-1 shadow;
+	@apply ease-linear transition-all duration-150;
+}
+
+.btn-group {
+	@apply flex;
+}
+.btn-group .btn {
+	@apply rounded-none;
+	@apply mr-0;
+}
+.btn-group .btn:first-child {
+	@apply rounded-l-md;
+}
+
+.btn-group .btn:last-child {
+	@apply rounded-r-md;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.slide-up-enter-active, .slide-up-leave-active {
+	transition: transform .5s;
+}
+
+.slide-up-enter-to, .slide-up-leave {
+	transform: translateY(0);
+}
+
+.slide-up-enter, .slide-up-leave-to {
+	transform: translateY(100%);
+}

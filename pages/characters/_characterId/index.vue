@@ -1,6 +1,6 @@
 <template>
 	<main>
-		<loading-spinner v-if="loading || character === null" />
+		<loading-spinner v-if="loading || !character" />
 		<div v-else>
 			<section v-if="inViewMode" class="btn-panel">
 				<button-action block disabled>Play</button-action>

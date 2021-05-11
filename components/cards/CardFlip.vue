@@ -66,32 +66,36 @@ export default Vue.component('CardFlip', {
 })
 
 </script>
-<style scoped lang="sass">
+<style scoped>
 
-.card-display
-	transition: transform 0.8s
-	transform-style: preserve-3d
-	@apply relative
+.card-display {
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	@apply relative;
+}
 
-	&.flipped
-		transform: rotateY(180deg)
+.card-display.flipped {
+	transform: rotateY(180deg);
+}
 
-	.card-front, .card-back
-		@apply w-full h-full
-		backface-visibility: hidden
+.card-display .card-front, .card-display .card-back {
+	@apply w-full h-full;
+	backface-visibility: hidden;
+}
+.card-display .card-back {
+	@apply absolute top-0 right-0 bg-white p-6 bg-contain bg-no-repeat;
+	background-image: url(/img/cards/card-back.png);
+	transform: rotateY(180deg);
+}
 
-	.card-back
-		@apply absolute top-0 right-0 bg-white p-6 bg-contain bg-no-repeat
-		background-image: url(/img/cards/card-back.png)
-		transform: rotateY(180deg)
-
-.card-info
-	@apply my-4 py-4 border-b border-gray-300 text-gray-600
-
-	&.active
-		@apply text-gray-900 text-xl
-
-	&:last-child
-		@apply border-b-0
+.card-info {
+	@apply my-4 py-4 border-b border-gray-300 text-gray-600;
+}
+.card-info.active {
+	@apply text-gray-900 text-xl;
+}
+.card-info:last-child {
+	@apply border-b-0;
+}
 
 </style>

@@ -15,13 +15,13 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/styles.sass'
+    '~/assets/styles.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -76,5 +76,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    cache: process.env.NODE_ENV !== 'production',
+    extractCSS: process.env.NODE_ENV === 'production' ? { ignoreOrder: true } : false,
+    optimizeCSS: process.env.NODE_ENV === 'production',
   }
 }

@@ -1,6 +1,7 @@
 <template>
 	<button :class="classList" :disabled="disabled" @click="$emit('click')">
 		<slot />
+		<span class="hidden btn disabled enabled primary secondary success warning outlined"></span>
 	</button>
 </template>
 <script>
