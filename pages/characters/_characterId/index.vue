@@ -92,6 +92,7 @@
 <script>
 
 import range from 'lodash/range'
+import character from '~/state/character'
 import { getCurrentAttribute, isInjured } from '~/utils/character'
 import { ASPECT_INJURY } from '~/utils/config'
 
@@ -107,7 +108,7 @@ export default {
 
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$store.getters['character/byId'](params.characterId)
+		this.character = await character.byId(params.characterId)
 		this.loading = false
 	},
 	fetchOnServer: false,

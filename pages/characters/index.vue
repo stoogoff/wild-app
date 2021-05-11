@@ -25,14 +25,14 @@
 <script>
 
 import { getCounter, increment } from '~/store/counter'
+import character from '~/state/character'
 
 export default {
 	layout: 'image',
 
 	async fetch() {
-		this.characters = await this.$store.dispatch('character/fetch')
+		this.characters = await character.all()
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {

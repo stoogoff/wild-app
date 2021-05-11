@@ -24,28 +24,32 @@ const state = Vue.observable({
 })
 
 
-// getters
-export const getCardById = id => state.cards.find(card => card.id === id)
+export default {
+	byId(id) {
+		return state.cards.find(card => card.id === id)
+	},
 
-export const getSuit = suit => state.cards.filter(card => card.suit.toLowerCase().replace(' ', '-') === suit)
+	suit(suit) {
+		return state.cards.filter(card => card.suit.toLowerCase().replace(' ', '-') === suit)
+	},
 
-// actions
-export const drawCards = (amount = 1) => {
-	let drawn = []
-	let shuffled = [ ...state.shuffled ]
+	draw(amount = 1) {
+		let drawn = []
+		let shuffled = [ ...state.shuffled ]
 
-	do {
-		if(shuffled.length === 0) shuffled = [ ...getShuffledDeck() ]
+		do {
+			if(shuffled.length === 0) shuffled = [ ...getShuffledDeck() ]
 
-		drawn.push(shuffled.pop())
+			drawn.push(shuffled.pop())
 
-	} while(--amount > 0)
+		} while(--amount > 0)
 
-	state.shuffled = shuffled
+		state.shuffled = shuffled
 
-	return drawn
-}
+		return drawn
+	},
 
-export const drawOne = () => {
-	return drawCards()[0]
+	drawOne() {
+		return this.draw()[0]
+	}
 }

@@ -26,7 +26,7 @@
 <script>
 import Vue from 'vue'
 import { getTargetNumber, getCurrentAttribute } from '~/utils/character'
-import { drawCards, drawOne } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default Vue.component('SkillCheckDraw', {
 	props: {
@@ -49,7 +49,7 @@ export default Vue.component('SkillCheckDraw', {
 	},
 
 	fetch() {
-		this.cards = drawCards(this.number)
+		this.cards = deck.draw(this.number)
 	},
 
 	data() {
@@ -118,7 +118,7 @@ export default Vue.component('SkillCheckDraw', {
 			const tn = this.targetNumber
 
 			// redraw failed cards only
-			this.cards = this.cards.map(card => this.isSuccessful(card) ? card : drawOne())
+			this.cards = this.cards.map(card => this.isSuccessful(card) ? card : deck.drawOne())
 			this.$emit('push', this.attribute)
 
 			this.targetNumber = tn

@@ -15,13 +15,13 @@
 <script>
 
 import { getCounter, increment, decrement } from '~/store/counter'
-import { drawOne } from'~/state/deck'
+import deck from'~/state/deck'
 
 export default {
 	layout: 'image',
 
 	fetch() {
-		this.card = drawOne()
+		this.card = deck.drawOne()
 	},
 
 	data() {

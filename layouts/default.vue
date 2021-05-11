@@ -15,7 +15,7 @@
 export default {
 	name: 'DefaultLayout',
 
-	async fetch() {
+	/*async fetch() {
 		const characters = await this.$store.dispatch('character/fetch')
 		const images = characters.map(character => character.image).filter(img => !!img)
 
@@ -23,7 +23,7 @@ export default {
 			await this.$store.dispatch('image/fetch', images)
 		}
 	},
-	fetchOnServer: false,
+	fetchOnServer: false,*/
 }
 
 </script>

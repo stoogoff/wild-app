@@ -50,7 +50,7 @@
 <script>
 import Vue from 'vue'
 import { ATTRIBUTES_STARTING } from '~/utils/config'
-import { getCardById } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default Vue.component('ProgressView', {
 	props: {
@@ -89,7 +89,7 @@ export default Vue.component('ProgressView', {
 
 	methods: {
 		getCard(card) {
-			return { ...getCardById(this.character.persona.card) }
+			return { ...deck.byId(this.character.persona.card) }
 		}
 	},
 })

@@ -35,7 +35,7 @@
 </template>
 <script>
 
-import { drawOne, getCardById } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default {
 	async fetch() {
@@ -46,7 +46,7 @@ export default {
 		this.character = await this.$store.getters['character/byId'](params.characterId)
 
 		if(this.character.shadow.card) {
-			this.selectedCard = { ...getCardById(this.character.shadow.card) }
+			this.selectedCard = { ...deck.byId(this.character.shadow.card) }
 			this.selectedCard.isReversed = this.character.shadow.reversed
 		}
 
@@ -75,7 +75,7 @@ export default {
 	methods: {
 		drawCard() {
 			this.loading = true
-			this.selectedCard = drawOne()
+			this.selectedCard = deck.drawOne()
 			this.loading = false
 		},
 

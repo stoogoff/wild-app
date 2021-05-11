@@ -19,7 +19,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import { drawCards } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default Vue.component('RecoveryDraw', {
 	props: {
@@ -30,7 +30,7 @@ export default Vue.component('RecoveryDraw', {
 	},
 
 	fetch() {
-		const cards = drawCards(3)
+		const cards = deck.draw(3)
 
 		this.cards = cards.map(card => ({ ...card, isReversed: false }))
 	},

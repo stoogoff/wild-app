@@ -39,7 +39,7 @@
 </template>
 <script>
 
-import { drawCards, getCardById } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default {
 	async fetch() {
@@ -50,7 +50,7 @@ export default {
 		this.character = await this.$store.getters['character/byId'](params.characterId)
 
 		if(this.character.persona.card) {
-			this.cards = [ { ...getCardById(this.character.persona.card) } ]
+			this.cards = [ { ...deck.byId(this.character.persona.card) } ]
 			this.cards[0].isReversed = this.character.persona.reversed
 		}
 
@@ -93,7 +93,7 @@ export default {
 
 		drawCards() {
 			this.loading = true
-			this.cards = drawCards(5)
+			this.cards = deck.draw(5)
 			this.loading = false
 		},
 

@@ -37,7 +37,7 @@
 
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
-import { getSuit } from '~/state/deck'
+import deck from '~/state/deck'
 
 export default {
 	components: {
@@ -54,7 +54,7 @@ export default {
 	fetch() {
 		const { params } = this.$nuxt.context
 
-		this.cards = getSuit(params.suit)
+		this.cards = deck.suit(params.suit)
 	},
 	fetchOnServer: false,
 
