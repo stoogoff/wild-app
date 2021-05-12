@@ -3,6 +3,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import { image } from '~/state'
 
 export default Vue.component('CharacterImage', {
 	props: {
@@ -14,17 +15,12 @@ export default Vue.component('CharacterImage', {
 
 	async fetch() {
 		if(this.character.image) {
-			const image = await this.$store.getters['image/byPath'](this.character.image)
+			const loaded = await image.byPath(this.character.image)
 
-			if(image)	{
-				this.image = image.url
+			if(loaded)	{
+				this.image = loaded.url
 			}
 		}
-		/*else if(this.character.persona.card) {
-			const card = await this.$store.getters['deck/getCard'](this.character.persona.card)
-
-			this.image = `/img/cards/${card.image}`
-		}*/
 	},
 	fetchOnServer: false,
 

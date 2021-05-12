@@ -5,11 +5,11 @@ import 'firebase/auth'
 
 
 //export const realtime = firebase.database()
-//export const storage = firebase.storage()
 //export const auth = firebase.auth()
 //export const database = firebase.firestore()
 
 let _database
+let _storage
 
 export default ({ env }) => {
 	const firebaseConfig = {
@@ -26,6 +26,7 @@ export default ({ env }) => {
 	}
 
 	_database = firebase.firestore()
+	_storage = firebase.storage()
 }
 
 
@@ -34,8 +35,11 @@ export default ({ env }) => {
 // convert the object in the query to its data and ID
 export const convert = (query) => ({ ...query.data(), id: query.id })
 
+export const database = () => _database
+export const storage = () => _storage
 
-export const database = {
+// database helper functions
+export const helpers = {
 	create: async (collection, data) => {
 		const ref = await _database.collection(collection).add(data)
 		const created = await ref.get()
@@ -57,10 +61,6 @@ export const database = {
 		query.forEach(doc => data.push(convert(doc)))
 
 	  return data
-	},
-
-	query: (collection) => {
-		return _database.collection(collection)		
 	},
 
 	save: async (collection, data) => {

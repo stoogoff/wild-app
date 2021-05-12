@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import cloneDeep from 'lodash/cloneDeep'
-import { database, convert } from '~/plugins/firebase'
+import { database, helpers, convert } from '~/plugins/firebase'
 import { DEFAULT_CHARACTER, STORAGE_CHARACTERS, KEY_INJURY } from '~/utils/config'
 
 const state = Vue.observable({
@@ -17,7 +17,7 @@ const fetch = async () => {
 
 	let data = []
 	const userId = 'DLYotwA9jRfDO225cCHJwAnX9413'//TODO rootState.auth.user.uid
-	const query = await database.query(STORAGE_CHARACTERS).where('userId', '==', userId).get()
+	const query = await database().collection(STORAGE_CHARACTERS).where('userId', '==', userId).get()
 
 	query.forEach(doc => data.push(convert(doc)))
 
@@ -42,7 +42,7 @@ export default {
 
 	async create() {
 		const userId = 'DLYotwA9jRfDO225cCHJwAnX9413'//TODO rootState.auth.user.uid
-		const character = await database.create(STORAGE_CHARACTERS, { ...DEFAULT_CHARACTER, userId })
+		const character = await helpers.create(STORAGE_CHARACTERS, { ...DEFAULT_CHARACTER, userId })
 
 		state.characters = [ ...state.characters, character]
 
@@ -50,13 +50,13 @@ export default {
 	},
 
 	async save(data) {
-		await database.save(STORAGE_CHARACTERS, data)
+		await helpers.save(STORAGE_CHARACTERS, data)
 
 		state.characters = [ ...state.characters.filter(character => character.id !== data.id), data ]
 	},
 
 	async delete(id) {
-		await database.delete(STORAGE_CHARACTERS, id)
+		await helpers.delete(STORAGE_CHARACTERS, id)
 
 		state.characters = state.characters.filter(character => character.id !== id)
 	},

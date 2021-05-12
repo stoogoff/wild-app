@@ -31,7 +31,7 @@
 </template>
 <script>
 
-import { character } from '~/state'
+import { character, image } from '~/state'
 
 export default {
 	async fetch() {
@@ -42,7 +42,7 @@ export default {
 		this.character = await character.byId(params.characterId)
 
 		if(this.character.image) {
-			this.image = await this.$store.getters['image/byPath'](this.character.image)
+			this.image = await image.byPath(this.character.image)
 		}
 
 		this.loading = false
@@ -72,7 +72,7 @@ export default {
 			this.loading = true
 			// save an image
 			if(this.image) {
-				const imageUrl = await this.$store.dispatch('image/save', {
+				const imageUrl = await image.save({
 					id: this.character.id,
 					file: this.image,
 				})
@@ -81,7 +81,7 @@ export default {
 			}
 			// delete an existing image
 			else if(this.character.image) {
-				await this.$store.dispatch('image/delete', this.character.image)
+				await image.delete(this.character.image)
 
 				delete this.character.image
 			}
