@@ -31,13 +31,15 @@
 </template>
 <script>
 
+import { character } from '~/state'
+
 export default {
 	async fetch() {
 		this.loading = true
 
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$store.getters['character/byId'](params.characterId)
+		this.character = await character.byId(params.characterId)
 
 		if(this.character.image) {
 			this.image = await this.$store.getters['image/byPath'](this.character.image)
@@ -84,7 +86,7 @@ export default {
 				delete this.character.image
 			}
 
-			await this.$store.dispatch('character/save', this.character)
+			await character.save(this.character)
 
 			this.loading = false
 			done()

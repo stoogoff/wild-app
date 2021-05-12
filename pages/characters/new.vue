@@ -6,6 +6,8 @@
 </template>
 <script>
 
+import { character } from '~/state'
+
 export default {
 	layout: 'image',
 
@@ -22,7 +24,7 @@ export default {
 
 			this.loading = true
 
-			const character = await this.$store.dispatch('character/create')
+			const character = await character.create()
 
 			redirect(`/characters/${character.id}/persona`)
 			this.loading = false

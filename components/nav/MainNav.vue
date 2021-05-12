@@ -21,6 +21,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import character from '~/state/character'
 
 export default Vue.component('MainNav', {
 	props: {
@@ -30,10 +31,15 @@ export default Vue.component('MainNav', {
 		}
 	},
 
+	async fetch() {
+		this.characters = await character.all()//this.$store.state.character.characters
+	},
+
 	data() {
 		return {
 			navbarOpen: false,
 			suppressClose: false,
+			characters: []
 		}
 	},
 
@@ -82,7 +88,7 @@ export default Vue.component('MainNav', {
 			]
 
 			// add characters
-			const characters = this.$store.state.character.characters
+			const characters = this.characters
 
 			menuItems[1].menuItems = characters.map(character => ({
 				title: character.name || `Unnamed character (${character.id})`,

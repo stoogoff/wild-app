@@ -32,6 +32,7 @@
 							:class="{ 'text-red-500': isInjuryAspect(aspect) }"
 							:key="`aspect_${idx}`"
 							v-for="(aspect, idx) in character.aspects"
+							v-if="aspect.text"
 						>
 							<div class="flex">
 								<span class="flex-grow">{{ aspect.text }}</span>
@@ -92,7 +93,7 @@
 <script>
 
 import range from 'lodash/range'
-import character from '~/state/character'
+import { character } from '~/state'
 import { getCurrentAttribute, isInjured } from '~/utils/character'
 import { ASPECT_INJURY } from '~/utils/config'
 
@@ -171,14 +172,14 @@ export default {
 			redirect(`/characters/${this.character.id}/persona`)
 		},
 
-		deleteCharacter(result) {
+		async deleteCharacter(result) {
 			this.deleting = false
 
 			if(result) {
 				this.loading = true
 
 				try {
-					this.$store.dispatch('character/delete', this.character.id)
+					await character.delete(this.character.id)
 					this.$router.push('/characters')
 				}
 				catch(error) {
@@ -213,11 +214,11 @@ export default {
 
 		async removeAspect(result) {
 			if(result) {
-				await this.$store.dispatch('character/save', {
+				await character.save({
 					...this.character,
 					aspects: this.character.aspects.filter((_a, idx) => idx !== this.removingAspectIndex)
 				})
-				this.character = await this.$store.getters['character/byId'](this.character.id)
+				this.character = await character.byId(this.character.id)
 			}
 
 			this.removingAspect = false
@@ -225,7 +226,7 @@ export default {
 		},
 
 		async updateAspects(aspect) {
-			await this.$store.dispatch('character/save', {
+			await character.save({
 				...this.character,
 				aspects: [
 					...this.character.aspects,
@@ -233,7 +234,7 @@ export default {
 				]
 			})
 
-			this.character = await this.$store.getters['character/byId'](this.character.id)
+			this.character = await character.byId(this.character.id)
 
 			this.showInjury = false
 		},
@@ -241,19 +242,19 @@ export default {
 		async applyRecovery(injuries) {
 			this.showRecovery = false
 			
-			await this.$store.dispatch('character/save', { ...this.character, injuries })
+			await character.save({ ...this.character, injuries })
 
-			this.character = await this.$store.getters['character/byId'](this.character.id)
+			this.character = await character.byId(this.character.id)
 		},
 
 		async push(attribute) {
 			if(getCurrentAttribute(this.character, attribute) > 0) {
-				await this.$store.dispatch('character/push', {
+				await character.push({
 					character: this.character,
 					attribute
 				})
 
-				this.character = await this.$store.getters['character/byId'](this.character.id)
+				this.character = await character.byId(this.character.id)
 
 				if(getCurrentAttribute(this.character, attribute) === 0) {
 					this.showInjury = true

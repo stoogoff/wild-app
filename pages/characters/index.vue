@@ -19,19 +19,18 @@
 			</div>
 		</section>
 		<link-action block type="primary" to="/characters/new">New Character</link-action>
-		{{ counter }}
 	</main>
 </template>
 <script>
 
-import { getCounter, increment } from '~/store/counter'
-import character from '~/state/character'
+import sortBy from 'lodash/sortBy'
+import { character } from '~/state'
 
 export default {
 	layout: 'image',
 
 	async fetch() {
-		this.characters = await character.all()
+		this.characters = sortBy(await character.all(), 'name')
 	},
 
 	data() {
@@ -39,11 +38,5 @@ export default {
 			characters: [],
 		}
 	},
-
-	computed: {
-		counter() {
-			return getCounter()
-		}
-	}
 }
 </script>

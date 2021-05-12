@@ -14,8 +14,7 @@
 
 <script>
 
-import { getCounter, increment, decrement } from '~/store/counter'
-import deck from'~/state/deck'
+import { deck } from'~/state'
 
 export default {
 	layout: 'image',

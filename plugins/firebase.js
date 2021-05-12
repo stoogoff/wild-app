@@ -34,7 +34,6 @@ export default ({ env }) => {
 // convert the object in the query to its data and ID
 export const convert = (query) => ({ ...query.data(), id: query.id })
 
-// create an object in the supplied collection and return it
 
 export const database = {
 	create: async (collection, data) => {
@@ -60,7 +59,15 @@ export const database = {
 	  return data
 	},
 
-	save: async (collection, character) => {
-		return await _database.collection(collection).doc(character.id).set(character)
+	query: (collection) => {
+		return _database.collection(collection)		
+	},
+
+	save: async (collection, data) => {
+		return await _database.collection(collection).doc(data.id).set(data)
+	},
+
+	delete: async (collection, id) => {
+		await _database.collection(collection).doc(id).delete()
 	},
 }

@@ -55,6 +55,7 @@ import {
 	ATTRIBUTE_MIN,
 	ATTRIBUTES_STARTING,
 } from '~/utils/config'
+import { character } from '~/state'
 
 export default {
 	async fetch() {
@@ -62,7 +63,7 @@ export default {
 
 		const { params } = this.$nuxt.context
 
-		this.character = await this.$store.getters['character/byId'](params.characterId)
+		this.character = await character.byId(params.characterId)
 		this.loading = false
 	},
 	fetchOnServer: false,
@@ -106,7 +107,7 @@ export default {
 
 	methods: {
 		async save(done) {
-			await this.$store.dispatch('character/save', this.character)
+			await character.save(this.character)
 			done()
 		},
 	},
