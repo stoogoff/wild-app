@@ -55,28 +55,6 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    /*[
-      '@nuxtjs/firebase',
-      {
-        config: {
-          apiKey: process.env.FIREBASE_API_KEY,
-          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-          projectId: process.env.FIREBASE_PROJECT_ID,
-          storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-          messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-          appId: process.env.FIREBASE_APP_ID,
-        },
-        services: {
-          firestore: true,
-          storage: true,
-          auth: {
-            initialize: {
-              onAuthStateChangedAction: 'auth/onAuthStateChanged'
-            }
-          },
-        }
-      }
-    ]*/
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
