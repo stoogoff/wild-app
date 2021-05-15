@@ -33,6 +33,7 @@ export default ({ env }) => {
 }
 
 // firebase object getters
+export const AuthProvider = firebase.auth.EmailAuthProvider
 export const database = () => _database
 export const storage = () => _storage
 export const auth = () => _auth

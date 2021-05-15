@@ -88,7 +88,8 @@ export default Vue.component('FooterSection', {
 				{ icon: 'web', href: 'https://www.autocratik.com/', colour: 'text-purple-600' },
 			],
 			useful: [
-				{ title: 'About Us', href: '/about-us' },
+				{ title: 'About Us', href: '/support/about-us' },
+				{ title: 'Feedback', href: '/support/feedback' },
 				{ title: 'Characters', href: '/characters' },
 				{ title: 'Tarot', href: '/tarot' },
 			],

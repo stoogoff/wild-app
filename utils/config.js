@@ -58,3 +58,4 @@ export const DEFAULT_CHARACTER = {
 export const KEY_INJURY = 'injuries'
 
 export const STORAGE_CHARACTERS = 'characters'
+export const STORAGE_FEEDBACK = 'feedback'

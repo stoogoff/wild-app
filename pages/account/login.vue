@@ -1,5 +1,5 @@
 <template>
-	<main class="px-6 py-12">
+	<main class="py-12">
 		<loading-overlay v-if="loading" />
 		<div v-else>
 			<h1>Login</h1>

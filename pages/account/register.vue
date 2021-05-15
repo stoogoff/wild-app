@@ -1,9 +1,9 @@
 <template>
-	<main class="px-6 py-12">
+	<main class="py-12">
 		<loading-overlay v-if="loading" />
 		<div v-else>
 			<h1>Register</h1>
-			<alert-view type="warning" v-if="error">There was an error creating your account. Please try again or trying loggin in.</alert-view>
+			<alert-view type="warning" v-if="error">There was an error creating your account. Please try again or trying logging in.</alert-view>
 			<p>Your password must be at least eight characters long and contain one:</p>
 			<ul class="list">
 				<li :class="{ 'text-green-600': hasUpper }">Uppercase letter</li>
@@ -29,7 +29,7 @@
 </template>
 <script>
 
-import { required, email, min, specialChar, uppercase, lowercase, numbers, validate, validateBatch } from '~/utils/validators'
+import { required, email, minLen, specialChar, uppercase, lowercase, numbers, validate, validateBatch } from '~/utils/validators'
 import { user } from '~/state'
 
 export default {
@@ -64,7 +64,7 @@ export default {
 		rules() {
 			return {
 				email: [required(), email()],
-				password: [required(), min(8), uppercase(), lowercase(), numbers(), specialChar()],
+				password: [required(), minLen(8), uppercase(), lowercase(), numbers(), specialChar()],
 				confirmPassword: [required(), value => value === this.password || 'Password and confirm password must match']
 			}
 		},
@@ -88,6 +88,7 @@ export default {
 				this.$router.push('/')
 			}
 			catch(error) {
+				console.log(error)
 				this.error = true
 			}
 

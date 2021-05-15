@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import { auth } from '~/plugins/firebase'
+import { AuthProvider, auth } from '~/plugins/firebase'
 import { character, image } from '~/state'
 
 const state = Vue.observable({
@@ -42,7 +42,7 @@ export default {
 	},
 
 	async register(email, password) {
-		const credentials = auth().EmailAuthProvider.credential(email, password)
+		const credentials = AuthProvider.credential(email, password)
 		const newUser = await auth().currentUser.linkWithCredential(credentials)
 		const user = auth().currentUser
 

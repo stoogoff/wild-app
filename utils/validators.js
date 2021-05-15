@@ -12,7 +12,7 @@ export const email = () => value => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\
 
 export const password = () => value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value) || 'Password'
 
-export const min = len => value => value.length >= len || `Length: ${len}`
+export const minLen = len => value => value.length >= len || `Length: ${len}`
 
 export const specialChar = () => value => /\W/.test(value) || 'Missing special characters'
 
