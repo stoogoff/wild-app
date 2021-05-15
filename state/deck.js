@@ -12,7 +12,7 @@ const DECK = [
 	...control,
 	...focus,
 	...strength,
-	//...major,
+	...major,
 ].map(card => ({ ...card, id: card.title.toLowerCase().replace(/\s+/g, '-'), isReversed: false }))
 
 const getShuffledDeck = () => shuffle(DECK).map(card => ({ ...card, isReversed: Math.random() > 0.6 }))

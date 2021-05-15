@@ -6,7 +6,7 @@
 		"value": 0,
 		"meanings": ["Optimism", "Immaturity", "Levity", "Leap of Faith"],
 		"reversed": ["Caution", "Hesitancy", "Negligence"],
-		"image": ""
+		"image": "major-arcana/00-the-dreamer.png"
 	},
 	{
 		"_original": "I: The Magician",
@@ -15,7 +15,7 @@
 		"value": 0,
 		"meanings": ["Creativity", "Imagination", "Knowledge", "Power"],
 		"reversed": ["Lack of Imagination", "Weakness", "Dishonesty", "Delay"],
-		"image": ""
+		"image": "major-arcana/01-the-architect.png"
 	},
 	{
 		"_original": "II: High Priestess",
@@ -24,7 +24,7 @@
 		"value": 0,
 		"meanings": ["Stillness", "Wisdom", "Understanding", "Intuition"],
 		"reversed": ["Defending", "Ignorance", "Selfishness", "Denied Potential"],
-		"image": ""
+		"image": "major-arcana/02-clarity.png"
 	},
 	{
 		"_original": "III: The Empress",
@@ -33,7 +33,7 @@
 		"value": 0,
 		"meanings": ["Fulfilment", "Fertility", "Passion", "Sensuality"],
 		"reversed": ["Detatchment", "Anxiety", "Insecurity", "Indecision", "Distant"],
-		"image": ""
+		"image": "major-arcana/03-the-matriarch.png"
 	},
 	{
 		"_original": "IV: The Emperor",
@@ -42,7 +42,7 @@
 		"value": 0,
 		"meanings": ["Authority", "Leadership", "Law", "Structure"],
 		"reversed": ["Immaturity", "Rebelliousness", "Lack of Strength", "Weakness"],
-		"image": ""
+		"image": "major-arcana/04-the-technocrat.png"
 	},
 	{
 		"_original": "V: Hierophant",
@@ -51,7 +51,7 @@
 		"value": 0,
 		"meanings": ["Compassion", "Goodness", "Teaching", "Learning"],
 		"reversed": ["Vulnerability", "Over-kindness", "Misleading", "Susceptability"],
-		"image": ""
+		"image": "major-arcana/05-the-teacher.png"
 	},
 	{
 		"_original": "VI: The Lovers",
@@ -60,7 +60,7 @@
 		"value": 0,
 		"meanings": ["Conflicting Choices", "Desire", "Love", "Merging of Opposites"],
 		"reversed": ["Trapped", "Difficult Relationship", "Opposition", "Frustration"],
-		"image": ""
+		"image": "major-arcana/06-the-lovers.png"
 	},
 	{
 		"_original": "VII: Chariot",
@@ -69,7 +69,7 @@
 		"value": 0,
 		"meanings": ["Victory", "Force of Character", "Success", "Effort"],
 		"reversed": ["Loss of Control", "Weakening Will", "Doubt", "Defeat"],
-		"image": ""
+		"image": "major-arcana/07-the-car.png"
 	},
 	{
 		"_original": "VIII: Justice",
@@ -78,7 +78,7 @@
 		"value": 0,
 		"meanings": ["Honour", "Virtue", "Balance", "Honesty"],
 		"reversed": ["Violence", "Bias", "Dishonesty", "Unfair Outcome"],
-		"image": ""
+		"image": "major-arcana/08-justice.png"
 	},
 	{
 		"_original": "IX: The Hermit",
@@ -87,7 +87,7 @@
 		"value": 0,
 		"meanings": ["Caution", "Introspection", "Deliberation"],
 		"reversed": ["Isolation", "Childishness", "Hastiness", "Obstinacy"],
-		"image": ""
+		"image": "major-arcana/09-the-loner.png"
 	},
 	{
 		"_original": "X: Wheel of Fortune",
@@ -96,7 +96,7 @@
 		"value": 0,
 		"meanings": ["Progress", "Good Fortune", "Out of Control"],
 		"reversed": ["Difficulties", "Bad Luck", "Failure", "Discovering the Cause"],
-		"image": ""
+		"image": "major-arcana/10-the-device.png"
 	},
 	{
 		"_original": "XI: Strength",
@@ -105,7 +105,7 @@
 		"value": 0,
 		"meanings": ["Heroism", "Determined", "Face Problems", "Persuasion"],
 		"reversed": ["Abuse of Power", "Weakness", "Poor Self-Control", "Indirect"],
-		"image": ""
+		"image": "major-arcana/11-fortitude.png"
 	},
 	{
 		"_original": "XII: Hanged Man",
@@ -114,7 +114,7 @@
 		"value": 0,
 		"meanings": ["Suspension", "Sacrifice", "Transition", "Readjustment"],
 		"reversed": ["Stagnation", "Unwillingness", "Lack of Sacrifice", "Pressure"],
-		"image": ""
+		"image": "major-arcana/12-the-hanged-man.png"
 	},
 	{
 		"_original": "XIII: Death",
@@ -123,7 +123,7 @@
 		"value": 0,
 		"meanings": ["Change", "Loss", "Failure", "Transformation"],
 		"reversed": ["Immobility", "Fear of Change", "Stagnation", "Holding on"],
-		"image": ""
+		"image": "major-arcana/13-death.png"
 	},
 	{
 		"_original": "XIV: Temperance",
@@ -132,7 +132,7 @@
 		"value": 0,
 		"meanings": ["Calmness", "Fusion", "Capability", "Self Assured"],
 		"reversed": ["Hostility", "Delirium", "Discord", "Impatience"],
-		"image": ""
+		"image": "major-arcana/14-patience.png"
 	},
 	{
 		"_original": "XV: The Devil",
@@ -141,7 +141,7 @@
 		"value": 0,
 		"meanings": ["Oppression", "Dark Feelings", "Violence", "Anger"],
 		"reversed": ["Liberation", "Freedom", "Overcoming Fears", "Regeneration"],
-		"image": ""
+		"image": "major-arcana/15-the-shadow.png"
 	},
 	{
 		"_original": "XVI: The Tower",
@@ -150,7 +150,7 @@
 		"value": 0,
 		"meanings": ["Drastic Change", "Adversity", "Downfall", "Painful Experience"],
 		"reversed": ["Misfortune", "Trapped", "Oppression", "Long Term Difficulties"],
-		"image": ""
+		"image": "major-arcana/16-the-tower.png"
 	},
 	{
 		"_original": "XVII: The Star",
@@ -159,7 +159,7 @@
 		"value": 0,
 		"meanings": ["Hope", "Trust", "Insight", "Promising Opportunity"],
 		"reversed": ["Negativity", "Holding Back Emotion", "Disappointment"],
-		"image": ""
+		"image": "major-arcana/17-the-star.png"
 	},
 	{
 		"_original": "XVIII: The Moon",
@@ -168,7 +168,7 @@
 		"value": 0,
 		"meanings": ["Confusion", "Delusion", "Danger", "Disgrace"],
 		"reversed": ["Deceived", "Health Problems", "Disturbed", "Tempted"],
-		"image": ""
+		"image": "major-arcana/18-imagination.png"
 	},
 	{
 		"_original": "XIX: The Sun",
@@ -177,7 +177,7 @@
 		"value": 0,
 		"meanings": ["Triumph", "Joy", "Confidence", "Innocence"],
 		"reversed": ["Clouded Future", "Joy after a Struggle", "Cancelled Plans"],
-		"image": ""
+		"image": "major-arcana/19-lucidity.png"
 	},
 	{
 		"_original": "XX: Judgement",
@@ -186,7 +186,7 @@
 		"value": 0,
 		"meanings": ["Rejuvination", "Rebirth", "Change", "Promotion"],
 		"reversed": ["Delay", "Underachievement", "Divorce", "Indecision"],
-		"image": ""
+		"image": "major-arcana/20-awakening.png"
 	},
 	{
 		"_original": "XXI: The World",
@@ -195,6 +195,6 @@
 		"value": 0,
 		"meanings": ["Perfection", "Ultimate Change", "Success", "Conclusion"],
 		"reversed": ["Failure to Finish", "Delay", "Lack of Vision", "Disappointment"],
-		"image": ""
+		"image": "major-arcana/21-the-waking-world.png"
 	}
 ]
