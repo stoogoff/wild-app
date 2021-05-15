@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade" mode="out-in" appear>
-		<div class="w-full h-full fixed block top-0 left-0 bg-gray-800 bg-opacity-75 z-50 flex justify-center items-center">
+		<div class="w-full h-full fixed block top-0 left-0 bg-gray-800 bg-opacity-75 z-30 flex justify-center items-center">
 			<slot></slot>
 		</div>
 	</transition>

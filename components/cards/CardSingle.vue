@@ -10,8 +10,10 @@
 		</div>
 		<overlay-fade v-if="viewCard">
 			<div class="relative p-5">
-				<card-flip :card="viewCard" />
-				<span class="absolute top-1 right-1"><icon-action icon="close" outlined @click="viewCard = null" /></span>
+				<div class=" bg-white">
+					<card-flip :card="viewCard" />
+					<span class="absolute top-1 right-1"><icon-action icon="close" outlined @click="viewCard = null" /></span>
+				</div>
 			</div>
 		</overlay-fade>
 	</div>
