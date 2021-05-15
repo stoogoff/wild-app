@@ -78,6 +78,11 @@ export default Vue.component('SkillCheckDraw', {
 			let successes = 0
 			let numericValue = parseInt(card.value)
 
+			// major arcana are never successes
+			if(card.suit === 'Major Arcana') {
+				return 0
+			}
+
 			// court card matches ability used
 			if(card.value === this.ability) {
 				successes++

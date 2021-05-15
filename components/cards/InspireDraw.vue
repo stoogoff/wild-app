@@ -9,8 +9,9 @@
 				<nav-item icon="close" @click="close">Close</nav-item>
 			</div>
 		</nav-bar>
-		<loading-spinner v-if="$fetchState.pending" />
-		<card-flip v-else :card="card" />
+		<div class="flex justify-center">
+			<card-flip :card="card" />
+		</div>
 	</screen-slide>
 </template>
 <script>

@@ -30,7 +30,8 @@ export default {
 	layout: 'image',
 
 	async fetch() {
-		this.characters = sortBy(await character.all(), 'name')
+		await character.fetch()
+		this.characters = sortBy(character.all(), 'name')
 	},
 
 	data() {
