@@ -24,9 +24,9 @@ export default {
 
 			this.loading = true
 
-			const character = await character.create()
+			const newCharacter = await character.create()
 
-			redirect(`/characters/${character.id}/persona`)
+			redirect(`/characters/${newCharacter.id}/persona`)
 			this.loading = false
 		},
 	},

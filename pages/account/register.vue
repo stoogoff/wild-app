@@ -30,6 +30,7 @@
 <script>
 
 import { required, email, min, specialChar, uppercase, lowercase, numbers, validate, validateBatch } from '~/utils/validators'
+import { user } from '~/state'
 
 export default {
 	data() {
@@ -82,10 +83,7 @@ export default {
 			this.loading = true
 
 			try {
-				await this.$store.dispatch('auth/register', {
-					email: this.email,
-					password: this.password,
-				})
+				await user.register(this.email, this.password)
 
 				this.$router.push('/')
 			}

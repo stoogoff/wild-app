@@ -21,7 +21,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import character from '~/state/character'
+import { character, user } from '~/state'
 
 export default Vue.component('MainNav', {
 	props: {
@@ -31,15 +31,10 @@ export default Vue.component('MainNav', {
 		}
 	},
 
-	async fetch() {
-		this.characters = await character.all()//this.$store.state.character.characters
-	},
-
 	data() {
 		return {
 			navbarOpen: false,
 			suppressClose: false,
-			characters: []
 		}
 	},
 
@@ -88,7 +83,7 @@ export default Vue.component('MainNav', {
 			]
 
 			// add characters
-			const characters = this.characters
+			const characters = character.all()
 
 			menuItems[1].menuItems = characters.map(character => ({
 				title: character.name || `Unnamed character (${character.id})`,
@@ -102,9 +97,9 @@ export default Vue.component('MainNav', {
 			})
 
 			// update account options depending on user state
-			const user = this.$store.state.auth.user
+			const loggedInUser = user.getLoggedInUser()
 
-			if(!user || user.isAnonymous) {
+			if(!loggedInUser || loggedInUser.isAnonymous) {
 				menuItems[3].menuItems = [
 					{ title: 'Login', href: '/account/login' },
 					{ title: 'Register', href: '/account/register' },

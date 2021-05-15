@@ -37,6 +37,7 @@ export default {
   plugins: [
     //'~/plugins/auth.js'
     { src: '~/plugins/firebase.js', mode: 'client' },
+    { src: '~/plugins/auth-check.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,7 +54,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-    [
+    /*[
       '@nuxtjs/firebase',
       {
         config: {
@@ -74,7 +75,7 @@ export default {
           },
         }
       }
-    ]
+    ]*/
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

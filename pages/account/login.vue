@@ -20,6 +20,7 @@
 <script>
 
 import { required, email, validateBatch } from '~/utils/validators'
+import { user } from '~/state'
 
 export default {
 	data() {
@@ -52,10 +53,7 @@ export default {
 			this.loading = true
 
 			try {
-				await this.$store.dispatch('auth/login', {
-					email: this.email,
-					password: this.password,
-				})
+				await user.login(this.email, this.password)
 
 				this.$router.push('/')
 			}

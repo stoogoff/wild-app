@@ -49,4 +49,8 @@ export default {
 		await storage().ref(STORAGE_CHARACTERS).child(imagePath).delete()
 		state.images = state.images.filter(image => image.path !== imagePath)
 	},
+
+	async reset() {
+		state.images = []
+	},
 }

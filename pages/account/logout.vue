@@ -3,9 +3,11 @@
 </template>
 <script>
 
+import { user } from '~/state'
+
 export default {
 	async mounted() {
-		await this.$store.dispatch('auth/logout')
+		await user.logout()
 		this.$router.push('/')
 	},
 }

@@ -1,25 +1,30 @@
 
 import Vue from 'vue'
 import cloneDeep from 'lodash/cloneDeep'
-import { database, helpers, convert } from '~/plugins/firebase'
+import { database } from '~/plugins/firebase'
 import { DEFAULT_CHARACTER, STORAGE_CHARACTERS, KEY_INJURY } from '~/utils/config'
+import { get, create, save, remove, convert } from '~/utils/db'
+import { user } from '~/state'
 
 const state = Vue.observable({
 	characters: [],
 	fetched: false,
 })
 
-// TODO auth user id
+
 const fetch = async () => {
 	if(state.fetched) {
 		return
 	}
 
 	let data = []
-	const userId = 'DLYotwA9jRfDO225cCHJwAnX9413'//TODO rootState.auth.user.uid
-	const query = await database().collection(STORAGE_CHARACTERS).where('userId', '==', userId).get()
+	const loggedInUser = user.getLoggedInUser()
 
-	query.forEach(doc => data.push(convert(doc)))
+	if(loggedInUser) {
+		const query = await database().collection(STORAGE_CHARACTERS).where('userId', '==', loggedInUser.uid).get()
+
+		query.forEach(doc => data.push(convert(doc)))
+	}
 
 	state.characters = data
 	state.fetched = true
@@ -27,22 +32,29 @@ const fetch = async () => {
 
 export default {
 	async byId(id) {
-		await fetch()
+		let character = state.characters.find(character => character.id === id)
 
-		const character = state.characters.find(character => character.id === id)
+		if(!character) {
+			character = await get(STORAGE_CHARACTERS, id)
+
+			state.characters = [ ...state.characters, character ]
+		}
 
 		return cloneDeep(character)
 	},
 
-	async all() {
-		await fetch()
-
-		return cloneDeep(state.characters)
+	all() {
+		return state.characters
 	},
 
 	async create() {
-		const userId = 'DLYotwA9jRfDO225cCHJwAnX9413'//TODO rootState.auth.user.uid
-		const character = await helpers.create(STORAGE_CHARACTERS, { ...DEFAULT_CHARACTER, userId })
+		const loggedInUser = user.getLoggedInUser()
+
+		if(!loggedInUser) {
+			return null
+		}
+
+		const character = await create(STORAGE_CHARACTERS, { ...DEFAULT_CHARACTER, userId: loggedInUser.uid })
 
 		state.characters = [ ...state.characters, character]
 
@@ -50,13 +62,13 @@ export default {
 	},
 
 	async save(data) {
-		await helpers.save(STORAGE_CHARACTERS, data)
+		await save(STORAGE_CHARACTERS, data)
 
 		state.characters = [ ...state.characters.filter(character => character.id !== data.id), data ]
 	},
 
 	async delete(id) {
-		await helpers.delete(STORAGE_CHARACTERS, id)
+		await remove(STORAGE_CHARACTERS, id)
 
 		state.characters = state.characters.filter(character => character.id !== id)
 	},
@@ -78,4 +90,13 @@ export default {
 
 		await this.save(character)
 	},
+
+	async reset() {
+		state.characters = []
+		state.fetched = false
+	},
+
+	async fetch() {
+		await fetch()
+	}
 }

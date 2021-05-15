@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 //import 'firebase/database'
 import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/storage'
 
 
 //export const realtime = firebase.database()
@@ -10,15 +11,16 @@ import 'firebase/auth'
 
 let _database
 let _storage
+let _auth
 
 export default ({ env }) => {
 	const firebaseConfig = {
-		apiKey: env.FIREBASE_API_KEY,
-		authDomain: env.FIREBASE_AUTH_DOMAIN,
-		projectId: env.FIREBASE_PROJECT_ID,
-		storageBucket: env.FIREBASE_STORAGE_BUCKET,
-		messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
-		appId: env.FIREBASE_APP_ID,
+		apiKey: env.apiKey,
+		authDomain: env.authDomain,
+		projectId: env.projectId,
+		storageBucket: env.storageBucket,
+		messagingSenderId: env.messagingSenderId,
+		appId: env.appId,
 	}
 
 	if(!firebase.apps.length) {
@@ -27,47 +29,10 @@ export default ({ env }) => {
 
 	_database = firebase.firestore()
 	_storage = firebase.storage()
+	_auth = firebase.auth()
 }
 
-
-// helper functions
-
-// convert the object in the query to its data and ID
-export const convert = (query) => ({ ...query.data(), id: query.id })
-
+// firebase object getters
 export const database = () => _database
 export const storage = () => _storage
-
-// database helper functions
-export const helpers = {
-	create: async (collection, data) => {
-		const ref = await _database.collection(collection).add(data)
-		const created = await ref.get()
-
-		return convert(created)
-	},
-
-	get: async (collection, id) => {
-		const ref = await _database.collection(collection).doc(id)
-		const retrieved = await ref.get()
-
-		return convert(retrieved)
-	},
-
-	list: async (collection) => {
-		let data = []
-		const query = await _database.collection(collection).get()
-
-		query.forEach(doc => data.push(convert(doc)))
-
-	  return data
-	},
-
-	save: async (collection, data) => {
-		return await _database.collection(collection).doc(data.id).set(data)
-	},
-
-	delete: async (collection, id) => {
-		await _database.collection(collection).doc(id).delete()
-	},
-}
+export const auth = () => _auth
