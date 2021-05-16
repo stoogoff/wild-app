@@ -51,15 +51,16 @@ export default {
 
 	layout: 'slider',
 
-	fetch() {
-		const { params } = this.$nuxt.context
+	async fetch() {
+		const content = await this.$content(this.contentPath).only(['image']).fetch()
 
-		this.cards = deck.suit(params.suit)
+		this.image = content.image
+		this.cards = deck.suit(this.suit)
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {
+			image: '',
 			cards: [],
 		}
 	},
@@ -72,7 +73,15 @@ export default {
 		},
 
 		imagePosition() {
-			return this.suit === 'strength' || this.suit === 'passion' ? '-mt-4' : 'mt-6'
+			if(this.suit === 'control' || this.suit === 'focus') {
+				return 'mt-6'
+			}
+
+			if(this.suit === 'major-arcana') {
+				return ''
+			}
+
+			return '-mt-4'
 		},
 
 		contentPath() {
@@ -80,7 +89,7 @@ export default {
 		},
 
 		imagePath() {
-			return `/img/cards/${this.suit.toLowerCase()}.svg`
+			return `/img/cards/${this.image}`
 		},
 	},
 }

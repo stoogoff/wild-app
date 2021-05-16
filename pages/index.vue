@@ -11,7 +11,6 @@
 		</section>
 	</main>
 </template>
-
 <script>
 
 import { deck } from'~/state'
@@ -26,6 +25,7 @@ export default {
 	data() {
 		return {
 			card: null,
+			test: '',
 		}
 	},
 }

@@ -7,4 +7,4 @@ image: control.svg
 
 # Control
 
-Stuff about control
+The Control Suit, originally the suit of Coins in traditional Tarot, represents wealth, worldly matters, work, the physical body, and earthly power and the element Earth. The narrative of the suit follows the creator of the ALIS device, Carter Henderson, as he struggles balancing fatherhood, his technological developments, and betrayals in his company.

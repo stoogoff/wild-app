@@ -94,16 +94,16 @@ ol.list, .content ol {
 	@apply px-4 py-3 border rounded relative mb-4 flex;
 }
 .alert.success {
-	@apply bg-control-light text-control-dark border-control-dark;
+	@apply bg-control-lighter text-control-darker border-control-darker;
 }
 .alert.primary {
-	@apply bg-focus-light text-focus-dark border-focus-dark;
+	@apply bg-focus-light text-focus-darker border-focus-darker;
 }
 .alert.secondary {
-	@apply bg-strength-light text-yellow-500 border-yellow-500;
+	@apply bg-strength-lighter text-strength-darker border-strength-darker;
 }
 .alert.warning {
-	@apply bg-passion-light text-passion-dark border-passion-dark;
+	@apply bg-passion-light text-passion-darker border-passion-darker;
 }
 
 /* buttons */

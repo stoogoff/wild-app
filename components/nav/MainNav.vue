@@ -69,8 +69,8 @@ export default Vue.component('MainNav', {
 					icon: 'tarot',
 					menuItems: [
 						{ title: 'Control', href: '/tarot/control' },
-						{ title: 'Passion', href: '/tarot/passion' },
 						{ title: 'Focus', href: '/tarot/focus' },
+						{ title: 'Passion', href: '/tarot/passion' },
 						{ title: 'Strength', href: '/tarot/strength' },
 						{ title: 'Major Arcana', href: '/tarot/major-arcana' },
 					]
