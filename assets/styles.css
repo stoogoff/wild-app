@@ -19,7 +19,10 @@ h1 {
 }
 
 h2 {
-	@apply text-xl uppercase text-gray-500 text-center;
+	@apply text-2xl uppercase text-gray-500 text-center;
+}
+h3 {
+	@apply text-xl uppercase text-gray-400 mt-2 mb-1;
 }
 
 p {
@@ -40,6 +43,17 @@ ol.list, .content ol {
 
 .content a {
 	@apply text-blue-500 underline hover:no-underline
+}
+
+.content img {
+	@apply border border-gray-300 p-2 rounded-sm float-left mr-4 mb-4;
+}
+
+.content h1, .content h2, .content h3, .content hr {
+	@apply clear-left;
+}
+.content h2 {
+	@apply mt-4;
 }
 
 /* font face declarations */

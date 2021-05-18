@@ -2,7 +2,7 @@
 title: Major Arcana
 type: suit
 sort: 3
-image: spirit.jpg
+image: spirit.svg
 ---
 
 # Major Arcana
