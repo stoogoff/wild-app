@@ -13,6 +13,15 @@
 			<card-view :key="`card_${card.id}`" v-for="card in cards" :card="card" />
 			<div>
 				<attributes-view :values="character.attributes" :injuries="injuries" />
+				<div>
+					<h3>Recovery</h3>
+					<ul v-if="modifications.length > 0">
+						<li :key="`mod_${index}`" v-for="(mod, index) in modifications">
+							{{ mod }}
+						</li>
+					</ul>
+					<p v-else>You recover nothing this time.</p>
+				</div>
 			</div>
 		</div>
 	</screen-slide>
@@ -42,6 +51,28 @@ export default Vue.component('RecoveryDraw', {
 	},
 
 	computed: {
+		modifications() {
+			let mods = []
+			let injuries = { ...this.character.injuries }
+			let difference = {}
+
+			this.cards.forEach(card => {
+				if(card.suit in injuries) {
+					if(!(card.suit in difference)) {
+						difference[card.suit] = 0
+					}
+
+					difference[card.suit] += isNaN(card.value) ? 10 : parseInt(card.value)
+				}
+			})
+
+			Object.keys(difference).forEach(key => {
+				mods.push(`+${difference[key]} to ${key}`)
+			})
+
+			return mods
+		},
+
 		injuries() {
 			let injuries = { ...this.character.injuries }
 
