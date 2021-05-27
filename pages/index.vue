@@ -6,7 +6,11 @@
 			</article>
 			<aside class="hidden md:block w-3/12">
 				<loading-spinner v-if="$fetchState.pending" />
-				<card-single v-else :card="card" />
+				<div v-else>
+					<card-single :card="card">
+						<div class="-mr-4"><icon-action outlined type="primary" icon="refresh" @click="$fetch" /></div>
+					</card-single>
+				</div>
 			</aside>
 		</section>
 	</main>
