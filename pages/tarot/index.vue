@@ -29,7 +29,6 @@ export default  {
 	async fetch() {
 		this.suits = (await this.$content('tarot').only(['title', 'sort', 'image', 'path']).fetch()).sort(sortByProperty('sort'))
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {

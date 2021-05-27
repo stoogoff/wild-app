@@ -16,21 +16,25 @@ export default {
 			return existingImage
 		}
 
-		const root = storage().ref(STORAGE_CHARACTERS)
-		const image = await root.child(path).getDownloadURL()
-		const metadata = await root.child(path).getMetadata()
+		try {
+			const root = storage().ref(STORAGE_CHARACTERS)
+			const url = await root.child(path).getDownloadURL()
+			const metadata = await root.child(path).getMetadata()
+			const newImage = {
+				path,
+				url,
+				size: metadata.size,
+				type: metadata.contentType,
+				lastModified: Date.parse(metadata.updated),
+			}
 
-		const newImage = {
-			path,
-			url: image,
-			size: metadata.size,
-			type: metadata.contentType,
-			lastModified: Date.parse(metadata.updated),
+			state.images = [ ...state.images, newImage ]
+
+			return newImage
 		}
-
-		state.images = [ ...state.images, newImage ]
-
-		return newImage
+		catch(error) {
+			console.log('Error loading image:', error)
+		}
 	},
 
 	async save({ id, file }) {

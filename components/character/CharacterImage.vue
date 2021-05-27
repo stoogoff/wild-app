@@ -22,7 +22,6 @@ export default Vue.component('CharacterImage', {
 			}
 		}
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {

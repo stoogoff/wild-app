@@ -56,7 +56,6 @@ export default {
 
 		this.loading = false
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {

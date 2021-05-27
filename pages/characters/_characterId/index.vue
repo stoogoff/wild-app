@@ -112,7 +112,6 @@ export default {
 		this.character = await character.byId(params.characterId)
 		this.loading = false
 	},
-	fetchOnServer: false,
 
 	data() {
 		return {
