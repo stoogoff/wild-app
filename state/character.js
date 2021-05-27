@@ -4,7 +4,7 @@ import cloneDeep from 'lodash/cloneDeep'
 import { database } from '~/plugins/firebase'
 import { DEFAULT_CHARACTER, STORAGE_CHARACTERS, KEY_INJURY } from '~/utils/config'
 import { get, create, save, remove, convert } from '~/utils/db'
-import { user } from '~/state'
+import { user, image } from '~/state'
 
 const state = Vue.observable({
 	characters: [],
@@ -69,6 +69,12 @@ export default {
 
 	async delete(id) {
 		await remove(STORAGE_CHARACTERS, id)
+
+		const toRemove = state.characters.find(character => character.id === id)
+
+		if(toRemove && toRemove.image) {
+			await image.delete(toRemove.image)
+		}
 
 		state.characters = state.characters.filter(character => character.id !== id)
 	},

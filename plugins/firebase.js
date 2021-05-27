@@ -5,10 +5,6 @@ import 'firebase/auth'
 import 'firebase/storage'
 
 
-//export const realtime = firebase.database()
-//export const auth = firebase.auth()
-//export const database = firebase.firestore()
-
 let _database
 let _storage
 let _auth
