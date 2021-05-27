@@ -31,13 +31,12 @@ export default {
 
 	async fetch() {
 		await character.fetch()
-		this.characters = sortBy(character.all(), 'name')
 	},
 
-	data() {
-		return {
-			characters: [],
-		}
+	computed: {
+		characters() {
+			return sortBy(character.all(), 'name')
+		},
 	},
 }
 </script>
