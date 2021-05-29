@@ -37,7 +37,7 @@ export default {
 		}
 	},
 
-	async save({ id, file }) {
+	async save(id, file) {
 		const name = file.name
 		const ext = name.substring(name.lastIndexOf('.'))
 		const root = storage().ref(STORAGE_CHARACTERS)
@@ -50,8 +50,13 @@ export default {
 	},
 
 	async delete(imagePath) {
-		await storage().ref(STORAGE_CHARACTERS).child(imagePath).delete()
-		state.images = state.images.filter(image => image.path !== imagePath)
+		try {
+			await storage().ref(STORAGE_CHARACTERS).child(imagePath).delete()
+			state.images = state.images.filter(image => image.path !== imagePath)
+		}
+		catch(error) {
+			console.log('Error deleting image:', error)
+		}
 	},
 
 	async reset() {

@@ -71,10 +71,10 @@ export default {
 			this.loading = true
 			// save an image
 			if(this.image) {
-				const imageUrl = await image.save({
-					id: this.character.id,
-					file: this.image,
-				})
+				const imageUrl = await image.save(
+					this.character.id,
+					this.image
+				)
 
 				this.character.image = imageUrl
 			}

@@ -5,7 +5,7 @@
 				<slot />
 			</div>
 			<div class="flex">
-				<button-action block type="warning" @click="$emit('click', false)">Cancel</button-action>
+				<button-action block outlined type="warning" @click="$emit('click', false)">Cancel</button-action>
 				<button-action block type="success" @click="$emit('click', true)">OK</button-action>
 			</div>
 		</div>
