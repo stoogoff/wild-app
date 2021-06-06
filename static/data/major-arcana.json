@@ -6,6 +6,10 @@
 		"value": 0,
 		"meanings": ["Optimism", "Immaturity", "Levity", "Leap of Faith"],
 		"reversed": ["Caution", "Hesitancy", "Negligence"],
+		"situations": "City, buildings, rooftop",
+		"obstacles": "Heights, long fall, not looking where you are going",
+		"aid": "A pet, a cat, a bird in the sky, yourself — trust yourself!",
+		"resolution": "Get down from the roof, or from somewhere high, put your trust in someone, or take a leap of faith",
 		"image": "major-arcana/00-the-dreamer.png"
 	},
 	{
@@ -15,6 +19,10 @@
 		"value": 0,
 		"meanings": ["Creativity", "Imagination", "Knowledge", "Power"],
 		"reversed": ["Lack of Imagination", "Weakness", "Dishonesty", "Delay"],
+		"situations": "Laboratory, scientific facility, technological research",
+		"obstacles": "Technology, complex theories, weird science, deceptive advisor",
+		"aid": "Father, scientist, inventor, computer programmer",
+		"resolution": "Create something, formulate a plan, develop some technology, operate a computer, decipher a puzzle",
 		"image": "major-arcana/01-the-architect.png"
 	},
 	{
@@ -24,6 +32,10 @@
 		"value": 0,
 		"meanings": ["Stillness", "Wisdom", "Understanding", "Intuition"],
 		"reversed": ["Defending", "Ignorance", "Selfishness", "Denied Potential"],
+		"situations": "Bed, chair, hospital, sickness, sleeping, coma, peace",
+		"obstacles": "Wake the dreamer",
+		"aid": "Clarity",
+		"resolution": "Drawing this card means you have found the dreamer, trapped within the dreamscape. This can mean you simply wake together, and succeed. Or, you may need to convince the dreamer that they need to wake and return to the waking world.",
 		"image": "major-arcana/02-clarity.png"
 	},
 	{
@@ -33,6 +45,10 @@
 		"value": 0,
 		"meanings": ["Fulfilment", "Fertility", "Passion", "Sensuality"],
 		"reversed": ["Detatchment", "Anxiety", "Insecurity", "Indecision", "Distant"],
+		"situations": "Garden, field, peaceful, reading, children playing",
+		"obstacles": "Loneliness, having to do things alone, distracted from the real world, unable to decide what to do",
+		"aid": "Grandmother, wise woman, a pet, a dog, children, guidance from a book",
+		"resolution": "Let her help, play with the kids, learn from the text, let the dog lead you on, venture into the house",
 		"image": "major-arcana/03-the-matriarch.png"
 	},
 	{
@@ -42,6 +58,10 @@
 		"value": 0,
 		"meanings": ["Authority", "Leadership", "Law", "Structure"],
 		"reversed": ["Immaturity", "Rebelliousness", "Lack of Strength", "Weakness"],
+		"situations": "Boardroom, table, televisions, monitors",
+		"obstacles": "Domineering man, leader, experiment",
+		"aid": "Simulation, virtual reality, computers, creating",
+		"resolution": "Convince the authority, discover the invention, learn how to use the technology, learn from the screens, take control, be the hero",
 		"image": "major-arcana/04-the-technocrat.png"
 	},
 	{
@@ -51,6 +71,10 @@
 		"value": 0,
 		"meanings": ["Compassion", "Goodness", "Teaching", "Learning"],
 		"reversed": ["Vulnerability", "Over-kindness", "Misleading", "Susceptability"],
+		"situations": "Classroom, amphitheatre, lecture",
+		"obstacles": "Confusing information, need to study",
+		"aid": "Compassionate teacher, learning vital information, book, wipe-board",
+		"resolution": "Learning something new, attending school or university, teaching someone",
 		"image": "major-arcana/05-the-teacher.png"
 	},
 	{
@@ -60,6 +84,10 @@
 		"value": 0,
 		"meanings": ["Conflicting Choices", "Desire", "Love", "Merging of Opposites"],
 		"reversed": ["Trapped", "Difficult Relationship", "Opposition", "Frustration"],
+		"situations": "Shower, intimacy, interruption, bathroom",
+		"obstacles": "Caught doing something, interrupted, trapped, no way out, frustration",
+		"aid": "Love, soulmate, passion, harmony",
+		"resolution": "Escape the situation, get out of the room, discover what people are doing behind your back, get clean, purge yourself of problems",
 		"image": "major-arcana/06-the-lovers.png"
 	},
 	{
@@ -69,6 +97,10 @@
 		"value": 0,
 		"meanings": ["Victory", "Force of Character", "Success", "Effort"],
 		"reversed": ["Loss of Control", "Weakening Will", "Doubt", "Defeat"],
+		"situations": "Out of control, finding an unused vehicle, escape, driving away, leaving danger, hospital",
+		"obstacles": "Explosion, lost control, smoke, being chased",
+		"aid": "A car or chariot, speed, explosives, driver",
+		"resolution": "Escaping from something, find a car, destroy a wall or barrier",
 		"image": "major-arcana/07-the-car.png"
 	},
 	{
@@ -78,6 +110,10 @@
 		"value": 0,
 		"meanings": ["Honour", "Virtue", "Balance", "Honesty"],
 		"reversed": ["Violence", "Bias", "Dishonesty", "Unfair Outcome"],
+		"situations": "Guilty of a crime, imprisoned, chained, cell, dungeon",
+		"obstacles": "Trapped, imprisoned, chained, held captive, blindfold",
+		"aid": "Rescue, the truth, justice, honesty, sword, balance",
+		"resolution": "Prove your innocence, escape the chains, freed by the truth and honesty, rescued by someone who believes in you",
 		"image": "major-arcana/08-justice.png"
 	},
 	{
@@ -87,6 +123,10 @@
 		"value": 0,
 		"meanings": ["Caution", "Introspection", "Deliberation"],
 		"reversed": ["Isolation", "Childishness", "Hastiness", "Obstinacy"],
+		"situations": "Spooky attic or dark cellar, an unfamiliar place, dark, creepy",
+		"obstacles": "Darkness, cobwebs, dust, spiders, snakes",
+		"aid": "Dollhouse, font, birdbath, flashlight",
+		"resolution": "Find something you’d forgotten, light the darkness, explore the dollhouse, sweep away the webs, identify the skull",
 		"image": "major-arcana/09-the-loner.png"
 	},
 	{
@@ -96,6 +136,10 @@
 		"value": 0,
 		"meanings": ["Progress", "Good Fortune", "Out of Control"],
 		"reversed": ["Difficulties", "Bad Luck", "Failure", "Discovering the Cause"],
+		"situations": "Wrong route, lost, left behind, planning, finding a way forward",
+		"obstacles": "Confusion, things getting out of control, getting lost",
+		"aid": "A plan, blueprints, a map, another ALIS device, list of clues",
+		"resolution": "Follow the plan, research a route, work out a list of what you need to succeed, use the ALIS device to go deeper into another dream",
 		"image": "major-arcana/10-the-device.png"
 	},
 	{
@@ -105,6 +149,10 @@
 		"value": 0,
 		"meanings": ["Heroism", "Determined", "Face Problems", "Persuasion"],
 		"reversed": ["Abuse of Power", "Weakness", "Poor Self-Control", "Indirect"],
+		"situations": "Desert, attacked by an animal, armed person",
+		"obstacles": "Someone with a gun, a powerful person",
+		"aid": "Bravery, strength, armed, feeling heroic",
+		"resolution": "Can the person help? Are they here to defend you from something? Learn to fight, learn to fly, recover your strength, find your bravery",
 		"image": "major-arcana/11-fortitude.png"
 	},
 	{
@@ -114,6 +162,10 @@
 		"value": 0,
 		"meanings": ["Suspension", "Sacrifice", "Transition", "Readjustment"],
 		"reversed": ["Stagnation", "Unwillingness", "Lack of Sacrifice", "Pressure"],
+		"situations": "Unable to move, frozen in place, tied and unable to move, hospital bed, research facility",
+		"obstacles": "Tied, unable to move, frozen in fear",
+		"aid": "Trees, rest, medical attention",
+		"resolution": "Stay where you are, heal, dream deeper, escape from your bindings",
 		"image": "major-arcana/12-the-hanged-man.png"
 	},
 	{
@@ -122,7 +174,11 @@
 		"suit": "Major Arcana",
 		"value": 0,
 		"meanings": ["Change", "Loss", "Failure", "Transformation"],
-		"reversed": ["Immobility", "Fear of Change", "Stagnation", "Holding on"],
+		"reversed": ["Immobility", "Fear of Change", "Stagnation", "Holding On"],
+		"situations": "Graves, corpses, seeing yourself as dead, fighting",
+		"obstacles": "Zombie, skeleton, undead, cli!",
+		"aid": "Angel of death, warrior, flight, wings, weapons, rifle",
+		"resolution": "Fight to survive, prove yourself alive, become an agent of change, transform into someone or something else, born again",
 		"image": "major-arcana/13-death.png"
 	},
 	{
@@ -132,6 +188,10 @@
 		"value": 0,
 		"meanings": ["Calmness", "Fusion", "Capability", "Self Assured"],
 		"reversed": ["Hostility", "Delirium", "Discord", "Impatience"],
+		"situations": "Ritual, ceremony, meditation, temple",
+		"obstacles": "Disturbance, interloper, Medusa, age",
+		"aid": "Protection, shield, refreshment, infusion",
+		"resolution": "Complete the ritual, stop interference, meditate, hunt",
 		"image": "major-arcana/14-patience.png"
 	},
 	{
@@ -141,6 +201,10 @@
 		"value": 0,
 		"meanings": ["Oppression", "Dark Feelings", "Violence", "Anger"],
 		"reversed": ["Liberation", "Freedom", "Overcoming Fears", "Regeneration"],
+		"situations": "Stalked, predator, drugged, chained",
+		"obstacles": "Darkness, violence, anger, threat, dark influence",
+		"aid": "Psychic energy, overcome fear, grail",
+		"resolution": "Resist dark side, break the chains, escape the predator",
 		"image": "major-arcana/15-the-shadow.png"
 	},
 	{
@@ -150,6 +214,10 @@
 		"value": 0,
 		"meanings": ["Drastic Change", "Adversity", "Downfall", "Painful Experience"],
 		"reversed": ["Misfortune", "Trapped", "Oppression", "Long Term Difficulties"],
+		"situations": "City, tower, business building, church spire, falling, burning block",
+		"obstacles": "Destruction, burning building, struck by lightning, falling rubble",
+		"aid": "Levitation, telekinesis",
+		"resolution": "Escape the building, avoid the debris, levitate, change direction",
 		"image": "major-arcana/16-the-tower.png"
 	},
 	{
@@ -159,6 +227,10 @@
 		"value": 0,
 		"meanings": ["Hope", "Trust", "Insight", "Promising Opportunity"],
 		"reversed": ["Negativity", "Holding Back Emotion", "Disappointment"],
+		"situations": "Tidal wave, river, sea, intertwined trees",
+		"obstacles": "Turbulent sea, unable to breathe, undertow",
+		"aid": "Guardian, Anzû, rescue, a helping hand",
+		"resolution": "Escape from the water, save someone from drowning",
 		"image": "major-arcana/17-the-star.png"
 	},
 	{
@@ -168,6 +240,10 @@
 		"value": 0,
 		"meanings": ["Confusion", "Delusion", "Danger", "Disgrace"],
 		"reversed": ["Deceived", "Health Problems", "Disturbed", "Tempted"],
+		"situations": "Darkness, swamp, mire, bracken, overgrown, woods, castle, pursued, imagining the worst, hidden danger",
+		"obstacles": "Darkness, swamp, woods, overgrown, wolves, werewolves, beasts, scorpions, water",
+		"aid": "Hiding in darkness, running away, castle fortifications, moonlight",
+		"resolution": "Escape from the wolves, hide in the forest, get to the castle, lose the scent",
 		"image": "major-arcana/18-imagination.png"
 	},
 	{
@@ -177,6 +253,10 @@
 		"value": 0,
 		"meanings": ["Triumph", "Joy", "Confidence", "Innocence"],
 		"reversed": ["Clouded Future", "Joy after a Struggle", "Cancelled Plans"],
+		"situations": "Lucidity, taking control of the environment, being an object, understanding where to go",
+		"obstacles": "Too much information, losing control, learning a painful truth",
+		"aid": "Bird, lucidity, power, control, information to help guide you, fruits of your labours, a way out of the maze",
+		"resolution": "Change the world around you, manipulate the room, understand those with you, shape your future",
 		"image": "major-arcana/19-lucidity.png"
 	},
 	{
@@ -186,6 +266,10 @@
 		"value": 0,
 		"meanings": ["Rejuvination", "Rebirth", "Change", "Promotion"],
 		"reversed": ["Delay", "Underachievement", "Divorce", "Indecision"],
+		"situations": "Awakening",
+		"obstacles": "—",
+		"aid": "—",
+		"resolution": "You wake from the dreamscape back into the waking world. The dream dive training simulation is over. Take some time to recover, drink some fluids, and rest, before trying again.",
 		"image": "major-arcana/20-awakening.png"
 	},
 	{
@@ -195,6 +279,10 @@
 		"value": 0,
 		"meanings": ["Perfection", "Ultimate Change", "Success", "Conclusion"],
 		"reversed": ["Failure to Finish", "Delay", "Lack of Vision", "Disappointment"],
+		"situations": "Centre of attention, public performance, being a celebrity, success, harmony",
+		"obstacles": "Overconfidence, quitting, isolation, stagnation",
+		"aid": "Pyramid, snake, peace, harmony with your environment, wheel of light, completion, self realisation, individualisation",
+		"resolution": "Float, rise above the situation, find inner peace and calm, feel at one with the world, communicate with the waking world while remaining in the dreamspace, bring something from the waking world into the dream",
 		"image": "major-arcana/21-the-waking-world.png"
 	}
 ]

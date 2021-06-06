@@ -6,6 +6,10 @@
 		"value": "Visionary",
 		"meanings": ["Determination", "Force", "Triumph", "Facing Conflict"],
 		"reversed": ["Tyranny", "Disaster", "Violence", "Temper"],
+		"situations": "Arguing, standing up against a tyrant, hot temper, conflict, confrontation",
+		"obstacles": "Domineering boss, argumentative person",
+		"aid": "Files, desk",
+		"resolution": "Win the argument, calm someone else’s, learn what they are arguing about",
 		"image": "strength/01-strength-visionary.png"
 	},
 	{
@@ -15,6 +19,10 @@
 		"value": 2,
 		"meanings": ["Stalemate", "Balance", "Duality", "Harmony"],
 		"reversed": ["Duplicity", "Disloyalty", "Treachery", "Looking Away"],
+		"situations": "Worrying, duality, unable to progress, stalled",
+		"obstacles": "Lost shoes, wrong clothes, reflection, stress, financial worries, going behind someone’s back",
+		"aid": "Faithful partner, working together, looking for solution",
+		"resolution": "Look in the mirror, discover who lives in the castle, find the significance of the shoes, resolve the financial worries",
 		"image": "strength/02-strength.png"
 	},
 	{
@@ -24,6 +32,10 @@
 		"value": 3,
 		"meanings": ["Pain", "Sorrow", "Removal", "Absence"],
 		"reversed": ["Confusion", "Distraction", "Disorder", "Separation"],
+		"situations": "Out of time, an injured or missing body part, falling",
+		"obstacles": "Stairs, lack of time, illness, a death",
+		"aid": "Hourglass, sand, knives, stairs",
+		"resolution": "Save the person who has fallen, heal them if they can be saved, avenge them if not, find out who did it, catch them",
 		"image": "strength/03-strength.png"
 	},
 	{
@@ -33,6 +45,10 @@
 		"value": 4,
 		"meanings": ["Rest", "Replenishment", "Exile", "Truce"],
 		"reversed": ["Activity", "Economy", "Recovering What Was Lost"],
+		"situations": "Haunted by ghosts, sensing a presence, opening a grave, visiting or being visited by the dead, recovering the lost",
+		"obstacles": "A heavy gate, a complicated lock, graveyard, death of a loved one",
+		"aid": "Crowbar, message from beyond, finding something you thought you’d lost",
+		"resolution": "Break into the cemetery, find a lost heirloom, resolve some unfinished business",
 		"image": "strength/04-strength.png"
 	},
 	{
@@ -42,6 +58,10 @@
 		"value": 5,
 		"meanings": ["Shame", "Degradation", "Depression", "Destruction"],
 		"reversed": ["Loss", "Weakness", "Speaking up"],
+		"situations": "Demonstration, a business deal, a shameful decision",
+		"obstacles": "Strapped to a chair, experimented upon, services sold",
+		"aid": "Financial gain, trained soldier, the ALIS Device",
+		"resolution": "Discover who is doing the deal, find out what is being sold, stop the deal, witness what the soldiers are experiencing, help the soldiers",
 		"image": "strength/05-strength.png"
 	},
 	{
@@ -51,6 +71,10 @@
 		"value": 6,
 		"meanings": ["Journey", "Voyage", "Separate Ideas from Emotions"],
 		"reversed": ["Unwanted Proposal", "No Solution", "Emotional", "Seeing the Flaws"],
+		"situations": "Catching a train, a volcano erupting, being chased",
+		"obstacles": "Missed train, pursued, volcano, lava, smoke",
+		"aid": "Smoke cover, a train to the next location, an escape",
+		"resolution": "Escape from your pursuers, chase someone who has something you need, find what is in the case, take the train somewhere",
 		"image": "strength/06-strength.png"
 	},
 	{
@@ -60,6 +84,10 @@
 		"value": 7,
 		"meanings": ["Confidence", "Hope", "New Plans", "Define Yourself"],
 		"reversed": ["Arguments", "Individuality", "Obstacles made Clear"],
+		"situations": "Military camp, soldiers, being hunted, tents, travelling in time to the past or future",
+		"obstacles": "Being hunted by a group, out of your normal timeframe",
+		"aid": "Money, knowing the way ahead",
+		"resolution": "Escape those who are chasing you, buy them off? Will the money help you resolve something?",
 		"image": "strength/07-strength.png"
 	},
 	{
@@ -69,6 +97,10 @@
 		"value": 8,
 		"meanings": ["Crisis", "Calamity", "Conflict", "Buried Feelings"],
 		"reversed": ["New Beginnings", "Overcoming Depression", "Seeing Clearly"],
+		"situations": "Aircraft crash, captured, kidnapped",
+		"obstacles": "Stranded, captured, kidnapped, no transport, blindfolded",
+		"aid": "Soldiers, money, weapons",
+		"resolution": "Are the soldiers rescuing or capturing you, or after the money? Find out why the plane crashed, search the wreckage",
 		"image": "strength/08-strength.png"
 	},
 	{
@@ -78,6 +110,10 @@
 		"value": 9,
 		"meanings": ["Quarrel", "Misery", "Enduring a Painful Situation"],
 		"reversed": ["Doubt", "Suspicion", "Slander", "Turning away"],
+		"situations": "Horrible dream, forgetting someone important",
+		"obstacles": "Worst nightmare, losing money",
+		"aid": "Swords, clarity, waking from the worst",
+		"resolution": "Wake a level, find the money, come to terms with your regret, mourn a loss",
 		"image": "strength/09-strength.png"
 	},
 	{
@@ -87,6 +123,10 @@
 		"value": 10,
 		"meanings": ["Ruin", "Pain", "Sadness", "Trouble"],
 		"reversed": ["Distraction", "Flawed vision", "Major Problems"],
+		"situations": "Regret, shame, ruin, sadness, betrayal",
+		"obstacles": "Money doesn’t solve anything, swords of Damocles",
+		"aid": "Chalice, throne, money, rope, suspension",
+		"resolution": "Come to terms with your actions, overcome regret, make peace with your sadness",
 		"image": "strength/10-strength.png"
 	},
 	{
@@ -96,6 +136,10 @@
 		"value": "Scholar",
 		"meanings": ["Perceptive", "Vigilant", "Spying", "Detatched"],
 		"reversed": ["Powerless", "Imposter", "Nervous", "Unforeseen Illness"],
+		"situations": "Searching for something, spies, being watched",
+		"obstacles": "Being discovered, powerless against authority, being watched, being spied upon",
+		"aid": "Clues, information, secret agent, camera",
+		"resolution": "Witness something important, uncover vital information, protect your data from outside forces, expose the truth, escape the maze",
 		"image": "strength/11-strength-scholar.png"
 	},
 	{
@@ -105,6 +149,10 @@
 		"value": "Rogue",
 		"meanings": ["Fearless", "Bravery", "Heroism", "Warrior"],
 		"reversed": ["Brashness", "Impulsive Mistakes", "Ruin over Love"],
+		"situations": "Life or death battle, war, charging into a fight",
+		"obstacles": "Face a warrior, challenge to a duel",
+		"aid": "Armour, castle, fortress, motorcycle, shield, helmet, knight",
+		"resolution": "Take the fight to the enemy, joust, duel, show great bravery, recruit a helpful warrior",
 		"image": "strength/12-strength-rogue.png"
 	},
 	{
@@ -114,6 +162,10 @@
 		"value": "Guardian",
 		"meanings": ["Bearer of Evil", "Mourning", "Widow", "Sadness", "Detached"],
 		"reversed": ["Vengeful", "Manipulative", "Maliciousness", "Bigoted"],
+		"situations": "Raising the dead, harbinger of evil, grief",
+		"obstacles": "The living dead, zombies, an evil person",
+		"aid": "Sword, moon, night",
+		"resolution": "Face the evil, defeat the widow, mourn with the widow, detach yourself from your emotions",
 		"image": "strength/13-strength-guardian.png"
 	},
 	{
@@ -123,6 +175,10 @@
 		"value": "Diplomat",
 		"meanings": ["Commanding", "Authoritative", "Force", "Professional"],
 		"reversed": ["Sadistic", "Cruel", "Dangerous", "Aggressive"],
+		"situations": "Pursued by authorities, in command, halting the tide",
+		"obstacles": "Incoming tide, pursued, aggressive people",
+		"aid": "Father, professional people, the sea, helpful aide",
+		"resolution": "Escape pursuit, dam the tide, use the shield",
 		"image": "strength/14-strength-diplomat.png"
 	}
 ]

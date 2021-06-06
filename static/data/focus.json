@@ -6,6 +6,10 @@
 		"value": "Visionary",
 		"meanings": ["Abundance", "Love", "Joy", "Fertility", "Happiness"],
 		"reversed": ["Instability", "Sadness", "Unrequited Love", "Change"],
+		"situations": "Pregnancy, garden, serpent, snake, looking to the future",
+		"obstacles": "Snakes, change, unexpected pregnancy, uncertain future",
+		"aid": "The snake? Fruit, chalice, computer, love, a couple",
+		"resolution": "Converse with the snake, confess to a sin, plan for the future, help someone, become a parent, visited by a mother or a father",
 		"image": "focus/01-focus-visionary.png"
 	},
 	{
@@ -15,6 +19,10 @@
 		"value": 2,
 		"meanings": ["New Relationship", "Friendship", "Passion", "Engagement"],
 		"reversed": ["False Friendship", "Unsatisfactory Love", "Divorce", "Holding Back"],
+		"situations": "Falling in love, getting married, getting divorced",
+		"obstacles": "Deceit, manipulation, falsehoods, dishonesty",
+		"aid": "Partner, friend, love, priest, ordained,",
+		"resolution": "Come to terms with your relationships, make a new friend, lose a false friend, take a drastic step",
 		"image": "focus/02-focus.png"
 	},
 	{
@@ -24,6 +32,10 @@
 		"value": 3,
 		"meanings": ["Healing", "Celebration", "Resolution of Problem"],
 		"reversed": ["Overabundance", "Excessive Pleasures", "Delay", "Unharmonious"],
+		"situations": "Death in the family, encountering a lost loved one, a wake",
+		"obstacles": "Distraction, death, dropping something, spill, loss of harmony, having to do things yourself",
+		"aid": "Mother, tea, helping hand, healing",
+		"resolution": "Keeping the peace, restore calm, remember someone, listen to a child, listen to your partner",
 		"image": "focus/03-focus.png"
 	},
 	{
@@ -33,6 +45,10 @@
 		"value": 4,
 		"meanings": ["Apathy", "Boredom", "Aversion", "Disgust"],
 		"reversed": ["Taking Action", "New Possibilities", "Preventing Loss"],
+		"situations": "Empty workplace, apathy, despair, loss",
+		"obstacles": "Boredom, loneliness, isolation, depression, weariness",
+		"aid": "Photos, ice cream, comfort, blanket, self care",
+		"resolution": "See the possibilities, make a new friend, take action, look after yourself, see your value",
 		"image": "focus/04-focus.png"
 	},
 	{
@@ -42,6 +58,10 @@
 		"value": 5,
 		"meanings": ["Regret", "Loveless", "Loss", "Imperfection"],
 		"reversed": ["New Alliances", "Hope", "Understanding"],
+		"situations": "Having an affair, betraying someone, guilt",
+		"obstacles": "Broken house, smoke, betrayal, shame",
+		"aid": "Feeling good about yourself, escape, comfort, new possibilities",
+		"resolution": "Confront your choices, reveal your secrets, ensure they are hidden, find hope, understand a situation",
 		"image": "focus/05-focus.png"
 	},
 	{
@@ -51,6 +71,10 @@
 		"value": 6,
 		"meanings": ["Memories", "Nostalgia", "Sentimentality", "Childhood"],
 		"reversed": ["Future", "Opportunities", "Stripping Away Illusions"],
+		"situations": "Returning to your childhood home, looking to the past, old house, gate, attic room",
+		"obstacles": "Gate, door, nostalgia, haunted by the past",
+		"aid": "Parent, father, mother, guardian, security, home, roof",
+		"resolution": "Address something from your past, find something from your past that you long for",
 		"image": "focus/06-focus.png"
 	},
 	{
@@ -60,6 +84,10 @@
 		"value": 7,
 		"meanings": ["Fantasy", "Daydreams", "Illusions", "Imagination"],
 		"reversed": ["Realism", "Desire", "Goal nearly Attained"],
+		"situations": "Imagining what could happen, the return of an ex-lover, gazing out of a window, daydreaming",
+		"obstacles": "The ex-lover, living in a fantasy, hiding your feelings",
+		"aid": "Escape, a window to the world, receiving news",
+		"resolution": "Escape the situation by going into a fantasy, create an illusion, learn some important news or information",
 		"image": "focus/07-focus.png"
 	},
 	{
@@ -69,6 +97,10 @@
 		"value": 8,
 		"meanings": ["Shyness", "Modesty", "Instability", "Disappointment"],
 		"reversed": ["Stability", "Effort", "Happiness"],
+		"situations": "Having to change or be naked in front of strangers, preparing for treatment, preparing for bed",
+		"obstacles": "Nakedness, shyness, descending a level of dreaming",
+		"aid": "Nurse, attendant, doctor, orderly, drink, medicine, technician",
+		"resolution": "Resolve to help someone, to rescue someone, to overcome shyness, cover up, to prepare for something, learn you have help and assistance",
 		"image": "focus/08-focus.png"
 	},
 	{
@@ -78,6 +110,10 @@
 		"value": 9,
 		"meanings": ["Desire", "Abundance", "Beauty", "Sexual Excitement"],
 		"reversed": ["Frustration", "Imperfection", "Mistakes", "Material Loss"],
+		"situations": "Laboratory, experiments, observation, inappropriate intimacy",
+		"obstacles": "Confined space, being watched, frustration",
+		"aid": "Assistance, technician, technology, guidance, good health",
+		"resolution": "Finding what you seek, feeling happy with your appearance, feeling desirable",
 		"image": "focus/09-focus.png"
 	},
 	{
@@ -87,6 +123,10 @@
 		"value": 10,
 		"meanings": ["Peace", "Happiness", "Joy", "Inner Peace"],
 		"reversed": ["Rage", "Quarrel", "Loss of Friendship", "Looking for Joy"],
+		"situations": "Family, reunited, barn, house",
+		"obstacles": "Eyes closed, broken shutters, insecurity",
+		"aid": "Birds, grail, parents, family, shelter",
+		"resolution": "Find contentment, security, family, happiness, joy",
 		"image": "focus/10-focus.png"
 	},
 	{
@@ -96,6 +136,10 @@
 		"value": "Scholar",
 		"meanings": ["Reflective", "Imaginative", "Fantasy", "Student"],
 		"reversed": ["Susceptible", "Deviation", "Distracted", "Need to Decide"],
+		"situations": "Outside, fantasising, reminiscing, meeting an old friend, sycamore seed",
+		"obstacles": "Getting distracted, slipping to a fantasy",
+		"aid": "Seeds, luggage, an old friend, love, reflection, loyal person",
+		"resolution": "Gaining some information from a friend, getting support, need to focus, not get distracted",
 		"image": "focus/11-focus-scholar.png"
 	},
 	{
@@ -105,6 +149,10 @@
 		"value": "Rogue",
 		"meanings": ["Attraction", "Challenge", "Appeal", "Invitation"],
 		"reversed": ["Resentful", "Trickery", "Deception", "Introvert"],
+		"situations": "Meeting a trickster, someone attractive but deceptive, art class, gallery, being offered intoxicants, intoxicated / addicted",
+		"obstacles": "Temptation, being lied to, drink, drugs",
+		"aid": "An invitation, stimulant, learning a new skill",
+		"resolution": "Being offered something, avoid their help or accept it",
 		"image": "focus/12-focus-rogue.png"
 	},
 	{
@@ -114,6 +162,10 @@
 		"value": "Guardian",
 		"meanings": ["Mysterious", "Wise", "Adored", "Practical", "Warm Heart"],
 		"reversed": ["Unreliable", "Uncertain", "Immoral", "Dishonest"],
+		"situations": "Conservatory, mysterious but kind woman, helping children in jeopardy",
+		"obstacles": "Inattentive, financial problems, someone coming",
+		"aid": "Savings, warm-hearted woman, mother, grandmother",
+		"resolution": "Someone arriving, a possible threat, help the child",
 		"image": "focus/13-focus-guardian.png"
 	},
 	{
@@ -123,6 +175,10 @@
 		"value": "Diplomat",
 		"meanings": ["Responsible", "Kind", "Calm", "Artist", "Lawyer"],
 		"reversed": ["Emotional", "Double Dealing", "Temperamental", "Dishonest"],
+		"situations": "Laboratory, office, futuristic city, spaceships",
+		"obstacles": "Big city, technology, reflection",
+		"aid": "Responsible, kind man, an artist — patient and creative",
+		"resolution": "Go to the big city, design something, talk to the ‘diplomat’, find out what they are creating",
 		"image": "focus/14-focus-diplomat.png"
 	}
 ]

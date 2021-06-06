@@ -6,6 +6,10 @@
 		"value": "Visionary",
 		"meanings": ["Creation", "Birth", "Invention", "Enterprise"],
 		"reversed": ["Vexation", "False Start", "Unrealised Goal", "Decadence"],
+		"situations": "Beach, playing, building, castles, sand, sea, being a child again",
+		"obstacles": "Fighting the tide, incoming sea, derelict building, collapsing castle tower",
+		"aid": "Child, creativity, building something better",
+		"resolution": "Build something, escape from the castle, hold back the sea, help the child",
 		"image": "passion/01-passion-visionary.png"
 	},
 	{
@@ -15,6 +19,10 @@
 		"value": 2,
 		"meanings": ["Ruler", "Mature Person", "Control", "Dominion"],
 		"reversed": ["Sadness", "Trouble", "Restraint", "Loss of Faith"],
+		"situations": "Ruling a kingdom, wishing to be elsewhere, flying ship, castle, river",
+		"obstacles": "Being bothered by people, making decisions, needing to be heard",
+		"aid": "A detailed map, help from advisors, escape in a flying ship!",
+		"resolution": "Make a decision or rule, find happiness elsewhere, take control of a situation, relinquish power",
 		"image": "passion/02-passion.png"
 	},
 	{
@@ -24,6 +32,10 @@
 		"value": 3,
 		"meanings": ["Independence", "Heroic Action", "Enterprise", "Strength"],
 		"reversed": ["Treachery", "Rejection", "Loss", "Cooperation"],
+		"situations": "Flying, ship, running on a beach, night, swords, trees",
+		"obstacles": "Someone has stolen something, stolen money, chase",
+		"aid": "Able to fly, feeling confident and independent, heroic",
+		"resolution": "Chase the thief, steal something, take the swords, command the flying ship",
 		"image": "passion/03-passion.png"
 	},
 	{
@@ -33,6 +45,10 @@
 		"value": 4,
 		"meanings": ["Romance", "Harmony", "Tranquility", "Sharing"],
 		"reversed": ["Insecurity", "Unfulfilled Romance", "Falling Apart", "Failing"],
+		"situations": "Ruling, in control, reception, party",
+		"obstacles": "Unwanted guests, unwanted suitors, drunk old men, being ignored, insecure",
+		"aid": "Loom, in control, above the hassles",
+		"resolution": "Get through the crowd, proclaim your love for someone, dismiss the unwanted guests, try to hear something over the noise, see your future on the loom of fate",
 		"image": "passion/04-passion.png"
 	},
 	{
@@ -42,6 +58,10 @@
 		"value": 5,
 		"meanings": ["Struggle", "Movement", "Unsatisfied Desires"],
 		"reversed": ["Betrayal", "Anger", "Conflict", "Trickery"],
+		"situations": "Stuck in the mud, broken chariot / car, strong wind, approaching army",
+		"obstacles": "Stuck in the mud, unable to move, sinking",
+		"aid": "Helpers, monks, approaching army",
+		"resolution": "Get unstuck, get help of others to escape the mud, get away from somewhere, flee the castle, avoid the army",
 		"image": "passion/05-passion.png"
 	},
 	{
@@ -51,6 +71,10 @@
 		"value": 6,
 		"meanings": ["Conquest", "Optimism", "Triumph", "Productivity"],
 		"reversed": ["Fear", "Doubt", "Pessimism", "Apprehension"],
+		"situations": "Levitating, freedom, climbing a hill, flying, escape",
+		"obstacles": "Concentrating, hard work, mud, water, sinking",
+		"aid": "Believing in yourself, telekinesis, learning to fly, to levitate",
+		"resolution": "Trust in your own abilities, develop special powers, mind over matter",
 		"image": "passion/06-passion.png"
 	},
 	{
@@ -60,6 +84,10 @@
 		"value": 7,
 		"meanings": ["Advantage", "Overcoming Obstacles", "Gain"],
 		"reversed": ["Indecision", "Anxiety", "Uncertainty", "Communication"],
+		"situations": "Trial by combat, shielded, fight, watched by an audience, facing a huge obstacle, winning a contest or sport, tournament",
+		"obstacles": "Outnumbered, observed, competition",
+		"aid": "Armour, shield, gained the advantage",
+		"resolution": "Fight your way out of a situation, prove yourself the best in a competition, show off your skills",
 		"image": "passion/07-passion.png"
 	},
 	{
@@ -69,6 +97,10 @@
 		"value": 8,
 		"meanings": ["Speed", "Swift Activity", "Hasty Decisions", "Move"],
 		"reversed": ["Delays", "Confusion", "Jealousy", "Discord"],
+		"situations": "Being chased, trapped in a maze, needing to be quick, mysterious corridor",
+		"obstacles": "Maze, labyrinth, puzzle, angry mob, guards, soldiers",
+		"aid": "Faster than they are, water, knowing your way",
+		"resolution": "Solve a puzzle, solve the maze or labyrinth, escape from your pursuers",
 		"image": "passion/08-passion.png"
 	},
 	{
@@ -78,6 +110,10 @@
 		"value": 9,
 		"meanings": ["Discipline", "Hidden Enemies", "Awaiting Troubles"],
 		"reversed": ["Calamity", "Obstacles", "Confusion", "Delays"],
+		"situations": "Creating something, fixing a machine, disarm a bomb",
+		"obstacles": "Limited time, a bomb, something disguised as something else",
+		"aid": "Mask, scissors, automaton, robot, bomb, clock face, old plans",
+		"resolution": "Disarm the bomb, fix the machine, hide something or someone",
 		"image": "passion/09-passion.png"
 	},
 	{
@@ -87,6 +123,10 @@
 		"value": 10,
 		"meanings": ["Intense Belief", "Passion", "Powerful Dreams", "Burdened"],
 		"reversed": ["Subterfuge", "Oppression", "Duplicity", "Traitor"],
+		"situations": "Winning a game, beach, towers, castles, explosions, destruction",
+		"obstacles": "Outsmarted, deceived, creations destroyed",
+		"aid": "Belief in yourself, hourglass, chess, peace, meditation",
+		"resolution": "Win the game, rise above it, trust yourself, destroy something you’ve made",
 		"image": "passion/10-passion.png"
 	},
 	{
@@ -96,6 +136,10 @@
 		"value": "Scholar",
 		"meanings": ["Trustworthy", "Faithful Friend", "Envoy", "No Secrets"],
 		"reversed": ["Gossip", "Bad News", "Instability", "Indecision"],
+		"situations": "Meeting a stranger with a message, an ancient place",
+		"obstacles": "Bad news, untrustworthy information, gossip",
+		"aid": "Guidance, an envoy who can help",
+		"resolution": "Take the advice, determine what the advice or information is, what decision you need to make",
 		"image": "passion/11-passion-scholar.png"
 	},
 	{
@@ -105,6 +149,10 @@
 		"value": "Rogue",
 		"meanings": ["Courage", "Journey", "Headstrong", "Flight"],
 		"reversed": ["Interruption", "Quarrelling", "Disillusioned", "Discord"],
+		"situations": "Flying, desert, crashing, pyramids",
+		"obstacles": "Crashing, being attacked, gunfire",
+		"aid": "Angel, wings, able to fly, weapons, gun",
+		"resolution": "Discover who was on the plane, meet the angel, find out why are they armed, go to the pyramids",
 		"image": "passion/12-passion-rogue.png"
 	},
 	{
@@ -114,6 +162,10 @@
 		"value": "Guardian",
 		"meanings": ["Honourable", "Sympathetic", "Friendly", "Understanding"],
 		"reversed": ["Jealousy", "Infidelity", "Deceit", "Jaded"],
+		"situations": "Desk, home office, working, tired, jealous",
+		"obstacles": "Hiding information, protective",
+		"aid": "Cat, broom, computer, practical person, using common sense",
+		"resolution": "Convince them to share their work, pet the cat, help the person, use the broom",
 		"image": "passion/13-passion-guardian.png"
 	},
 	{	
@@ -123,6 +175,10 @@
 		"value": "Diplomat",
 		"meanings": ["Conscientious", "Wise", "Mature", "Confident"],
 		"reversed": ["Arrogant", "Severity", "Domineering", "Dogmatic"],
+		"situations": "Sleeping, bedroom, watched over by a loyal person.",
+		"obstacles": "Unwilling to leave, living in a fantasy",
+		"aid": "Wise man, wizard, books, family",
+		"resolution": "Hear the story, tell a story, help someone to sleep, reunite a family",
 		"image": "passion/14-passion-diplomat.png"
 	}
 ]

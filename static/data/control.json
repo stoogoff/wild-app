@@ -6,6 +6,10 @@
 		"value": "Visionary",
 		"meanings": ["Pleasure", "Bliss", "Prosperity", "Perfection"],
 		"reversed": ["Corruption", "Wasted Money", "Arguments", "Dissatisfaction"],
+		"situations": "Work, laboratory, desk, creation, ideas, figured it out",
+		"obstacles": "Going the wrong way, tempted to ‘easy’ solution",
+		"aid": "Intelligence, thinking your way out of a situation",
+		"resolution": "Formulate a plan, see the path to success, organise your ideas, have that ‘eureka’ moment — almost like a lottery win",
 		"image": "control/01-control-visionary.png"
 	},
 	{
@@ -15,6 +19,10 @@
 		"value": 2,
 		"meanings": ["Difficulty Starting", "Trouble", "Balance"],
 		"reversed": ["Simulated Enjoyment", "Imbalance", "Need to Focus", "Lost"],
+		"situations": "Leaving university, balancing work and family, house, wrecked car, baby, bird",
+		"obstacles": "Broken car, breakdown, fire, imbalance, unfocused, need to juggle aspects of life",
+		"aid": "Child, baby, family, computer, bird, escape",
+		"resolution": "Balance elements. Is the bird flying away significant? Fix the car, put out the fire, care for the child, ignore work pressures",
 		"image": "control/02-control.png"
 	},
 	{
@@ -24,6 +32,10 @@
 		"value": 3,
 		"meanings": ["Mastery", "Art", "Hard Work", "Skill"],
 		"reversed": ["Mediocrity", "Sloppy", "Failure to do the Best Possible"],
+		"situations": "Derelict house, no furniture, dark doorway",
+		"obstacles": "Wishing to be elsewhere, work pressure, darkness",
+		"aid": "Hard work, skills, mastering your abilities, determination",
+		"resolution": "Fix the house, move house. What’s through the door? Work with someone, get their help — working alone may not be the best solution",
 		"image": "control/03-control.png"
 	},
 	{
@@ -33,6 +45,10 @@
 		"value": 4,
 		"meanings": ["Hoarding", "Skinflint", "Love of Wealth", "Structure"],
 		"reversed": ["Opposition", "Delay", "Financial Setback", "Loss of Valuables"],
+		"situations": "Endless packing, loss of a valuable item",
+		"obstacles": "Clutter, trying to balance things, weight",
+		"aid": "You are not alone, security, finding something useful",
+		"resolution": "Making the place liveable, a house becomes a home, security, family, partner, decorating, finding something you lost",
 		"image": "control/04-control.png"
 	},
 	{
@@ -42,6 +58,10 @@
 		"value": 5,
 		"meanings": ["Distraction", "Loss", "Failure", "Error", "Illness"],
 		"reversed": ["Recovery", "Overcoming Ruin", "Taking Action"],
+		"situations": "Illness, losing teeth, tired, bathroom, brushing teeth",
+		"obstacles": "Illness, working too hard, work always looming",
+		"aid": "Medicine, washing, cleaning, best help is yourself",
+		"resolution": "Taking care, looking after yourself, self care, bath or shower making you feel better, medicine, pills, recovering from illness, focusing on the task, not getting distracted, not making mistakes",
 		"image": "control/05-control.png"
 	},
 	{
@@ -51,6 +71,10 @@
 		"value": 6,
 		"meanings": ["Helping", "Charity", "Kindness", "Sharing"],
 		"reversed": ["Avarice", "Envy", "Jealousy", "Solitude", "Holding Back"],
+		"situations": "Trapped in a lift, ominous shadow, calling for help",
+		"obstacles": "Trapped, unable to escape, darkness, small space, indecipherable symbols, buttons not working",
+		"aid": "Calling for help, alarms, panic button, rescue",
+		"resolution": "Is help on the way, and who? Alarms scare off the shadows, or panic the enemy",
 		"image": "control/06-control.png"
 	},
 	{
@@ -60,6 +84,10 @@
 		"value": 7,
 		"meanings": ["Ingenuity", "Progress", "Work", "Growth"],
 		"reversed": ["Impatience", "Anxiety", "Holding back from Committing"],
+		"situations": "Public speaking, presentation, needing the bathroom, unwanted calls, ignoring something important, wanting to be elsewhere, spillage",
+		"obstacles": "Anxiety, stress, needing the bathroom, crowds, being stared at, spilled water",
+		"aid": "Saved by the bell, knowing what you’re talking about, confidence",
+		"resolution": "Escape from the crowds, get to the bathroom, answer the call, deflect questions",
 		"image": "control/07-control.png"
 	},
 	{
@@ -69,6 +97,10 @@
 		"value": 8,
 		"meanings": ["Learning", "Craftsmanship", "Honesty", "Expression"],
 		"reversed": ["Vanity", "Shallowness", "Lack of Ambition", "Disillusionment"],
+		"situations": "Work, seeing yourself, work over family, creating, making something, trophy, prototype",
+		"obstacles": "Hoarding, too much stuff, ignoring something important, vanity, hiding something or someone",
+		"aid": "Reflection, technology, a well thought out plan",
+		"resolution": "Reassess your situation, remember someone or something important, technology, abundance",
 		"image": "control/08-control.png"
 	},
 	{
@@ -78,6 +110,10 @@
 		"value": 9,
 		"meanings": ["Safety", "Prudence, Foresight, Messages"],
 		"reversed": ["Threat", "Storms, Danger, Concerns for the Future"],
+		"situations": "Storm, tornado, broken house, leaking roof, water, lost shoe",
+		"obstacles": "Storm, hurricane, tornado, danger, chaos, rain",
+		"aid": "Water, air, flight, control, lucidity",
+		"resolution": "Escape the storm, the more you avoid the rain the wetter you get, walking on water, control over your environment, mysterious package appears",
 		"image": "control/09-control.png"
 	},
 	{
@@ -87,6 +123,10 @@
 		"value": 10,
 		"meanings": ["Security", "Prosperity", "Inheritance", "Riches"],
 		"reversed": ["Risk", "Loss", "Looking for New Adventures", "Bad Odds"],
+		"situations": "Betrayal, selling out, going behind someone’s back, hospital bed, paying a ransom, tree",
+		"obstacles": "Losing ownership, backstabbing, bad risk, untrustworthy friends, cut purse",
+		"aid": "Faithful companion, book, money, information, ideas, subservient helper",
+		"resolution": "Will money help? Rest, companions, colleagues",
 		"image": "control/10-control.png"
 	},
 	{
@@ -96,6 +136,10 @@
 		"value": "Scholar",
 		"meanings": ["Concentration", "Study", "Reflection", "Learning", "Nature"],
 		"reversed": ["Unrealistic", "Whimsical", "Illogical", "Distracted"],
+		"situations": "Exam, unprepared, wrong paperwork, classroom, exam hall, back at school, university",
+		"obstacles": "Exam, test, study, maths, not revised",
+		"aid": "Text book, school, teacher, classmates, school friends",
+		"resolution": "A helpful student, rebel, pass the test, escape the room, avoid punishment, solve a puzzle, balance an equation",
 		"image": "control/11-control-scholar.png"
 	},
 	{
@@ -105,6 +149,10 @@
 		"value": "Rogue",
 		"meanings": ["Dedication", "Methodical", "Reliable", "Patient Person"],
 		"reversed": ["Narrow-minded", "Carelessness", "Lack of Direction", "Stagnant"],
+		"situations": "Overworked, tired, cared for, dedicated, confident person",
+		"obstacles": "Fatigue, too much information",
+		"aid": "Helpful and reliable person, caring person, coffee, tea",
+		"resolution": "Find direction, escape stagnation, get help from someone, do something different to avoid monotony, remain dedicated",
 		"image": "control/12-control-rogue.png"
 	},
 	{
@@ -114,6 +162,10 @@
 		"value": "Guardian",
 		"meanings": ["Grace", "Wealth", "Dignity", "Silent", "Secure"],
 		"reversed": ["Suspicious", "Vicious", "Untrustworthy", "Needy"],
+		"situations": "Generous woman, bills, care, nursing",
+		"obstacles": "Bad food, vermin, rats, poverty, clutter, cracks",
+		"aid": "Generous woman, careful person, mindfulness, dignified",
+		"resolution": "Address the needs of those around you, take care of bills, feed them, repair the cracks, clean the environment, show compassion",
 		"image": "control/13-control-guardian.png"
 	},
 	{
@@ -123,6 +175,10 @@
 		"value": "Diplomat",
 		"meanings": ["Protective", "Loyal", "Intelligent", "Leader"],
 		"reversed": ["Vice", "Corrupt", "Avarice", "Shake-up in Work"],
+		"situations": "Last requests, keeping vigil, recovering, protecting the ill and needy, loyalty",
+		"obstacles": "Illness, fatigue, unable to make yourself clear",
+		"aid": "Protective, loyal helper, overseeing and keeping vigil",
+		"resolution": "Useful information revealed by the helper, aid from valuable and vital medical equipment. What is the third request?",
 		"image": "control/14-control-diplomat.png"
 	}
 ]
