@@ -69,14 +69,18 @@ export default Vue.component('CardFlip', {
 <style scoped>
 
 .card-display {
-	transition: transform 0.8s;
-	transform-style: preserve-3d;
-	@apply relative;
 	perspective: 1000px;
 }
 
-.card-display.flipped {
+.card-display.flipped .card {
 	transform: rotateY(180deg);
+}
+
+.card {
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	@apply relative;
+
 }
 
 .card-display .card-front, .card-display .card-back {
