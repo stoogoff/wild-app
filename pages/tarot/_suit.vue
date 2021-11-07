@@ -6,6 +6,7 @@
 				<swiper>
 					<swiper-slide>
 						<article class="px-6 flex flex-col">
+							HERE
 							<img :src="imagePath" class="mb-6" />
 							<markdown-content :content="contentPath" />
 						</article>

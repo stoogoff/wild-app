@@ -192,23 +192,3 @@ ol.list, .content ol {
 .btn-group .btn:last-child {
 	@apply rounded-r-md;
 }
-
-.fade-enter-active, .fade-leave-active {
-	transition: opacity .5s;
-}
-
-.fade-enter, .fade-leave-to {
-	opacity: 0;
-}
-
-.slide-up-enter-active, .slide-up-leave-active {
-	transition: transform .5s;
-}
-
-.slide-up-enter-to, .slide-up-leave {
-	transform: translateY(0);
-}
-
-.slide-up-enter, .slide-up-leave-to {
-	transform: translateY(100%);
-}
