@@ -6,7 +6,6 @@
 				<swiper>
 					<swiper-slide>
 						<article class="px-6 flex flex-col">
-							HERE
 							<img :src="imagePath" class="mb-6" />
 							<markdown-content :content="contentPath" />
 						</article>
@@ -26,7 +25,8 @@
 								</div>
 							</div>
 							<markdown-content :content="contentPath" />
-							<card-grid :cards="cards" />
+							<card-filter :value="cards" @input="updateGrid" />
+							<card-grid :cards="filteredCards" />
 						</main>
 					</div>
 				</div>
@@ -56,13 +56,14 @@ export default {
 		const content = await this.$content(this.contentPath).only(['image']).fetch()
 
 		this.image = content.image
-		this.cards = deck.suit(this.suit)
+		this.filteredCards = this.cards = deck.suit(this.suit)
 	},
 
 	data() {
 		return {
 			image: '',
 			cards: [],
+			filteredCards: [],
 		}
 	},
 
@@ -91,6 +92,12 @@ export default {
 
 		imagePath() {
 			return `/img/cards/${this.image}`
+		},
+	},
+
+	methods: {
+		updateGrid(newCards) {
+			this.filteredCards = newCards
 		},
 	},
 }

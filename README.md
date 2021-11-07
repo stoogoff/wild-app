@@ -22,5 +22,3 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## TODO
 
 Add a create character process which lets you select stuff so you can add an existing character
-
-Add a card search to the card main screen and each of the card screen

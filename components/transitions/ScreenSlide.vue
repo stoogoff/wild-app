@@ -5,6 +5,11 @@
 		</div>
 	</transition>
 </template>
+<script>
+import Vue from 'vue'
+
+export default Vue.component('ScreenSlide', {})
+</script>
 <style>
 .slide-up-enter-active, .slide-up-leave-active {
 	transition: transform .5s;

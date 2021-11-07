@@ -33,6 +33,10 @@ export default {
 		return state.cards.filter(card => card.suit.toLowerCase().replace(' ', '-') === suit)
 	},
 
+	all() {
+		return state.cards
+	},
+
 	draw(amount = 1) {
 		let drawn = []
 		let shuffled = [ ...state.shuffled ]

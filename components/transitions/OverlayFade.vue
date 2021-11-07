@@ -5,6 +5,11 @@
 		</div>
 	</transition>
 </template>
+<script>
+import Vue from 'vue'
+
+export default Vue.component('OverlayFade', {})
+</script>
 <style>
 .fade-enter-active, .fade-leave-active {
 	transition: opacity .5s;
