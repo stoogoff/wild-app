@@ -59,10 +59,13 @@
 </template>
 <script>
 
+import OwnedCharacter from '~/mixins/OwnedCharacter'
 import { ABILITY_SPREAD, ABILITY_REST } from '~/utils/config'
 import { character } from '~/state'
 
 export default {
+	mixins: [ OwnedCharacter ],
+
 	async fetch() {
 		this.loading = true
 

@@ -8,12 +8,25 @@
 				</div>
 			</div>
 		</section>
+		<message-view v-if="hasText">{{ text }}</message-view>
 	</div>
 </template>
 <script>
-	
+
+import { message } from '~/state'
+
 export default {
 	name: 'DefaultLayout',
+
+	computed: {
+		text() {
+			return message.getMessage()
+		},
+
+		hasText() {
+			return message.hasMessage()
+		}
+	}
 }
 
 </script>

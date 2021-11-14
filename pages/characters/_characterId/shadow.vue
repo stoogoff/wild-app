@@ -35,9 +35,12 @@
 </template>
 <script>
 
+import OwnedCharacter from '~/mixins/OwnedCharacter'
 import { deck, character } from '~/state'
 
 export default {
+	mixins: [ OwnedCharacter ],
+
 	async fetch() {
 		this.loading = true
 

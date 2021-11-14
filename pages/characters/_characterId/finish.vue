@@ -31,9 +31,12 @@
 </template>
 <script>
 
+import OwnedCharacter from '~/mixins/OwnedCharacter'
 import { character, image } from '~/state'
 
 export default {
+	mixins: [ OwnedCharacter ],
+
 	async fetch() {
 		this.loading = true
 

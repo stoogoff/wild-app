@@ -50,14 +50,13 @@
 </template>
 <script>
 
-import {
-	ATTRIBUTE_MAX,
-	ATTRIBUTE_MIN,
-	ATTRIBUTES_STARTING,
-} from '~/utils/config'
+import OwnedCharacter from '~/mixins/OwnedCharacter'
+import { ATTRIBUTE_MAX, ATTRIBUTE_MIN, ATTRIBUTES_STARTING } from '~/utils/config'
 import { character } from '~/state'
 
 export default {
+	mixins: [ OwnedCharacter ],
+
 	async fetch() {
 		this.loading = true
 

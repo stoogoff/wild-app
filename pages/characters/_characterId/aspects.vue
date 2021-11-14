@@ -33,10 +33,13 @@
 </template>
 <script>
 
+import OwnedCharacter from '~/mixins/OwnedCharacter'
 import { ASPECTS_MIN, ASPECTS_MAX, DEFAULT_ASPECT } from '~/utils/config'
 import { character } from '~/state'
 
 export default {
+	mixins: [ OwnedCharacter ],
+
 	async fetch() {
 		this.loading = true
 

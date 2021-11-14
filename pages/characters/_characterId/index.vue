@@ -2,13 +2,13 @@
 	<main>
 		<loading-spinner v-if="loading || !character" />
 		<div v-else>
-			<section v-if="inViewMode" class="btn-panel">
+			<section v-if="inViewMode && isUserOwned" class="btn-panel">
 				<button-action block disabled>Play</button-action>
 				<button-action block type="primary" @click="soloPlay">Solo</button-action>
 				<button-action block type="success" @click="editCharacter">Edit</button-action>
 				<button-action block type="warning" @click="confirmDeleteCharacter">Delete</button-action>
 			</section>
-			<section v-if="inPlayMode" class="btn-panel gap-x-2">
+			<section v-if="inPlayMode && isUserOwned" class="btn-panel gap-x-2">
 				<menu-button type="primary" block outlined @click="drawCards" :disabled="!readyToDraw" :items="skillTestItems">
 					Skill Check
 				</menu-button>
@@ -19,6 +19,7 @@
 
 			<section class="relative">
 				<h1>{{ character.name }}</h1>
+				<span class="absolute top-0 right-0"><icon-action icon="copy" outlined @click="copyLink" /></span>
 			</section>
 
 			<section class="section sm:grid grid-cols-2 gap-4" v-if="inViewMode && (character.background || character.image)">
@@ -97,8 +98,9 @@
 </template>
 <script>
 
+import Vue from 'vue'
 import range from 'lodash/range'
-import { character } from '~/state'
+import { character, user, message } from '~/state'
 import { getCurrentAttribute, isInjured } from '~/utils/character'
 import { ASPECT_INJURY } from '~/utils/config'
 
@@ -163,6 +165,16 @@ export default {
 		isInjured() {
 			return isInjured(this.character)
 		},
+
+		isUserOwned() {
+			if(!this.character) {
+				return false
+			}
+
+			const loggedInUser = user.getLoggedInUser()
+
+			return this.character.userId === loggedInUser.uid
+		}
 	},
 
 	methods: {
@@ -172,6 +184,12 @@ export default {
 
 		exitPlay() {
 			this.mode = VIEW
+		},
+
+		copyLink() {
+			navigator.clipboard.writeText(window.location.href)
+
+			message.setMessage(`Copied character URL to clipboard`)
 		},
 
 		editCharacter() {
