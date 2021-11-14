@@ -5,9 +5,10 @@
 				<card-view :card="card" />
 			</div>
 			<span class="absolute top-0 right-0">
-				<slot v-bind:card="card" />
+				<slot name="card" v-bind:card="card" />
 			</span>
 		</div>
+		<slot name="panel" />
 		<overlay-fade v-if="viewCard">
 			<div class="relative p-5">
 				<card-flip :card="viewCard" />

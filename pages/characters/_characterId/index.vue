@@ -17,7 +17,10 @@
 				</menu-button>
 			</section>
 
-			<h1>{{ character.name }}</h1>
+			<section class="relative">
+				<h1>{{ character.name }}</h1>
+			</section>
+
 			<section class="section sm:grid grid-cols-2 gap-4" v-if="inViewMode && (character.background || character.image)">
 				<character-image :character="character" />
 				<p class="mb-4 text-lg leading-relaxed text-gray-800">{{ character.background }}</p>
@@ -64,6 +67,8 @@
 				<h2>Abilities</h2>
 				<attributes-view :values="character.abilities" :play="inPlayMode" v-model="selectedAbility" />
 			</section>
+
+			<button-action v-if="inPlayMode" block type="primary" outlined @click="exitPlay">Exit Solo Play</button-action>
 
 			<skill-check-draw
 				v-if="showDrawCards"
@@ -163,6 +168,10 @@ export default {
 	methods: {
 		soloPlay() {
 			this.mode = SOLO
+		},
+
+		exitPlay() {
+			this.mode = VIEW
 		},
 
 		editCharacter() {
@@ -270,6 +279,6 @@ export default {
 	@apply flex fixed bg-white bottom-0 left-0 right-0 px-6 py-2 border-t border-gray-300 z-10;
 }
 .section {
-	@apply mb-6 border-t border-gray-300 pt-6 px-12;
+	@apply mb-6 border-t border-gray-300 pt-6 px-6;
 }
 </style>

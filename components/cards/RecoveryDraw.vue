@@ -9,11 +9,9 @@
 				<nav-item icon="close" @click="close">Close</nav-item>
 			</div>
 		</nav-bar>
-		<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-			<card-view :key="`card_${card.id}`" v-for="card in cards" :card="card" />
-			<div>
-				<attributes-view :values="character.attributes" :injuries="injuries" />
-				<div>
+		<card-grid :cards="cards">
+			<template #panel>
+				<div class="px-2 pt-8">
 					<h3>Recovery</h3>
 					<ul v-if="modifications.length > 0">
 						<li :key="`mod_${index}`" v-for="(mod, index) in modifications">
@@ -22,8 +20,8 @@
 					</ul>
 					<p v-else>You recover nothing this time.</p>
 				</div>
-			</div>
-		</div>
+			</template>
+		</card-grid>
 	</screen-slide>
 </template>
 <script>

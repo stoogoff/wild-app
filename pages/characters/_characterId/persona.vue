@@ -8,14 +8,15 @@
 					<card-grid
 						:cards="cards"
 						:selected="character.persona.card"
-						v-slot="{ card }"
 					>
-						<icon-action
-							@click="toggleSelectedCard(card)"
-							:type="isSelected(card) ? 'success' : ''"
-							icon="check"
-							:outlined="!isSelected(card)"
-						/>
+						<template #card="{ card }">
+							<icon-action
+								@click="toggleSelectedCard(card)"
+								:type="isSelected(card) ? 'success' : ''"
+								icon="check"
+								:outlined="!isSelected(card)"
+							/>
+						</template>
 					</card-grid>
 
 					<div class="mt-2 mb-4">
@@ -83,6 +84,7 @@ export default {
 		toggleSelectedCard(card) {
 			if(this.character.persona.card && this.character.persona.card === card.id) {
 				this.character.persona.card = null
+				this.character.persona.reversed = false
 			}
 			else {
 				this.character.persona.card = card.id

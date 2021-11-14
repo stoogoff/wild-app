@@ -2,30 +2,37 @@
 	<screen-slide>
 		<nav-bar>
 			<template #title>
-				{{ totalSuccesses }} Success{{ totalSuccesses === 1 ? '' : 'es' }}
+				Skill Check
 			</template>
 			<template #buttons>
-				<nav-button icon="refresh" :disabled="!canPush" @click="push" />
 				<nav-button icon="close" @click="$emit('close')" />
 			</template>
 			<div class="hidden md:flex md:flex-row md:ml-auto relative">
-				<nav-item icon="refresh" :disabled="!canPush" @click="push">Push</nav-item>
 				<nav-item icon="close" @click="$emit('close')">Close</nav-item>
 			</div>
 		</nav-bar>
-		<card-grid
-			:cards="cards"
-			v-slot="{ card }"
-		>
-			<span class="marker" :class="isSuccessful(card) ? 'success' : 'fail'">
-				<icon-view :icon="icon(card)" />
-			</span>
+		<section class="px-6 py-3 md:text-center">Making a <strong>{{ attribute }} ({{ attributeValue }})</strong> and <strong>{{ ability }} ({{ abilityValue }})</strong> skill check.</section>
+		<card-grid :cards="cards">
+			<template #card="{ card }">
+				<span class="marker" :class="isSuccessful(card) ? 'success' : 'fail'">
+					<icon-view :icon="icon(card)" />
+				</span>
+			</template>
+			<template #panel>
+				<div class="px-2 pt-8">
+					<h3>Results</h3>
+					<p>{{ totalSuccesses }} Success{{ totalSuccesses === 1 ? '' : 'es' }}</p>
+					<button-action small :disabled="!canPush" @click="push">Push</button-action>
+					<button-action small @click="redraw">Redraw</button-action>
+					<p>Pushing a draw lets you redraw failed cards but will damage your <strong>{{ attribute }}</strong> attribute by 1 point.</p>
+				</div>
+			</template>
 		</card-grid>
 	</screen-slide>
 </template>
 <script>
 import Vue from 'vue'
-import { getTargetNumber, getCurrentAttribute } from '~/utils/character'
+import { getTargetNumber, getCurrentAttribute, getAbility } from '~/utils/character'
 import deck from '~/state/deck'
 
 export default Vue.component('SkillCheckDraw', {
@@ -60,6 +67,14 @@ export default Vue.component('SkillCheckDraw', {
 	},
 
 	computed: {
+		attributeValue() {
+			return getCurrentAttribute(this.character, this.attribute)
+		},
+
+		abilityValue() {
+			return getAbility(this.character, this.ability)
+		},
+
 		totalSuccesses() {
 			return this.cards.map(card => this.successes(card)).reduce((acc, val) => acc + val, 0)
 		},
@@ -119,6 +134,7 @@ export default Vue.component('SkillCheckDraw', {
 			return 'check-all'
 		},
 
+		// push the draw, damaging attributes and only drawing failed cards
 		push() {
 			const tn = this.targetNumber
 
@@ -128,6 +144,10 @@ export default Vue.component('SkillCheckDraw', {
 
 			this.targetNumber = tn
 		},
+
+		redraw() {
+			this.$fetch()
+		}
 	},
 })
 </script>

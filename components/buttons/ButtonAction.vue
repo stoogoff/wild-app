@@ -1,7 +1,7 @@
 <template>
 	<button :class="classList" :disabled="disabled" @click="$emit('click')">
 		<slot />
-		<span class="hidden btn disabled enabled primary secondary success warning outlined"></span>
+		<span class="hidden btn disabled enabled primary secondary success warning outlined small"></span>
 	</button>
 </template>
 <script>
@@ -25,6 +25,10 @@ export default Vue.component('ButtonAction', {
 			type: Boolean,
 			default: false,
 		},
+		small: {
+			type: Boolean,
+			default: false,
+		},
 	},
 
 	computed: {
@@ -37,6 +41,10 @@ export default Vue.component('ButtonAction', {
 
 			if(this.outlined) {
 				classList.push('outlined')
+			}
+
+			if(this.small) {
+				classList.push('small')
 			}
 
 			if(this.disabled === true) {

@@ -135,6 +135,9 @@ ol.list, .content ol {
 .btn.enabled {
 	@apply hover:shadow-lg cursor-pointer;
 }
+.btn.small {
+	@apply px-3 py-1 text-xs;
+}
 .btn.primary {
 	@apply bg-focus-dark text-focus-lighter hover:bg-focus-darker;
 }
