@@ -195,7 +195,7 @@ export default {
 		editCharacter() {
 			const { redirect } = this.$nuxt.context
 
-			redirect(`/characters/${this.character.id}/persona`)
+			redirect(`/characters/${this.character.id}/add`)
 		},
 
 		async deleteCharacter(result) {
@@ -209,7 +209,7 @@ export default {
 					this.$router.push('/characters')
 				}
 				catch(error) {
-					console.log(error)
+					console.warn(error)
 				}
 
 				this.loading = false

@@ -10,3 +10,5 @@ title: Character Creation
 1. **Abilities** &mdash; There are five Abilities which reflect the characters talents, skills and training.
 1. **Aspects** &mdash; Choose a handful of Aspects that help to define your characters strengths and weaknesses.
 1. **Finishing Touches** &mdash; Name, description, image.
+
+Use the Walkthrough button to guide you through character creation or the Add button to enter stats and cards directly.

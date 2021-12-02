@@ -33,11 +33,15 @@ export default {
 			return newImage
 		}
 		catch(error) {
-			console.log('Error loading image:', error)
+			console.warn('Error loading image:', error)
 		}
 	},
 
 	async save(id, file) {
+		if(!file.name && file.path) {
+			return file.path
+		}
+
 		const name = file.name
 		const ext = name.substring(name.lastIndexOf('.'))
 		const root = storage().ref(STORAGE_CHARACTERS)
@@ -55,7 +59,7 @@ export default {
 			state.images = state.images.filter(image => image.path !== imagePath)
 		}
 		catch(error) {
-			console.log('Error deleting image:', error)
+			console.warn('Error deleting image:', error)
 		}
 	},
 

@@ -47,7 +47,7 @@ export default {
 			this.existingFeedback = sortBy(feedback.all(), 'date').reverse()
 		}
 		catch(error) {
-			console.log(error)
+			console.warn(error)
 		}
 
 		this.loading = false
