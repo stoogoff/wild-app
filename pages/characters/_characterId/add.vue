@@ -2,6 +2,7 @@
 	<main>
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
+			<h1>Add Character</h1>
 			<column-view
 				title="Personal Details"
 				sidebar="The character’s name and other personal details."
@@ -46,7 +47,7 @@
 							:message="message"
 						/>
 					</validate-field>
-					<card-filter-select :cards="cards" :selected="character.persona.card" @input="selectPersonaCard" />
+					<card-filter-select :cards="cards" :selected="character.persona" @input="selectPersonaCard" />
 				</div>
 			</column-view>
 			<column-view
@@ -66,7 +67,7 @@
 							:message="message"
 						/>
 					</validate-field>
-					<card-filter-select :cards="cards" :selected="character.shadow.card" @input="selectShadowCard" />
+					<card-filter-select :cards="cards" :selected="character.shadow" @input="selectShadowCard" />
 				</div>
 			</column-view>
 			<column-view
@@ -74,16 +75,27 @@
 				sidebar="Aspects are simple phrases which define the character’s strengths and weaknesses."
 			>
 				<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
-					<text-input :label="`Aspect ${idx + 1}`" v-model="character.aspects[idx].text">
-						<template #append>
-							<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
-								<icon-view icon="close" />
-							</span>
-						</template>
-					</text-input>
+					<validate-field
+						:value="character.aspects[idx].text"
+						:rules="rules.required"
+						v-slot="{ error, message }"
+					>
+						<text-input
+							:label="`Aspect ${idx + 1}`"
+							v-model="character.aspects[idx].text"
+							:error="error"
+							:message="message"
+						>
+							<template #append>
+								<span class="text-gray-300 hover:text-red-500 cursor-pointer" @click="removeAspect(idx)">
+									<icon-view icon="close" />
+								</span>
+							</template>
+						</text-input>
+					</validate-field>
 				</div>
 				<div class="mt-2 mb-6 col-span-2">
-					<button-action type="primary" outlined block @click="addAspect">Add</button-action>
+					<button-action type="primary" :outlined="character.aspects.length > 0" :disabled="character.aspects.length >= 8" block @click="addAspect">Add</button-action>
 				</div>
 			</column-view>
 			<column-view
@@ -124,7 +136,10 @@
 					/>
 				</validate-field>
 			</column-view>
-			<button-action block type="primary" @click="save" :disabled="!canContinue">Save</button-action>
+			<div class="flex">
+				<button-action block outlined @click="close">Cancel</button-action>
+				<button-action block type="primary" @click="save" :disabled="!canContinue">Save</button-action>
+			</div>
 		</section>
 	</main>
 </template>
@@ -139,7 +154,7 @@ import {
 	ABILITY_MIN,
 	ABILITY_MAX
 } from '~/utils/config'
-import { required, numeric, minVal, maxVal, validateBatch } from '~/utils/validators'
+import { required, requiredEach, numeric, minVal, maxVal, minLen, validateBatch } from '~/utils/validators'
 import { character, image, deck } from '~/state'
 
 export default {
@@ -192,24 +207,34 @@ export default {
 				return false
 			}
 
-			const character = {}
-			const rules = {}
+			const rules = {
+				name: this.rules.required,
+				persona: this.rules.required,
+				personaCard: this.rules.required,
+				shadow: this.rules.required,
+				shadowCard: this.rules.required,
+				aspects: [minLen(1), requiredEach()],
+			}
+			const character = {
+				name: this.character.name,
+				persona: this.character.persona.text,
+				personaCard: this.character.persona.card,
+				shadow: this.character.shadow.text,
+				shadowCard: this.character.shadow.card,
+				aspects: this.character.aspects.map(aspect => aspect.text)
+			}
 
+			this.attributes.forEach(key => {
+				rules[key] = this.rules.attributes
+				character[key] = this.character.attributes[key]
+			})
 
-			return validateBatch(
-				{
-					name: this.rules.required,
-					persona: this.rules.required,
-					shadow: this.rules.required,
-					control: this.rules.attributes,
-				},
-				{
-					name: this.character.name,
-					persona: this.character.persona,
-					shadow: this.character.shadow,
-					control: this.character.attributes.Control,
-				}
-			)
+			this.abilities.forEach(key => {
+				rules[key] = this.rules.abilities
+				character[key] = this.character.abilities[key]
+			})
+
+			return validateBatch(rules, character)
 		},
 	},
 
@@ -244,6 +269,7 @@ export default {
 			const { redirect } = this.$nuxt.context
 
 			this.loading = true
+
 			// save an image
 			if(this.image) {
 				const imageUrl = await image.save(
@@ -262,10 +288,16 @@ export default {
 
 			await character.save(this.character)
 
-			redirect(`/characters/${this.character.id}`)
+			this.close()
 
 			this.loading = false
 		},
+
+		close() {
+			const { redirect } = this.$nuxt.context
+
+			redirect(`/characters/${this.character.id}`)
+		}
 	},
 }
 </script>

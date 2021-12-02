@@ -33,6 +33,12 @@ export default Vue.component('CardView', {
 		}
 	},
 
+	watch: {
+		'card.isReversed'() {
+			this.actualCard.isReversed = this.card.isReversed
+		},
+	},
+
 	data() {
 		return {
 			actualCard: { ...this.card },

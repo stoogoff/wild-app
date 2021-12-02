@@ -1,7 +1,7 @@
 <template>
-	<div class="md:flex mb-6">
+	<div class="md:flex mb-6 pb-6 border-b border-gray-300">
 		<article class="md:w-8/12">
-			<h2>{{ title }}</h2>
+			<h2 class="mb-2">{{ title }}</h2>
 			<div class="md:grid grid-cols-2 gap-4">
 				<slot />
 			</div>

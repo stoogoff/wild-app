@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<card-filter :value="cards" @input="updateGrid" />
+		<div class="flex">
+			<div class="w-10/12"><card-filter :value="cards" @input="updateGrid" /></div>
+			<div class="w-1/12 mt-9 ml-4"><check-box v-model="selected.reversed" label="Reversed" /></div>
+		</div>
 		<card-grid :cards="filteredCards">
 			<template #card="{ card }">
 				<icon-action
@@ -23,20 +26,32 @@ export default Vue.component('CardFilterSelect', {
 			required: true,
 		},
 		selected: {
-			type: String,
+			type: Object,
 			default: null,
 		},
 	},
 
 	data() {
-		return {
-			filteredCards: [],
+		let filteredCards = []
+
+		if(this.selected) {
+			filteredCards = [ ...this.cards.filter(card => card.id === this.selected.card).map(card => ({ ...card, isReversed: this.selected.reversed })) ]
 		}
+
+		return {
+			filteredCards,
+		}
+	},
+
+	watch: {
+		'selected.reversed'() {
+			this.filteredCards = this.filteredCards.map(card => ({ ...card, isReversed: this.selected.reversed }))
+		},
 	},
 
 	methods: {
 		isSelected(card) {
-			return this.selected && this.selected === card.id
+			return this.selected && this.selected.card === card.id
 		},
 
 		selectCard(card) {
@@ -44,7 +59,7 @@ export default Vue.component('CardFilterSelect', {
 		},
 
 		updateGrid(newCards) {
-			this.filteredCards = newCards.length === this.cards.length ? [] : newCards
+			this.filteredCards = newCards.length === this.cards.length ? [] : newCards.map(card => ({ ...card, isReversed: this.selected.reversed }))
 		},
 	},
 })

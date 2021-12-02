@@ -209,7 +209,7 @@ export default {
 					this.$router.push('/characters')
 				}
 				catch(error) {
-					console.log(error)
+					console.warn(error)
 				}
 
 				this.loading = false

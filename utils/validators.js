@@ -1,10 +1,11 @@
 
-
 export const validate = (rules, input) => rules.map(func => func(input)).filter(result => result !== true)
 
 export const validateBatch = (rules, inputs) => Object.keys(rules).map(key => validate(rules[key], inputs[key])).reduce((acc, val) => acc + val.length, 0) === 0
 
 export const required = () => value => !!value || 'Required field'
+
+export const requiredEach = () => values => values.map(item => required()(item)).filter(item => item !== true).length === 0 || 'Required field'
 
 export const numeric = () => value => /^\d+$/.test(value) || 'Numeric field'
 
