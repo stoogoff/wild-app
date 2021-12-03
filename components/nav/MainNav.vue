@@ -23,6 +23,9 @@
 import Vue from 'vue'
 import { character, user } from '~/state'
 
+const CHARACTERS = 1
+const ACCOUNT = 4
+
 export default Vue.component('MainNav', {
 	props: {
 		transparent: {
@@ -76,6 +79,11 @@ export default Vue.component('MainNav', {
 					]
 				},
 				{
+					title: 'Dream Master',
+					href: '/dream-master',
+					icon: 'book-open-variant',
+				},
+				{
 					title: 'Account',
 					href: '/account',
 					icon: 'account-circle',
@@ -85,12 +93,12 @@ export default Vue.component('MainNav', {
 			// add characters
 			const characters = character.all()
 
-			menuItems[1].menuItems = characters.map(character => ({
+			menuItems[CHARACTERS].menuItems = characters.map(character => ({
 				title: character.name || `Unnamed character (${character.id})`,
 				href: `/characters/${character.id}`,
 			}))
 
-			menuItems[1].menuItems.push({
+			menuItems[CHARACTERS].menuItems.push({
 				title: 'New Character',
 				href: '/characters/new',
 				separator: true,
@@ -100,13 +108,13 @@ export default Vue.component('MainNav', {
 			const loggedInUser = user.getLoggedInUser()
 
 			if(!loggedInUser || loggedInUser.isAnonymous) {
-				menuItems[3].menuItems = [
+				menuItems[ACCOUNT].menuItems = [
 					{ title: 'Login', href: '/account/login' },
 					{ title: 'Register', href: '/account/register' },
 				]
 			}
 			else {
-				menuItems[3].menuItems = [
+				menuItems[ACCOUNT].menuItems = [
 					{ title: 'Logout', href: '/account/logout'},
 				]
 			}

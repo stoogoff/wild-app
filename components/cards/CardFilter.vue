@@ -1,5 +1,5 @@
 <template>
-	<text-input label="Filter" v-model="filterText" @input="filter">
+	<text-input :label="label" v-model="filterText" @input="filter">
 		<template #append>
 			<span class="text-gray-300 hover:text-gray-500 cursor-pointer" @click="clear()">
 				<icon-view icon="close" />
@@ -12,6 +12,10 @@ import Vue from 'vue'
 
 export default Vue.component('CardFilter', {
 	props: {
+		label: {
+			type: String,
+			default: 'Filter',
+		},
 		value: {
 			type: Array,
 			required: true,

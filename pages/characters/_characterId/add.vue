@@ -3,10 +3,7 @@
 		<loading-spinner v-if="loading || character === null" />
 		<section v-else>
 			<h1>Add Character</h1>
-			<column-view
-				title="Personal Details"
-				sidebar="The character’s name and other personal details."
-			>
+			<column-view title="Personal Details">
 				<div>
 					<validate-field
 						:value="character.name"
@@ -29,11 +26,11 @@
 						<image-upload :file="image" @delete="removeImage" />
 					</div>
 				</div>
+				<template #sidebar>
+					<p class="mt-14">The character’s name and other personal details.</p>
+				</template>
 			</column-view>
-			<column-view
-				title="Persona"
-				sidebar="Choose a card to represent the character and define their basic concept."
-			>
+			<column-view title="Persona">
 				<div class="col-span-2">
 					<validate-field
 						:value="character.persona.text"
@@ -49,11 +46,11 @@
 					</validate-field>
 					<card-filter-select :cards="cards" :selected="character.persona" @input="selectPersonaCard" />
 				</div>
+				<template #sidebar>
+					<p class="mt-14">Choose a card to represent the character and define their basic concept.</p>
+				</template>
 			</column-view>
-			<column-view
-				title="Shadow"
-				sidebar="Choose a card to represent the character’s shadow, the thing which is holding them back."
-			>
+			<column-view title="Shadow">
 				<div class="col-span-2">
 					<validate-field
 						:value="character.shadow.text"
@@ -69,11 +66,11 @@
 					</validate-field>
 					<card-filter-select :cards="cards" :selected="character.shadow" @input="selectShadowCard" />
 				</div>
+				<template #sidebar>
+					<p class="mt-14">Choose a card to represent the character’s shadow, the thing which is holding them back.</p>
+				</template>
 			</column-view>
-			<column-view
-				title="Aspects"
-				sidebar="Aspects are simple phrases which define the character’s strengths and weaknesses."
-			>
+			<column-view title="Aspects">
 				<div :key="`aspect_${idx}`" v-for="(aspect, idx) in character.aspects">
 					<validate-field
 						:value="character.aspects[idx].text"
@@ -97,11 +94,11 @@
 				<div class="mt-2 mb-6 col-span-2">
 					<button-action type="primary" :outlined="character.aspects.length > 0" :disabled="character.aspects.length >= 8" block @click="addAspect">Add</button-action>
 				</div>
+				<template #sidebar>
+					<p class="mt-14">Aspects are simple phrases which define the character’s strengths and weaknesses.</p>
+				</template>
 			</column-view>
-			<column-view
-				title="Attributes"
-				sidebar="The character’s attributes must be between 1 and 6."
-			>
+			<column-view title="Attributes">
 				<validate-field
 					:value="character.attributes[attr]"
 					:rules="rules.attributes"
@@ -116,11 +113,11 @@
 						:message="message"
 					/>
 				</validate-field>
+				<template #sidebar>
+					<p class="mt-14">The character’s attributes must be between 1 and 6.</p>
+				</template>
 			</column-view>
-			<column-view
-				title="Abilities"
-				sidebar="The character’s abilities must be between 1 and 6."
-			>
+			<column-view title="Abilities">
 				<validate-field
 					:value="character.abilities[ability]"
 					:rules="rules.abilities"
@@ -135,6 +132,9 @@
 						:message="message"
 					/>
 				</validate-field>
+				<template #sidebar>
+					<p class="mt-14">The character’s abilities must be between 1 and 6.</p>
+				</template>
 			</column-view>
 			<div class="flex">
 				<button-action block outlined @click="close">Cancel</button-action>

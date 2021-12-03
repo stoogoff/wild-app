@@ -25,7 +25,7 @@
 			leave-class="translate-y-0 opacity-100"
 			leave-to-class="translate-y-3 opacity-0"
 		>
-			<div v-show="isVisible" class="absolute pt-2 z-10 bottom-14 w-full">
+			<div v-show="isVisible" :class="`absolute pt-2 z-10 w-full ${positionClass}`">
 				<div class="relative py-1 bg-white border border-gray-200 rounded-md shadow-md">
 					<div class="relative">
 						<span
@@ -68,12 +68,22 @@ export default Vue.component('MenuButton', {
 			type: Boolean,
 			default: false,
 		},
+		position: {
+			type: String,
+			default: 'bottom',
+		},
 	},
 
 	data() {
 		return {
 			isVisible: false
 		}
+	},
+
+	computed: {
+		positionClass() {
+			return this.position === 'bottom' ? 'bottom-14' : 'top-12'
+		},
 	},
 
 	methods: {
