@@ -17,7 +17,7 @@
 </template>
 <script>
 
-import { deck } from'~/state'
+import { deck } from '~/state'
 
 export default {
 	layout: 'image',
