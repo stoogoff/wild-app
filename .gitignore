@@ -88,3 +88,10 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Terraform state and variable files
+*.tfvars
+.terraform.lock.hcl
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
