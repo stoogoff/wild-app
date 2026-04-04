@@ -1,0 +1,235 @@
+
+@import url(reset.css);
+@import url(debug.css);
+@import url(common.css);
+
+/* Font face declarations */
+@font-face {
+	font-family: 'NeutraText';
+	src: url(/static/fonts/NeutraText-Book.otf) format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeutraTextBold';
+	src: url(/static/fonts/NeutraText-Bold.otf) format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+/* Primary nav */
+nav#menu {
+	position: fixed;
+	z-index: 30;
+	top: 0;
+	width: 100%;
+	padding: 0 var(--spacing-2);
+	background-color: var(--grey-600);
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 var(--spacing-8);
+	}
+
+	.logo {
+		font-family: var(--font-bold);
+		font-size: var(--font-sm);
+		color: white;
+		font-weight: bold;
+		display: inline-block;
+		margin-right: var(--spacing-4);
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+
+		& > li > a {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: white;
+			padding: var(--spacing-3) var(--spacing-4);
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: var(--font-xs);
+			line-height: 1rem;
+
+			&:hover {
+				color: var(--grey-300);
+				text-decoration: none;
+			}
+
+			span {
+				display: block;
+				margin-left: var(--spacing-2);
+			}
+		}
+
+		& > li > ul {
+			display: none;
+			background-color: white;
+			position: absolute;
+			padding: var(--spacing-2) 0;
+			box-shadow: var(--shadow-lg);
+			width: 12rem;
+			border-radius: var(--spacing-2);
+
+			a {
+				text-transform: none;
+				font-size: var(--font-md);
+				font-weight: normal;
+				display: block;
+				padding: var(--spacing-2);
+				color: var(--grey-800);
+				 
+				&:hover {
+					color: var(--grey-800);
+					background-color: var(--grey-200);
+					text-decoration: none;
+				}
+			}
+		}
+
+		& > li:hover > ul {
+			display: block;
+		}
+	}
+}
+
+/* Footer content */
+footer#footer {
+	position: relative;
+	background-color: var(-grey-300);
+	margin-top: 5rem;
+
+	.container {
+		padding: 0 var(--spacing-8);
+	}
+
+	.links {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.social a {
+		box-sizing: content-box;
+		width: 24px;
+		height: 24px;
+		display: inline-block;
+		background-color: white;
+		margin-right: var(--spacing-2);
+		padding: var(--spacing-3);
+		box-shadow: var(--shadow-lg);
+		border-radius: 100%;
+		border: 1px solid var(--grey-200);
+	}
+
+	.useful {
+		justify-self: end;
+		margin-right: var(--spacing-8);
+
+		h5 {
+			text-transform: uppercase;
+			color: var(--grey-600);
+			font-size: var(--font-sm);
+			font-weight: 600;
+			margin-bottom: var(--spacing-2);
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+
+			a {
+				font-size: var(--font-sm);
+				color: var(--grey-700);
+				font-weight: 600;
+				display: block;
+				padding-bottom: var(--spacing-2);
+
+				&:hover {
+					color: var(--grey-900);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	.copyright {
+		font-family: var(--font-bold);
+		margin-top: var(--spacing-6);
+		padding: var(--spacing-7) 0;
+		border-top: 1px solid var(--grey-400);
+		font-size: var(--font-xs);
+		font-weight: 600;
+		color: var(--grey-600);
+		text-align: center;
+
+		a {
+			color: var(--grey-600);
+
+			&:hover {
+				text-decoration: none;
+				color: var(--grey-800);
+			}
+		}
+	}
+}
+
+/* Cover image */
+#cover-image {
+	position: relative;
+	height: 500px;
+
+	div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: transparent url(/static/img/cover.jpg) 50% 50% no-repeat;
+		background-size: cover;
+
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.5);
+		}
+	}
+
+	svg {
+		color: var(--grey-300);
+		position: absolute;
+		top: auto;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+/* Main content */
+main {
+	background-color: white;
+	padding: var(--spacing-8);
+	box-shadow: var(--shadow-lg);
+	border-radius: var(--spacing-2);
+}
+
+section.image-header {
+	position: relative;
+	margin-top: -20rem;
+}

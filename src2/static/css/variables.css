@@ -1,0 +1,117 @@
+
+:root {
+	/* Screen sizes, minimum width to be considered in that category */
+	/* These don't actually work in media queries, unfortunately */
+	--screen-xsmall:  0em;
+	--screen-small:  25em;
+	--screen-medium: 36em;
+	--screen-large:  55em;
+	--screen-xlarge: 75em;
+
+	/* Fonts */
+	--font-base: 'NeutraText', sans-serif;
+	--font-bold: 'NeutraTextBol', sans-serif;
+	--font-xs: 0.75rem;
+	--font-sm: 0.875rem;
+	--font-md: 1rem;
+	--font-lg: 1.125rem;
+	--font-xl: 1.25rem;
+	--font-2xl: 1.5rem;
+	--font-3xl: 1.875rem;
+
+	/* Shadow */
+	--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+	/* Spacing */
+	--spacing-1: 0.25rem;
+	--spacing-2: 0.5rem;
+	--spacing-3: 0.75rem;
+	--spacing-4: 1rem;
+	--spacing-5: 1.25rem;
+	--spacing-6: 1.5rem;
+	--spacing-7: 1.75rem;
+	--spacing-8: 2rem;
+
+	/* Base colours */
+	--stone-50: oklch(98.5% 0.001 106.423);
+	--stone-100: oklch(97% 0.001 106.424);
+	--stone-200: oklch(92.3% 0.003 48.717);
+	--stone-300: oklch(86.9% 0.005 56.366);
+	--stone-400: oklch(70.9% 0.01 56.259);
+	--stone-500: oklch(55.3% 0.013 58.071);
+	--stone-600: oklch(44.4% 0.011 73.639);
+	--stone-700: oklch(37.4% 0.01 67.558);
+	--stone-800: oklch(26.8% 0.007 34.298);
+	--stone-900: oklch(21.6% 0.006 56.043);
+	--stone-950: oklch(14.7% 0.004 49.25);
+
+	--grey-50: oklch(98.5% 0.002 247.839);
+	--grey-100: oklch(96.7% 0.003 264.542);
+	--grey-200: oklch(92.8% 0.006 264.531);
+	--grey-300: oklch(87.2% 0.01 258.338);
+	--grey-400: oklch(70.7% 0.022 261.325);
+	--grey-500: oklch(55.1% 0.027 264.364);
+	--grey-600: oklch(44.6% 0.03 256.802);
+	--grey-700: oklch(37.3% 0.034 259.733);
+	--grey-800: oklch(27.8% 0.033 256.848);
+	--grey-900: oklch(21% 0.034 264.665);
+	--grey-950: oklch(13% 0.028 261.692);
+
+	--amber-50: oklch(98.7% 0.022 95.277);
+	--amber-100: oklch(96.2% 0.059 95.617);
+	--amber-200: oklch(92.4% 0.12 95.746);
+	--amber-300: oklch(87.9% 0.169 91.605);
+	--amber-400: oklch(82.8% 0.189 84.429);
+	--amber-500: oklch(76.9% 0.188 70.08);
+	--amber-600: oklch(66.6% 0.179 58.318);
+	--amber-700: oklch(55.5% 0.163 48.998);
+	--amber-800: oklch(47.3% 0.137 46.201);
+	--amber-900: oklch(41.4% 0.112 45.904);
+	--amber-950: oklch(27.9% 0.077 45.635);
+
+	--slate-50: oklch(98.4% 0.003 247.858);
+	--slate-100: oklch(96.8% 0.007 247.896);
+	--slate-200: oklch(92.9% 0.013 255.508);
+	--slate-300: oklch(86.9% 0.022 252.894);
+	--slate-400: oklch(70.4% 0.04 256.788);
+	--slate-500: oklch(55.4% 0.046 257.417);
+	--slate-600: oklch(44.6% 0.043 257.281);
+	--slate-700: oklch(37.2% 0.044 257.287);
+	--slate-800: oklch(27.9% 0.041 260.031);
+	--slate-900: oklch(20.8% 0.042 265.755);
+	--slate-950: oklch(12.9% 0.042 264.695);
+
+	--zinc-50: oklch(98.5% 0 0);
+	--zinc-100: oklch(96.7% 0.001 286.375);
+	--zinc-200: oklch(92% 0.004 286.32);
+	--zinc-300: oklch(87.1% 0.006 286.286);
+	--zinc-400: oklch(70.5% 0.015 286.067);
+	--zinc-500: oklch(55.2% 0.016 285.938);
+	--zinc-600: oklch(44.2% 0.017 285.786);
+	--zinc-700: oklch(37% 0.013 285.805);
+	--zinc-800: oklch(27.4% 0.006 286.033);
+	--zinc-900: oklch(21% 0.006 285.885);
+	--zinc-950: oklch(14.1% 0.005 285.823);
+
+	--blue-50: oklch(97% 0.014 254.604);
+	--blue-100: oklch(93.2% 0.032 255.585);
+	--blue-200: oklch(88.2% 0.059 254.128);
+	--blue-300: oklch(80.9% 0.105 251.813);
+	--blue-400: oklch(70.7% 0.165 254.624);
+	--blue-500: oklch(62.3% 0.214 259.815);
+	--blue-600: oklch(54.6% 0.245 262.881);
+	--blue-700: oklch(48.8% 0.243 264.376);
+	--blue-800: oklch(42.4% 0.199 265.638);
+	--blue-900: oklch(37.9% 0.146 265.522);
+	--blue-950: oklch(28.2% 0.091 267.935);
+}
+
+:root {
+	--primary-text: var(--grey-800);
+	--primary-bg: var(--grey-300);
+
+	--link-text: var(--blue-500);
+	--link-text-hover: var(--blue-600);
+}

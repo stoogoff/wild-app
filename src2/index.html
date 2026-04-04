@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WILD RPG App</title>
+<link rel="stylesheet" href="/static/css/variables.css" />
+<link rel="stylesheet" href="/static/css/styles.css" />
+<link rel="stylesheet" href="/static/css/responsive.css" />
+</head>
+<body>
+
+<!-- navigation -->
+<nav id="menu">
+	<div class="container">
+		<a class="logo" href="/">WILD</a>
+		<ul>
+			<li>
+				<a href="/">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+					<span>Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="/characters">
+					<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><rect fill="none" height="24" width="24"/><g><path d="M12,12.75c1.63,0,3.07,0.39,4.24,0.9c1.08,0.48,1.76,1.56,1.76,2.73L18,18H6l0-1.61c0-1.18,0.68-2.26,1.76-2.73 C8.93,13.14,10.37,12.75,12,12.75z M4,13c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2s-2,0.9-2,2C2,12.1,2.9,13,4,13z M5.13,14.1 C4.76,14.04,4.39,14,4,14c-0.99,0-1.93,0.21-2.78,0.58C0.48,14.9,0,15.62,0,16.43V18l4.5,0v-1.61C4.5,15.56,4.73,14.78,5.13,14.1z M20,13c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2s-2,0.9-2,2C18,12.1,18.9,13,20,13z M24,16.43c0-0.81-0.48-1.53-1.22-1.85 C21.93,14.21,20.99,14,20,14c-0.39,0-0.76,0.04-1.13,0.1c0.4,0.68,0.63,1.46,0.63,2.29V18l4.5,0V16.43z M12,6c1.66,0,3,1.34,3,3 c0,1.66-1.34,3-3,3s-3-1.34-3-3C9,7.34,10.34,6,12,6z"/></g></svg>
+					<span>Characters</span>
+				</a>
+			</li>
+			<li>
+				<a href="/tarot">
+					<svg width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M21.47,4.35L20.13,3.79V12.82L22.56,6.96C22.97,5.94 22.5,4.77 21.47,4.35M1.97,8.05L6.93,20C7.24,20.77 7.97,21.24 8.74,21.26C9,21.26 9.27,21.21 9.53,21.1L16.9,18.05C17.65,17.74 18.11,17 18.13,16.26C18.14,16 18.09,15.71 18,15.45L13,3.5C12.71,2.73 11.97,2.26 11.19,2.25C10.93,2.25 10.67,2.31 10.42,2.4L3.06,5.45C2.04,5.87 1.55,7.04 1.97,8.05M18.12,4.25A2,2 0 0,0 16.12,2.25H14.67L18.12,10.59" /></svg>
+					<span>Tarot</span>
+				</a>
+				<ul>
+						<li><a href="/tarot/control">Control</a></li>
+						<li><a href="/tarot/focus">Focus</a></li>
+						<li><a href="/tarot/passion">Passion</a></li>
+						<li><a href="/tarot/strength">Strength</a></li>
+						<li><a href="/tarot/major-arcana">Major Arcana</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="/dream-master">
+					<svg width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M21,5C19.89,4.65 18.67,4.5 17.5,4.5C15.55,4.5 13.45,4.9 12,6C10.55,4.9 8.45,4.5 6.5,4.5C4.55,4.5 2.45,4.9 1,6V20.65C1,20.9 1.25,21.15 1.5,21.15C1.6,21.15 1.65,21.1 1.75,21.1C3.1,20.45 5.05,20 6.5,20C8.45,20 10.55,20.4 12,21.5C13.35,20.65 15.8,20 17.5,20C19.15,20 20.85,20.3 22.25,21.05C22.35,21.1 22.4,21.1 22.5,21.1C22.75,21.1 23,20.85 23,20.6V6C22.4,5.55 21.75,5.25 21,5M21,18.5C19.9,18.15 18.7,18 17.5,18C15.8,18 13.35,18.65 12,19.5V8C13.35,7.15 15.8,6.5 17.5,6.5C18.7,6.5 19.9,6.65 21,7V18.5Z" /></svg>
+					<span>Dream Master</span>
+				</a>
+			</li>
+			<li>
+				<a href="/account">
+					<svg width="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>
+					<span>Account</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<!-- background image -->
+<section id="cover-image">
+	<div><span></span></div>
+	<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" fill="currentColor">
+		<polygon points="2560 0 2560 100 0 100" ></polygon>
+	</svg>
+</section>
+
+<!-- main content -->
+<section class="container image-header">
+	<main>
+		<section class="flex">
+			<article class="md:w-8/12">
+				<h1>WILD</h1>
+				<p>The development of the <strong>ALIS</strong> dreamshare device has changed the world.</p>
+				<p>The technology allows dreamers to enter a shared experience, to delve into the unconscious minds of those in need of help, to create worlds of adventure and exploration, to experience a reality limited only by your imagination.</p>
+				<p>But without the proper training, using the ALIS device can be a dangerous and frightening experience.</p>
+				<h2>The Game</h2>
+				<p>In the WILD RPG players enter this world, where technology and dreams meet. Where dream creatures struggle to break into the waking world, and where you can live out your wildest dreams.</p>
+				<p>The WILD: Dream Dive Training Simulation is an introduction to the WILD RPG, sending dreamers on a rescue mission into the unconscious. Connect with other dreamers, or dive alone—all you need is this book and a pack of Tarot cards.</p>
+				<h2>The App</h2>
+				<p>The WILD RPG support app provides a few tools to help you with your WILD games. It includes a full digital tarot deck for you to look through, with meanings and reversed meanings for each card. Guided character creation is available which follows the rules laid out in the WILD book and provides a digital character sheet.</p>
+				<p>Once you’ve created your character solo-play mode is available. This provides you with different methods for drawing cards including a skill check draw, which takes into account your character’s <strong>attributes</strong>, <strong>abilities</strong> and any <strong>injuries</strong> they may have.</p>
+				<h3>Coming Soon</h3>
+				<ul>
+					<li>Multi-player mode</li>
+					<li>Audio card descriptions</li>
+					<li>Character sheet downloads</li>
+				</ul>
+			</article>
+			<aside>
+				<div>
+					<card-single :card="card">
+						<div class="-mr-4"><icon-action outlined type="primary" icon="refresh" @click="$fetch" /></div>
+					</card-single>
+				</div>
+			</aside>
+		</section>
+	</main>
+</section>
+
+<!-- footer -->
+<footer id="footer">
+	<div class="container">
+		<div class="links">
+			<div class="social">
+				<a href="https://bsky.app/profile/autocratik.bsky.social" target="_blank"><svg width="24px" height="24px" viewBox="0 0 600 530" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z" fill="#1185fe"/></svg></a>
+				<a href="https://www.facebook.com/WILDRPG/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24"><path fill="rgb(37,99,235)" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg></a>
+				<a href="https://www.autocratik.com/" target="_blank"><svg width="24px" height="24px" viewBox="0 0 24 24"><path fill="rgb(124,58,237)" d="M16.36,14C16.44,13.34 16.5,12.68 16.5,12C16.5,11.32 16.44,10.66 16.36,10H19.74C19.9,10.64 20,11.31 20,12C20,12.69 19.9,13.36 19.74,14M14.59,19.56C15.19,18.45 15.65,17.25 15.97,16H18.92C17.96,17.65 16.43,18.93 14.59,19.56M14.34,14H9.66C9.56,13.34 9.5,12.68 9.5,12C9.5,11.32 9.56,10.65 9.66,10H14.34C14.43,10.65 14.5,11.32 14.5,12C14.5,12.68 14.43,13.34 14.34,14M12,19.96C11.17,18.76 10.5,17.43 10.09,16H13.91C13.5,17.43 12.83,18.76 12,19.96M8,8H5.08C6.03,6.34 7.57,5.06 9.4,4.44C8.8,5.55 8.35,6.75 8,8M5.08,16H8C8.35,17.25 8.8,18.45 9.4,19.56C7.57,18.93 6.03,17.65 5.08,16M4.26,14C4.1,13.36 4,12.69 4,12C4,11.31 4.1,10.64 4.26,10H7.64C7.56,10.66 7.5,11.32 7.5,12C7.5,12.68 7.56,13.34 7.64,14M12,4.03C12.83,5.23 13.5,6.57 13.91,8H10.09C10.5,6.57 11.17,5.23 12,4.03M18.92,8H15.97C15.65,6.75 15.19,5.55 14.59,4.44C16.43,5.07 17.96,6.34 18.92,8M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg></a>
+			</div>
+			<div class="useful">
+				<h5>Useful Links</h5>
+				<ul>
+					<li><a href="/support/about-us">About Us</a></li>
+					<li><a href="/support/feedback">Feedback</a></li>
+					<li><a href="/characters">Characters</a></li>
+					<li><a href="/tarot">Tarot</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copyright">
+			Copyright © 2021–2026 WILD App by <a href="https://we-evolve.co.uk/">we-evolve</a>.
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

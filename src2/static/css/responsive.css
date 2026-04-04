@@ -1,0 +1,32 @@
+/*
+--screen-xsmall:  0em;
+--screen-small:  25em;
+--screen-medium: 36em;
+--screen-large:  55em;
+--screen-xlarge: 75em;
+*/
+
+.sm, .md, .lg, .xl {
+	display: none;
+}
+
+@media screen and (min-width: 25em) {
+	.sm {
+		display: initial;
+	}
+}
+@media screen and (min-width: 36em) {
+	.md {
+		display: initial;
+	}
+}
+@media screen and (min-width: 55em) {
+	.lg {
+		display: initial;
+	}
+}
+@media screen and (min-width: 75em) {
+	.xl {
+		display: initial;
+	}
+}
