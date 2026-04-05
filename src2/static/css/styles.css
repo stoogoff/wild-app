@@ -229,7 +229,7 @@ footer#footer {
 
 /* Main content */
 main {
-	margin-top: 4rem;
+	margin-top: var(--spacing-16);
 	background-color: white;
 	padding: var(--spacing-8);
 	box-shadow: var(--shadow-lg);
@@ -318,4 +318,100 @@ header {
 	img[data-suit=control], img[data-suit=focus] {
 		margin-top: var(--spacing-6);
 	}
+}
+
+/* Overlay background */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: oklch(from var(--grey-800) l c h / 0.75);
+	z-index: 50;
+	backdrop-filter: blur(4px);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Card overlay */
+.card-close {
+	position: absolute;
+	top: calc(var(--spacing-4) * -1);
+	right: calc(var(--spacing-4) * -1);
+	z-index: 60;
+	background-color: white;
+	width: 3rem;
+	height: 3rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	padding: var(--spacing-2);
+	border-radius: 9999px;
+	border: 1px solid var(--grey-300);
+}
+
+.card-display {
+	perspective: 1000px;
+}
+
+.card-display.flipped .card {
+	transform: rotateY(180deg);
+}
+
+.card {
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.card-display .card-front, .card-display .card-back {
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+.card-display .card-back {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: white url(/img/cards/card-back.png) no-repeat;
+	background-size: contain;
+	padding: var(--spacing-6);
+	transform: rotateY(180deg);
+}
+
+.card-front.reversed {
+	transform: rotate(180deg);
+}
+
+.card-info-reversed {
+	text-align: center;
+	margin-bottom: var(--spacing-2);
+	color: #BA0000;
+}
+
+.card-back > div {
+	background-color: oklch(from white l c h / 0.75);
+	padding: var(--spacing-10) var(--spacing-6);
+	font-size: var(--font-lg);
+	height: 100%;
+}
+
+.card-info {
+	margin: var(--spacing-4) 0;
+	padding: var(--spacing-4) 0;
+	border-bottom: 1px solid var(--grey-300);
+	color: var(--grey-600);
+}
+.card-info.active {
+	color: var(--grey-900);
+	font-size: var(--font-xl);
+}
+.card-info:last-child {
+	border-bottom: 0;
 }

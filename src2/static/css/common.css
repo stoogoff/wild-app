@@ -91,7 +91,7 @@ ul {
 
 /* Hide and show */
 .hidden {
-	display: none;
+	display: none !important;
 }
 .invisble {
 	invisibility: hidden;

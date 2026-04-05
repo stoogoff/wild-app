@@ -34,6 +34,14 @@
 	--spacing-6: 1.5rem;
 	--spacing-7: 1.75rem;
 	--spacing-8: 2rem;
+	--spacing-9: 2.25rem;
+	--spacing-10: 2.5rem;
+	--spacing-11: 2.75rem;
+	--spacing-12: 3rem;
+	--spacing-13: 3.25rem;
+	--spacing-14: 3.5rem;
+	--spacing-15: 3.75rem;
+	--spacing-16: 4rem;
 
 	/* Base colours */
 	--stone-50: oklch(98.5% 0.001 106.423);
