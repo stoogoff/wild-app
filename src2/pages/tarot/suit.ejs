@@ -2,15 +2,22 @@
 	image: false,
 }) %>
 
-<main>
-	<div class="flex justify-center p-4 -mt-32 mb-6">
-		<div class="flex items-center justify-center shadow-xl rounded-full p-2 bg-white w-56 h-56">
-			<!-- img src="imagePath" class="w-40 h-auto" :class="imagePosition" / -->
-			<img src="/img/cards/<%= it.data.suit.image %>" />
+<main class="header">
+	<header>
+		<div>
+			<img src="/img/cards/<%= it.data.suit.image %>" data-suit="<%= it.data.suit.id %>" />
 		</div>
-	</div>
+	</header>
 	<h1><%~ it.data.suit.title %></h1>
 	<p><%~ it.data.suit.description %></p>
 	<card-filter :value="cards" @input="updateGrid" />
 	<card-grid :cards="filteredCards" />
+
+	<div class="grid-cols-4">
+		<% it.data.cards.forEach(card => { %>
+		<figure>
+			<img src="/img/cards/<%= card.image %>" alt="<%= card.title %>" />
+		</figure>
+		<% }) %>
+	</div>
 </main>

@@ -19,9 +19,9 @@ export class TarotController extends Controller {
 
 	@route('/tarot/:suit')
 	async suit() {
-		const name = this.context?.params.suit
-		const suit = this.repository.getSuit(name)
-		const cards = this.repository.getCards(name)
+		const id = this.context?.params.suit
+		const suit = this.repository.getSuit(id)
+		const cards = this.repository.getCards(id)
 
 		return await this.render('tarot/suit', new PageModel({
 			title: `${suit.title} | `,

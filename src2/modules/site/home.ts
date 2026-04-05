@@ -16,4 +16,11 @@ export class HomeController extends Controller {
 			title: 'Dream Master | ',
 		}))
 	}
+
+	@route('/support/about-us')
+	async about() {
+		return await this.render('about', new PageModel({
+			title: 'About the Team | ',
+		}))
+	}
 }
