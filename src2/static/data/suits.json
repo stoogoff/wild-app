@@ -1,0 +1,32 @@
+[
+	{
+		"id": "control",
+		"title": "Control",
+		"image": "control.svg",
+		"description": "The Control Suit, originally the suit of Coins in traditional Tarot, represents wealth, worldly matters, work, the physical body, and earthly power and the element Earth. The narrative of the suit follows the creator of the ALIS device, Carter Henderson, as he struggles balancing fatherhood, his technological developments, and betrayals in his company."
+	},
+	{
+		"id": "focus",
+		"title": "Focus",
+		"image": "focus.svg",
+		"description": "The Focus Suit, traditionally the suit a Cups, and linked to the element Water. The suit concerns emotion, imagination, intuition, and insights. The narrative of the suit follows Katherine Henderson, following her marriage to the work-focussed Carter, her affair and separation, and reuniting with her family to rescue Clarity from the dreamscape."
+	},
+	{
+		"id": "major-arcana",
+		"title": "Major Arcana",
+		"image": "spirit.svg",
+		"description": "Reflecting imagery from the Rider-Waite-Smith Tarot deck, and incorporating symbolism from some of the most common dreams, the Major Arcana represents images from Clarity's dreamscape, notable characters she encounters, and significant influences upon her conscious and unconscious life."
+	},
+	{
+		"id": "passion",
+		"title": "Passion",
+		"image": "passion.svg",
+		"description": "Traditionally the suit of Wands in a standard Tarot deck, the suit of Passion relates to the Fire element and represents will, determination, control, discipline, and order. The story of the suit follows Clarity within her dreamrealms, becoming ruler of her mindscape, before things take a turn."
+	},
+	{
+		"id": "strength",
+		"title": "Strength",
+		"image": "strength.svg",
+		"description": "In the traditional Tarot deck, this is the suit of Swords&mdash;about military strength, power, authority, violence, and suffering, the suit is connected to the element of Air. The suit follows the tragic story of Carter’s aid, Richard Hall, as he tries to sell the dreamshare technology to the military&mdash;a decision he soon regrets."
+	}
+]

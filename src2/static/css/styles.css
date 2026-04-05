@@ -6,14 +6,14 @@
 /* Font face declarations */
 @font-face {
 	font-family: 'NeutraText';
-	src: url(/static/fonts/NeutraText-Book.otf) format('opentype');
+	src: url(/fonts/NeutraText-Book.otf) format('opentype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'NeutraTextBold';
-	src: url(/static/fonts/NeutraText-Bold.otf) format('opentype');
+	src: url(/fonts/NeutraText-Bold.otf) format('opentype');
 	font-weight: bold;
 	font-style: normal;
 }
@@ -198,7 +198,7 @@ footer#footer {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: transparent url(/static/img/cover.jpg) 50% 50% no-repeat;
+		background: transparent url(/img/cover.jpg) 50% 50% no-repeat;
 		background-size: cover;
 
 		span {
@@ -221,15 +221,54 @@ footer#footer {
 	}
 }
 
+/* Reposition central panel to display over the banner image */
+.image-header {
+	position: relative;
+	margin-top: -20rem;
+}
+
 /* Main content */
 main {
+	margin-top: 4rem;
 	background-color: white;
 	padding: var(--spacing-8);
 	box-shadow: var(--shadow-lg);
 	border-radius: var(--spacing-2);
 }
 
-section.image-header {
-	position: relative;
-	margin-top: -20rem;
+/* 3/4 main content plus 1/4 sidebar */
+.sidebar {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-gap: var(--spacing-8);
+}
+
+.panel {
+	border-bottom: 1px solid var(--grey-300);
+	padding-bottom: var(--spacing-6);
+	margin-bottom: var(--spacing-6);
+
+	&:last-of-type {
+		border-bottom-width: 0;
+	}
+}
+
+figure {
+	border: 1px solid var(--grey-300);
+	padding: var(--spacing-3);
+	margin-bottom: var(--spacing-4);
+	border-radius: var(--spacing-2);
+
+	a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+figcaption {
+	text-transform: uppercase;
+	color: var(--grey-500);
+	font-size: var(--font-xl);
+	margin-top: var(--spacing-4);
 }
