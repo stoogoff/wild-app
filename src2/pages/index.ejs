@@ -21,11 +21,23 @@
 			<li>Character sheet downloads</li>
 		</ul>
 	</article>
-	<aside>
-		<div>
-			<card-single :card="card">
-				<div class="-mr-4"><icon-action outlined type="primary" icon="refresh" @click="$fetch" /></div>
-			</card-single>
-		</div>
+	<aside data-q-component="card-single">
+		<figure data-q-click="viewCard">
+			<span class="btn-icon" data-q-click="drawCard"><%~ include('./components/icon', { icon: 'refresh' }) %></span>
+			<img data-q-class="imageCss" data-q-src="image" data-q-alt="title" />
+		</figure>
 	</aside>
+	<%~ include('./components/card-overlay') %>
 </main>
+
+<script type="module">
+
+import { directives } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/reactive/directives.js'
+import CardSingle from '/js/modules/cards/single.js'
+import CardFlip from '/js/modules/cards/flip.js'
+
+directives.registerComponent('card-single', CardSingle)
+directives.registerComponent('card-flip', CardFlip)
+directives.load(document.getElementsByTagName('main')[0])
+
+</script>

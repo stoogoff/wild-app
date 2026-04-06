@@ -36,5 +36,39 @@ class RemoteStore extends ListStore {
 	}
 }
 
-export const suitStore = new RemoteStore('/data/control.json', 'title')
+export const deck = {
+	control: new RemoteStore('/data/control.json', 'title'),
+	focus: new RemoteStore('/data/focus.json', 'title'),
+	strength: new RemoteStore('/data/strength.json', 'title'),
+	passion: new RemoteStore('/data/passion.json', 'title'),
+	'major-arcana': new RemoteStore('/data/major-arcana.json', 'title'),
+
+	initialise: async () => {
+		await Promise.all([
+			deck.control.initialise(),
+			deck.focus.initialise(),
+			deck.strength.initialise(),
+			deck.passion.initialise(),
+			deck['major-arcana'].initialise(),
+		])
+	},
+
+	all: () => {
+		return [
+			...deck.control.all,
+			...deck.focus.all,
+			...deck.strength.all,
+			...deck.passion.all,
+			...deck['major-arcana'].all,
+		]
+	},
+
+	random: () => {
+		const cards = deck.all()
+
+		return cards[Math.floor(Math.random() * cards.length)]
+	}
+
+}
+
 export const selectedCard = new ObjectStore()

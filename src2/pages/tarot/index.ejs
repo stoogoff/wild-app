@@ -5,9 +5,7 @@
 <main>
 	<h1>The Tarot Deck</h1>
 	<section>
-		<card-filter :value="cards" @input="updateGrid" />
-		<card-grid :cards="filteredCards" />
-
+		<!-- card suit icons -->
 		<div class="grid-cols-2">
 			<% it.data.forEach(suit => { %>
 			<figure class="<%= suit.id === 'major-arcana' ? 'col-span-2' : '' %>">
@@ -22,3 +20,4 @@
 		</div>
 	</section>
 </main>
+

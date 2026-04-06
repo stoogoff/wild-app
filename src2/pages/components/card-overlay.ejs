@@ -1,0 +1,19 @@
+<!-- selected card overlay -->
+<div id="overlay" class="overlay hidden" data-q-component="card-flip">
+	<div class="card-display" data-q-click="flipCard">
+		<span class="btn-icon" data-q-click="closeCard"><%~ include('./icon', { icon: 'close' }) %></span>
+		<div class="card">
+			<img data-q-class="imageCss" data-q-src="image" />
+			<div class="card-back">
+				<div>
+					<h2 data-q-text="title"></h2>
+					<div class="card-info-reversed">&nbsp;<em data-q-if="isReversed">reversed</em>&nbsp;</div>
+					<div data-q-class="infoCss"><strong>Key Meaning:</strong> <em data-q-text="keyMeaning"></em></div>
+					<div data-q-class="infoCss"><strong>Other Meanings:</strong> <em data-q-text="otherMeanings"></em></div>
+					<div data-q-class="infoReversedCss"><strong>Key Reversed Meaning:</strong> <em data-q-text="keyReversedMeaning"></em></div>
+					<div data-q-class="infoReversedCss"><strong>Other Reversed Meanings:</strong> <em data-q-text="otherReversedMeaning"></em></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

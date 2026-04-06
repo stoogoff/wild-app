@@ -9,6 +9,16 @@
 			<card-filter :value="cards" label="Search Cards" @input="updateGrid" />
 			<card-grid :cards="filteredCards" />
 
+			<!-- card filter input -->
+			<div class="form-field" data-q-component="card-filter">
+				<label for="card-filter">Filter</label>
+				<div>
+					<input id="card-filter" type="text" data-q-input="filter" data-q-keyup="applyFilter" />
+					<span data-q-click="clearFilter"><%~ include('./components/icon', { icon: 'close' }) %></span>
+				</div>
+			</div>
+
+
 			<div class="panel">
 				<h2>Attributes</h2>
 				<div class="grid-cols-2">
