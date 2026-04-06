@@ -10,9 +10,17 @@
 	</header>
 	<h1><%= it.data.suit.title %></h1>
 	<p><%= it.data.suit.description %></p>
-	<card-filter :value="cards" @input="updateGrid"></card-filter>
-	<card-grid :cards="filteredCards"></card-grid>
 
+	<!-- card filter input -->
+	<div class="form-field" data-q-component="card-filter">
+		<label for="card-filter">Filter</label>
+		<div>
+			<input id="card-filter" type="text" data-q-input="filter" data-q-keyup="applyFilter" />
+			<span data-q-click="clearFilter"><%~ include('../components/icon', { icon: 'close' }) %></span>
+		</div>
+	</div>
+
+	<!-- card grid -->
 	<div class="grid-cols-4" data-q-component="card-grid" data-suit="<%= it.data.suit.id %>">
 		<% it.data.cards.forEach(card => { %>
 		<figure data-q-click="viewCard" data-card="<%= card.title %>">
@@ -21,9 +29,10 @@
 		<% }) %>
 	</div>
 
-	<div class="overlay hidden" data-q-component="card-flip">
+	<!-- selected card overlay -->
+	<div id="overlay" class="overlay hidden" data-q-component="card-flip">
 		<div class="card-display" data-q-click="flipCard">
-			<span class="card-close" data-q-click="closeCard"><svg swidth="24px" height="24px" viewBox="0 0 24 24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg></span>
+			<span class="card-close" data-q-click="closeCard"><%~ include('../components/icon', { icon: 'close' }) %></span>
 			<div class="card">
 				<img data-q-class="imageCss" data-q-src="image" />
 				<div class="card-back">
@@ -47,13 +56,15 @@
 //import { setLogger, ConsoleLogger } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/utils/logger.js'
 
 import { directives } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/reactive/directives.js'
-import CardGrid from '/js/modules/cards/grid.js' 
-import CardFlip from '/js/modules/cards/flip.js' 
+import CardGrid from '/js/modules/cards/grid.js'
+import CardFlip from '/js/modules/cards/flip.js'
+import CardFilter from '/js/modules/cards/filter.js'
 
 //setLogger(DIRECTIVES_LOG_KEY, ConsoleLogger, 1)
 
 directives.registerComponent('card-grid', CardGrid)
 directives.registerComponent('card-flip', CardFlip)
+directives.registerComponent('card-filter', CardFilter)
 directives.load(document.getElementsByTagName('main')[0])
 
 </script>

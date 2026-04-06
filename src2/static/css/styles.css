@@ -415,3 +415,61 @@ header {
 .card-info:last-child {
 	border-bottom: 0;
 }
+
+/* Forms */
+.form-field {
+	margin-bottom: var(--spacing-4);
+
+	label {
+		font-weight: 600;
+		font-size: var(--font-xs);
+		text-transform: uppercase;
+		display: inline-block;
+		margin-bottom: var(--spacing-2);
+		color: var(--grey-500);
+	}
+
+	input[type=text] {
+		background-color: white;
+		color: var(--grey-600);
+		font-size: var(--font-md);
+		position: relative;
+		border: 1px solid var(--grey-300);
+		box-shadow: var(--shadow-md);
+		border-radius: var(--spacing-1);
+		padding: var(--spacing-3);
+		display: block;
+		width: 100%;
+		padding-right: var(--spacing-10);
+		outline: 2px solid transparent;
+		outline-offset: 0;
+
+		&:focus {
+			outline-color: #686aec;
+		}
+	}
+
+	div {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: items-stretch;
+	}
+
+	span {
+		position: absolute;
+		top: 0;
+		right: 1px;
+		color: var(--grey-300);
+		padding: var(--spacing-3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		cursor: pointer;
+
+		&:hover {
+			color: var(--grey-500);
+		}
+	}
+}

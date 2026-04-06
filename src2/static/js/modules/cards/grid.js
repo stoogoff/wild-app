@@ -1,30 +1,19 @@
 
-import { cardStore } from './store.js'
+import { selectedCard, suitStore } from './store.js'
+import { overlay } from '/js/utils/overlay.js'
 
 export default {
-	data: {},
-
 	async created() {
-		const suit = this.node.getAttribute('data-suit')
-		const response = await fetch(`/data/${suit}.json`)
-		const data = await response.json()
-
-		this.data.cards = data
+		await suitStore.initialise()
 	},
 
 	viewCard(evt, scope) {
 		// get the card that was clicked
 		const cardTitle = scope.node.getAttribute('data-card')
-		const selectedCard = this.data.cards.find(card => card.title === cardTitle)
+		const card = suitStore.all.find(card => card.title === cardTitle)
 
-		cardStore.currentCard = { ...selectedCard, isReversed: false }
+		selectedCard.current = { ...card, isReversed: false }
 
-		// open the overlay
-		const overlays = document.getElementsByClassName('overlay')
-
-		Array.from(overlays).forEach(node => {
-			node.classList.remove('hidden')
-			node.onclick = () => node.classList.add('hidden')
-		})
+		overlay.show()
 	},
 }
