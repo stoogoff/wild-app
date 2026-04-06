@@ -1,8 +1,6 @@
 
 import { cardStore } from './store.js'
 
-let lastClick = false
-
 export default {
 	data: {},
 
@@ -19,10 +17,7 @@ export default {
 		const cardTitle = scope.node.getAttribute('data-card')
 		const selectedCard = this.data.cards.find(card => card.title === cardTitle)
 
-
-		lastClick = !lastClick
-
-		cardStore.currentCard = { ...selectedCard, isReversed: lastClick }
+		cardStore.currentCard = { ...selectedCard, isReversed: false }
 
 		// open the overlay
 		const overlays = document.getElementsByClassName('overlay')

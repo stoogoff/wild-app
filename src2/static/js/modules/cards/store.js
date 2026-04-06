@@ -1,5 +1,5 @@
 
-import { Emitter } from 'https://cdn.we-evolve.co.uk/js/q/utils/emitter.js'
+import { Emitter } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/utils/emitter.js'
 
 class CardStore extends Emitter {
 	#currentCard

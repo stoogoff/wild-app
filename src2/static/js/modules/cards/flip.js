@@ -3,55 +3,41 @@ import { cardStore } from './store.js'
 import { head, tail } from '/js/utils/list.js'
 
 export default {
-	data: {
-		card: null
-	},
-
 	computed: {
 		title() {
-			return this.data.card?.title ?? ''
+			return cardStore.currentCard?.title ?? ''
 		},
 		image() {
-			return `/img/cards/${this.data.card?.image ?? ''}`
+			return `/img/cards/${cardStore.currentCard?.image ?? ''}`
 		},
 		keyMeaning() {
-			return head(this.data.card?.meanings ?? [])
+			return head(cardStore.currentCard?.meanings ?? [])
 		},
 		otherMeanings() {
-			return tail(this.data.card?.meanings ?? []).join(', ')
+			return tail(cardStore.currentCard?.meanings ?? []).join(', ')
 		},
 		keyReversedMeaning() {
-			return head(this.data.card?.reversed ?? [])
+			return head(cardStore.currentCard?.reversed ?? [])
 		},
 		otherReversedMeaning() {
-			return tail(this.data.card?.reversed ?? []).join(', ')
+			return tail(cardStore.currentCard?.reversed ?? []).join(', ')
 		},
 		isReversed() {
-			return this.data.card?.isReversed ?? false
+			return cardStore.currentCard?.isReversed ?? false
 		},
 		infoCss() {
-			const result = this.data.card?.isReversed === false ? 'card-info active' : 'card-info'
-			console.log('infoCss', result, this.data.card?.isReversed)
-			return result
+			return cardStore.currentCard?.isReversed ? 'card-info' : 'card-info active'
 		},
 		infoReversedCss() {
-			const result = this.data.card?.isReversed === true ? 'card-info active' : 'card-info'
-			console.log('infoReversedCss', result, this.data.card?.isReversed)
-			return result
+			return cardStore.currentCard?.isReversed ? 'card-info active' : 'card-info'
 		},
 		imageCss() {
-			const result = this.data.card?.isReversed === false ? 'card-front' : 'card-front reversed'
-			console.log('imageCss', result, this.data.card?.isReversed)
-			return result
+			return cardStore.currentCard?.isReversed ? 'card-front reversed' : 'card-front'
 		},
 	},
 
-	created() {
-		cardStore.on('change', () => {
-			this.data.card = cardStore.currentCard
-			console.log(this.data.card)
-			this.emit('change')
-		})
+	mounted() {
+		cardStore.on('change', () => this.emit('change'))
 	},
 
 	flipCard(evt, scope) {
