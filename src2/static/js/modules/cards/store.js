@@ -1,6 +1,7 @@
 
 import { Emitter } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/utils/emitter.js'
 import { ListStore } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/data/list-store.js'
+import { shuffle } from '/js/utils/list.js'
 
 class ObjectStore extends Emitter {
 	#current
@@ -31,7 +32,7 @@ class RemoteStore extends ListStore {
 		const response = await fetch(this.#path)
 		const data = await response.json()
 
-		this.addRange(data)
+		this.addRange(data.map(card => ({ ...card, imagePath: `/img/cards/${card.image}` })))
 		this.#initialised = true
 	}
 }
@@ -63,12 +64,27 @@ export const deck = {
 		]
 	},
 
-	random: () => {
-		const cards = deck.all()
+	shuffle: () => {
+		return shuffle(deck.all()).map(card => ({ ...card, isReversed: Math.random() > 0.6 }))
+	},
 
-		return cards[Math.floor(Math.random() * cards.length)]
+	draw(amount = 1) {
+		let drawn = []
+		let shuffled = deck.shuffle()
+
+		do {
+			if(shuffled.length === 0) shuffled = deck.shuffle()
+
+			drawn.push(shuffled.pop())
+
+		} while(--amount > 0)
+
+		return drawn
+	},
+
+	drawOne() {
+		return deck.draw()[0]
 	}
-
 }
 
 export const selectedCard = new ObjectStore()

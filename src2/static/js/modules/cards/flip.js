@@ -9,7 +9,7 @@ export default {
 			return selectedCard.current?.title ?? ''
 		},
 		image() {
-			return `/img/cards/${selectedCard.current?.image ?? ''}`
+			return selectedCard.current?.imagePath ?? ''
 		},
 		keyMeaning() {
 			return head(selectedCard.current?.meanings ?? [])

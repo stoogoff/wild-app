@@ -8,15 +8,22 @@ class Overlay extends Emitter {
 		super()
 
 		this.#overlay = document.getElementById(id)
-		this.#overlay.onclick = () => this.hide()
+
+		if(this.#overlay) {
+			this.#overlay.onclick = () => this.hide()
+		}
 	}
 
 	show() {
+		if(!this.#overlay) return
+
 		this.#overlay.classList.remove('hidden')
 		this.emit('show')
 	}
 
 	hide() {
+		if(!this.#overlay) return
+
 		this.#overlay.classList.add('hidden')
 		this.emit('hide')
 	}

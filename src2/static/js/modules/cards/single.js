@@ -8,7 +8,7 @@ export default {
 			return selectedCard.current?.title ?? ''
 		},
 		image() {
-			return `/img/cards/${selectedCard.current?.image ?? ''}`
+			return selectedCard.current?.imagePath ?? ''
 		},
 		imageCss() {
 			return selectedCard.current?.isReversed ? 'reversed' : ''
@@ -22,13 +22,11 @@ export default {
 	},
 
 	drawCard(evt) {
-		const card = deck.random()
-
-		selectedCard.current = { ...card, isReversed: Math.random() > 0.6 }
+		selectedCard.current = deck.drawOne()
 
 		this.emit('change')
 
-		evt.stopPropagation()
+		if(evt) evt.stopPropagation()
 	},
 
 	viewCard(evt, scope) {

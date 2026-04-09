@@ -67,7 +67,31 @@
 			</div>
 
 		</article>
-		<aside>
+		<aside data-q-component="card-draw">
+			<div class="btn-menu">
+				<button class="btn outlined primary block">Draw Cards</button>
+				<menu>
+					<li data-q-click="draw" data-cards="1">Draw 1</li>
+					<li data-q-click="draw" data-cards="2">Draw 2</li>
+					<li data-q-click="draw" data-cards="3">Draw 3</li>
+					<li data-q-click="draw" data-cards="4">Draw 4</li>
+					<li data-q-click="draw" data-cards="5">Draw 5</li>
+				</menu>
+			</div>
+
+			<div>
+				<div data-q-each="cards">
+					<div data-q-template="card"></div>
+				</div>
+			</div>
+
+			<template id="card">
+				<figure data-q-click="viewCard">
+					<img data-q-src="imagePath" data-q-alt="title" />
+				</figure>
+			</template>
+
+
 			<menu-button
 				type="primary"
 				block
@@ -91,4 +115,20 @@
 			<button-action v-if="drawn.length > 1" outlined small block type="warning" @click="removeAllCards">Remove All</button-action>
 		</aside>
 	</section>
+
+	<%~ include('./components/card-overlay') %>
 </main>
+
+<script type="module">
+
+import { directives } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/reactive/directives.js'
+import CardDraw from '/js/modules/cards/draw.js'
+import CardGrid from '/js/modules/cards/grid.js'
+import CardFlip from '/js/modules/cards/flip.js'
+
+directives.registerComponent('card-draw', CardDraw)
+directives.registerComponent('card-grid', CardGrid)
+directives.registerComponent('card-flip', CardFlip)
+directives.load(document.getElementsByTagName('main')[0])
+
+</script>
