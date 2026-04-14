@@ -7,6 +7,13 @@
 <link rel="stylesheet" href="/css/variables.css" />
 <link rel="stylesheet" href="/css/styles.css" />
 <link rel="stylesheet" href="/css/responsive.css" />
+<script type="importmap">
+{
+	"imports": {
+		"q/": "https://cdn.we-evolve.co.uk/js/q/v1.1.0/"
+	}
+}
+</script>
 </head>
 <body>
 
@@ -95,6 +102,22 @@
 		</div>
 	</div>
 </footer>
+
+<script type="module">
+
+import { directives } from 'q/reactive/directives.js'
+import CardDraw from '/js/modules/cards/draw.js'
+import CardFlip from '/js/modules/cards/flip.js'
+import CardGrid from '/js/modules/cards/grid.js'
+import CardSingle from '/js/modules/cards/single.js'
+
+directives.registerComponent('card-draw', CardDraw)
+directives.registerComponent('card-flip', CardFlip)
+directives.registerComponent('card-grid', CardGrid)
+directives.registerComponent('card-single', CardSingle)
+directives.load(document.getElementsByTagName('main')[0])
+
+</script>
 
 </body>
 </html>

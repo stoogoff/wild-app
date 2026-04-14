@@ -1,5 +1,5 @@
 
-import { Emitter } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/utils/emitter.js'
+import { Emitter } from 'q/utils/emitter.js'
 
 class Overlay extends Emitter {
 	#overlay

@@ -1,7 +1,7 @@
 
-import { selectedCard } from './store.js'
-import { head, tail } from '/js/utils/list.js'
+import { head, tail } from 'q/utils/list.js'
 import { overlay } from '/js/utils/overlay.js'
+import { selectedCard } from './store.js'
 
 export default {
 	computed: {
@@ -42,12 +42,12 @@ export default {
 		overlay.on('hide', () => this.node.firstElementChild.classList.remove('flipped'))
 	},
 
-	flipCard(evt, scope) {
-		scope.node.classList.toggle('flipped')
+	flipCard(evt, context) {
+		context.node.classList.toggle('flipped')
 		evt.stopPropagation()
 	},
 
-	closeCard(evt, scope) {
+	closeCard(evt, context) {
 		overlay.hide()
 		evt.stopPropagation()
 	}

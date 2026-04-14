@@ -1,6 +1,6 @@
 
-import { selectedCard, deck } from './store.js'
 import { overlay } from '/js/utils/overlay.js'
+import { selectedCard, deck } from './store.js'
 
 export default {
 	computed: {
@@ -21,7 +21,7 @@ export default {
 		this.drawCard()
 	},
 
-	drawCard(evt) {
+	drawCard(evt, context) {
 		selectedCard.current = deck.drawOne()
 
 		this.emit('change')
@@ -29,7 +29,7 @@ export default {
 		if(evt) evt.stopPropagation()
 	},
 
-	viewCard(evt, scope) {
+	viewCard(evt, context) {
 		overlay.show()
 	},
 }

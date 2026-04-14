@@ -1,7 +1,7 @@
 
-import { Emitter } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/utils/emitter.js'
-import { ListStore } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/data/list-store.js'
-import { shuffle } from '/js/utils/list.js'
+import { ListStore } from 'q/data/list-store.js'
+import { Emitter } from 'q/utils/emitter.js'
+import { shuffle } from 'q/utils/list.js'
 
 class ObjectStore extends Emitter {
 	#current

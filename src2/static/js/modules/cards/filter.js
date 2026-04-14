@@ -8,7 +8,7 @@ export default {
 		this.data.filter = ''
 	},
 
-	applyFilter(evt, scope) {
+	applyFilter(evt, context) {
 		this.data.filter = evt.target.value
 	}
 }

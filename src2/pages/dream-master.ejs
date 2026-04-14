@@ -18,7 +18,7 @@
 				</div>
 			</div>
 
-
+			<!-- attributes and abilities -->
 			<div class="panel">
 				<h2>Attributes</h2>
 				<div class="grid-cols-2">
@@ -65,8 +65,9 @@
 					</div>
 				</div>
 			</div>
-
 		</article>
+
+		<!-- card draw and display -->
 		<aside data-q-component="card-draw">
 			<div class="btn-menu">
 				<button class="btn outlined primary block">Draw Cards</button>
@@ -79,56 +80,16 @@
 				</menu>
 			</div>
 
-			<div>
-				<div data-q-each="cards">
-					<div data-q-template="card"></div>
-				</div>
-			</div>
-
-			<template id="card">
+			<div data-q-each="cards">
 				<figure data-q-click="viewCard">
-					<img data-q-src="imagePath" data-q-alt="title" />
+					<img class="reversed" data-q-if="isReversed" data-q-src="imagePath" data-q-alt="title" />
+					<img data-q-if="!isReversed" data-q-src="imagePath" data-q-alt="title" />
 				</figure>
-			</template>
-
-
-			<menu-button
-				type="primary"
-				block
-				outlined
-				@click="drawCards"
-				:items="drawCardsItems"
-				position="top"
-			>
-				Draw Cards
-			</menu-button>
-			<div
-				v-for="(cards, index) in drawn"
-				:key="`drawn_${index}`"
-				class="pb-3 mb-3 border-b border-gray-300"
-			>
-				<card-grid :cards="cards" />
-				<div class="flex justify-end mt-3">
-					<button-action small outlined type="warning" @click="removeCards(index)">Remove</button-action>
-				</div>
 			</div>
-			<button-action v-if="drawn.length > 1" outlined small block type="warning" @click="removeAllCards">Remove All</button-action>
+
+			<button class="btn outlined warning small block" data-q-if="canRemoveAll" data-q-click="removeAll">Remove All</button>
 		</aside>
 	</section>
 
 	<%~ include('./components/card-overlay') %>
 </main>
-
-<script type="module">
-
-import { directives } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/reactive/directives.js'
-import CardDraw from '/js/modules/cards/draw.js'
-import CardGrid from '/js/modules/cards/grid.js'
-import CardFlip from '/js/modules/cards/flip.js'
-
-directives.registerComponent('card-draw', CardDraw)
-directives.registerComponent('card-grid', CardGrid)
-directives.registerComponent('card-flip', CardFlip)
-directives.load(document.getElementsByTagName('main')[0])
-
-</script>

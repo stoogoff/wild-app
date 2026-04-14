@@ -22,15 +22,3 @@
 
 	<%~ include('../components/card-overlay') %>
 </main>
-
-<script type="module">
-
-import { directives } from 'https://cdn.we-evolve.co.uk/js/q/v1.0.0/reactive/directives.js'
-import CardGrid from '/js/modules/cards/grid.js'
-import CardFlip from '/js/modules/cards/flip.js'
-
-directives.registerComponent('card-grid', CardGrid)
-directives.registerComponent('card-flip', CardFlip)
-directives.load(document.getElementsByTagName('main')[0])
-
-</script>

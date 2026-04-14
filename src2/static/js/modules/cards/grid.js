@@ -1,6 +1,6 @@
 
-import { selectedCard, deck } from './store.js'
 import { overlay } from '/js/utils/overlay.js'
+import { selectedCard, deck } from './store.js'
 
 export default {
 	data: {
@@ -13,8 +13,8 @@ export default {
 		await deck[this.data.suit].initialise()
 	},
 
-	viewCard(evt, scope) {
-		const cardTitle = scope.node.getAttribute('data-card')
+	viewCard(evt, context) {
+		const cardTitle = context.node.getAttribute('data-card')
 		const card = deck[this.data.suit].all.find(card => card.title === cardTitle)
 
 		selectedCard.current = { ...card, isReversed: false }
