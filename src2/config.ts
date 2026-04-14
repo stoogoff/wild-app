@@ -1,5 +1,5 @@
 
-export const PORT = 8000
+export const PORT = 8001
 export const PATH = {
 	PAGES: '/src2/pages',
 	STATIC: '/src2/static',
